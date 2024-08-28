@@ -1,0 +1,30 @@
+{
+  "id" : "GSM_CONNECTION_FAILURE_BSC_RANKING",
+  "title" : "Controller - GSM Connection Failure Analysis",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "autoexpand" : "2",
+  "columns" : [  {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "50",
+    "datatype" : "string"
+  }, {
+    "header" : "Controller",
+    "width" : "150",
+    "datatype" : "string",
+    "drillDownWindowType" : ""
+  }, {
+    "header" : "Failures",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "HIER3_ID",
+    "width" : "10",
+    "datatype" : "int",
+    "isSystem" : "TRUE"
+  }]
+}

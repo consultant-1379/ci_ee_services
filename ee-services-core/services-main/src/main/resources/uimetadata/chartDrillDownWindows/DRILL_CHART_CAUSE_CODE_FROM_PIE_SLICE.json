@@ -1,0 +1,7 @@
+{
+  "id" : "DRILL_CHART_CAUSE_CODE_FROM_PIE_SLICE",
+  "drillWindowName" : "Sub Cause Code Analysis",
+  "url" : "NETWORK/CAUSE_CODE_PIE_CHART/SUB_CAUSE_CODE_ANALYSIS",
+  "drillToolBarType" : "CAUSE_CODE_PIE_DRILL_SUB_CAUSE_CODE",
+  "drillType" : "launchChart"
+}

@@ -1,0 +1,35 @@
+{
+  "id" : "CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_CELL",
+  "gridDisplayID" : "CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_ELEMENT",
+  "name" : "Event Analysis",
+  "url" : "SUBSCRIBER/EVENT_ANALYSIS",
+  "params" : [ {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "RAT"
+  }, {
+    "id" : "2",
+    "queryParamName" : "vendor"
+  }, {
+    "id" : "3",
+    "queryParamName" : "bsc"
+  }, {
+    "id" : "4",
+    "queryParamName" : "cell"
+  }, {
+    "id" : "5",
+    "queryParamName" : "eventID"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

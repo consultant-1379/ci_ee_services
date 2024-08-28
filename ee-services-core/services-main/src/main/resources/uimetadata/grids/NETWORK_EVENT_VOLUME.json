@@ -1,0 +1,173 @@
+{
+  "id" : "NETWORK_EVENT_VOLUME",
+  "isChartData" : "TRUE",
+  "title" : "Network Event Volume Analysis",
+  "autoexpand" : "1",
+  "defaultSortCol" : "33",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Time",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "Attach Event Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Attach Event Fail Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Activate Event Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Activate Event Fail Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "RAU Event Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "RAU Event Fail Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "ISRAU Event Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "ISRAU Event Fail Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Deactivate Event Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Deactivate Event Fail Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Detach Event Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Detach Event Fail Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Service Request Event Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Service Request Event Fail Count",
+    "width" : "200",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "L_ATTACH Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_ATTACH Event Fail Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_DETACH Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_DETACH Event Fail Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_HANDOVER Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_HANDOVER Fail Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_TAU Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_TAU Fail Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_DEDICATED_BEARER_ACTIVATE Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_DEDICATED_BEARER_ACTIVATE Fail Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_DEDICATED_BEARER_DEACTIVATE Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_DEDICATED_BEARER_DEACTIVATE Fail Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_PDN_CONNECT Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_PDN_CONNECT Fail Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_PDN_DISCONNECT Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_PDN_DISCONNECT Fail Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_SERVICE_REQUEST Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "L_SERVICE_REQUEST Fail Event Count",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }  ]
+}

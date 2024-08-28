@@ -1,0 +1,26 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_IMSI_SOHO",
+    "gridDisplayID": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_IMSI_SOHO",
+    "menuItem": "NETWORK_CELL_RANKING_RAN_WCDMA",
+    "url": "NETWORK/WCDMA_HANDOVER_FAILURE_DETAILED_EVENT_ANALYSIS/IMSI",
+    "params": [
+        {
+            "id": "1",
+            "queryParamName": "imsi"
+        },
+        {
+            "id": "3",
+            "queryParamName": "categoryId"
+        },
+        {
+		    "id" : "IMSI",
+		    "queryParamName" : "type",
+		    "isFixedVal" : "TRUE"
+    	}
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

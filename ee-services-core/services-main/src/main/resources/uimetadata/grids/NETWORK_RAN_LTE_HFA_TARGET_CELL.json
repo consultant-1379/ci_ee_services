@@ -1,0 +1,51 @@
+{
+  "id" : "NETWORK_RAN_LTE_HFA_TARGET_CELL",
+  "title" : "Target Access Area LTE Handover Failure : Event Analysis Summary",
+  "autoexpand" : "4",
+  "defaultSortCol" : "5",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "THIER321_ID",
+    "width" : "20",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Controller",
+    "width" : "250",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Target Access Area",
+    "width" : "200",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Handover Stage",
+    "width" : "100",
+    "datatype" : "string",
+    "drillDownWindowType" : "Preparation,NETWORK_RAN_LTE_HFA_TARGET_CELL_DRILL_ON_PREPARATION,Execution,NETWORK_RAN_LTE_HFA_TARGET_CELL_DRILL_ON_EXECUTION"
+  }, {
+    "header" : "CATEGORY_ID_2",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  },{
+    "header" : "Impacted Subscribers",
+    "width" : "180",
+    "datatype" : "string"
+  },{
+    "header": "RAT Description",
+    "width": "50",
+    "datatype": "string",
+    "isSystem": "TRUE"
+  } ]
+}

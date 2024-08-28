@@ -1,0 +1,47 @@
+##
+## WCDMA Call Failure Disconnection code Analysis by Controller Hash ID (using raw tables)
+##
+## Velocity Parameter:
+##
+## Named PreparedStatement Parameter:
+##
+##	   :HIER3_ID:   The controller hash id
+##
+#DEFINE_CONSTANTS()
+
+#set($whereClause = "AND HIER3_ID = :HIER3_ID")
+#set($useExclusiveTACs="no")
+#set($distinct ="")
+#set($columnsToIncludeInNewView = ["RAN_DISCONNECTION_CODE","RAN_DISCONNECTION_SUBCODE","HIER3_ID", "EVENT_ID", "IMSI"])
+
+
+SELECT
+	err.RAN_DISCONNECTION_CODE ||','||err.RAN_DISCONNECTION_SUBCODE AS filterValue,
+	isnull(disconref.DISCONNECTION_DESC, 'Disconnection Code: ' || isnull(ltrim(str(isnull(err.RAN_DISCONNECTION_CODE,null))),'Unknown')) as DISCONNECTION_DESCRIPTION,
+	SUM(err.NO_OF_ERRORS) as NO_OF_ERRORS,
+	SUM(err.IMPACTED_SUBSCRIBERS) as TOTAL_NO_OF_SUBSCRIBERS,
+	err.HIER3_ID,
+	'disConCode' AS filterType
+FROM
+	(SELECT 
+			count (*) as NO_OF_ERRORS,
+			RAN_DISCONNECTION_CODE,
+			RAN_DISCONNECTION_SUBCODE,
+			HIER3_ID,
+			count (distinct rawview.IMSI) AS IMPACTED_SUBSCRIBERS
+		FROM
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToIncludeInNewView $whereClause $useExclusiveTACs $distinct)
+		GROUP BY
+			HIER3_ID,
+			RAN_DISCONNECTION_CODE,
+			RAN_DISCONNECTION_SUBCODE
+	) as err
+left join dc.DIM_E_RAN_CFA_DISCONNECTION disconref
+on (
+	err.RAN_DISCONNECTION_CODE = disconref.DISCONNECTION_CODE and err.RAN_DISCONNECTION_SUBCODE = disconref.DISCONNECTION_SUB_CODE
+)
+GROUP BY
+	err.RAN_DISCONNECTION_CODE,
+	err.RAN_DISCONNECTION_SUBCODE,
+	HIER3_ID,
+	DISCONNECTION_DESC

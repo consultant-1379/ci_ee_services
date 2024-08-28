@@ -1,0 +1,20 @@
+{
+  "id" : "RAN_LTE_CFA_IMSI_DET_DRILL_ON_INTERNAL_ERAB_CTXT_SETUP",
+  "name" : "IMSI LTE Call Failure : Detail Failed Event Analysis",
+  "gridDisplayID" : "RAN_LTE_CFA_CELL_DRILL_ON_BY_ELEMENT_INTERNAL_ERAB_CTXT_SETUP",
+  "url" : "SUBSCRIBER/LTE_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/IMSI",
+  "needSearchParam": "FALSE",
+  "params" : [ 
+  	{
+    "id" : "1",
+    "queryParamName" : "imsi"
+  	},{
+  	"id" : "2",
+  	"queryParamName" : "eventID"
+  	}],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

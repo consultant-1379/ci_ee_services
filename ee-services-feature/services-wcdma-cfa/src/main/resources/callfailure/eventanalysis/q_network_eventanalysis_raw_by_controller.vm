@@ -1,0 +1,124 @@
+##=============================================================================
+##
+## Network Event Analysis on the basis of Controller  
+##
+## type : BSC
+##
+## timerange : 
+##
+##
+##=============================================================================
+
+
+#set($whereClause = "AND HIER3_ID = :HIER3_ID AND EVENT_ID = :eventID")
+#set($useExclusiveTACs="no")
+#set($distinct ="")
+
+
+#if($categoryId == "0")
+#set($columnsToIncludeInNewView = ["HIER3_ID", "EVENT_ID", "IMSI","CS_RAB_FAIL_CNT","CS_ERR_CNT"])
+#elseif($categoryId == "1")
+	#set($columnsToIncludeInNewView = ["HIER3_ID", "EVENT_ID", "IMSI","PS_RAB_FAIL_CNT","PS_ERR_CNT"])
+#elseif($categoryId == "2")
+	#set($columnsToIncludeInNewView = ["HIER3_ID", "EVENT_ID", "IMSI","MULTI_RAB_FAIL_CNT","MULTI_ERR_CNT"])
+#elseif($categoryId == "3")
+	#set($columnsToIncludeInNewView = ["HIER3_ID", "EVENT_ID", "IMSI","CS_RAB_FAIL_CNT","PS_RAB_FAIL_CNT","MULTI_RAB_FAIL_CNT","CS_ERR_CNT","PS_ERR_CNT","MULTI_ERR_CNT"])
+###Hide total failure at the moment until UI puts back
+##elseif($categoryId == "4")
+	##set($columnsToIncludeInNewView = ["HIER3_ID", "EVENT_ID", "IMSI"])
+###
+#end
+	
+
+BEGIN
+
+SELECT
+    topology_table.VENDOR AS RAN_VENDOR
+    ,topology_table.HIERARCHY_3 AS CONTROLLER
+    ,eventDesc.EVENT_ID_ALTERNATE_DESC AS FAILURE_TYPE
+    ,data.NO_OF_ERRORS
+    ,data.IMPACTED_SUBSCRIBERS AS IMPACTED_SUBSCRIBERS
+    ,data.HIER3_ID AS HIDDEN_HIER3_ID_FOR_DRILL_TITLE
+    ,data.EVENT_ID AS HIDDEN_EVENT_ID_FOR_TITLE,
+	(CASE 
+		WHEN data.EVENT_ID = 438
+		THEN cast( ROUND((RAB_CNT * 100.00) / allcalls.NUM_CALLS_SUC,2) as numeric(36,2))
+		WHEN data.EVENT_ID = 456
+		THEN cast( ROUND((RAB_CNT * 100.00) / allcalls.NUM_CALLS_ATTEMPT,2) as numeric(36,2))
+	END) AS 'RAB Failure Ratio (%)',
+	##DRILL_CAT and CATEGORY_ID value is got from UI and return to UI since it needs for drilling.
+	:categoryId AS CATEGORY_ID,
+	'$drillCat' AS DRILL_CAT
+	##
+FROM
+    (
+    SELECT
+        SUM(CALLS_PS_ALL + CALLS_CS_ALL + CALLS_MR_ALL) as NUM_CALLS_ATTEMPT,
+		SUM(PS_SUC+CS_SUC+MR_SUC) as NUM_CALLS_SUC,
+        HIER3_ID
+    FROM
+       	EVENT_E_RAN_CFA_HIER3_ALLCALLS_15MIN
+    WHERE
+		HIER3_ID = :HIER3_ID
+    AND DATETIME_ID >= :dateFrom
+    AND DATETIME_ID < :dateTo
+    GROUP BY
+        HIER3_ID
+	) AS allcalls
+	RIGHT OUTER JOIN
+	--End from all calls join--
+	(	
+		SELECT 
+			#if($categoryId == "0")
+				SUM(CS_ERR_CNT) AS NO_OF_ERRORS,
+				SUM(CS_RAB_FAIL_CNT) AS RAB_CNT,
+			#elseif($categoryId == "1")
+				SUM(PS_ERR_CNT) AS NO_OF_ERRORS,
+				SUM(PS_RAB_FAIL_CNT) AS RAB_CNT,
+			#elseif($categoryId == "2")
+				SUM(MULTI_ERR_CNT) AS NO_OF_ERRORS,
+				SUM(MULTI_RAB_FAIL_CNT) AS RAB_CNT,
+			#elseif($categoryId == "3")
+				COUNT(*) AS NO_OF_ERRORS,
+				SUM(CS_RAB_FAIL_CNT+PS_RAB_FAIL_CNT+MULTI_RAB_FAIL_CNT) AS RAB_CNT,
+			###Hide total failure at the moment until UI puts back
+			##elseif($categoryId == "4")
+				##count (*) as FAILURES,
+			###
+			#end
+			HIER3_ID,
+			EVENT_ID,
+			count (distinct rawview.IMSI) AS IMPACTED_SUBSCRIBERS
+		FROM
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToIncludeInNewView $whereClause $useExclusiveTACs $distinct)
+		WHERE
+			#if($categoryId == "0")
+				CS_RAB_FAIL_CNT > 0
+			#elseif($categoryId == "1")
+				PS_RAB_FAIL_CNT > 0 
+			#elseif($categoryId == "2")
+			    MULTI_RAB_FAIL_CNT > 0 
+			#elseif($categoryId == "3")
+				(CS_RAB_FAIL_CNT > 0 OR PS_RAB_FAIL_CNT > 0 OR MULTI_RAB_FAIL_CNT > 0)
+			#end
+		GROUP BY
+			HIER3_ID,
+			EVENT_ID
+	) as data
+	   ON
+    (
+        allcalls.HIER3_ID = data.HIER3_ID
+    )
+	left outer join
+	 (	
+		select distinct HIERARCHY_3,HIER3_ID,VENDOR from DIM_E_SGEH_HIER321 where RAT = 1
+	) as topology_table(HIERARCHY_3,HIER3_ID,VENDOR)
+	on (
+		topology_table.HIER3_ID = data.HIER3_ID
+		)
+	INNER JOIN	
+		DIM_E_RAN_CFA_EVENTTYPE eventDesc
+	on(
+		eventDesc.EVENT_ID = data.EVENT_ID
+	)
+END

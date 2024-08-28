@@ -1,0 +1,14 @@
+{
+  "launchWindowTypeId" : "CS_SUBSCRIBER_EVENT_ANALYSIS_MSISDN",
+  "menuItem" : "CS_SUBSCRIBER_EVENT_ANALYSIS",
+  "searchValFromCol" : "3",
+  "type" : "MSISDN",
+  "params" : [ {
+    "id" : "MSISDN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "3",
+    "queryParamName" : "msisdn"
+  } ]
+}

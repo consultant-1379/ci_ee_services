@@ -1,0 +1,67 @@
+##SESSION_BROWSER SUMMARY VM RAN_SESSION+CORE_SESSION
+#set($ranColumnsToSelect=["IMSI","EVENT_TIME","EVENT_ID","START_CELL_ID","END_CELL_ID","START_C_ID","END_C_ID","START_RNC_ID","END_RNC_ID","DISTINCT_CELL_CNT", "RRC_CONN_START", "RRC_CONN_END"])
+#set($coreColumnsToSelect=["IMSI","EVENT_TIME","EVENT_ID","TAC"])
+#set($tcpColumnsToSelect=["IMSI","FIVE_MIN_AGG_TIME","TAC"])
+#set($joinColumns = ["IMSI","EVENT_TIME"])
+#set($userPlaneTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_USER_PLANE_TPNAME).getRawTablesWithMeasurementTypes())
+#set($ranSessionTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_RAN_SESSION_TPNAME).getRawTables())
+#set($coreSessionTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_CORE_SESSION_TPNAME).getRawTables())
+#set($tcpTableList=[])
+#set($appTableList=[])
+#foreach ($table in $userPlaneTableList)	
+			#if($table.contains("TCP"))
+				#set($isAdded=$tcpTableList.add($table))
+			#elseif($table.contains("CLASSIFICATION"))
+				#set($isAdded=$appTableList.add($table))
+			#end
+#end
+#DEFINE_CONSTANTS()
+#if($subType==$TYPE_IMSI)
+	#set($filterColumn = ["IMSI"])
+#elseif($subType==$TYPE_MSISDN)
+	#set($filterColumn = ["MSISDN"])
+#end
+
+SELECT
+    dateformat(isnull(ranRawview.EVENT_TIME,tcpRawview.FIVE_MIN_AGG_TIME,coreRawview.EVENT_TIME), 'yyyy-MM-dd HH:mm:ss.SSS') as EVENT_TIME,
+	ISNULL(ranRawview.EVENT_ID,coreRawview.EVENT_ID,20000) AS EVENT_ID,
+	ranRawview.START_CELL_ID,
+	ranRawview.END_CELL_ID,
+	CAST(ranRawview.START_C_ID AS VARCHAR) AS START_C_ID,
+	CAST(ranRawview.END_C_ID AS VARCHAR) AS END_C_ID,
+    CAST(ranRawview.START_RNC_ID AS VARCHAR) AS START_RNC_ID,
+    CAST(ranRawview.END_RNC_ID AS VARCHAR) AS END_RNC_ID,
+	ISNULL(ranRawview.DISTINCT_CELL_CNT,0) AS DISTINCT_CELL_CNT,
+	ranRawview.RRC_CONN_START,
+	ranRawview.RRC_CONN_END,
+	CAST(ISNULL(tcpRawview.TAC,coreRawview.TAC) AS VARCHAR) AS TAC
+FROM
+	#if($subType==$TYPE_IMSI)
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($ranSessionTableList "ranRawview" $filterColumn $ranColumnsToSelect)
+	#elseif($subType==$TYPE_MSISDN)
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS($ranSessionTableList "ranRawview" $ranColumnsToSelect)
+	#end
+	LEFT OUTER JOIN
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($coreSessionTableList "coreRawview" $filterColumn $coreColumnsToSelect)
+	ON
+	(#GET_JOIN("ranRawview" "coreRawview" $joinColumns))
+	FULL OUTER JOIN
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($tcpTableList "tcpRawview" $filterColumn $tcpColumnsToSelect)
+	ON
+	(ranRawview.IMSI = tcpRawview.IMSI
+	AND ranRawview.EVENT_TIME = tcpRawview.FIVE_MIN_AGG_TIME)
+GROUP BY
+	EVENT_TIME,
+	EVENT_ID,
+	ranRawview.START_CELL_ID,
+	ranRawview.END_CELL_ID,
+	ranRawview.START_C_ID,
+	ranRawview.END_C_ID,
+    ranRawview.START_RNC_ID,
+    ranRawview.END_RNC_ID,
+	ranRawview.DISTINCT_CELL_CNT,
+	ranRawview.RRC_CONN_START,
+	ranRawview.RRC_CONN_END,
+	TAC
+ORDER BY
+	EVENT_TIME DESC

@@ -1,0 +1,27 @@
+{
+  "id" : "CS_TERMINAL_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BSC",
+  "name" : "Event Analysis",
+  "url" : "MSS/TERMINAL/EVENT_ANALYSIS",
+  "searchValFromCol" : "5",
+  "type" : "BSC",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "12",
+    "queryParamName" : "bsc"
+  }, {
+    "id" : "15",
+    "queryParamName" : "vendor"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

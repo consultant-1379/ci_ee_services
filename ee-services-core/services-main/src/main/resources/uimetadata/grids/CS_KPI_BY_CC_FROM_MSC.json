@@ -1,0 +1,58 @@
+{
+  "id" : "CS_KPI_BY_CC_FROM_MSC",
+  "title" : "KPI Analysis By Cause Code Voice",
+  "autoexpand" : "8",
+  "defaultSortCol" : "10",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "EventID",
+    "width" : "70",
+    "datatype" : "int",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "HIER321_ID",
+    "width" : "70",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "HIER3_ID",
+    "width" : "70",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "EVNTSRC_ID",
+    "width" : "70",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Internal Cause Code ID",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "Internal Cause Code",
+    "width" : "165",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Fault Code ID",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Fault Code",
+    "width" : "220",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Occurrences",
+    "width" : "80",
+    "datatype" : "int",
+    "drillDownWindowType" : "CS_KPI_EVENTS_FROM_MSC"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "string"
+  } ]
+}

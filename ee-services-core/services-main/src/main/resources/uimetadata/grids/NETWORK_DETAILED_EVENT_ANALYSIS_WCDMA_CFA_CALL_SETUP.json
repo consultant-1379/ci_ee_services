@@ -1,0 +1,34 @@
+{
+    "id" : "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CALL_SETUP",
+    "title" : "Sub Cause Code Analysis for WCDMA CFA Call Setup Failures",
+    "autoexpand" : "3",
+    "defaultSortCol" : "1",
+    "defaultSortDir" : "ASC",
+    "categoryId" : "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CALL_DROP",
+    "columns" : [
+        {
+            "type" : "subCauseCodeId",
+            "header" : "Sub Cause Code Id",
+            "width" : "180",
+            "datatype" : "int"
+        },
+        {
+            "type" : "subCauseCode",
+            "header" : "Sub Cause Code",
+            "width" : "280",
+            "datatype" : "string"
+        },
+        {
+            "type" : "failures",
+            "header" : "Failures",
+            "width" : "70",
+            "datatype" : "int"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header" : "Impacted Subscribers",
+            "width" : "150",
+            "datatype" : "int"
+        }
+    ]
+}

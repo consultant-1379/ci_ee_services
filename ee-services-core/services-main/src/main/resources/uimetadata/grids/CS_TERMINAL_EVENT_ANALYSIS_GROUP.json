@@ -1,0 +1,44 @@
+{
+  "id" : "CS_TERMINAL_EVENT_ANALYSIS_GROUP",
+  "title" : "Terminal Event Analysis Voice",
+  "autoexpand" : "3",
+  "defaultSortCol" : "4",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "TerminalGroup",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "EventID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int",
+    "drillDownWindowType" : "*,CS_TERMINAL_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE,roamingCallForwarding,CS_TERMINAL_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE_roamingCallForwarding,locationServices,CS_TERMINAL_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE_locationServices,mSOriginatingSMSinMSC,CS_TERMINAL_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE_SMS,mSTerminatingSMSinMSC,CS_TERMINAL_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE_SMS"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Success Ratio",
+    "width" : "100",
+    "datatype" : "float",
+    "drillDownWindowType" : "*,CS_TERMINAL_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE,roamingCallForwarding,NO_LINK"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "string"
+  } ]
+}

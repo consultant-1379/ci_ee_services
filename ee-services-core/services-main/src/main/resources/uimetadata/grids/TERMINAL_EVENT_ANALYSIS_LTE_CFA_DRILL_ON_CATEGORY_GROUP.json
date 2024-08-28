@@ -1,0 +1,49 @@
+{
+    "id" : "TERMINAL_EVENT_ANALYSIS_LTE_CFA_DRILL_ON_CATEGORY_GROUP",
+    "title" : "Terminal Group LTE Call Failure : Event Analysis",
+    "autoexpand" : "2",
+    "defaultSortCol" : "4",
+    "defaultSortDir" : "DESC",
+    "categoryId" : "TERMINAL_EVENT_ANALYSIS_LTE_CFA_DRILL_ON_CATEGORY_GROUP",
+    "columns" : [
+        {
+            "type" : "groupName",
+            "header" : "Group Name",
+            "width" : "140",
+            "datatype" : "string",
+            "isSystem" : "TRUE",
+            "licenseCXC": "CXC4011279"
+        },
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "250",
+            "datatype" : "string",
+            "licenseCXC": "CXC4011279"
+        },
+		{
+            "type" : "eventId",
+            "header" : "Event ID",
+            "width" : "180",
+            "datatype" : "int",
+            "isSystem": "true",
+            "licenseCXC": "CXC4011279"
+        },
+        {
+            "type" : "failures",
+            "header" : "Failures",
+            "width" : "90",
+            "datatype" : "int",
+            "drillDownWindowType" : "INTERNAL_PROC_INITIAL_CTXT_SETUP,RAN_LTE_CFA_TERMINAL_GRP_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP,INTERNAL_PROC_ERAB_SETUP,RAN_LTE_CFA_TERMINAL_GRP_DRILL_ON_INTERNAL_ERAB_CTXT_SETUP,INTERNAL_PROC_RRC_CONN_SETUP,RAN_LTE_CFA_TERMINAL_GRP_DRILL_ON_INTERNAL_PROC_RRC_CONN_SETUP,INTERNAL_PROC_S1_SIG_CONN_SETUP,RAN_LTE_CFA_TERMINAL_GRP_DRILL_ON_INTERNAL_PROC_S1_SIG_CONN_SETUP,INTERNAL_PROC_UE_CTXT_RELEASE,RAN_LTE_CFA_TERMINAL_GRP_DRILL_ON_INTERNAL_PROC_UE_CTXT_RELEASE",
+            "licenseCXC": "CXC4011279"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header" : "Impacted Subscribers",
+            "width" : "160",
+            "datatype" : "int",
+            "licenseCXC": "CXC4011279"
+        }
+        
+    ]
+}

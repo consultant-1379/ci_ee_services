@@ -1,0 +1,123 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="sessionBrowserRabDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.detail.SBrowserRabDetailService" />
+
+	<bean id="sessionBrowserCoreDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.detail.SBrowserCoreDetailService" />
+
+	<bean id="sessionBrowserRanCfaDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.detail.SBrowserRanCfaDetailService" />
+
+	<bean id="sessionBrowserRanHfaDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.detail.SBrowserRanHfaDetailService" />
+
+	<bean id="sessionBrowserRanSessionDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.detail.SBrowserRanSessionDetailService" />
+
+	<bean id="sessionBrowserRrcSessionDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.detail.SBrowserRrcDetailService" />
+
+	<bean id="sessionBrowserRabSumService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.summary.SBrowserRabSumService" />
+
+	<bean id="sessionBrowserVisitedCellsSumService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.summary.SBrowserVisitedCellsSumService" />
+
+	<bean id="sessionBrowserAppLayerSumService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.summary.SBrowserAppLayerSumService" />
+
+	<bean id="sessionBrowserTcpPerfSumService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.summary.SBrowserTcpPerfSumService" />
+
+	<bean id="sessionBrowserTCPPerfDetailsService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.detail.SBrowserTCPPerfDetailsService" />
+
+	<bean id="sessionBrowserAppLayerDetailsService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.detail.SBrowserAppLayerDetailsService" />
+
+	<bean id="sessionBrowserServerDistPopupService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.popup.SBrowserServerDistPopupService" />
+
+	<bean id="sessionBrowserRabPopupService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.popup.SBrowserRabPopupDetailService" />
+
+	<bean id="sBrowserSgehPopupDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.popup.SBrowserSgehPopupDetailService" />
+
+	<bean id="sessionBrowserCoreCellKpiService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.core.SBrowserCoreCellKpiService" />
+
+	<bean id="sBrowserRncCoreKpiService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.core.SBrowserCoreRncKpiService" />
+
+	<bean id="sBrowserCoreRncKpiDrillService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.core.SBrowserCoreRncKpiDrillService" />
+
+	<bean id="sBrowserCoreKpiMapService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.core.SBrowserCoreKpiMapService" />
+
+	<bean id="sBrowserCoreCellKpiDrillService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.core.SBrowserCoreCellKpiDrillService" />
+
+	<bean id="sBrowserRncUkpiService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.userplane.SBrowserRncUkpiService" />
+
+	<bean id="sBrowserCellUkpiService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.userplane.SBrowserCellUkpiService" />
+
+	<bean id="sBrowserRncUkpiDrillService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.userplane.SBrowserRncUkpiDrillService" />
+
+	<bean id="sBrowserCellUkpiDrillService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.userplane.SBrowserCellUkpiDrillService" />
+
+	<bean id="sBrowserCoreNetwkkpiService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.core.SBrowserCoreNetwkKpiService" />
+
+	<bean id="sBrowserCoreNetwkkpiDrillService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.core.SBrowserCoreNetwkKpiDrillService" />
+
+	<bean id="sBrowserNetworkUkpiService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.userplane.SBrowserNetworkUkpiService" />
+
+	<bean id="sBrowserNetworkUkpiDrillService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.userplane.SBrowserNetworkUkpiDrillService" />
+
+	<bean id="sBrowserUKpiMapService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.kpi.userplane.SBrowserUKpiMapService" />
+
+	<bean id="sessionBrowserRABThresholdService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.summary.SBrowserRABThresholdService" />
+
+	<bean id="sessionBrowserRanHfaHhoDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.popup.SBrowserRanHfaHhoDetailService" />
+
+	<bean id="sessionBrowserRanCfaPopupService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.popup.SBrowserRanCfaPopupDetailService" />
+
+	<bean id="sessionBrowserRanHfaIratPopupService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.popup.SBrowserRanHfaIratDetailService" />
+
+	<bean id="sessionBrowserRanHfaIfhoDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.popup.SBrowserRanHfaIfhoDetailService" />
+
+	<bean id="sessionBrowserRanHfaSohoDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.popup.SBrowserRanHfaSohoDetailService" />
+
+	<bean id="sessionBrowserRanHfaHsdschDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.popup.SBrowserRanHfaHsdschDetailService" />
+
+	<bean id="sessionBrowserSucHsdschDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.popup.SBrowserSucHsdschDetailService" />
+
+	<bean id="sessionBrowserRrcPopupDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.popup.SBrowserRrcPopupDetailService" />
+
+	<bean id="sessionBrowserRccDetailService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.sbr.detail.SBrowserRccDetailService" />
+
+</beans>

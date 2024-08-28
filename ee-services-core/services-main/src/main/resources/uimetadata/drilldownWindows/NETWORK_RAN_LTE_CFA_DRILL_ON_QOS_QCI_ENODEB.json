@@ -1,0 +1,20 @@
+{
+  "id": "NETWORK_RAN_LTE_CFA_DRILL_ON_QOS_QCI_ENODEB",
+  "name": "LTE CFA - Controller Event Analysis per QCI",
+  "url": "NETWORK/LTE_CFA_QOS_SUMMARY_ANALYSIS/ENODEB",
+  "gridDisplayID": "NETWORK_RAN_LTE_CFA_QOS_QCI_SUMM_BSC_DRILL",
+  "searchValFromCol" : "9,11,12",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "HIER3_ID"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

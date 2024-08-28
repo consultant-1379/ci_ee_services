@@ -1,0 +1,57 @@
+##
+## Author : ECHIMMA
+## LTE Call Failure QOS QCI Tracking Area Category Summary Analysis (using raw tables)
+##
+## Velocity Parameter: 
+##		
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+
+#set($conditionColumns=["TRAC"])
+#set($columnsToSelect=["QCI_ID", "CATEGORY_ID", "IMSI"])
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	:TRAC as TRAC,
+	data_table.QCI_ID as QCI_ID,
+	dc.DIM_E_LTE_QCI.QCI_ID_DESCRIPTION as 'QCI Description',
+	data_table.CATEGORY_ID as CATEGORY_ID,
+	eventDesc.CATEGORY_ID_DESC,
+	data_table.FAILURES as Failures,
+	data_table.IMPACTED_SUBSCRIBERS as 'Impacted Subscribers'
+FROM
+	(	
+		select 
+			count (*) as FAILURES,
+			QCI_ID,
+			CATEGORY_ID,
+			count (distinct rawview.IMSI) as IMPACTED_SUBSCRIBERS
+		from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" $conditionColumns $columnsToSelect)
+		group by
+			QCI_ID,
+			CATEGORY_ID
+	) as data_table
+left outer join
+		dc.DIM_E_LTE_QCI
+on 
+		dc.DIM_E_LTE_QCI.QCI_NUMBER = data_table.QCI_ID
+inner join
+	(
+		 select 
+			CATEGORY_ID,
+			CATEGORY_ID_DESC
+		from 
+			dc.DIM_E_LTE_CFA_EVENTTYPE
+		group by
+			CATEGORY_ID,
+			CATEGORY_ID_DESC
+	 )	as eventDesc
+on
+	eventDesc.CATEGORY_ID = data_table.CATEGORY_ID
+order by data_table.QCI_ID ASC, data_table.CATEGORY_ID DESC

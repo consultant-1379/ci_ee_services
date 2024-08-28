@@ -1,0 +1,14 @@
+{
+  "launchWindowTypeId" : "CS_NETWORK_EVENT_ANALYSIS_MSC",
+  "menuItem" : "CS_NETWORK_EVENT_ANALYSIS",
+  "searchValFromCol" : "4",
+  "type" : "MSC",
+  "params" : [ {
+    "id" : "4",
+    "queryParamName" : "node"
+  }, {
+    "id" : "MSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

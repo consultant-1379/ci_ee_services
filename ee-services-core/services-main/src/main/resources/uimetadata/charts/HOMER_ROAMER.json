@@ -1,0 +1,14 @@
+{
+    "id": "HOMER_ROAMER",
+    "title": "Top Impacted Roamers By Country",
+    "ylabel": "",
+    "xlabel": "",
+    "xaxisID": "2",
+    "items": [
+        {
+            "id": "3",
+            "name": "Event Failures",
+            "color": "cb5853"
+        }
+    ]
+}

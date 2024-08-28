@@ -1,0 +1,32 @@
+{
+  "id" : "NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BSC",
+  "name" : "Controller Event Analysis",
+  "url" : "NETWORK/EVENT_ANALYSIS",
+  "searchValFromCol" : "14",
+  "type" : "BSC",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "19",
+    "queryParamName" : "vendor",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "16",
+    "queryParamName" : "bsc",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "76",
+    "queryParamName" : "RAT"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

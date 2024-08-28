@@ -1,0 +1,13 @@
+{
+	"drillWindowName" : "Roaming by Country (Event Volume)",
+	"nameForTaskBar" : "Roaming by Country",
+	"id": "DRILL_GRID_CHART_ROAMING_BY_COUNTRY_EVENTS",
+	"drillType" : "launchChart",
+	"drillToolBarType": "ROAMING_EVENTS_ANALYSIS_PIE_DRILL",
+	"url" : "NETWORK/ROAMING_ANALYSIS/COUNTRY/DRILL",
+	"params" : [ {
+    "id" : "true",
+    "queryParamName" : "dataTieredDelay",
+    "isFixedVal" : "TRUE"
+    } ]
+}

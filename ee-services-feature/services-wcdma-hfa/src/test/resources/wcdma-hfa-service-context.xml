@@ -1,0 +1,146 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+<bean id="terminalAnalysisSOHOFailureService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.terminalanalysis.TerminalAnalysisSOHOFailureService"/>
+
+    <bean id="terminalAnalysisHSDSCHFailureService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.terminalanalysis.TerminalAnalysisHSDSCHFailureService"/>
+
+    <bean id="terminalAnalysisIRATFailureService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.terminalanalysis.TerminalAnalysisIRATFailureService"/>
+
+    <bean id="terminalAnalysisIFHOFailureService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.terminalanalysis.TerminalAnalysisIFHOFailureService"/>
+
+    <bean id="terminalGroupAnalysisSOHOFailureService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.terminalgroupanalysis.TerminalGASOHOFailureService"/>
+
+    <bean id="terminalGroupAnalysisHSDSCHFailureService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.terminalgroupanalysis.TerminalGAHSDSCHFailureService"/>
+
+    <bean id="terminalGroupAnalysisIRATFailureService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.terminalgroupanalysis.TerminalGAIRATFailureService"/>
+
+    <bean id="terminalGroupAnalysisIFHOFailureService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.terminalgroupanalysis.TerminalGAIFHOFailureService"/>
+
+    <bean id="rncHandoverFailureEventSummaryService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.RNCHandoverFailureEventSummaryService"/>
+
+    <bean id="cellHandoverFailureNetworkEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.CellHandoverFailureNetworkEAService"/>
+
+    <bean id="sourceCellHandoverFailureEventSummaryService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.SourceCellHandoverFailureEventSummaryService"/>
+
+    <bean id="targetCellHandoverFailureRankingService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.ranking.TargetCellHandoverFailureRankingService"/>
+
+    <bean id="targetCellHandoverFailureEventSummaryService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.TargetCellHandoverFailureEventSummaryService"/>
+
+    <bean id="rncSOHOHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.RNCSOHOHandoverFailureDetailedEAService"/>
+
+    <bean id="rncIFHOHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.RNCIFHOHandoverFailureDetailedEAService"/>
+
+    <bean id="rncIRATHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.RNCIRATHandoverFailureDetailedEAService"/>
+
+    <bean id="rncHSDSCHHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.RNCHSDSCHHandoverFailureDetailedEAService"/>
+
+    <bean id="sourceCellSOHOHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.SourceCellSOHOHandoverFailureDEAService"/>
+
+    <bean id="sourceCellIFHOHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.SourceCellIFHOHandoverFailureDEAService"/>
+
+    <bean id="sourceCellIRATHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.SourceCellIRATHandoverFailureDEAService"/>
+
+    <bean id="sourceCellHSDSCHHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.SourceCellHSDSCHHandoverFailureDEAService"/>
+
+    <bean id="targetCellSOHOHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.TargetCellSOHOHandoverFailureDEAService"/>
+
+    <bean id="targetCellIFHOHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.TargetCellIFHOHandoverFailureDEAService"/>
+
+    <bean id="targetCellIRATHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.TargetCellIRATHandoverFailureDEAService"/>
+
+    <bean id="targetCellHSDSCHHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.TargetCellHSDSCHHandoverFailureDEAService"/>
+
+    <bean id="tacHandoverFailureEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.TACHandoverFailureEventAnalysisService"/> 
+
+    <bean id="tacSOHOHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.TACSOHOHandoverFailureDetailedEAService"/>
+
+    <bean id="tacIFHOHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.TACIFHOHandoverFailureDetailedEAService"/>
+
+    <bean id="tacIRATHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.TACIRATHandoverFailureDetailedEAService"/>
+
+    <bean id="tacHSDSCHHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.TACHSDSCHHandoverFailureDetailedEAService"/>
+
+    <bean id="imsiSOHOHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.IMSISOHOHandoverFailureDetailedEAService"/>
+
+    <bean id="imsiIFHOHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.IMSIIFHOHandoverFailureDetailedEAService"/>
+
+    <bean id="imsiIRATHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.IMSIIRATHandoverFailureDetailedEAService"/>
+
+    <bean id="imsiHSDSCHHandoverFailureDetailedEventAnalysisService" parent="genericService"
+          class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.eventanalysis.IMSIHSDSCHHandoverFailureDetailedEAService"/>
+ 
+    <bean id="wcdmaHandoverFailureCauseCodeListService" parent="genericService"
+    	class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.causecode.WCDMAHandoverFailureCauseCodeListService"/>
+
+    <bean id="wcdmaHandoverFailureCauseCodeService" parent="genericService"
+    	class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.causecode.WCDMAHandoverFailureCauseCodeService"/>
+
+    <bean id="wcdmaHandoverFailureCauseCodeTableService" parent="genericService"
+    	class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.causecode.WCDMAHandoverFailureCauseCodeTableService"/>
+
+    <bean id="wcdmaHandoverFailureSubCauseCodeTableService" parent="genericService"
+    	class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.causecode.WCDMAHandoverFailureSubCauseCodeTableService"/>
+
+    <bean id="wcdmaHandoverFailureSubCauseCodeService" parent="genericService"
+    	class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.causecode.WCDMAHandoverFailureSubCauseCodeService"/>
+
+    <bean id="ccRNCSOHOHandoverFailureDEAService" parent="genericService"
+    	class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.causecode.CCRNCSOHOHandoverFailureDEAService"/>
+
+    <bean id="ccRNCIFHOHandoverFailureDEAService" parent="genericService"
+    	class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.causecode.CCRNCIFHOHandoverFailureDEAService"/>
+
+    <bean id="ccRNCIRATHandoverFailureDEAService" parent="genericService"
+    	class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.causecode.CCRNCIRATHandoverFailureDEAService"/>
+
+    <bean id="ccRNCHSDSCHHandoverFailureDEAService" parent="genericService"
+    	class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.causecode.CCRNCHSDSCHHandoverFailureDEAService"/>
+
+	<bean id="ccCellSOHOHandoverFailureDEAService" parent="genericService"
+    	class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.causecode.CCCellSOHOHandoverFailureDEAService"/>
+    	
+    <bean id="ccCellIFHOHandoverFailureDEAService" parent="genericService"
+    	class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.causecode.CCCellIFHOHandoverFailureDEAService"/>
+    
+    <bean id="ccCellHSDSCHHandoverFailureDEAService" parent="genericService"
+    	class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.causecode.CCCellHSDSCHHandoverFailureDEAService"/>
+    	
+    <bean id="ccCellIRATHandoverFailureDEAService" parent="genericService"
+    	class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.hfa.causecode.CCCellIRATHandoverFailureDEAService"/>
+ 
+</beans>

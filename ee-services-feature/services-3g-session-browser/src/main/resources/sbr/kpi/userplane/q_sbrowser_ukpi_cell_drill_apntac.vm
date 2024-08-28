@@ -1,0 +1,60 @@
+#DEFINE_CONSTANTS()
+#set($columnsToSelectFromSessionTable=["IMSI","START_CELL_ID","END_CELL_ID"])
+#set($columnsToSelectFromUserPlaneTCPTable=["IMSI","DOWNLINK","THROUGHPUT","SETUP_TIME_TERM","SETUP_TIME_NET","PACKET_LOSS_TERM","PACKET_LOSS_NET"])
+#set($addColumns=$columnsToSelectFromUserPlaneTCPTable.addAll($columns))
+#set($userPlaneTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_USER_PLANE_TPNAME).getRawTablesWithMeasurementTypes())
+#set($sessionTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_RAN_SESSION_TPNAME).getRawTables())
+
+BEGIN
+
+DECLARE LOCAL TEMPORARY TABLE cell_id_tp(
+    CID INT NULL
+);
+
+DECLARE LOCAL TEMPORARY TABLE imsi_tp(
+    IMSI unsigned bigint NULL
+);
+
+INSERT INTO cell_id_tp(
+	#SELECT_CID_FROM_DIM_E_SGEH_HIER321_CELL()	
+);
+
+INSERT INTO imsi_tp(
+	SELECT
+		IMSI
+	FROM
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS($sessionTableList "rawview" $columnsToSelectFromSessionTable),
+		cell_id_tp cellRef
+	WHERE
+		(rawview.START_CELL_ID = cellRef.CID
+		OR rawview.END_CELL_ID = cellRef.CID)
+);
+
+SELECT
+	#if($count > 0)
+		top $count
+	#end
+	#GET_COLUMNS($columns)
+	#GET_UKPI_SAMPLES_AND_VALUES()
+FROM
+    (SELECT
+    	#GET_COLUMNS($columns)
+    	#SELECT_UKPI_SAMPLING_COUNT(),
+        #GET_UP_KPI_VALUES()
+    FROM
+        #REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION($userPlaneTableList "rawview" $columnsToSelectFromUserPlaneTCPTable)
+    	LEFT OUTER JOIN
+    		imsi_tp tempRef
+    	ON(
+    		rawview.IMSI = tempRef.IMSI
+    		)
+    WHERE #GET_COLUMNS_WHERE_NOT_NULL($columns)
+    GROUP BY #GET_COLUMNS_NO_COMMA_TRAILING($columns),DOWNLINK
+    )AS joinRaw
+GROUP BY 
+    #GET_COLUMNS_NO_COMMA_TRAILING($columns)
+ORDER BY
+	"$KPI" DESC
+;
+END
+

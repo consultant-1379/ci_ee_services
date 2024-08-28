@@ -1,0 +1,17 @@
+{
+  "launchWindowTypeId" : "GSM_ROAMING_ANALYSIS_SUMMARY_BY_OPERATOR",
+  "menuItem" : "GSM_ROAMING_ANALYSIS_SUMMARY_BY_OPERATOR",
+  "searchValFromCol" : "1,5,6",
+  "params" : [ {
+    		"id":"1",
+    		"isTitleParam" : "TRUE"
+    	},
+    	{
+            "id":"5",
+            "queryParamName":"MCC"
+        },
+        {
+            "id":"6",
+            "queryParamName":"MNC"
+        } ]
+}

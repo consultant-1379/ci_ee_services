@@ -1,0 +1,40 @@
+{
+  "id" : "GSM_NETWORK_DRILL_CAUSE_CODE_ANALYSIS_CELL",
+  "title" : "Controller GSM Call Failure : Cause Group Analysis Summary",
+  "autoexpand" : "2",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "DESC",
+  "categoryId" : "GSM_NETWORK_DRILL_CAUSE_CODE_ANALYSIS_CELL",
+  "columns" : [ {
+    "type" : "causeGroupID",
+    "header" : "Cause Group ID",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+  	"type" : "causeGroup",
+    "header" : "Cause Group",
+    "width" : "200",
+    "datatype" : "string" ,
+     "drillDownWindowType" : "GSM_NETWORK_DRILL_SUB_CAUSE_CODE_ANALYSIS_CELL"
+  }, {
+  	"type" : "failures",
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+  	"type" : "impactedSubs",
+    "header" : "Impacted Subscribers",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Node",
+    "width" : "150",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }, {
+    "header" : "HIER3_ID",
+    "width" : "0",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }]
+}

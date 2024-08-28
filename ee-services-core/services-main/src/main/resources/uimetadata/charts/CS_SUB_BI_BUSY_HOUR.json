@@ -1,0 +1,17 @@
+{
+  "id" : "CS_SUB_BI_BUSY_HOUR",
+  "title" : "Busy Hour Event Summary for Subscriber Voice",
+  "xlabel" : "Hour",
+  "ylabel" : "Number of Events",
+  "xaxisID" : "3",
+  "items" : [ {
+    "id" : "1",
+    "name" : "Event Failures",
+    "color" : "cb5853",
+    "drillDownWindowType" : "CS_DRILL_GRID_CHART_SUB_BI_BUSY_HOUR"
+  }, {
+    "id" : "2",
+    "name" : "Event Successes",
+    "color" : "9ec057"
+  } ]
+}

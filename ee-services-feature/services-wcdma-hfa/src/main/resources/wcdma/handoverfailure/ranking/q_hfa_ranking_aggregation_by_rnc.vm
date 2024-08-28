@@ -1,0 +1,39 @@
+#set($columnsToIncludeInSourceView=["HIER3_ID"])
+#set($counterColumn="NO_OF_ERRORS")
+
+SELECT
+    #if($count > 0) top $count #end RANK() over (ORDER BY Failures DESC) AS rank,
+    DIM_E_SGEH_RAT.RAT_DESC                                              AS 'RAT',
+    topology.RAT                                                         AS 'RAT ID',
+    topology.VENDOR                                                      AS 'RAN Vendor',
+    topology.HIERARCHY_3                                                 AS 'Controller',
+    sourceAggView.NO_OF_ERRORS                                           AS 'Failures'
+FROM
+    #UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS_POST_AGGREGATE($aggregationViewList "sourceAggView" $columnsToIncludeInSourceView $counterColumn)
+LEFT OUTER JOIN
+    (
+        SELECT DISTINCT
+            RAT,
+            HIER3_ID,
+            VENDOR,
+            HIERARCHY_3
+        FROM
+            DIM_E_SGEH_HIER321_CELL
+        UNION
+        SELECT DISTINCT
+            RAT,
+            HIER3_ID,
+            VENDOR,
+            HIERARCHY_3
+        FROM
+            DIM_Z_SGEH_HIER321_CELL
+    ) AS topology(RAT, HIER3_ID, VENDOR, HIERARCHY_3)
+ON
+    (
+        sourceAggView.HIER3_ID = topology.HIER3_ID
+    )
+INNER JOIN DIM_E_SGEH_RAT
+ON
+    (
+        topology.RAT = DIM_E_SGEH_RAT.RAT
+    )

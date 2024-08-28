@@ -1,0 +1,202 @@
+#set($columnsToIncludeInSourceView3GCell=["HIER3_CELL_ID","CATEGORY_ID"])
+#set($sourceConditions3GCell=["HIER3_CELL_ID"])
+#set($columnsToIncludeInIratView=["THIER321_ID","CATEGORY_ID"])
+#set($columnsToIncludeInOtherView3GCell=["THIER3_CELL_ID","CATEGORY_ID"])
+#set($specificMeasurementType=["IRAT"])
+#set($otherMeasurementType=["SOHO","IFHO","HSDSCH"])
+#set($counterColumn="NO_OF_ERRORS")
+#set($imsiColumn="IMSI")
+#set($impactedSubscribers="IMSI")
+#set($iratConditions=["THIER321_ID"])
+#set($otherConditions3GCell=["THIER3_CELL_ID"])
+#set($useExclusiveTACs="no")
+BEGIN
+SELECT
+    isnull(distinctCellsTarget.RAT, 1) AS 'RAT ID',
+    CASE
+        WHEN distinctCellsSource.VENDOR_SOURCE IS NOT NULL
+        THEN distinctCellsSource.VENDOR_SOURCE
+        WHEN distinctCellsTarget.VENDOR_TARGET IS NOT NULL
+        THEN distinctCellsTarget.VENDOR_TARGET
+    END AS 'RAN Vendor',
+    CASE
+        WHEN distinctCellsSource.HIERARCHY_3_SOURCE IS NOT NULL
+        THEN distinctCellsSource.HIERARCHY_3_SOURCE
+        WHEN distinctCellsTarget.HIERARCHY_3_TARGET IS NOT NULL
+        THEN distinctCellsTarget.HIERARCHY_3_TARGET
+    END AS 'Controller',
+    CASE
+        WHEN distinctCellsSource.CELL_ID_SOURCE IS NOT NULL
+        THEN distinctCellsSource.CELL_ID_SOURCE
+        WHEN distinctCellsTarget.CELL_ID_TARGET IS NOT NULL
+        THEN distinctCellsTarget.CELL_ID_TARGET
+    END                                                        AS 'Access Area',
+    categoryDesc.CATEGORY_ID                                   AS 'Category ID',
+    categoryDesc.CATEGORY_DESC                                 AS 'Handover Type',
+    isnull(distinctCellsSource.FAILURES_SOURCE, 0)             AS 'Source_Failures',
+    isnull(distinctCellsSource.IMPACTED_SUBSCRIBERS_SOURCE, 0) AS 'Source Impacted Subscribers',
+    isnull(distinctCellsTarget.FAILURES_TARGET, 0)             AS 'Target_Failures',
+    isnull(distinctCellsTarget.IMPACTED_SUBSCRIBERS_TARGET, 0) AS 'Target Impacted Subscribers'
+FROM
+    (
+        SELECT
+            sourceRawView3GCell.CATEGORY_ID,
+            topology3GCell.VENDOR                           AS VENDOR_SOURCE,
+            topology3GCell.HIERARCHY_3                      AS HIERARCHY_3_SOURCE,
+            topology3GCell.CELL_ID                          AS CELL_ID_SOURCE,
+            SUM(sourceRawView3GCell.${counterColumn})       AS FAILURES_SOURCE,
+            SUM(sourceRawView3GCell.${impactedSubscribers}) AS IMPACTED_SUBSCRIBERS_SOURCE
+        FROM
+            #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_AGGREGATE_CONDITIONED_IMPACTED_SUBSCRIBERS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "sourceRawView3GCell" $columnsToIncludeInSourceView3GCell $counterColumn $sourceConditions3GCell $imsiColumn $impactedSubscribers $useExclusiveTACs)
+        LEFT OUTER JOIN
+            (
+                SELECT DISTINCT
+                    HIER3_CELL_ID,
+                    VENDOR,
+                    HIERARCHY_3,
+                    CELL_ID
+                FROM
+                    DIM_E_SGEH_HIER321_CELL
+                WHERE
+                    HIER3_CELL_ID = :HIER3_CELL_ID
+                UNION
+                SELECT DISTINCT
+                    HIER3_CELL_ID,
+                    VENDOR,
+                    HIERARCHY_3,
+                    CELL_ID
+                FROM
+                    DIM_Z_SGEH_HIER321_CELL
+                WHERE
+                    HIER3_CELL_ID = :HIER3_CELL_ID
+            ) AS topology3GCell(HIER3_CELL_ID, VENDOR, HIERARCHY_3, CELL_ID)
+        ON
+            (
+                sourceRawView3GCell.HIER3_CELL_ID = topology3GCell.HIER3_CELL_ID
+            )
+        GROUP BY
+            sourceRawView3GCell.CATEGORY_ID,
+            topology3GCell.VENDOR,
+            topology3GCell.HIERARCHY_3,
+            topology3GCell.CELL_ID
+    ) AS distinctCellsSource(CATEGORY_ID, VENDOR_SOURCE, HIERARCHY_3_SOURCE, CELL_ID_SOURCE, FAILURES_SOURCE, IMPACTED_SUBSCRIBERS_SOURCE)
+FULL OUTER JOIN
+    (
+        SELECT
+            targetCells.RAT,
+            targetCells.CATEGORY_ID,
+            targetCells.VENDOR_TARGET               AS VENDOR_TARGET,
+            targetCells.HIERARCHY_3_TARGET          AS HIERARCHY_3_TARGET,
+            targetCells.CELL_ID_TARGET              AS CELL_ID_TARGET,
+            targetCells.FAILURES_TARGET             AS FAILURES_TARGET,
+            targetCells.IMPACTED_SUBSCRIBERS_TARGET AS IMPACTED_SUBSCRIBERS_TARGET
+        FROM
+            (
+                SELECT
+                    topologyOther3GCell.RAT,
+                    otherRawView3GCell.CATEGORY_ID,
+                    topologyOther3GCell.VENDOR                     AS VENDOR_TARGET,
+                    topologyOther3GCell.HIERARCHY_3                AS HIERARCHY_3_TARGET,
+                    topologyOther3GCell.CELL_ID                    AS CELL_ID_TARGET,
+                    SUM(otherRawView3GCell.${counterColumn})       AS FAILURES_TARGET,
+                    SUM(otherRawView3GCell.${impactedSubscribers}) AS IMPACTED_SUBSCRIBERS_TARGET
+                FROM
+                    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_AGGREGATE_CONDITIONED_IMPACTED_SUBSCRIBERS($TECH_PACK_LIST.getSpecificRawTablesWithMeasurementType($otherMeasurementType) "otherRawView3GCell" $columnsToIncludeInOtherView3GCell $counterColumn $otherConditions3GCell $imsiColumn $impactedSubscribers $useExclusiveTACs)
+                LEFT OUTER JOIN
+                    (
+                        SELECT DISTINCT
+                            RAT,
+                            HIER3_CELL_ID,
+                            VENDOR,
+                            HIERARCHY_3,
+                            CELL_ID
+                        FROM
+                            DIM_E_SGEH_HIER321_CELL
+                        WHERE
+                            HIER3_CELL_ID = :THIER3_CELL_ID
+                        UNION
+                        SELECT DISTINCT
+                            RAT,
+                            HIER3_CELL_ID,
+                            VENDOR,
+                            HIERARCHY_3,
+                            CELL_ID
+                        FROM
+                            DIM_Z_SGEH_HIER321_CELL
+                        WHERE
+                            HIER3_CELL_ID = :THIER3_CELL_ID
+                    ) AS topologyOther3GCell(RAT, HIER3_CELL_ID, VENDOR, HIERARCHY_3, CELL_ID)
+                ON
+                    (
+                        otherRawView3GCell.THIER3_CELL_ID = topologyOther3GCell.HIER3_CELL_ID
+                    )
+                GROUP BY
+                    topologyOther3GCell.RAT,
+                    otherRawView3GCell.CATEGORY_ID,
+                    topologyOther3GCell.VENDOR,
+                    topologyOther3GCell.HIERARCHY_3,
+                    topologyOther3GCell.CELL_ID
+                UNION
+                SELECT
+                    topologyIrat.RAT,
+                    iratRawView.CATEGORY_ID,
+                    topologyIrat.VENDOR                     AS VENDOR_TARGET,
+                    topologyIrat.HIERARCHY_3                AS HIERARCHY_3_TARGET,
+                    topologyIrat.CELL_ID                    AS CELL_ID_TARGET,
+                    SUM(iratRawView.${counterColumn})       AS FAILURES_TARGET,
+                    SUM(iratRawView.${impactedSubscribers}) AS IMPACTED_SUBSCRIBERS_TARGET
+                FROM
+                    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_AGGREGATE_CONDITIONED_IMPACTED_SUBSCRIBERS($TECH_PACK_LIST.getSpecificRawTablesWithMeasurementType($specificMeasurementType) "iratRawView" $columnsToIncludeInIratView $counterColumn $iratConditions $imsiColumn $impactedSubscribers $useExclusiveTACs)
+                LEFT OUTER JOIN
+                    (
+                        SELECT DISTINCT
+                            RAT,
+                            HIER321_ID,
+                            VENDOR,
+                            HIERARCHY_3,
+                            HIERARCHY_1 AS CELL_ID
+                        FROM
+                            DIM_E_SGEH_HIER321
+                        WHERE
+                            HIER321_ID = :THIER321_ID
+                        AND RAT = 0
+                        UNION
+                        SELECT DISTINCT
+                            RAT,
+                            HIER321_ID,
+                            VENDOR,
+                            HIERARCHY_3,
+                            HIERARCHY_1 AS CELL_ID
+                        FROM
+                            DIM_Z_SGEH_HIER321
+                        WHERE
+                            HIER321_ID = :THIER321_ID
+                        AND RAT = 0
+                    ) AS topologyIrat(RAT, HIER321_ID, VENDOR, HIERARCHY_3, CELL_ID)
+                ON
+                    (
+                        iratRawView.THIER321_ID = topologyIrat.HIER321_ID
+                    )
+                GROUP BY
+                    topologyIrat.RAT,
+                    iratRawView.CATEGORY_ID,
+                    topologyIrat.VENDOR,
+                    topologyIrat.HIERARCHY_3,
+                    topologyIrat.CELL_ID
+            ) AS targetCells
+    ) AS distinctCellsTarget(RAT, CATEGORY_ID, VENDOR_TARGET, HIERARCHY_3_TARGET, CELL_ID_TARGET, FAILURES_TARGET, IMPACTED_SUBSCRIBERS_TARGET)
+ON
+    (
+        distinctCellsSource.CATEGORY_ID = distinctCellsTarget.CATEGORY_ID
+    )
+INNER JOIN dc.DIM_E_RAN_HFA_CATEGORY categoryDesc
+ON
+    (
+   		CASE
+			WHEN distinctCellsSource.CATEGORY_ID IS NOT NULL THEN distinctCellsSource.CATEGORY_ID
+			ELSE distinctCellsTarget.CATEGORY_ID
+		END = categoryDesc.CATEGORY_ID
+    )
+ORDER BY
+    Source_Failures DESC
+END

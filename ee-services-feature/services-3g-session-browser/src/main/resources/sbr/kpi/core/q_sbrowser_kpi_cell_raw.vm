@@ -1,0 +1,37 @@
+#DEFINE_CONSTANTS()
+#set($columns=[$RAT,$VENDOR,$BSC,$CELL])
+
+#set($err_sucTableColumns=["DATETIME_ID",$RAT,$VENDOR,$BSC,$CELL,"EVENT_ID","count(*)","SUM(CASE WHEN (DEACTIVATION_TRIGGER != 1) THEN 1 ELSE 0 END)"," SUM(PAGING_ATTEMPTS)"])
+#set($err_sucTableGroupbyColumns=["DATETIME_ID",$RAT,$VENDOR,$BSC,$CELL,"EVENT_ID"])
+
+
+SELECT
+	ISNULL(err.DATETIME_ID,suc.DATETIME_ID) AS KPI_TIME,
+    #GET_CORE_KPI_VALUES()   
+FROM    
+    #CP_KPI_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_PLUS_GROUPBY($TECH_PACK_LIST.getAllRawErrTables() "err" $columns $err_sucTableColumns false $err_sucTableGroupbyColumns)
+	(
+        DATETIME_ID,
+        #GET_COLUMNS($columns)
+        EVENT_ID,                        
+        NO_OF_ERRORS,
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    )
+    full outer join        
+    #CP_KPI_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_PLUS_GROUPBY($TECH_PACK_LIST.getAllRawSucTables() "suc" $columns $err_sucTableColumns false $err_sucTableGroupbyColumns)
+	(
+        DATETIME_ID,
+        #GET_COLUMNS($columns)
+        EVENT_ID,                        
+        NO_OF_SUCCESSES,        
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    )
+    on (
+        #GET_JOIN("err" "suc" ["DATETIME_ID","EVENT_ID"])
+    )
+group by
+    KPI_TIME
+order by
+    KPI_TIME  

@@ -1,0 +1,22 @@
+{
+  "id" : "CS_DRILL_GRID_CHART_SUB_BI_BUSY_CELL_ERR_SMS",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_ELEMENTS_SMS",
+  "name" : "Failure Event Analysis for Subscriber Voice",
+  "url" : "MSS/SUBSCRIBER/SUBBI/CELL",
+  "needSearchParam" : "TRUE",
+  "params" : [ {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "3",
+    "queryParamName" : "eventID"
+  } ],
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

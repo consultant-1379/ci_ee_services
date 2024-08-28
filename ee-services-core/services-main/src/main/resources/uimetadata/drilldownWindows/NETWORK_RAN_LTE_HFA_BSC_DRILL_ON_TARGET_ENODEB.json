@@ -1,0 +1,20 @@
+{
+  "id": "NETWORK_RAN_LTE_HFA_BSC_DRILL_ON_TARGET_ENODEB",
+  "name": "Controller LTE Handover Failure : Event Analysis",
+  "url": "NETWORK/LTE_HANDOVER_FAILURE_SUBSCRIBER_EVENT_SUMMARY_ANALYSIS/ENODEB",
+  "gridDisplayID": "NETWORK_RAN_LTE_HFA_BSC_DRILL",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "3",
+    "queryParamName": "HIER3_ID"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

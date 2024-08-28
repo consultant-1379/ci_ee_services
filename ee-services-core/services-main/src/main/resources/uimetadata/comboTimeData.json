@@ -1,0 +1,29 @@
+{
+    "comboTimeData" : [ {
+        "data" : [ {
+            "display" : "15 minutes",
+            "value" : "15"
+        }, {
+            "display" : "30 minutes",
+            "value" : "30"
+        }, {
+            "display" : "1 hour",
+            "value" : "60"
+        }, {
+            "display" : "2 hours",
+            "value" : "120"
+        }, {
+            "display" : "6 hours",
+            "value" : "360"
+        }, {
+            "display" : "12 hours",
+            "value" : "720"
+        }, {
+            "display" : "1 day",
+            "value" : "1440"
+        }, {
+            "display" : "1 week",
+            "value" : "10080"
+        } ]
+    } ]
+}

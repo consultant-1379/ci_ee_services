@@ -1,0 +1,39 @@
+{
+  "id" : "NETWORK_CAUSE_CODE_RANKING",
+  "title" : "Cause Code Ranking",
+  "autoexpand" : "3",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Cause Protocol Type",
+    "width" : "165",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Cause Code description",
+    "width" : "200",
+    "datatype" : "string",
+    "launchWindowType" : "NETWORK_CAUSE_CODE_ANALYSIS_CC"
+  }, {
+    "header" : "Cause Protocol Type ID",
+    "width" : "150",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Cause Code ID",
+    "width" : "80",
+    "datatype" : "int"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

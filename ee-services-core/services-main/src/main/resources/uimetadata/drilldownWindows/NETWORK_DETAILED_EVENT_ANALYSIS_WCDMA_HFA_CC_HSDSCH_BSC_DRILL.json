@@ -1,0 +1,38 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_HSDSCH_BSC_DRILL",
+    "gridDisplayID": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_HSDSCH_BSC_DRILL",
+    "url": "NETWORK/WCDMA_HFA_CAUSE_CODE_ANALYSIS/DETAIL_SUB_CAUSE_CODE_GRID",
+    "needSearchParam": "TRUE",
+    "params": [
+        {
+            "id": "6",
+            "name": "Cause Code Id",
+            "queryParamName": "causeCode"
+        },
+        {
+            "id": "7",
+            "name": "Event Id",
+            "queryParamName": "eventID"
+        },
+        {
+            "id": "8",
+            "name": "Category Id",
+            "queryParamName": "categoryId"
+        },
+        {
+            "id": "11",
+            "name": "State",
+            "queryParamName": "state"
+        },
+        {
+            "id": "BSC",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR_WCDMA_HFA_GRID_CAUSE_CODE_NO_NAV",
+    "display": "grid"
+}

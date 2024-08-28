@@ -1,0 +1,83 @@
+{
+    "id":"GSM_CONTROLLER_GROUP_BREAKDOWN",
+    "title":"Controller Group GSM Call Failure : Cause Code Analysis Summary",
+    "defaultSortCol":"3",
+    "defaultSortDir":"DESC",
+    "autoexpand":"4",
+    "categoryId":"GSM_CONTROLLER_GROUP_BREAKDOWN",
+    "columns":[{
+		  	"type" : "SubCauseGroupID",
+		    "header" : "Extended Cause ID",
+		    "width" : "150",
+		    "datatype" : "string",
+		    "isSystem" : "true"
+		},
+		{
+		  	"type" : "SubCauseGroup",
+		    "header" : "Extended Cause Value",
+		    "width" : "200",
+		    "datatype" : "string",
+		    "isSystem" : "true"
+		},
+  		{
+            "type":"controller",
+            "header":"Controller",
+            "width":"150",
+            "datatype":"string"
+        },
+        {
+        	"type":"failures",
+            "header":"Failures",
+            "width":"100",
+            "datatype":"int",
+            "drillDownWindowType":"GSM_NETWORK_CC_SCC_DETAILED_ANALYSIS_BSC_DRILL"
+        },
+        {
+            "type":"impactedSubs",
+            "header":"Impacted Subscribers",
+            "width":"130",
+            "datatype":"int"
+        },
+        {
+        	"type":"causeGroup",
+		    "header" : "Cause Group",
+		    "width" : "150",
+		    "datatype" : "string",
+		    "isSystem" : "true"
+		},
+		{
+			"type":"causeGroupID",
+		    "header" : "Cause Group ID",
+		    "width" : "150",
+		    "datatype" : "string",
+		    "isSystem" : "true"
+		},
+		{
+			"type":"hier3_id",
+		    "header" : "HIER3_ID",
+		    "width" : "0",
+		    "datatype" : "string",
+		    "isSystem" : "TRUE"
+		},
+        {
+            "type":"impactedCells",
+            "header":"Impacted Cells",
+            "width":"130",
+            "datatype":"int",
+            "drillDownWindowType" : "GSM_CFA_CC_CELL_SUMMARY_DISTRIBUTION"
+        },
+        {
+        	"type":"failureRatio",
+            "header":"Failure Ratio",
+            "width":"150",
+            "datatype":"double"
+        },
+        {
+        	"type":"groupName",
+            "header":"Group Name",
+            "width":"150",
+            "datatype":"string",
+            "isHidden":"TRUE"
+        }
+    ]
+}

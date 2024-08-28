@@ -1,0 +1,23 @@
+{
+  "id" : "SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_TAC",
+  "name" : "TAC Event Analysis",
+  "url" : "SUBSCRIBER/EVENT_ANALYSIS",
+  "searchValFromCol" : "3",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "TAC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "3",
+    "queryParamName" : "tac"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

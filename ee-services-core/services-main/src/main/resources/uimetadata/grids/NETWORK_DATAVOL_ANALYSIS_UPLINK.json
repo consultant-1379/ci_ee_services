@@ -1,0 +1,31 @@
+{
+    "id": "NETWORK_DATAVOL_ANALYSIS_UPLINK",
+    "isChartData": "TRUE",
+    "title": "Network Data Volume Uplink",
+    "autoexpand": "1",
+    "defaultSortCol": "3",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "Timestamp",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Downlink (MB)",
+            "width": "100",
+            "datatype": "float",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Uplink (MB)",
+            "width": "100",
+            "datatype": "float"
+        },
+        {
+            "header": "Number of Bearers",
+            "width": "120",
+            "datatype": "float"
+        }
+    ]
+}

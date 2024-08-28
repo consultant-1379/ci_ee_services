@@ -1,0 +1,19 @@
+{
+    "launchWindowTypeId": "WCDMA_RAN_CFA_CELL",
+    "menuItem": "NETWORK_CELL_RANKING_RAN_WCDMA_EVENT_ANALYSIS_SUMMARY",
+    "searchValFromCol": "3",
+    "type": "CELL",
+    "drillTargetType": "GRID",
+    "needSearchParam": "FALSE",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "RAN_VENDOR"
+  }, {
+    "id" : "4",
+    "queryParamName" : "cellId",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "3",
+    "queryParamName" : "RNC_FDN"
+  }]
+}

@@ -1,0 +1,33 @@
+SELECT
+    #if($count > 0) top $count #end RANK() over (ORDER BY failures DESC) AS RANK,
+    categoryDesc.CATEGORY_DESC                                           AS 'HANDOVER TYPE',
+    rawview.CATEGORY_ID                                                  AS 'CATEGORY_ID',
+    dim_causeCode.CAUSE_VALUE_DESC                                       AS 'CAUSE VALUE',
+    rawview.CAUSE_VALUE                                                  AS 'CAUSE VALUE ID',
+    COUNT(*)                                                             AS failures
+FROM
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" ["CATEGORY_ID","EVENT_ID","CAUSE_VALUE"])
+LEFT OUTER JOIN
+    (
+        SELECT
+            CAUSE_VALUE,
+            EVENT_ID,
+            CAUSE_VALUE_DESC
+        FROM
+            DIM_E_RAN_HFA_CAUSE_CODE_VALUE
+    ) AS dim_causeCode
+ON
+    (
+        rawview.CAUSE_VALUE = dim_causeCode.CAUSE_VALUE
+    AND rawview.EVENT_ID = dim_causeCode.EVENT_ID
+    )
+LEFT OUTER JOIN dc.DIM_E_RAN_HFA_CATEGORY categoryDesc
+ON
+    (
+        categoryDesc.CATEGORY_ID = rawview.CATEGORY_ID
+    )
+GROUP BY
+    categoryDesc.CATEGORY_DESC,
+    rawview.CATEGORY_ID,
+    dim_causeCode.CAUSE_VALUE_DESC,
+    rawview.CAUSE_VALUE

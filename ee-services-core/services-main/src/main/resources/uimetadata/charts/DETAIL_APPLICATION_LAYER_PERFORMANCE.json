@@ -1,0 +1,85 @@
+{
+    "id": "DETAIL_APPLICATION_LAYER_PERFORMANCE",
+    "title": "",
+    "ylabel": "(DL/Bytes)",
+    "xlabel": "",
+    "xaxisID": "eventTime",
+    "items": [
+        {
+            "id": "media-playback",
+            "name": "Media"
+        },
+        {
+            "id": "VoIP",
+            "name": "VoIP"
+        },
+        {
+            "id": "web-browsing",
+            "name": "Web"
+        },
+        {
+            "id": "video-playback",
+            "name": "Video"
+        },
+        {
+            "id": "audio-playback",
+            "name": "Audio"
+        },
+        {
+            "id": "instant-messaging",
+            "name": "Messaging"
+        },
+        {
+            "id": "social-networking",
+            "name": "Social Networking"
+        },
+        {
+            "id": "photo-sharing",
+            "name": "Photo Sharing"
+        },
+        {
+            "id": "email",
+            "name": "Email"
+        },
+        {
+            "id": "MMS",
+            "name": "MMS"
+        },
+        {
+            "id": "file-download",
+            "name": "File Download"
+        },
+        {
+            "id": "file-sharing",
+            "name": "File Sharing"
+        },
+        {
+            "id": "news",
+            "name": "News"
+        },
+        {
+            "id": "software-update",
+            "name": "Software Update"
+        },
+        {
+            "id": "system",
+            "name": "System"
+        },
+        {
+            "id": "maps",
+            "name": "Maps"
+        },
+        {
+            "id": "remote-access",
+            "name": "Remote Access"
+        },
+        {
+            "id": "gaming",
+            "name": "Gaming"
+        },
+        {
+            "id": "Unknown",
+            "name": "Unknown"
+        }
+    ]
+}

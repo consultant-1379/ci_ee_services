@@ -1,0 +1,20 @@
+{
+  "id": "NETWORK_EVENT_ANALYSIS_LTE_CFA_DRILL_ON_IMSI",
+  "name": "IMSI LTE Call Failure : Event Analysis Summary",
+  "url": "SUBSCRIBER/LTE_CALL_FAILURE_EVENT_SUMMARY/IMSI",
+   "gridDisplayID": "RAN_LTE_CFA_SUMMARY_IMSI_DRILL",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "5",
+    "queryParamName": "imsi"
+  }, {
+    "id" : "IMSI",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

@@ -1,0 +1,12 @@
+DIM_E_SGEH_SUBCAUSECODE
+SUBCAUSE_CODE,SUBCAUSE_CODE_DESC,SUBCAUSE_CODE_HELP
+0,No SubCauseCode available,dummy text
+10,Auth failed,dummy text
+11,Auth failed: unknown subscriber PLMN not allowed,dummy text
+12,Auth failed: unknown subscriber; operator determined barring,dummy text
+13,Auth failed: unknown subscriber; IMSI unknown,dummy text
+15,Auth failed: roaming not allowed GPRS subscription unknown,dummy text
+16,Auth failed: roaming not allowed,dummy text
+17,Auth failed: roaming not allowed; operator determined barring,dummy text
+18,Auth failed: roaming not allowed; PLMN not allowed,dummy text
+19,Auth failed: roaming not allowed; IMSI unknown,dummy text

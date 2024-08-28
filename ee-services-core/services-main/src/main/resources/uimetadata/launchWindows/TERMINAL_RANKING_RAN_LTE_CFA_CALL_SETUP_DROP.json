@@ -1,0 +1,15 @@
+{
+  "launchWindowTypeId" : "TERMINAL_RANKING_RAN_LTE_CFA_CALL_SETUP_DROP",
+  "menuItem" : "TERMINAL_EVENT_ANALYSIS_LTE_CFA_SUMMARY",
+  "searchValFromCol" : "2,3,4",
+  "type" : "TAC",
+  "needSearchParam": "FALSE",
+  "params" : [ {
+    "id" : "TAC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "4",
+    "queryParamName" : "tac"
+  } ]
+}

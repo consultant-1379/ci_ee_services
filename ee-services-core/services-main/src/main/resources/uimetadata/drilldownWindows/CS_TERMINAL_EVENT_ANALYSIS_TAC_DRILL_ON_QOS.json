@@ -1,0 +1,24 @@
+{
+  "id" : "CS_TERMINAL_EVENT_ANALYSIS_TAC_DRILL_ON_QOS",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_ELEMENTS",
+  "name" : "Failed Event Analysis",
+  "url" : "MSS/TERMINAL/EVENT_ANALYSIS",
+  "needSearchParam" : "TRUE",
+  "params" : [ {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "TAC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "qci_id"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

@@ -1,0 +1,32 @@
+{
+    "id": "RAN_LTE_HFA_IMSI_DRILL_ON_EXEC",
+    "title": "IMSI LTE Handover Failure : Event Analysis",
+    "autoexpand": "3",
+    "defaultSortCol": "1",
+    "defaultSortDir": "ASC",
+    "columns": [
+        {
+            "header": "IMSI",
+            "width": "50",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "EventID",
+            "width": "50",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Event Type",
+            "width": "250",
+            "datatype": "string"
+        },
+        {
+            "header": "Failures",
+            "width": "120",
+            "datatype": "int",
+            "drillDownWindowType": "INTERNAL_PROC_HO_EXEC_S1_IN,RAN_LTE_HFA_IMSI_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_IN,INTERNAL_PROC_HO_EXEC_S1_OUT,RAN_LTE_HFA_IMSI_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_OUT,INTERNAL_PROC_HO_EXEC_X2_IN,RAN_LTE_HFA_IMSI_DRILL_ON_INTERNAL_PROC_HO_EXEC_X2_IN,INTERNAL_PROC_HO_EXEC_X2_OUT,RAN_LTE_HFA_IMSI_DRILL_ON_INTERNAL_PROC_HO_EXEC_X2_OUT"
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+  "id" : "GSM_NETWORK_CAUSE_CODE_ANALYSIS_BSC_DRILL",
+  "name" : "Controller Sub Cause Code Analysis",
+  "url" : "NETWORK/GSM/CALL_FAILURE_CAUSE_CODE_ANALYSIS/SUB_CAUSE_CODE_GRID",
+  "params" : [ {
+    "id" : "5",
+    "queryParamName" : "node",
+	"isTitleParam": "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "causeCodeDescription",
+	"isTitleParam": "TRUE"
+  }, {
+    "id" : "6",
+    "queryParamName" : "HIER3_ID"
+  }, {
+    "id" : "7",
+    "queryParamName" : "CATEGORY_ID"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "causeCode"
+  }, {
+    "id" : "8",
+    "queryParamName" : "failure_type"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}
+

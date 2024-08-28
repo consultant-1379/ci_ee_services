@@ -1,0 +1,25 @@
+{
+  "id" : "CS_TERMINAL_GA_MOST_POPULAR",
+  "isChartData" : "TRUE",
+  "title" : "GroupAnalysis - Most Frequent Signaling Terminal Groups",
+  "autoexpand" : "2",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "Group Name",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "string"
+  } ]
+}

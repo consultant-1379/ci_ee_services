@@ -1,0 +1,32 @@
+{
+  "id": "RAN_LTE_CFA_IMSI_ERABS_DRILL_ON",
+  "name": "IMSI Event Analysis",
+  "url": "SUBSCRIBER/LTE_CALL_FAILURE_ERAB_DETAILED_EVENT_ANALYSIS/IMSI",
+  "gridDisplayID": "RAN_LTE_CFA_IMSI_DRILL_ON_BY_ERABS",
+  "needSearchParam": "FALSE",
+  "disableTime":"TRUE",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "HIER3_ID"
+  }, {
+    "id": "2",
+    "queryParamName": "HIER321_ID"
+  }, {
+    "id": "4",
+    "queryParamName": "EVENT_TIME"
+  }, {
+    "id": "5",
+    "queryParamName": "imsi"
+  }, {
+    "id": "6",
+    "queryParamName": "TAC"
+  }, {
+    "id": "9",
+    "queryParamName": "eventID"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

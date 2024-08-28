@@ -1,0 +1,9 @@
+{
+			"id": "GSM_ROAMING_ANALYSIS_SUMMARY_BY_COUNTRY",
+			"drillWindowName" : "Roaming by Country (GSM Call Failure)",
+			"nameForTaskBar" : "Roaming by Country",
+			"drillTargetDisplayId": "GSM_ROAMING_ANALYSIS_SUMMARY_BY_COUNTRY",
+			"drillType" : "launchGrid",
+			"drillToolBarType" : "TOOLBAR1",
+			"url" : "NETWORK/GSM/CALL_FAILURE_ROAMING_ANALYSIS/COUNTRY/DRILL"
+}

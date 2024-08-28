@@ -1,0 +1,209 @@
+{
+    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_PREP_X2_OUT_BSC_DRILL",
+    "title": "Controller LTE Handover Failure Cause Code : Event Analysis",
+    "autoexpand": "12",
+    "categoryId": "NETWORK_CC_LTE_HFA_INTERNAL_PROC_HO_PREP_X2_OUT",
+    "defaultSortCol": "5",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "HIER3_ID",
+            "width": "10",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "HIER321_ID",
+            "width": "10",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+        	"header": "THIER3_ID",
+            "width": "10",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+        	"header": "THIER321_ID",
+            "width": "10",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+        	"type": "eventTime",
+            "header": "Event Time",
+            "width": "120",
+            "datatype": "date"
+        },
+        {
+        	"type": "eventTime(ms)",
+            "header": "Event Time(ms)",
+            "width": "120",
+            "datatype": "timestamp",
+            "isSystem": "TRUE"
+        },        
+        {
+        	"type": "imsi",
+            "header": "IMSI",
+            "width": "120",
+            "datatype": "string",
+            "drillDownLicenseCXC" : "CXC4010925",
+     		"drillDownWindowType" : "SUBSCRIBER_EVENT_ANALYSIS_LTE_HFA_DRILL_ON_IMSI"
+        },
+        {
+        	"type": "tac",
+            "header": "TAC",
+            "width": "100",
+            "datatype": "string",
+            "drillDownLicenseCXC" : "CXC4010926",
+     		"drillDownWindowType" : "TERMINAL_EVENT_ANALYSIS_LTE_HFA_IMSI_DRILL_ON_TAC"
+        },
+        {
+        	"type": "terminalMake",
+            "header": "Terminal Make",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+        	"type": "terminalModel",
+            "header": "Terminal Model",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "EventID",
+            "width": "10",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+        	"type": "eventType",
+            "header": "Event Type",
+            "width": "250",
+            "datatype": "string"
+        },
+        {
+        	"type": "handoverResult",
+            "header": "Handover Result",
+            "width": "400",
+            "datatype": "string"
+        },
+        {
+        	"type": "sourceController",
+            "header": "Source Controller",
+            "width": "300",
+            "datatype": "string",
+            "drillDownLicenseCXC" : "CXC4010927",
+            "drillDownWindowType": "NETWORK_RAN_LTE_HFA_BSC_DRILL_ON_ENODEB"
+        },
+        {
+        	"type": "sourceAccessArea",
+            "header": "Source Access Area",
+            "width": "300",
+            "datatype": "string",
+            "drillDownLicenseCXC" : "CXC4010927",
+            "drillDownWindowType": "NETWORK_RAN_LTE_HFA_BSC_DRILL_ON_ACCESS_AREA"
+        },
+        {
+        	"type": "targetController",
+            "header": "Target Controller",
+            "width": "300",
+            "datatype": "string",
+            "drillDownLicenseCXC" : "CXC4010927",
+            "drillDownWindowType": "NETWORK_RAN_LTE_HFA_BSC_DRILL_ON_TARGET_ENODEB"
+        },
+        {
+        	"type": "targetAccessArea",
+            "header": "Target Access Area",
+            "width": "300",
+            "datatype": "string",
+            "drillDownLicenseCXC" : "CXC4010927",
+            "drillDownWindowType": "NETWORK_RAN_LTE_HFA_BSC_DRILL_ON_TARGET_ACCESS_AREA"
+        },
+        {
+        	"type": "ranVendor",
+            "header": "RAN Vendor",
+            "width": "120",
+            "datatype": "string",
+            "isHidden" : "TRUE"
+        },
+        {
+        	"type": "ratDescription",
+            "header": "RAT Description",
+            "width": "50",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+        	"type": "mcc",
+            "header": "MCC",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+        	"type": "mnc",
+            "header": "MNC",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+        	"type": "duration",
+            "header": "Duration",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+        	"type": "targetType",
+            "header": "Target Type",
+            "width": "250",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+        	"type": "selectionType",
+            "header": "Selection Type",
+            "width": "250",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+        	"type": "hoAttempt",
+            "header": "HO Attempt",
+            "width": "250",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+        	"type": "hoType",
+            "header": "HO Type",
+            "width": "250",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+        	"type": "causeCode",
+            "header": "Cause Code",
+            "width": "80",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+        	"type": "3GPPCauseGroup",
+            "header": "3GPP Cause Group",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+        	"type": "noOfErabs",
+            "header": "No of ERABS",
+            "width": "100",
+            "datatype": "int",
+            "drillDownWindowType": "INTERNAL_PROC_HO_PREP_X2_OUT,RAN_LTE_HFA_IMSI_ERABS_DRILL_ON_INTERNAL_PROC_HO_PREP_X2_IN,0,NO_LINK"
+        }
+    ]
+}

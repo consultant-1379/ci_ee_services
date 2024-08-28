@@ -1,0 +1,37 @@
+{
+    "id": "RAN_LTE_HFA_IMSI_GROUP",
+    "title": "IMSI Group LTE Handover Failure : Event Analysis Summary",
+    "autoexpand": "2",
+    "defaultSortCol": "2",
+    "defaultSortDir": "ASC",
+    "columns": [
+        {
+            "header": "Group Name",
+            "width": "250",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Handover Stage",
+            "width": "100",
+            "datatype": "string",
+            "drillDownWindowType": "Preparation,RAN_LTE_HFA_GROUP_PREP,Execution,RAN_LTE_HFA_GROUP_EXEC"
+        },
+        {
+            "header": "CATEGORY ID",
+            "width": "10",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Failures",
+            "width": "120",
+            "datatype": "int"
+        },
+        {
+            "header": "Impacted Subscribers",
+            "width": "180",
+            "datatype": "int"
+        }
+    ]
+}

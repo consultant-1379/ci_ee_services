@@ -1,0 +1,16 @@
+{
+ "id": "CS_SUBSCRIBER_DETAILS_TABLE_MSISDN",
+ "title": "MSISDN Subscriber Details Voice",
+ "noSearchFieldInTitle": "TRUE",
+ "autoexpand": "2",
+ "defaultSortCol": "1",
+ "columns": [ {
+  "header": "Key",
+  "width": "150",
+  "datatype": "string"
+ },{
+  "header": "Value",
+  "width": "150",
+  "datatype": "string"
+ } ]
+}

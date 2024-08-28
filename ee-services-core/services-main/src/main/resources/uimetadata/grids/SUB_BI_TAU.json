@@ -1,0 +1,21 @@
+{
+  "id" : "SUB_BI_TAU",
+  "isChartData" : "TRUE",
+  "title" : "Subscriber Overview - TAU Analysis",
+  "autoexpand" : "3",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Event Failures",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Event Success",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "TAU",
+    "width" : "100",
+    "datatype" : "string"
+  } ]
+}

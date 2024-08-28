@@ -1,0 +1,22 @@
+{
+  "id": "NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_PREP_SOURCE_ENODEB",
+  "name": "LTE Handover Failure : QOS Statistics Analysis",
+  "url": "NETWORK/LTE_HFA_QOS_SUMMARY_ANALYSIS/ENODEB",
+  "gridDisplayID": "NETWORK_RAN_LTE_HFA_QOS_QCI_SUMM_BSC_DRILL",
+  "needSearchParam": "FALSE",
+  "searchValFromCol" : "16",
+  "params": [ {
+    "id": "16",
+    "queryParamName": "node"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }
+   ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

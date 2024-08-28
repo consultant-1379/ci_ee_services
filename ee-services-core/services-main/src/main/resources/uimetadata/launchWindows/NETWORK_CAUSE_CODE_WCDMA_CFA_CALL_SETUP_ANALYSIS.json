@@ -1,0 +1,15 @@
+{
+  "launchWindowTypeId" : "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CALL_SETUP",
+  "menuItem" : "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CALL_SETUP",
+  "searchValFromCol" : "2,3",
+  "type" : "CC",
+  "params" : [ {
+  	"id" : "2",
+    "queryParamName" : "CAUSE_CODE_DESCRIPTION",
+    "isTitleParam" : "TRUE"
+  },{
+    "id" : "3",
+    "queryParamName" : "CAUSE_VALUE",
+    "isTitleParam" : "TRUE"
+  } ]
+}

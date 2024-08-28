@@ -1,0 +1,29 @@
+{
+  "id" : "SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BSC",
+  "name" : "Event Analysis",
+  "url" : "SUBSCRIBER/EVENT_ANALYSIS",
+  "searchValFromCol" : "13",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "15",
+    "queryParamName" : "bsc"
+  }, {
+    "id" : "18",
+    "queryParamName" : "vendor"
+  }, {
+    "id" : "75",
+    "queryParamName" : "RAT"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

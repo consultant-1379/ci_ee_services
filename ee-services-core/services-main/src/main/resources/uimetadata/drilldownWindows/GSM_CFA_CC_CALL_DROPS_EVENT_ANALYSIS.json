@@ -1,0 +1,25 @@
+{
+  "id" : "GSM_CFA_CC_CALL_DROPS_EVENT_ANALYSIS",
+  "gridDisplayID" : "GSM_CFA_CC_CALL_DROPS_EVENT_ANALYSIS",
+  "menuItem" : "GSM_CFA_CC_CALL_DROPS_RANKING",
+  "url" : "NETWORK/GSM/CALL_FAILURE_DETAILED_EVENT_ANALYSIS/CAUSECODE/CALL_DROPS",
+  "params" : [ {
+    "id" : "5",
+    "queryParamName" : "causeCodeDescription",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "subCauseCodeDescription",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "6",
+    "queryParamName" : "CAUSE_VALUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "EXTENDED_CAUSE_VALUE"
+  }, {
+    "id" : "0",
+    "queryParamName" : "CATEGORY_ID",
+    "isFixedVal" : "TRUE"
+  } ]
+}

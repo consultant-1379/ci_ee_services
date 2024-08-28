@@ -1,0 +1,44 @@
+{
+  "id" : "DATAVOLUME_RANKING_QOS",
+  "title" : "QOS Class Ranking (Data Volume)",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "autoexpand" : "2",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "QOS Meantput",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "QOS Peaktput",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "QOS Reliability",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "QOS Delay",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "QOS Precedence",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Downlink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Uplink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Total Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  } ]
+}

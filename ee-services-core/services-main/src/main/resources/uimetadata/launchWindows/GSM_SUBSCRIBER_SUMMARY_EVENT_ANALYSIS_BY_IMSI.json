@@ -1,0 +1,11 @@
+{
+  "launchWindowTypeId" : "GSM_SUBSCRIBER_SUMMARY_EVENT_ANALYSIS_BY_IMSI",
+  "menuItem" : "GSM_SUBSCRIBER_SUMMARY_EVENT_ANALYSIS_BY",
+  "searchValFromCol" : "2",
+  "type" : "IMSI",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "imsi",
+    "isTitleParam" : "TRUE"
+  } ]
+}

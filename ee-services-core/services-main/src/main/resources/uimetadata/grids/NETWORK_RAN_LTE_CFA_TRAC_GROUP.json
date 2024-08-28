@@ -1,0 +1,31 @@
+{
+  "id" : "NETWORK_RAN_LTE_CFA_TRAC_GROUP",
+  "title" : "Tracking Area Group LTE Call Failure : Event Analysis",
+  "autoexpand" : "2",
+  "defaultSortCol" : "4",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Tracking Area Group",
+    "width" : "140",
+    "datatype" : "string",
+	"isSystem": "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "130",
+    "datatype" : "string"
+  }, {
+    "header" : "EventID",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "INTERNAL_PROC_INITIAL_CTXT_SETUP,NETWORK_RAN_LTE_CFA_TRAC_GRP_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP,INTERNAL_PROC_ERAB_SETUP,NETWORK_RAN_LTE_CFA_TRAC_GRP_DRILL_ON_INTERNAL_ERAB_CTXT_SETUP,INTERNAL_PROC_RRC_CONN_SETUP,NETWORK_RAN_LTE_CFA_TRAC_GRP_DRILL_ON_INTERNAL_PROC_RRC_CONN_SETUP,INTERNAL_PROC_S1_SIG_CONN_SETUP,NETWORK_RAN_LTE_CFA_TRAC_GRP_DRILL_ON_INTERNAL_PROC_S1_SIG_CONN_SETUP,INTERNAL_PROC_UE_CTXT_RELEASE,NETWORK_RAN_LTE_CFA_TRAC_GRP_DRILL_ON_INTERNAL_PROC_UE_CTXT_RELEASE"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "160",
+    "datatype" : "string"
+  } ]
+}

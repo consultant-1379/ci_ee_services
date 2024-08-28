@@ -1,0 +1,86 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="callFailureTerminalGroupAnalysisService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.terminalgroupanalysis.CallFailureTerminalGroupAnalysisService" />
+
+	<bean id="callFailureTerminalAnalysisService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.terminalanalysis.CallFailureTerminalAnalysisService" />
+
+	<bean id="callFailureMultipleRecurringFailures" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.ranking.CallFailureMultipleRecurringFailuresService" />
+
+	<bean id="callFailureMultipleRecurringFailuresDrilldown" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.CallFailureMultipleRecurringFailuresDrilldownService" />
+
+	<bean id="accessAreaCallFailureEventSummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.eventanalysis.AccessAreaCallFailureEventSummaryService" />
+
+	<bean id="subscriberEventAnalysisService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.eventanalysis.SubscriberEventAnalysisService" />
+
+	<bean id="subscriberCallFailureFAforEAByImsiGroupService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.eventanalysis.SubscriberCallFailureFAforEAByImsiGroupService" />
+
+	<bean id="terminalEventAnalysisService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.eventanalysis.TerminalEventAnalysisService" />
+
+	<bean id="terminalFailedEventAnalysisService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.eventanalysis.TerminalFailedEventAnalysisService" />
+
+	<bean id="callFailureSubscriberDetailsService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.subbi.CallFailureSubscriberDetailsService" />
+
+	<bean id="networkEventAnalysisService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.eventanalysis.NetworkEventAnalysisService" />
+	<bean id="callFailureOperatorRoamingAnalysisService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.roaminganalysis.CallFailureOperatorRoamingAnalysisService" />
+
+
+	<bean id="callFailureCountryRoamingAnalysisService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.roaminganalysis.CallFailureCountryRoamingAnalysisService" />
+
+	<bean id="callFailureCountryDrillRoamingAnalysisService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.roaminganalysis.CallFailureCountryDrillRoamingAnalysisService" />
+
+	<bean id="callFailureOperatorDrillRoamingAnalysisService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.roaminganalysis.CallFailureOperatorDrillRoamingAnalysisService" />
+
+	<bean id="callFailureCountryDrillDetailRoamingService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.roaminganalysis.CallFailureCountryDrillDetailRoamingService" />
+
+	<bean id="callFailureOperatorDrillDetailRoamingService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.roaminganalysis.CallFailureOperatorDrillDetailRoamingService" />
+
+	<bean id="tacCFAEventSummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.eventanalysis.TACCFAEventSummaryService" />
+
+	<bean id="rncDisconResource" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.disconnectionanalysis.RNCByDisconChartResource" />
+
+	<bean id="cellDisconResource" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.disconnectionanalysis.CellByDisconChartResource" />
+
+	<bean id="rncByRabTypeResource" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.rabanalysis.RNCByRABTypeChartResource" />
+
+	<bean id="rncByRabDescResource" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.rabanalysis.RNCByRABDescChartResource" />
+
+	<bean id="cellByRabTypeResource" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.rabanalysis.CellByRABTypeChartResource" />
+
+	<bean id="cellByRabDescResource" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.rabanalysis.CellByRABDescChartResource" />
+
+	<bean id="networkDetailedEventAnalysisByFilterService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.eventanalysis.NetworkDetailedEventAnalysisByFilterService" />
+
+	<bean id="rncCallFailureRankingService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.ranking.RNCCallFailureRankingService" />
+
+	<bean id="accessAreaCallFailureAnalysisRankingService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.wcdma.callfailure.ranking.AccessAreaCallFailureAnalysisRankingService" />
+</beans>

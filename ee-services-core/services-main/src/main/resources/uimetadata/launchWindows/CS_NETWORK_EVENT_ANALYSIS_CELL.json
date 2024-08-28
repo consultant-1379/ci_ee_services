@@ -1,0 +1,26 @@
+{
+  "launchWindowTypeId" : "CS_NETWORK_EVENT_ANALYSIS_CELL",
+  "menuItem" : "CS_NETWORK_EVENT_ANALYSIS",
+  "searchValFromCol" : "7",
+  "type" : "CELL",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "4",
+    "queryParamName" : "RAT"
+  }, {
+    "id" : "5",
+    "queryParamName" : "vendor"
+  }, {
+    "id" : "6",
+    "queryParamName" : "bsc"
+  }, {
+    "id" : "7",
+    "queryParamName" : "cell"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

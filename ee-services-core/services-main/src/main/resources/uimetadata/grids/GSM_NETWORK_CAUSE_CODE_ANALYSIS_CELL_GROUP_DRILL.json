@@ -1,0 +1,45 @@
+{
+  "id" : "GSM_NETWORK_CAUSE_CODE_ANALYSIS_CELL_GROUP_DRILL",
+  "title" : "Access Area Sub Cause Code Analysis",
+  "autoexpand" : "2",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Extended Cause Code ID",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Extended Cause Code Description",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int",
+    "drillDownWindowType" : "GSM_NETWORK_CAUSE_CODE_ANALYSIS_CELL_DETAIL"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Node",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }, {
+    "header" : "CauseCodeDescription",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }, {
+    "header" : "CauseCode",
+    "width" : "50",
+    "datatype" : "string",
+    "isSystem" : "true"
+  } ],
+   "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

@@ -1,0 +1,51 @@
+##
+## WCDMA Call Failure Analysis Access Area group Cause Code Summary (using raw tables)
+##
+##
+## Named PreparedStatement Parameter:
+## 	   :groupname  cell/access area group	
+##     :dateFrom   starting time
+##     :dateTo     ending time#
+
+SELECT
+	err.CAUSE_VALUE as 'Cause Code ID',
+	cvref.CAUSE_VALUE_DESC as 'Cause Code Description',
+	count(*) as NO_OF_ERRORS,
+	isnull(count(distinct(err.IMSI)),0) as 'Impacted Subscribers',
+	:groupname as 'Access Area Group'	
+FROM
+(
+	#foreach ($errtable in $TECH_PACK_LIST.getAllRawTables())
+		(
+        SELECT
+        	CAUSE_VALUE,        	
+        	IMSI
+        FROM
+        	dc.${errtable} errRef,        	
+        	dc.GROUP_TYPE_E_RAT_VEND_HIER321_CELL accessAreaGroup
+        WHERE
+        	#GET_DATETIME_RANGE()
+        	and accessAreaGroup.GROUP_NAME = :groupname
+        	and accessAreaGroup.HIER3_CELL_ID = errRef.HIER3_CELL_ID	 
+        	AND #GET_TAC_EXCLUSION()        	
+			#if ($causeCodeIds)
+				AND
+				CAUSE_VALUE  in ($causeCodeIds)
+			#end
+        )
+		#if($velocityCount < $TECH_PACK_LIST.getAllRawTables().size())
+			UNION ALL
+		#end
+	#end
+) AS err (CAUSE_VALUE, IMSI)
+left outer join dc.DIM_E_RAN_CFA_CAUSE_VALUE cvref 
+on (
+	err.CAUSE_VALUE=cvref.CAUSE_VALUE
+)
+GROUP BY
+	err.CAUSE_VALUE,
+	cvref.CAUSE_VALUE_DESC
+order by
+	err.CAUSE_VALUE,
+	NO_OF_ERRORS desc
+			

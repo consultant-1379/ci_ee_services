@@ -1,0 +1,7 @@
+{
+  "id" : "DRILL_CHART_TERMINAL_GA_HIGHEST_DATAVOLUME",
+  "drillTargetDisplayId" : "DRILL_CHART_TERMINAL_GA_HIGHEST_DATAVOLUME_GRID",
+  "chartClickedURLParam" : "groupname",
+  "drillToolBarType" : "TERMINAL_GROUP_ANALYSIS_DRILL_GRIDS_TOOLBAR",
+  "maxRowsParam" : "ENIQ_EVENTS_SUBBI_COUNT"
+}

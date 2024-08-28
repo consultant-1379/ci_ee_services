@@ -1,0 +1,34 @@
+{
+  "id" : "CS_MSC_DROPPED_RANKING",
+  "title" : "MSC Ranking - Dropped Voice Calls",
+  "autoexpand" : "6",
+  "defaultSortCol" : "2",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "EVNTSRC_ID",
+    "width" : "70",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "MSC",
+    "width" : "100",
+    "datatype" : "string",
+    "launchWindowType" : "CS_NETWORK_EVENT_ANALYSIS_MSC"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

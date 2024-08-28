@@ -1,0 +1,30 @@
+{
+  "toolBarType" : "TOOLBAR_TOGGLE_ON_GRID",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    }, {
+      "id" : "btnToggleToGrid",
+      "name" : "",
+      "style" : "toolbar_toggleToGraphbtn",
+      "tip" : "Click to toggle display from a table to a graph",
+      "isEnabled" : "TRUE",
+      "isToggle" : "TRUE",
+      "eventID" : "TOGGLE_TO_GRID"
+    } ]
+  } ]
+}

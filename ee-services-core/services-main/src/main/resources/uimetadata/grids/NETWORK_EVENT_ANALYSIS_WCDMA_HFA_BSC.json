@@ -1,0 +1,53 @@
+{
+    "id": "NETWORK_EVENT_ANALYSIS_WCDMA_HFA_BSC",
+    "title": "Controller Event Analysis",
+    "autoexpand": "2",
+    "defaultSortCol": "5",
+    "defaultSortDir": "DESC",
+    "categoryId" : "NETWORK_EVENT_ANALYSIS_WCDMA_HFA_BSC",
+    "columns": [
+        {
+            "header": "RAT ID",
+            "width": "70",
+            "datatype": "int",
+            "isSystem" : "TRUE"
+        },
+        {
+            "type" : "vendor",
+            "header": "RAN Vendor",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type" : "controller",
+            "header": "Controller",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "CATEGORY ID",
+            "width": "10",
+            "datatype": "int",
+            "isSystem" : "TRUE"
+        },
+        {
+            "type" : "handoverType",
+            "header": "Handover Type",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "type" : "failures",
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int",
+            "drillDownWindowType": "*,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_RNC_SOHO,Soft\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_RNC_SOHO,Interfrequency\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_RNC_IFHO,IRAT\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_RNC_IRAT,HSDSCH\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_RNC_HSDSCH"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header": "Impacted Subscribers",
+            "width": "140",
+            "datatype": "String"
+        }
+    ]
+}

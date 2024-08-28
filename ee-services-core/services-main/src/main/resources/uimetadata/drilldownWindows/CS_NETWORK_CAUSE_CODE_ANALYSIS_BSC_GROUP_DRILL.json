@@ -1,0 +1,28 @@
+{
+  "id" : "CS_NETWORK_CAUSE_CODE_ANALYSIS_BSC_GROUP_DRILL",
+  "name" : "Controller Fault Code Analysis Voice",
+  "url" : "MSS/NETWORK/EVENT_ANALYSIS",
+  "params" : [ {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "groupname"
+  }, {
+    "id" : "2",
+    "queryParamName" : "internalCauseCode"
+  }, {
+    "id" : "4",
+    "queryParamName" : "faultCode"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

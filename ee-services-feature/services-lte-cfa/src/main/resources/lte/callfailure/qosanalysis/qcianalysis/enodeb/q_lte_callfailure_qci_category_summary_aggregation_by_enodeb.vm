@@ -1,0 +1,81 @@
+##
+## Author : ECHIMMA
+## LTE Call Failure QOS QCI Tracking Area Category Summary Analysis (using aggregation tables)
+##
+## Velocity Parameter: 
+##		
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+
+#set($conditionColumns=["HIER3_ID"])
+#set($columnsToSelect=["QCI_ID", "CATEGORY_ID", "IMSI"])
+#set($columnsToIncludeInNewView=["QCI_ID", "CATEGORY_ID", "HIER3_ID"])
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	:HIER3_ID as HIER3_ID,
+	aggView.QCI_ID as QCI_ID,
+	DIM_E_LTE_QCI.QCI_ID_DESCRIPTION as 'QCI Description',
+	aggView.CATEGORY_ID as CATEGORY_ID,
+	eventDesc.CATEGORY_ID_DESC,
+	aggView.NO_OF_ERRORS as Failures,
+	subscribers.IMPACTED_SUBSCRIBERS as 'Impacted Subscribers',
+	topology.HIERARCHY_3 AS 'Controller',
+	topology.VENDOR AS 'Vendor'
+FROM
+	#UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS_POST_AGGREGATE_WITH_CONDITION($aggregationViewList "aggView" $columnsToIncludeInNewView "NO_OF_ERRORS" $conditionColumns)
+left outer join
+	(
+		select
+			count(distinct rawview.IMSI) as IMPACTED_SUBSCRIBERS,
+			:HIER3_ID as HIER3_ID,
+			QCI_ID,
+			CATEGORY_ID
+		from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" $conditionColumns $columnsToSelect)
+		group by
+			QCI_ID,
+			CATEGORY_ID
+	) as subscribers
+on
+	(aggView.CATEGORY_ID = subscribers.CATEGORY_ID and aggView.QCI_ID = subscribers.QCI_ID)
+left outer join
+	dc.DIM_E_LTE_QCI
+on 
+	dc.DIM_E_LTE_QCI.QCI_NUMBER = aggView.QCI_ID
+inner join
+	(
+		 select 
+			CATEGORY_ID,
+			CATEGORY_ID_DESC
+		from 
+			dc.DIM_E_LTE_CFA_EVENTTYPE
+		group by
+			CATEGORY_ID,
+			CATEGORY_ID_DESC
+	 )	as eventDesc
+on
+	eventDesc.CATEGORY_ID = isnull(aggView.CATEGORY_ID,subscribers.CATEGORY_ID)
+left outer join (
+		select 
+			HIERARCHY_3,
+			HIER3_ID,
+			VENDOR
+		from 
+			dc.DIM_E_LTE_HIER321
+		where 
+			HIER3_ID = :HIER3_ID	
+		group by
+			HIER3_ID,
+        	HIERARCHY_3,
+			VENDOR
+	) as topology
+	on (
+		topology.HIER3_ID = isnull(aggView.HIER3_ID,subscribers.HIER3_ID)
+		)	
+order by aggView.QCI_ID ASC, aggView.CATEGORY_ID DESC

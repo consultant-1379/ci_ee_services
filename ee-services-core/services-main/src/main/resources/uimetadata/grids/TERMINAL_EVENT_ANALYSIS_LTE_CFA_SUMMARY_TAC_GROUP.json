@@ -1,0 +1,49 @@
+{
+    "id" : "TERMINAL_EVENT_ANALYSIS_LTE_CFA_SUMMARY_TAC_GROUP",
+    "title" : "Terminal Group LTE Call Failure : Event Analysis Summary",
+    "autoexpand" : "3",
+    "defaultSortCol" : "3",
+    "defaultSortDir" : "DESC",
+    "categoryId" : "TERMINAL_EVENT_ANALYSIS_LTE_CFA_SUMMARY_TAC_GROUP",
+    "columns" : [
+        {
+            "type" : "groupName",
+            "header" : "Group Name",
+            "width" : "140",
+            "datatype" : "string",
+            "isSystem" : "TRUE",
+            "licenseCXC": "CXC4011279"
+        },
+        {
+            "type" : "CategoryId",
+            "header" : "Category ID",
+            "width" : "100",
+            "datatype" : "int",
+            "isSystem" : "TRUE",
+            "licenseCXC": "CXC4011279"
+        },
+        {
+            "type" : "category",
+            "header" : "Failure Category",
+            "width" : "100",
+            "datatype" : "string",
+            "drillDownWindowType" : "TERMINAL_EVENT_ANALYSIS_LTE_CFA_DRILL_ON_CATEGORY_GROUP",
+            "licenseCXC": "CXC4011279"
+        },
+        {
+            "type" : "failures",
+            "header" : "Failures",
+            "width" : "90",
+            "datatype" : "int",
+            "licenseCXC": "CXC4011279"            
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header" : "Impacted Subscribers",
+            "width" : "160",
+            "datatype" : "int",
+            "licenseCXC": "CXC4011279"
+        }
+        
+    ]
+}

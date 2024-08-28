@@ -1,0 +1,30 @@
+{
+  "id" : "CS_SHORT_DURATION_CALLS_RANKING",
+  "title" : "Duration Calls Ranking - Short Duration Voice Calls",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "IMSI",
+    "width" : "100",
+    "datatype" : "string",
+    "launchWindowType" : "CS_SUBSCRIBER_EVENT_ANALYSIS_IMSI"
+  }, {
+    "header" : "MSISDN",
+    "width" : "100",
+    "datatype" : "string",
+    "launchWindowType" : "CS_SUBSCRIBER_EVENT_ANALYSIS_MSISDN"
+  }, {
+    "header" : "Calling Party Number",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Call Duration",
+    "width" : "90",
+    "datatype" : "int"
+  } ]
+}

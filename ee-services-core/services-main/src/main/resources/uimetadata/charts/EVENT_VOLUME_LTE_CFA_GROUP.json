@@ -1,0 +1,28 @@
+{
+  "id" : "EVENT_VOLUME_LTE_CFA_GROUP",
+  "title" : "LTE Call Failure - Event Volume Analysis",
+  "xlabel" : "Time",
+  "ylabel" : "Number of Events",
+  "secondYAxisID" : "7",
+  "xaxisID" : "1",
+  "zoomableXAxis" : "TRUE",
+  "items" : [ {
+    "id" : "2",
+    "name" : "INTERNAL_PROC_RRC_CONN_SETUP Fail Count"
+  }, {
+    "id" : "3",
+    "name" : "INTERNAL_PROC_S1_SIG_CONN_SETUP Fail Count"
+  }, {
+    "id" : "4",
+    "name" : "INTERNAL_PROC_INITIAL_CTXT_SETUP Fail Count"
+  }, {
+    "id" : "5",
+    "name" : "INTERNAL_PROC_ERAB_SETUP Fail Count"
+  }, {
+    "id" : "6",
+    "name" : "INTERNAL_PROC_UE_CTXT_RELEASE Fail Count"
+  }, {
+    "id" : "7",
+    "name" : "Impacted Subscribers"
+  } ]
+}

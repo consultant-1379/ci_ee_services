@@ -1,0 +1,64 @@
+{
+    "id" : "NETWORK_GSM_EVENT_ANALYSIS_SUMMARY_CELL",
+    "title" : "Access Area GSM Call Failure : Event Analysis Summary",
+    "categoryId" : "NETWORK_GSM_EVENT_ANALYSIS_SUMMARY_CELL",
+    "autoexpand" : "4",
+    "columns" : [
+        {
+            "type" : "vendor",
+            "header" : "RAN Vendor",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "controller",
+            "header" : "Controller",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "100",
+            "datatype" : "string",
+            "drillDownWindowType" : "GSM_CAUSE_CODE_ANALYSIS_BY_CELL_EVENT_TYPE"
+        },
+        {
+            "type" : "failures",
+            "header" : "Failures",
+            "width" : "100",
+            "datatype" : "int"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header" : "Impacted Subscribers",
+            "width" : "150",
+            "datatype" : "int"
+        },
+        {
+        	"type" : "failureRatio",
+    		"header" : "Failure Ratio",
+    		"width" : "130",
+    		"datatype" : "double"
+  		}, 
+        {
+            "header" : "HIER321_ID",
+            "width" : "50",
+            "datatype" : "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header" : "CATEGORY_ID",
+            "width" : "50",
+            "datatype" : "int",
+            "isSystem": "TRUE"
+        },
+        {
+        	"type" : "accessArea",
+            "header" : "Access Area",
+            "width" : "100",
+            "datatype" : "string",
+            "isHidden": "TRUE"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "launchWindowTypeId": "WCDMA_RAN_CFA_BSC_DRILL_BY_RAB_TYPE_CONFIG",
+    "menuItem": "DRILL_CHART_RNC_RAB_TYPE_FROM_DRILL_BY",
+    "searchValFromCol": "3",
+    "type": "BSC",
+    "drillTargetType": "CHART",
+    "needSearchParam": "FALSE",
+    "params": [
+        {
+            "id": "6",
+            "queryParamName": "HIER3_ID"
+        },
+        {
+            "id": "BSC",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        },
+        {
+            "id":"7",
+            "queryParamName":"eventID"
+        },
+        {
+            "id": "10",
+            "queryParamName": "drillCat"
+        }
+    ]
+}

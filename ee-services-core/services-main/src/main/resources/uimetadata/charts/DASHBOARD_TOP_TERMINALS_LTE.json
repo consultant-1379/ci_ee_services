@@ -1,0 +1,29 @@
+{
+    "id": "DASHBOARD_TOP_TERMINALS_LTE",
+    "title": "Top 5 Impacted Terminals",
+    "ylabel": "Failures",
+    "xlabel": "",
+    "xaxisID": "2",
+    "items": [
+        {
+            "id": "2",
+            "isSystem": "true",
+            "queryParam": "vendor"
+        },
+        {
+            "id": "3",
+            "isSystem": "true",
+            "queryParam": "marketingname"
+        },
+        {
+            "id": "4",
+            "isSystem" : "true",
+            "queryParam": "tac"
+        },
+        {
+            "id": "5",
+            "name": "Failures",
+            "color": "cb5853"
+        }
+    ]
+}

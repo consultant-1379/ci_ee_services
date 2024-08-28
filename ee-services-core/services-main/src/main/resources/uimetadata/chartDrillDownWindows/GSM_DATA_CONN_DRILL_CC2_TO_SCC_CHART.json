@@ -1,0 +1,7 @@
+{
+  "id" : "GSM_DATA_CONN_DRILL_CC2_TO_SCC_CHART",
+  "drillWindowName" : "Sub Cause Code Analysis (GSM)",
+  "url" : "NETWORK/GSM/DATA_CONNECTION_CAUSE_CODE_ANALYSIS/SUB_CAUSE_CODE_PIE_CHART_IMSI",
+  "drillToolBarType" : "CAUSE_CODE_PIE_DRILL_SUB_CAUSE_CODE",
+  "drillType" : "launchChart"
+}

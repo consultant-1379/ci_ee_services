@@ -1,0 +1,39 @@
+{
+  "id" : "NETWORK_ENODEB_RANKING_RAN_LTE_CFA_CALL_DROP",
+  "title" : " Controller LTE Call Failure Call Drops : Failure Event Ranking",
+  "defaultSortCol" : "2",
+  "defaultSortDir" : "ASC",
+  "autoexpand" : "4",
+  "columns" : [  {
+    "header" : "HIER3_ID",
+    "width" : "50",
+    "datatype" : "string",
+    "isSystem" : "TRUE"  	
+  }, {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden": "TRUE"
+  }, {
+    "header" : "Controller",
+    "width" : "50",
+    "datatype" : "string",
+	"drillDownLicenseCXC" : "CXC4010927",
+    "launchWindowType":"NETWORK_ENODEB_RANKING_DRILL_ON_RAN_LTE_CFA_CALL_SETUP_DROP"
+  }, {
+    "header" : "Failures",
+    "width" : "150",
+    "datatype" : "int"
+  }, {
+    "header" : "RAT",
+    "width" : "90",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  } ]
+}
+
+

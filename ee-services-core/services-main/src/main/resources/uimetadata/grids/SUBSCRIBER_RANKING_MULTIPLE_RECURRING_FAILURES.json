@@ -1,0 +1,47 @@
+{
+  "id" : "SUBSCRIBER_RANKING_MULTIPLE_RECURRING_FAILURES",
+  "title" : "Subscriber WCDMA Call Failure by Recurring Failure : Event Ranking",
+  "autoexpand" : "8",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "IMSI",
+    "width" : "100",
+    "datatype" : "string",
+    "drillDownWindowType" : "DRILL_MULTIPLE_RECURRING_FAILURES"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Vendor",
+    "width" : "70",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Cell ID",
+    "width" : "70",
+    "datatype" : "int",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Cause Value",
+    "width" : "70",
+    "datatype" : "int",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Extended Cause Value",
+    "width" : "70",
+    "datatype" : "int",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Controller",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Access Area",
+    "width" : "100",
+    "datatype" : "string"
+  } ]
+}

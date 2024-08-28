@@ -1,0 +1,820 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+	  <groupId>com.ericsson.eniq</groupId>
+	  <artifactId>integration</artifactId>
+	  <version>1.0.5</version>
+	</parent>
+
+	<groupId>com.ericsson.eniq.events</groupId>
+	<artifactId>eniq-events-services-parent</artifactId>
+	<version>14.0-A-2</version>
+	<packaging>pom</packaging>
+	<name>${eniq.events.app.name} :: Services Parent</name>
+	<properties>
+		<pmd.root>.</pmd.root>
+		<eniq.events.app.name>ENIQ Events</eniq.events.app.name>
+		<spring.version>3.0.4.RELEASE</spring.version>
+		<java.version>6</java.version>
+		<project.build.java.target>1.6</project.build.java.target>
+		<eniq.shared.model>R2A06</eniq.shared.model>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<modules>
+		<module>ee-services-core</module>
+		<module>ee-services-common-utils</module>
+		<module>ee-services-feature</module>
+		<module>ee-services-jdbc</module>
+		<module>ee-services-logging</module>
+		<module>ee-services-test</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- <dependency>
+				<groupId>org.jmock</groupId>
+				<artifactId>jmock-junit4</artifactId>
+				<version>2.5.1</version>
+				<scope>test</scope>
+			</dependency> -->
+			<!-- <dependency>
+				<groupId>org.jmock</groupId>
+				<artifactId>jmock</artifactId>
+				<version>2.5.1</version>
+				<scope>test</scope>
+			</dependency> -->
+			<!-- <dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.8.1</version>
+				<scope>test</scope>
+			</dependency> -->
+			<!-- <dependency>
+				<groupId>org.jmock</groupId>
+				<artifactId>jmock-legacy</artifactId>
+				<version>2.5.1</version>
+				<scope>test</scope>
+			</dependency> -->
+
+			<dependency>
+				<groupId>com.ericsson.eniq</groupId>
+				<artifactId>eniq_events_shared_model</artifactId>
+				<version>${eniq.shared.model}</version>
+				<scope>compile</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.persistence</groupId>
+				<artifactId>javax.persistence</artifactId>
+				<version>2.0.0</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- <dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>1</version>
+				<scope>provided</scope>
+			</dependency> -->
+
+			<!-- <dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-mapper-asl</artifactId>
+				<version>1.8.5</version>
+			</dependency> -->
+
+			<dependency>
+				<groupId>org.glassfish</groupId>
+				<artifactId>javax.servlet</artifactId>
+				<version>3.1-b41</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.glassfish</groupId>
+				<artifactId>javax.transaction</artifactId>
+				<version>3.1-b41</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.glassfish</groupId>
+				<artifactId>javax.security.jacc</artifactId>
+				<version>3.1-b41</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.glassfish.security</groupId>
+				<artifactId>security</artifactId>
+				<version>3.1-b41</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.ws.rs</groupId>
+				<artifactId>jsr311-api</artifactId>
+				<version>1.1.1</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>pl.pragmatists</groupId>
+				<artifactId>JUnitParams</artifactId>
+				<version>0.3.2</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>sun.jersey.glassfish.v3.osgi</groupId>
+				<artifactId>jersey-gf-bundle</artifactId>
+				<version>11.4.1</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.glassfish</groupId>
+				<artifactId>javax.ejb</artifactId>
+				<version>3.1-b41</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.dbunit</groupId>
+				<artifactId>dbunit</artifactId>
+				<version>2.4.5</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.ericsson.eniq</groupId>
+				<artifactId>licensing</artifactId>
+				<version>R5C08</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.ericsson.eniq.common</groupId>
+				<artifactId>common</artifactId>
+				<version>R6F10</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.distocraft.dc5000</groupId>
+				<artifactId>repository</artifactId>
+				<version>R6E11_EC02</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.distocraft.dc5000.etl.importexport</groupId>
+				<artifactId>export</artifactId>
+				<version>R4A03</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.distocraft.dc5000.dwhm</groupId>
+				<artifactId>dwh_manager</artifactId>
+				<version>R5D09</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.ericsson.eniq</groupId>
+				<artifactId>engine</artifactId>
+				<version>R6G19_EC02</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-core</artifactId>
+				<version>1.9.1</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-bundle</artifactId>
+				<version>1.13</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.sun.jersey.contribs</groupId>
+				<artifactId>jersey-apache-client</artifactId>
+				<version>1.13</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>2.5</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>3.2.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>velocity</groupId>
+				<artifactId>velocity-dep</artifactId>
+				<version>1.4</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjrt</artifactId>
+				<version>1.6.11</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.sybase</groupId>
+				<artifactId>jconn3</artifactId>
+				<version>12.7</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.version}</version>
+				<type>jar</type>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+				<type>jar</type>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+				<type>jar</type>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>hsqldb</groupId>
+				<artifactId>hsqldb</artifactId>
+				<version>1.8.0.10</version>
+				<scope>test</scope>
+			</dependency>
+
+
+
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+		<!-- <dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency> -->
+		<!-- <dependency>
+			<groupId>org.jmock</groupId>
+			<artifactId>jmock-junit4</artifactId>
+		</dependency> -->
+		<!-- <dependency>
+			<groupId>org.jmock</groupId>
+			<artifactId>jmock-legacy</artifactId>
+		</dependency> -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<source>${project.build.java.target}</source>
+						<target>${project.build.java.target}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>2.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>aspectj-maven-plugin</artifactId>
+					<version>1.4</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.7.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.6</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.4.3</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.1.1</version>
+				</plugin>
+				<!-- <plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-pmd-plugin</artifactId>
+					<version>2.3</version>
+				</plugin> -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>cobertura-maven-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>2.9</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*IntegrationTest.java</include>
+						<include>**/*RESTfulServiceTest.java</include>
+						<include>**/*RESTfulTest.java</include>
+						<include>**/*RestfulTest.java</include>
+					</includes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>integration-test</id>
+						<goals>
+							<goal>integration-test</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>verify</id>
+						<goals>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- <plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<configuration>
+					<rulesets>
+						<ruleset>http://eselivm2v214l.lmera.ericsson.se:8081/nexus/service/local/repositories/oex-interim/content/com/ericsson/oss/build/support/QRank3_8_wrancm_ruleset/1.0.0/QRank3_8_wrancm_ruleset-1.0.0.xml</ruleset>
+					
+					</rulesets>
+					<targetJdk>1.6</targetJdk>
+					<excludes>
+						<exclude>**/src/test/*.java</exclude>
+					</excludes>
+					<includeTests>false</includeTests>
+					<sourceEncoding>utf-8</sourceEncoding>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>test</phase>
+						<goals>
+							<goal>pmd</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin> -->
+			<!-- Duplicated below. Causes nasty warning. plugin> <groupId>org.codehaus.mojo</groupId> 
+				<artifactId>cobertura-maven-plugin</artifactId> <configuration> <formats> 
+				<format>xml</format> </formats> </configuration> <executions> <execution> 
+				<phase>none</phase> </execution> </executions> </plugin -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<configuration>
+					<formats>
+						<format>xml</format>
+					</formats>
+					<instrumentation>
+						<excludes>
+							<exclude>com/ericsson/eniq/events/server/test/**/*.class</exclude>
+						</excludes>
+					</instrumentation>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-reactor-plugin</artifactId>
+				<version>1.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>com.ericsson.eniq:*</include>
+						<include>com.distocraft.dc5000:*</include>
+					</includes>
+					<excludes>
+						<exclude>com.ericsson.eniq.events:eniq-events-parent:pom:12.0-SNAPSHOT</exclude>
+						<exclude>org.jmock:*</exclude>
+						<exclude>org.eclipse.persistence:*</exclude>
+						<exclude>javax.inject:*</exclude>
+						<exclude>org.codehaus.jackson:*</exclude>
+						<exclude>org.glassfish:*</exclude>
+						<exclude>javax.ws.rs:*</exclude>
+						<exclude>pl.pragmatists:*</exclude>
+						<exclude>sun.jersey.glassfish.v3.osgi:*</exclude>
+						<exclude>org.dbunit:*</exclude>
+						<exclude>com.sun.jersey:*</exclude>
+						<exclude>commons-lang:*</exclude>
+						<exclude>commons-collections:*</exclude>
+						<exclude>velocity:*</exclude>
+						<exclude>org.aspectj:*</exclude>
+						<exclude>com.sybase:*</exclude>
+						<exclude>org.springframework:*</exclude>
+						<exclude>hsqldb:hsqldb</exclude>
+						<exclude>junit:junit</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.1.3</version>
+				<configuration>
+					<container>
+						<containerId>glassfish3x</containerId>
+						<type>remote</type>
+					</container>
+					<configuration>
+						<type>runtime</type>
+						<properties>
+							<cargo.hostname>${glassfish.hostname}.athtem.eei.ericsson.se:14848</cargo.hostname>
+							<cargo.remote.username>admin</cargo.remote.username>
+							<cargo.remote.password>admin</cargo.remote.password>
+						</properties>
+					</configuration>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.glassfish.deployment</groupId>
+						<artifactId>deployment-client</artifactId>
+						<version>3.1</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+	<!-- <distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Releases</name>
+			<url>http://eselivm2v214l.lmera.ericsson.se:8081/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Snapshots</name>
+			<url>http://eselivm2v214l.lmera.ericsson.se:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement> -->
+	<profiles>
+		<profile>
+			<id>groovy</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<groovyTarget>compile</groovyTarget>
+				<coberturaTarget>instrument</coberturaTarget>
+				<aspectj.groovy>none</aspectj.groovy>
+				<ant.groovy>none</ant.groovy>
+				<site.groovy>none</site.groovy>
+			</properties>
+			<modules>
+				<module>services-groovy</module>
+			</modules>
+			<dependencies>
+				<dependency>
+					<groupId>org.codehaus.groovy</groupId>
+					<artifactId>groovy</artifactId>
+					<version>1.7.10</version>
+				</dependency>
+				<dependency>
+					<groupId>commons-io</groupId>
+					<artifactId>commons-io</artifactId>
+					<version>2.0.1</version>
+				</dependency>
+				<dependency>
+					<groupId>commons-lang</groupId>
+					<artifactId>commons-lang</artifactId>
+					<version>2.5</version>
+				</dependency>
+				<dependency>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.6</version>
+				</dependency>
+				<dependency>
+					<groupId>net.sourceforge.cobertura</groupId>
+					<artifactId>cobertura</artifactId>
+					<version>1.9.4.1</version>
+				</dependency>
+				<dependency>
+					<groupId>org.aspectj</groupId>
+					<artifactId>aspectjrt</artifactId>
+				</dependency>
+			</dependencies>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<configuration>
+							<testFailureIgnore>true</testFailureIgnore>
+							<additionalClasspathElements>
+								<additionalClasspathElement>${project.build.directory}/generated-classes
+								</additionalClasspathElement>
+							</additionalClasspathElements>
+							<systemProperties>
+								<property>
+									<name>net.sourceforge.cobertura.datafile</name>
+									<value>${project.build.directory}/cobertura/cobertura.ser</value>
+								</property>
+							</systemProperties>
+						</configuration>
+					</plugin>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.6</version>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.velocity</groupId>
+								<artifactId>velocity</artifactId>
+								<version>1.7</version>
+							</dependency>
+
+							<dependency>
+								<groupId>commons-lang</groupId>
+								<artifactId>commons-lang</artifactId>
+								<version>2.5</version>
+							</dependency>
+							<dependency>
+								<groupId>commons-io</groupId>
+								<artifactId>commons-io</artifactId>
+								<version>2.0.1</version>
+							</dependency>
+							<dependency>
+								<groupId>commons-cli</groupId>
+								<artifactId>commons-cli</artifactId>
+								<version>1.2</version>
+							</dependency>
+						</dependencies>
+						<executions>
+							<execution>
+								<id>groovy</id>
+								<phase>${ant.groovy}</phase>
+								<configuration>
+									<target>
+										<property name="test-classpath" refid="maven.test.classpath" />
+										<property name="project-build-directory" value="${project.build.directory}" />
+										<property name="velocity-sources"
+											value="${project.basedir}/src/main/resources" />
+										<ant antfile="${project.basedir}/src/test/resources/buildGroovy.xml" inheritRefs="true">
+											<target name="${groovyTarget}" />
+										</ant>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>cobertura</id>
+								<phase>${ant.groovy}</phase>
+								<configuration>
+									<target>
+										<property name="test-classpath" refid="maven.test.classpath" />
+										<property name="project-build-directory" value="${project.build.directory}" />
+										<ant antfile="${project.basedir}/src/test/resources/buildCobertura.xml" inheritRefs="true">
+											<target name="${coberturaTarget}" />
+										</ant>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>report</id>
+								<phase>${site.groovy}</phase>
+								<configuration>
+									<target>
+										<property name="test-classpath" refid="maven.test.classpath" />
+										<property name="project-build-directory" value="${project.build.directory}" />
+										<ant antfile="${project.basedir}/src/test/resources/buildCobertura.xml" inheritRefs="true">
+											<target name="report" />
+										</ant>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<version>1.8</version>
+						<executions>
+							<execution>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>add-source</goal>
+								</goals>
+								<configuration>
+									<sources>
+										<source>${project.build.directory}/generated-sources/groovy</source>
+										<source>${project.build.directory}/generated-sources/velocity</source>
+									</sources>
+								</configuration>
+							</execution>
+							<execution>
+								<id>add-test-source</id>
+								<phase>generate-test-sources</phase>
+								<goals>
+									<goal>add-test-source</goal>
+								</goals>
+								<configuration>
+									<sources>
+										<source>${project.build.directory}/generated-sources/velocity</source>
+									</sources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.8</version>
+						<configuration>
+							<testFailureIgnore>true</testFailureIgnore>
+							<excludes>
+								<exclude>**/integritytests/**/*Test.java</exclude>
+							</excludes>
+							<systemProperties>
+								<property>
+									<name>net.sourceforge.cobertura.datafile</name>
+									<value>${project.build.directory}/cobertura/cobertura.ser</value>
+								</property>
+							</systemProperties>
+						</configuration>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+		<!-- <profile>
+			<id>noPMD</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-pmd-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>none</phase>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile> -->
+		<profile>
+			<id>ci</id>
+			<build>
+				<directory>${env.WORKSPACE}/${project.artifactId}/target</directory>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<testFailureIgnore>true</testFailureIgnore>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.sonar</groupId>
+						<artifactId>sonar-maven-plugin</artifactId>
+						<version>2.7</version>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>run_integration_tests_only</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<excludes>
+								<exclude>**/*Test.java</exclude>
+							</excludes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>showclasspath</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>clean</id>
+								<phase>clean</phase>
+								<configuration>
+									<target>
+										<property name="compile_classpath" refid="maven.compile.classpath" />
+										<property name="runtime_classpath" refid="maven.runtime.classpath" />
+										<property name="test_classpath" refid="maven.test.classpath" />
+										<property name="plugin_classpath" refid="maven.plugin.classpath" />
+										<echo message="compile classpath: ${compile_classpath}" />
+
+										<echo message="runtime classpath: ${runtime_classpath}" />
+										<echo message="test classpath:    ${test_classpath}" />
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.7.2</version>
+				<configuration>
+					<aggregate>true</aggregate>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<aggregate>true</aggregate>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>

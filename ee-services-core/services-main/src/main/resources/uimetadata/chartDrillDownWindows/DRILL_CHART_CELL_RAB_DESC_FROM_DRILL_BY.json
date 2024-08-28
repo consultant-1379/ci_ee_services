@@ -1,0 +1,28 @@
+{
+  "id" : "DRILL_CHART_CELL_RAB_DESC_FROM_DRILL_BY",
+  "drillWindowName" : "RAB Description Analysis",
+  "url" : "NETWORK/WCDMA_NETWORK_CALL_FAILURE_ANALYSIS/PIE_CHART_CELL_BY_RABDESC",
+  "drillToolBarType" : "CAUSE_CODE_PIE_DRILL_SUB_CAUSE_CODE",
+  "drillType" : "launchChart",
+    "params": [
+        {
+            "id": "2",
+            "queryParamName": "RAN_VENDOR"
+        },
+        {
+    		"id" : "4",
+    		"queryParamName" : "cellId",
+    		"isTitleParam" : "TRUE"
+  		},
+        {
+            "id": "3",
+            "queryParamName": "RNC_FDN"
+        },
+        {
+            "id": "CELL",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        }
+    ]
+}
+

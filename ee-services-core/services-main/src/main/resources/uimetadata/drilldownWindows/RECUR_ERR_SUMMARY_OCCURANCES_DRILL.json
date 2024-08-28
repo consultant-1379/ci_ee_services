@@ -1,0 +1,28 @@
+{
+  "id" : "RECUR_ERR_SUMMARY_OCCURANCES_DRILL",
+  "name" : "Failure Recurrences Details",
+  "gridDisplayID" : "RECUR_ERR_SUMMARY_OCCURANCES_DRILL_GRID",
+  "url" : "SUBSCRIBER/RECUR_ERR/TOTAL",
+  "needSearchParam" : "TRUE",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "eventType"
+  }, {
+    "id" : "5",
+    "queryParamName" : "causeCode"
+  }, {
+    "id" : "6",
+    "queryParamName" : "subCauseCode"
+  }, {
+    "id" : "7",
+    "queryParamName" : "eventResult"
+  }, {
+    "id" : "8",
+    "queryParamName" : "causeProtType"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

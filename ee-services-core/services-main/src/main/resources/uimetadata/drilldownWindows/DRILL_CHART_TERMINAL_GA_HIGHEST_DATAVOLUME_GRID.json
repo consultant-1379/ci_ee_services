@@ -1,0 +1,17 @@
+{
+  "id" : "DRILL_CHART_TERMINAL_GA_HIGHEST_DATAVOLUME_GRID",
+  "name" : "Terminal Group Analysis - Highest Data Volume",
+  "gridDisplayID" : "DATAVOLUME_ANALYSIS_DL",
+  "url" : "TERMINAL/GROUP_ANALYSIS/HIGHEST_DATAVOL",
+  "needSearchParam" : "FALSE",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "groupname",
+    "isTitleParam" : "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

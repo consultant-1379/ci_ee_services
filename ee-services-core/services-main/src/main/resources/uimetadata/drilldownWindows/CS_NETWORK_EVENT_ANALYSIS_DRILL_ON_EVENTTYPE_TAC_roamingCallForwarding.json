@@ -1,0 +1,26 @@
+{
+  "id" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_TAC_roamingCallForwarding",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_TAC",
+  "name" : "TAC Event Analysis Voice",
+  "url" : "MSS/NETWORK/EVENT_ANALYSIS",
+  "searchValFromCol" : "5",
+  "type" : "TAC",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "TAC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "8",
+    "queryParamName" : "tac",
+    "isTitleParam" : "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

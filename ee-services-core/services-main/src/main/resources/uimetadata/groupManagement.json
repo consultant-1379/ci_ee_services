@@ -1,0 +1,147 @@
+{
+    "groupManagementConfiguration": [
+        {
+            "groupConfigurationUrl": "CONFIGURATION/GROUP",
+            "groupElementLoadUrl": "CONFIGURATION/GROUP/JSON",
+            "groupItems": [
+                {
+                    "nodeTypeId": "APN",
+                    "nodeTypeDisplayName": "APN",
+                    "loadGroupURL": "NETWORK/GROUP/APN",
+                    "liveLoadURL": "LIVELOAD/APN",
+                    "liveLoadRoot": "APN",
+                    "groupElementKeyNames": [
+                        {
+                            "groupElementKeyName": "APN"
+                        }
+                    ]
+                },
+                {
+                    "nodeTypeId": "RAT_VEND_HIER3",
+                    "nodeTypeDisplayName": "Controller",
+                    "loadGroupURL": "NETWORK/GROUP/RAT_VEND_HIER3",
+                    "liveLoadURL": "LIVELOAD/BSC",
+                    "liveLoadRoot": "BSC",
+                    "groupElementKeyNames": [
+                        {
+                            "groupElementKeyName": "HIERARCHY_3"
+                        },
+                        {
+                            "groupElementKeyName": "VENDOR"
+                        },
+                        {
+                            "groupElementKeyName": "RAT"
+                        }
+                    ]
+                },
+                {
+                    "nodeTypeId": "RAT_VEND_HIER321",
+                    "nodeTypeDisplayName": "Access Area",
+                    "loadGroupURL": "NETWORK/GROUP/RAT_VEND_HIER321",
+                    "liveLoadURL": "LIVELOAD/CELL",
+                    "liveLoadRoot": "CELL",
+                    "groupElementKeyNames": [
+                        {
+                            "groupElementKeyName": "HIERARCHY_1"
+                        },
+                        {
+                            "groupElementKeyName": "HIERARCHY_2"
+                        },
+                        {
+                            "groupElementKeyName": "HIERARCHY_3"
+                        },
+                        {
+                            "groupElementKeyName": "VENDOR"
+                        },
+                        {
+                            "groupElementKeyName": "RAT"
+                        }
+                    ]
+                },
+                {
+                    "nodeTypeId": "EVNTSRC",
+                    "nodeTypeDisplayName": "SGSN-MME",
+                    "loadGroupURL": "NETWORK/GROUP/EVNTSRC",
+                    "liveLoadURL": "LIVELOAD/SGSN",
+                    "liveLoadRoot": "SGSN",
+                    "groupElementKeyNames": [
+                        {
+                            "groupElementKeyName": "EVENT_SOURCE_NAME"
+                        }
+                    ]
+                },
+                {
+                    "nodeTypeId": "EVNTSRC_CS",
+                    "nodeTypeDisplayName": "MSC",
+                    "loadGroupURL": "NETWORK/GROUP/EVNTSRC_CS",
+                    "liveLoadURL": "LIVELOAD/MSC",
+                    "liveLoadRoot": "MSC",
+                    "groupElementKeyNames": [
+                        {
+                            "groupElementKeyName": "EVENT_SOURCE_NAME"
+                        }
+                    ]
+                },
+                {
+                    "nodeTypeId": "LTE_TRAC",
+                    "nodeTypeDisplayName": "Tracking Area",
+                    "loadGroupURL": "NETWORK/GROUP/LTE_TRAC",
+                    "liveLoadURL": "LIVELOAD/TRAC",
+                    "liveLoadRoot": "TRAC",
+                    "groupElementKeyNames": [
+                        {
+                            "groupElementKeyName": "TRAC"
+                        }
+                    ]
+                },
+                {
+                    "nodeTypeId": "TAC",
+                    "nodeTypeDisplayName": "Terminal",
+                    "loadGroupURL": "NETWORK/GROUP/TAC",
+                    "groupElementKeyNames": [
+                        {
+                            "groupElementKeyName": "TAC"
+                        }
+                    ]
+                },
+                {
+                    "nodeTypeId": "IMSI",
+                    "nodeTypeDisplayName": "IMSI",
+                    "loadGroupURL": "NETWORK/GROUP/IMSI",
+                    "groupElementKeyNames": [
+                        {
+                            "groupElementKeyName": "IMSI"
+                        }
+                    ]
+                } ,
+                {
+                    "nodeTypeId": "MCC_MNC",
+                    "nodeTypeDisplayName": "PLMN",
+                    "loadGroupURL": "NETWORK/GROUP/MCC_MNC",
+                    "liveLoadURL": "LIVELOAD/COUNTRY",
+                    "liveLoadRoot": "COUNTRY_LIVELOAD",
+                    "groupEditUrl": "NETWORK/GROUP/MCC_MNC?type=MCC_MNC_WITH_NAMES",
+                    "localFiltering":"true",
+                    "header": "Operators",
+                    "wizard": {
+                        "header": "Countries",
+                        "localFiltering":"true",
+                        "itemSelectURL": "LIVELOAD/OPERATOR",
+                        "urlParam": "MCC",
+                        "root": "OPERATOR_LIVELOAD"
+                    },
+                    "groupElementKeyNames": [
+                        {
+                            "groupElementKeyName": "MCC"
+                        },
+                        {
+                            "groupElementKeyName": "MNC"
+                        }
+                    ]
+                }
+
+
+            ]
+        }
+    ]
+}

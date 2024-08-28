@@ -1,0 +1,33 @@
+{
+  "id" : "KPI_BY_CC_FROM_BSC",
+  "name" : "KPI Breakdown by Cause Code",
+  "url" : "NETWORK/KPI_RATIO",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "searchValFromCol" : "4",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "RAT"
+  }, {
+    "id" : "2",
+    "queryParamName" : "vendor"
+  }, {
+    "id" : "3",
+    "queryParamName" : "bsc",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "4",
+    "queryParamName" : "cell",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "6",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

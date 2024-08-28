@@ -1,0 +1,37 @@
+{
+    "id": "NETWORK_RAN_LTE_HFA_CELL_GROUP",
+    "title": "Access Area Group LTE Handover Failure : Event Analysis Summary",
+    "autoexpand": "2",
+    "defaultSortCol": "3",
+    "defaultSortDir": "ASC",
+    "columns": [
+        {
+            "header": "Group Name",
+            "width": "300",
+            "datatype": "string",
+			"isSystem": "TRUE"
+        },
+        {
+            "header": "Handover Stage",
+            "width": "100",
+            "datatype": "string",
+            "drillDownWindowType": "Preparation,NETWORK_RAN_LTE_HFA_CELL_GROUP_PREP,Execution,NETWORK_RAN_LTE_HFA_CELL_GROUP_EXEC"
+        },
+        {
+            "header": "CATEGORY ID",
+            "width": "10",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Failures",
+            "width": "90",
+            "datatype": "int"
+        },
+        {
+            "header": "Impacted Subscribers",
+            "width": "180",
+            "datatype": "int"
+        }
+    ]
+}

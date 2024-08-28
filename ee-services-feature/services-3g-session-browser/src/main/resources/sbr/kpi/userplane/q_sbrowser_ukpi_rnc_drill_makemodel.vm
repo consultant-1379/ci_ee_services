@@ -1,0 +1,97 @@
+#DEFINE_CONSTANTS()
+#set($sessionColumnsToSelect=["IMSI","START_RNC_ID","END_RNC_ID"])
+#set($columnsToSelect=["TAC","IMSI","DOWNLINK","THROUGHPUT","SETUP_TIME_TERM","SETUP_TIME_NET","PACKET_LOSS_TERM","PACKET_LOSS_NET"])
+#if($drilltype==$TYPE_MAN)
+	#set($tcolumns=["VENDOR_NAME"])
+#else
+	#set($tcolumns=["MARKETING_NAME","VENDOR_NAME"])
+#end
+#set($userPlaneTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_USER_PLANE_TPNAME).getRawTablesWithMeasurementTypes())
+#set($sessionTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_RAN_SESSION_TPNAME).getRawTables())
+
+BEGIN
+
+DECLARE LOCAL TEMPORARY TABLE rnc_id_tp(
+    RNC_ID INT NULL
+);
+
+DECLARE LOCAL TEMPORARY TABLE imsi_tp(
+    IMSI unsigned bigint NULL
+);
+
+INSERT INTO rnc_id_tp(
+	SELECT
+		DISTINCT rncFun.rncId as RNC_ID
+	FROM
+		(SELECT
+    		DISTINCT HIERARCHY_3
+    	FROM 
+    		DIM_E_SGEH_HIER321
+    	WHERE
+    		HIERARCHY_3 = :$BSC
+    	AND RAT = :$RAT
+    	AND VENDOR = :$VENDOR)AS hier321Ref,
+		DIM_E_RAN_RNC rncFdnRef,
+		DIM_E_RAN_RNCFUNCTION rncFun
+	WHERE
+		rncFdnRef.ALTERNATIVE_FDN = hier321Ref.HIERARCHY_3
+	AND rncFdnRef.RNC_FDN = rncFun.SN
+);
+
+INSERT INTO imsi_tp(
+	SELECT
+		IMSI
+	FROM
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS($sessionTableList "rawview" $sessionColumnsToSelect),
+		rnc_id_tp rncRef
+	WHERE
+		(rawview.START_RNC_ID = rncRef.RNC_ID
+		OR rawview.END_RNC_ID = rncRef.RNC_ID)
+);
+
+SELECT
+	#if($count > 0)
+		top $count
+	#end
+	#if($drilltype==$TYPE_MAN)
+		MANUFACTURER,
+	#else
+		MAKE_MODEL,
+	#end
+	#GET_UKPI_SAMPLES_AND_VALUES()
+FROM
+    (SELECT
+    	#if($drilltype==$TYPE_MAN)
+    		VENDOR_NAME AS MANUFACTURER,
+    	#else
+    		(VENDOR_NAME||'-'||MARKETING_NAME) AS MAKE_MODEL,
+		#end
+		#SELECT_UKPI_SAMPLING_COUNT(),
+        #GET_UP_KPI_VALUES()
+    FROM
+        #REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION($userPlaneTableList "rawview" $columnsToSelect)
+    	LEFT OUTER JOIN
+    		imsi_tp tempRef
+    	ON(
+    		rawview.IMSI = tempRef.IMSI
+    		)
+    	,dc.DIM_E_SGEH_TAC tacRef
+    WHERE tacRef.TAC = rawview.TAC
+    GROUP BY 
+    	#if($drilltype==$TYPE_MAN)
+    		MANUFACTURER
+    	#else
+    		MAKE_MODEL
+    	#end
+    	,DOWNLINK
+    )AS joinRaw
+GROUP BY 
+    	#if($drilltype==$TYPE_MAN)
+    		MANUFACTURER
+    	#else
+    		MAKE_MODEL
+    	#end
+ORDER BY
+	"$KPI" DESC
+;	
+END

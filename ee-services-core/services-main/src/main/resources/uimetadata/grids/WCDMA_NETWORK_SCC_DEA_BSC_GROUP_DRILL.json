@@ -1,0 +1,64 @@
+{
+  "id" : "WCDMA_NETWORK_SCC_DEA_BSC_GROUP_DRILL",
+  "title" : "Controller Group Sub Cause Code Detailed Event Analysis (WCDMA Call Failure)",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "autoexpand" : "2",
+  "columns" : [ {
+    "header" : "Event Time",
+    "width" : "150",
+    "datatype" : "date"
+  }, {
+    "header" : "IMSI",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+  	"header" : "Controller",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "Terminal Make",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Terminal Model",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Access Area",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Type",
+    "width" : "130",
+    "datatype" : "string"
+  }, {
+    "header" : "Procedure Indicator",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Evaluation Case",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Exception Class",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "LAC",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "RAC",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "Vendor",
+    "width" : "120",
+    "datatype" : "string"
+  } ]
+}

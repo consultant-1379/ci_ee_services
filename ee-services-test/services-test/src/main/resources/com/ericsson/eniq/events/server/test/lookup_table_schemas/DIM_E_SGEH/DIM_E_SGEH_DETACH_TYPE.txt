@@ -1,0 +1,12 @@
+DIM_E_SGEH_DETACH_TYPE
+DETACH_TYPE,DETACH_TYPE_DESC
+0,MS initiated normal GPRS Detach
+1,MS initiated normal  IMSI Detach
+2,MS initiated normal  combined GPRS IMSI Detach
+3,MS initiated power off GPRS Detach
+4,MS initiated power off IMSI Detach
+5,MS initiated power off combined GPRS IMSI Detach
+6,Network initiated reattach required
+7,Network initiated reattach not required
+8,Network initiated IMSI Detach
+9,SGSN implicit detach

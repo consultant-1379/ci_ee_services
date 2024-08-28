@@ -1,0 +1,21 @@
+{
+  "id" : "SUBSCRIBER_RANKING_GSM_CALL_DROPS",
+  "title" : "Subscriber Ranking (Events) By Call Drops",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "IMSI",
+    "width" : "120",
+    "datatype" : "string",
+    "launchWindowType" : "GSM_SUBSCRIBER_SUMMARY_EVENT_ANALYSIS_BY_IMSI"
+  }, {
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

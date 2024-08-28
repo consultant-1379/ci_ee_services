@@ -1,0 +1,37 @@
+##
+## WCDMA Call Failure Analysis TAC Ranking (using raw tables)
+##
+## Velocity Parameter: 
+##		$count   max number of rows
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+#set($columnsToSelect=["IMSI, TAC"])
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	RANK()
+	over (ORDER BY Failures DESC) AS Rank,
+	DIM_E_SGEH_TAC.MANUFACTURER AS Manufacturer,
+	DIM_E_SGEH_TAC.MARKETING_NAME AS Model,
+	rawview.TAC,
+	Count (*) AS Failures,
+	COUNT (DISTINCT IMSI) As 'Impacted Subscribers'
+	
+	FROM
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToSelect)	
+		,
+		DIM_E_SGEH_TAC	
+	WHERE
+		rawview.TAC = DIM_E_SGEH_TAC.TAC
+	
+	GROUP BY
+		DIM_E_SGEH_TAC.MANUFACTURER,
+		DIM_E_SGEH_TAC.MARKETING_NAME,
+		rawview.TAC

@@ -1,0 +1,27 @@
+{
+  "id" : "CS_TERMINAL_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_locationServices",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_ELEMENT_locationServices",
+  "name" : "Event Analysis Voice",
+  "url" : "MSS/TERMINAL/EVENT_ANALYSIS",
+  "needSearchParam" : "FALSE",
+  "params" : [ {
+    "id" : "TAC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "tac"
+  }, {
+    "id" : "2",
+    "queryParamName" : "eventID"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

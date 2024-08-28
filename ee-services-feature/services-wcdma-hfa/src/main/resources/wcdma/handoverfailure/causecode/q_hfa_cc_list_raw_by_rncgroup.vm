@@ -1,0 +1,32 @@
+##
+## WCDMA Handover Failure Cause Code List by Cell Group (using raw tables)
+##
+## Velocity Parameter:
+##
+## Named PreparedStatement Parameter:
+##
+##	   :groupname   The cell group name
+##
+
+#set($columnsToSelect=["HIER3_ID","CAUSE_VALUE","EVENT_ID","CATEGORY_ID"])
+#set($columnsToSelectOuter=["CAUSE_VALUE","EVENT_ID","CATEGORY_ID"])
+#set($groupTables=["GROUP_TYPE_E_RAT_VEND_HIER3"])
+#set($groupCondition="GROUP_TYPE_E_RAT_VEND_HIER3.GROUP_NAME = :groupname and tmpTable.HIER3_ID = GROUP_TYPE_E_RAT_VEND_HIER3.HIER3_ID and GROUP_TYPE_E_RAT_VEND_HIER3.RAT = 1")
+#set($useExclusiveTACs="no")
+
+SELECT
+    'CC'||rawView.CAUSE_VALUE||'-'||category.CATEGORY_TABLE_NAME||eventType.EVENT_ID_LABEL AS CAUSE_VALUE_LABEL,
+    causeCode.CAUSE_VALUE_DESC                                                             AS CAUSE_CODE_DESC,
+    'WCDMA_HFA_SOURCE'                                                                     AS GROUP_ID
+FROM
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED_GROUPS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawView" $columnsToSelect $columnsToSelectOuter "" "tmpTable" ":groupname" $groupTables $groupCondition $useExclusiveTACs "DISTINCT") ,
+    DIM_E_RAN_HFA_CAUSE_CODE_VALUE AS causeCode,
+    DIM_E_RAN_HFA_CATEGORY         AS category,
+    DIM_E_RAN_HFA_EVENTTYPE        AS eventType
+WHERE
+    rawView.CAUSE_VALUE = causeCode.CAUSE_VALUE
+AND rawView.EVENT_ID = causeCode.EVENT_ID
+AND rawView.EVENT_ID = eventType.EVENT_ID
+AND rawView.CATEGORY_ID = category.CATEGORY_ID
+ORDER BY
+    rawView.CAUSE_VALUE

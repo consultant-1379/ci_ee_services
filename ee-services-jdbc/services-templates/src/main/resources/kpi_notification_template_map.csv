@@ -1,0 +1,3 @@
+PATH_NAME,TYPE,ISGROUP,DRILLTYPE,hasEventID,KEY,TIMERANGE(optional),TEMPLATE_NAME_WITH_FILEPATH
+NOTIFICATION_DATA,null,false,null,false,null,kpi_notification/q_notification_data.vm
+NOTIFICATION_COUNT,null,false,null,false,null,kpi_notification/q_notification_count.vm

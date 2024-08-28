@@ -1,0 +1,39 @@
+{
+  "id" : "TERMINAL_EVENT_ANALYSIS_WCDMA_CFA_SUMMARY_TAC",
+  "title" : "Terminal Event Analysis - Call Failure Analysis - WCDMA",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Manufacturer",
+    "width" : "130",
+    "datatype" : "string"
+  }, {
+    "header" : "Model",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Type",
+    "width" : "180",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "Call Drops,TERMINAL_WCDMA_CFA_EVENT_ANALYSIS_DRILL_ON_FAILURES_CALL_DROPS,Call Setup Failures,TERMINAL_WCDMA_CFA_EVENT_ANALYSIS_DRILL_ON_FAILURES_CALL_SETUP"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "140",
+    "datatype" : "int"
+  }, {
+    "header" : "Event ID",
+    "width" : "100",
+    "datatype" : "int",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "int",
+    "isHidden" : "TRUE"
+  } ]
+}

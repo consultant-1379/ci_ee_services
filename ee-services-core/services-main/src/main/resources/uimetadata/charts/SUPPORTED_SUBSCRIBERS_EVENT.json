@@ -1,0 +1,16 @@
+{
+    "id": "SUPPORTED_SUBSCRIBERS_EVENT",
+    "title": "",
+    "ylabel": "",
+    "xlabel": "",
+    "xaxisID": "",
+    "items": [
+        {
+            "id": "1",
+            "name": "Supported Subscribers",
+            "color": "88A44D",
+            "queryParam": "eventID",
+            "queryParamValue": "0"
+        }
+    ]
+}

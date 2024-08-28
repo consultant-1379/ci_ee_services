@@ -1,0 +1,24 @@
+{
+  "id" : "DRILL_CHART_TERMINAL_GA_MOST_POPULAR_SUMMARY",
+  "title" : "Group Analysis - Most Frequent Signaling Terminal Group Event Summary",
+  "autoexpand" : "2",
+  "defaultSortCol" : "4",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Model",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

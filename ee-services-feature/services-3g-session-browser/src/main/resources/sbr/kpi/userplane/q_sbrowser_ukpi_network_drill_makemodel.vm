@@ -1,0 +1,67 @@
+#DEFINE_CONSTANTS()
+#set($columnsToSelectFromUserPlaneTable=["TAC","IMSI","DOWNLINK","THROUGHPUT","SETUP_TIME_TERM","SETUP_TIME_NET","PACKET_LOSS_TERM","PACKET_LOSS_NET"])
+#if($drilltype==$TYPE_MAN)
+	#set($tcolumns=["VENDOR_NAME"])
+#else
+	#set($tcolumns=["MARKETING_NAME","VENDOR_NAME"])
+#end
+#set($userPlaneTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_USER_PLANE_TPNAME).getRawTablesWithMeasurementTypes())
+#set($sessionTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_RAN_SESSION_TPNAME).getRawTables())
+
+#set($tempImsiTable="imsi_tp")
+#set($rncTopologyTable="rnc_topology")
+BEGIN
+	
+#CREATE_TEMP_SESSION_TABLE($tempImsiTable)	
+#CREATE_RNC_TOPOLOGY_TABLE($rncTopologyTable)
+
+#SELECT_RNC_IDS_FROM_SESSION_TABLES($tempImsiTable)
+#POPULATE_RNC_TOPOLOGY_TABLE($rncTopologyTable)		
+
+
+SELECT
+	#if($count > 0)
+		top $count
+	#end
+	#if($drilltype==$TYPE_MAN)
+		MANUFACTURER,
+	#else
+		MAKE_MODEL,
+	#end
+	#GET_UKPI_SAMPLES_AND_VALUES()
+FROM
+    (SELECT
+    	#if($drilltype==$TYPE_MAN)
+    		VENDOR_NAME AS MANUFACTURER,
+    	#else
+    		(VENDOR_NAME||'-'||MARKETING_NAME) AS MAKE_MODEL,
+    	#end
+    	#SELECT_UKPI_SAMPLING_COUNT(),
+        #GET_UP_KPI_VALUES()
+    FROM
+        #REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION($userPlaneTableList "rawview" $columnsToSelectFromUserPlaneTable)
+    	LEFT OUTER JOIN
+    		imsi_tp tempRef
+    	ON(
+    		rawview.IMSI = tempRef.IMSI
+    		)
+    	,dc.DIM_E_SGEH_TAC tacRef
+    WHERE tacRef.TAC = rawview.TAC
+    GROUP BY 
+    	#if($drilltype==$TYPE_MAN)
+    		MANUFACTURER
+    	#else
+    		MAKE_MODEL
+    	#end
+    	,DOWNLINK
+    )AS joinRaw
+GROUP BY 
+    	#if($drilltype==$TYPE_MAN)
+    		MANUFACTURER
+    	#else
+    		MAKE_MODEL
+    	#end
+ORDER BY
+	"$KPI" DESC
+;
+END

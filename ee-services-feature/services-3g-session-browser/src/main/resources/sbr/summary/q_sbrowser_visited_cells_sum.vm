@@ -1,0 +1,33 @@
+##SESSION_BROWSER SUMMARY VM (VISITED CELLS)
+#set($columnsToSelect=["MIN(EVENT_TIME) AS EVENT_TIME","C_ID","HIER3_CELL_ID_1","SUM(DURATION) AS DURATION","SUM(RRC_SAMPLES_GC_BS) AS RRC_SAMPLES_GC_BS","SUM(RRC_SAMPLES_BC_BS) AS RRC_SAMPLES_BC_BS ","SUM(RRC_SAMPLES_BC_GS) AS RRC_SAMPLES_BC_GS","SUM(RRC_SAMPLES_GC_GS) AS RRC_SAMPLES_GC_GS"])
+#set($groupbyColumns=["C_ID","HIER3_CELL_ID_1"])
+#set($rawtables=$TECH_PACK_LIST.getAllRawTables())
+#DEFINE_CONSTANTS()
+#if($subType==$TYPE_IMSI)
+	#set($filterColumn = ["IMSI"])
+#elseif($subType==$TYPE_MSISDN)
+	#set($filterColumn = ["MSISDN"])
+#end
+#set($milliSec_to_min=60000)
+
+SELECT
+    cellRef.CELL_ID                                           AS CELL_ID,
+    CAST(rawview.C_ID AS VARCHAR)                             AS CID,
+    cellRef.HIERARCHY_3                                       AS RNC_ALTERNATIVE_FDN,
+    MIN(EVENT_TIME)                                           AS START_TIME,
+    CAST(SUM(CAST(DURATION AS FLOAT)/60000) AS NUMERIC(16,2)) AS Duration,
+    SUM(RRC_SAMPLES_GC_BS)                                    AS GC_BS,
+    SUM(RRC_SAMPLES_BC_BS)                                    AS BC_BS,
+    SUM(RRC_SAMPLES_BC_GS)                                    AS BC_GS,
+    SUM(RRC_SAMPLES_GC_GS)                                    AS GC_GS
+FROM
+#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_WITH_GROUP_BY($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" $filterColumn $columnsToSelect $groupbyColumns)
+LEFT OUTER JOIN
+	(SELECT 
+		DISTINCT CID,
+		CELL_ID,HIER3_CELL_ID,HIERARCHY_3
+	 FROM
+		dc.DIM_E_SGEH_HIER321_CELL) AS cellRef
+	ON(rawview.HIER3_CELL_ID_1 = cellRef.HIER3_CELL_ID)
+GROUP BY CELL_ID,RNC_ALTERNATIVE_FDN,CID
+ORDER BY START_TIME DESC

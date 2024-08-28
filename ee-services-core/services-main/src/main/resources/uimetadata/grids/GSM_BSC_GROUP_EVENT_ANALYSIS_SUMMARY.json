@@ -1,0 +1,53 @@
+{
+  "id" : "GSM_BSC_GROUP_EVENT_ANALYSIS_SUMMARY",
+  "title" : "Controller : Event Analysis Summary",
+  "autoexpand" : "3",
+  "columns" : [{
+    "header" : "RAN Vendor",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Controller",
+    "width" : "150",
+    "datatype" : "string"
+  },{
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string",
+    "drillDownWindowType" : "GSM_CAUSE_CODE_ANALYSIS_BY_BSC_EVENT_TYPE"
+  }, {
+    "header" : "Failures",
+    "width" : "150",
+    "datatype" : "int"    
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "150",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Cells",
+    "width" : "150",
+    "datatype" : "int",
+    "drillDownWindowType" : "GSM_CFA_CELL_SUMMARY_DISTRIBUTION"
+  },{
+    "header" : "Failure Ratio",
+    "width" : "130",
+    "datatype" : "double"
+  }, {
+    "header" : "CATEGORY_ID",
+    "width" : "0",
+    "datatype" : "int",
+    "isSystem": "TRUE"
+  }, {
+    "header" : "HIER3_ID",
+    "width" : "0",
+    "datatype" : "string",
+    "queryParam" : "HIER3_ID",
+    "isSystem" : "TRUE"
+  }, {
+  	"type" : "groupName",
+    "header" : "Group Name",
+    "width" : "250",
+    "datatype" : "string",
+    "isHidden" : "TRUE" 
+  }]
+}

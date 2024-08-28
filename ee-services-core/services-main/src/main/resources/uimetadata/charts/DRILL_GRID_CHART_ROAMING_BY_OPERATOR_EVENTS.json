@@ -1,0 +1,45 @@
+		{
+			"id": "DRILL_GRID_CHART_ROAMING_BY_OPERATOR_EVENTS",
+            "title": "Inbound Roaming by Operator",
+            "ylabel": "Number of Failures",
+            "xlabel": "Event ID",
+            "secondYAxisID": "3",
+            "xaxisID": "1",
+            "items": [
+				{
+					"id":"1",
+					"name":"Event Description"
+				},
+				{
+					"id" :"2",
+					"name":"Event ID",
+					"queryParam": "eventID",
+					"displayInTooltip" : "TRUE"
+				},
+                {
+                    "id": "3",
+                    "name": "Number of Failures",
+					"drillDownWindowType": "DRILL_CORE_ROAMING_BY_OPERATOR_EVENTS_SUBPIE",
+					"displayInTooltip" : "TRUE"
+                },
+				{
+					"id":"4",
+					"name":"Roaming Subscribers",
+					"displayInTooltip" : "TRUE"
+				},
+				{
+					"id":"5",
+					"name":"Operator"
+                },
+                {
+                    "id":"6",
+                    "name":"MCC",
+                    "queryParam":"MCC"
+                },
+                {
+                    "id":"7",
+                    "name" :"MNC",
+                    "queryParam":"MNC"
+                }
+			]
+        }

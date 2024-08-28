@@ -1,0 +1,66 @@
+{
+  "id" : "CS_SUB_BI_BUSY_TERMINALS",
+  "title" : "Subscriber Overview - Terminal Analysis Voice",
+  "autoexpand" : "4",
+  "defaultSortCol" : "7",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "IMSI",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "EventID",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "200",
+    "datatype" : "string",
+    "licenseCXC" : "CXC4010926"
+  }, {
+    "header" : "Model",
+    "width" : "100",
+    "datatype" : "string",
+    "licenseCXC" : "CXC4010926"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Device Capability",
+    "width" : "200",
+    "datatype" : "string",
+    "licenseCXC" : "CXC4010926"
+  }, {
+    "header" : "IMEISV",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Failures",
+    "width" : "100",
+    "datatype" : "int",
+    "drillDownWindowType" : "*,CS_DRILL_GRID_CHART_SUB_BI_TERMINALS,callForwarding,CS_DRILL_GRID_CHART_SUB_BI_TERMINALS_callForwarding,roamingCallForwarding,CS_DRILL_GRID_CHART_SUB_BI_TERMINALS_roamingCallForwarding,mSOriginatingSMSinMSC,CS_DRILL_GRID_CHART_SUB_BI_TERMINALS_SMS,mSTerminatingSMSinMSC,CS_DRILL_GRID_CHART_SUB_BI_TERMINALS_SMS,locationServices,CS_DRILL_GRID_CHART_SUB_BI_TERMINALS_locationServices"
+  }, {
+    "header" : "Event Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "First Seen",
+    "width" : "150",
+    "datatype" : "date"
+  }, {
+    "header" : "Last Seen",
+    "width" : "150",
+    "datatype" : "date"
+  } ]
+}

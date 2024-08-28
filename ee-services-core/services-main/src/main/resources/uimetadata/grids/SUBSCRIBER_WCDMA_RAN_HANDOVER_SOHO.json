@@ -1,0 +1,31 @@
+{
+    "id": "SUBSCRIBER_WCDMA_RAN_HANDOVER_SOHO",
+    "title": "Subscriber WCDMA Handover Failure by Soft Handover : Event Ranking",
+    "autoexpand": "2",
+    "defaultSortCol": "1",
+    "defaultSortDir": "ASC",
+    "columns": [
+        {
+            "header": "Rank",
+            "width": "50",
+            "datatype": "int"
+        },
+        {
+            "header": "IMSI",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "CATEGORY ID",
+            "width": "10",
+            "datatype": "int",
+            "isSystem" : "TRUE"
+        },
+        {
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int",
+            "drillDownWindowType": "SUBSCRIBER_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_DRILL_ON_FAILURES_BY_IMSI_SOHO"
+        }
+    ]
+}

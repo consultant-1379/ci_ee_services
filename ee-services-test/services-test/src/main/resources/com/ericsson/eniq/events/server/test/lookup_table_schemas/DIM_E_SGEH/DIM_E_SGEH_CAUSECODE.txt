@@ -1,0 +1,14 @@
+DIM_E_SGEH_CAUSECODE
+CAUSE_CODE,CAUSE_CODE_DESC,CAUSE_CODE_HELP,CAUSE_PROT_TYPE
+0,Success,help,0
+1,UnknownCC1,help,0
+3,ILLEGAL_MS,help,0
+6,Illegal MEX,help,0
+7,GPRS service not allowed,help,0
+8,GPRS service and non-GPRS service not allowed,help,0
+9,MS identity cannot be derived by the network,help,0
+10,Implicitly detached,help,0
+11,PLMN not allowed,help,0
+12,Location Area not allowed,help,0
+13,Roaming not allowed in this Location Area,help,0
+14,GPRS services not allowed in this PLMN,help,0

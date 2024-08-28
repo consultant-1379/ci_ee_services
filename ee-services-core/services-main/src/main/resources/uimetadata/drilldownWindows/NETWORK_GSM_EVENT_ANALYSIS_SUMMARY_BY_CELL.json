@@ -1,0 +1,20 @@
+{
+  "id" : "NETWORK_GSM_EVENT_ANALYSIS_SUMMARY_BY_CELL",
+  "gridDisplayID" : "NETWORK_GSM_EVENT_ANALYSIS_SUMMARY_BY_CELL",
+  "url" : "NETWORK/GSM/CALL_FAILURE_EVENT_SUMMARY/ACCESS_AREA_GROUP",
+  "params" : [  {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+  	"id" : "4",
+  	"queryParamName" : "CATEGORY_ID"
+  }, {
+  	"id" : "6",
+  	"queryParamName" : "groupname",
+  	"isTitleParam" : "TRUE"
+  }, {
+  	"id" : "1",
+  	"isTitleParam" : "TRUE"
+  }]
+}

@@ -1,0 +1,39 @@
+##
+## WCDMA Call Failure Ranking Analysis by Subscriber  (using aggregation tables)
+##
+## Velocity Parameter: 
+##		
+##		EVENT_ID	CallSetupFail (456) or CallDropFail (438) ID received from Service
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+## we uset he plainAggregationView because the subscriber ranking doesn't have err tables
+#set($aggregationView=$TECH_PACK_LIST.getTechPack("EVENT_E_RAN_CFA").getPlainAggregationView())
+
+SELECT
+	
+	#if($count > 0)
+	  top $count
+	#end
+	RANK()
+	Over (order by failures desc) as Rank,
+	aggView.IMSI AS 'IMSI',
+	SUM(NO_OF_ERRORS) AS Failures
+
+FROM
+
+	$aggregationView as aggView
+	
+WHERE
+	aggView.EVENT_ID = $EVENT_ID
+    and aggView.IMSI <> 0
+    and aggView.IMSI is not null
+	and #GET_DATETIME_RANGE()
+
+GROUP BY
+	
+	aggView.IMSI
+	

@@ -1,0 +1,18 @@
+{
+  "id" : "TERMINAL_GA_MOST_POPULAR",
+  "title" : "Most Frequent Signaling Terminal Groups",
+  "ylabel" : "Number of Events",
+  "xlabel" : "Group Name",
+  "secondYAxisID" : "4",
+  "xaxisID" : "2",
+  "items" : [ {
+    "id" : "3",
+    "name" : "Total Events",
+    "color" : "5494c5",
+    "drillDownWindowType" : "DRILL_CHART_TERMINAL_GA_MOST_POPULAR"
+  }, {
+    "id" : "4",
+    "name" : "Impacted Subscribers",
+    "color" : "333986"
+  } ]
+}

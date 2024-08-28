@@ -1,0 +1,43 @@
+{
+    "id": "SUBSCRIBER_CALL_FAILURE_EVENT_ANALYSIS_IMSI_GROUP",
+    "title": "IMSI Group Event Analysis",
+    "autoexpand": "2",
+    "defaultSortCol": "1",
+    "defaultSortDir": "ASC",
+    "categoryId": "SUBSCRIBER_CALL_FAILURE_EVENT_ANALYSIS_IMSI_GROUP",
+    "columns": [
+        {
+            "type" : "eventType",
+            "header": "Event Type",
+            "width": "180",
+            "datatype": "string"
+        },
+        {
+            "type" : "failures",
+            "header": "Failures",
+            "width": "100",
+            "datatype": "int",
+            "drillDownWindowType": "SUBSCRIBER_WCDMA_CFA_FAILURE_ANALYSIS_BY_GROUP"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header": "Impacted Subscribers",
+            "width": "200",
+            "datatype": "int"
+        },
+        {
+            "type" : "eventId",
+            "header": "EVENT_ID",
+            "width": "200",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type" : "groupName",
+            "header": "GROUP_NAME",
+            "width": "200",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        }
+    ]
+}

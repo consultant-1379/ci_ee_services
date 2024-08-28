@@ -1,0 +1,7 @@
+{
+  "id" : "CS_DRILL_GRID_CHART_SUB_BI_IMSI",
+  "drillTargetDisplayId" : "CS_NETWORK_EVENT_ANALYSIS_ELEMENTS",
+  "chartClickedURLParam" : "eventName",
+  "drillToolBarType" : "CS_SUB_BI_DRILL_GRIDS_TOOLBAR",
+  "maxRowsParam" : "ENIQ_EVENTS_SUBBI_COUNT"
+}

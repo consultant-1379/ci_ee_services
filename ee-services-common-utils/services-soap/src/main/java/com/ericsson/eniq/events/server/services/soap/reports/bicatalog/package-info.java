@@ -1,0 +1,1 @@
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://bicatalog.dsws.businessobjects.com/2007/06/01", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED) package com.ericsson.eniq.events.server.services.soap.reports.bicatalog;

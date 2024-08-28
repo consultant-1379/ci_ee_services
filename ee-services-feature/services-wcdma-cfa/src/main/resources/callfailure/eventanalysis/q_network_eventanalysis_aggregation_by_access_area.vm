@@ -1,0 +1,141 @@
+##
+## WCDMA Call Failure Event Analysis Access Area Aggregation Query
+##
+## Velocity Parameter: 
+##		HIER3_CELL_ID:   hash id
+##		
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+#set($columnsToSelect=["HIER3_CELL_ID, IMSI","CS_RAB_FAIL_CNT","PS_RAB_FAIL_CNT","MULTI_RAB_FAIL_CNT"])
+
+#set($whereClause = "AND HIER3_CELL_ID = :HIER3_CELL_ID AND EVENT_ID = :eventID")
+#set($useExclusiveTACs="no")
+#set($distinct ="")
+
+BEGIN
+SELECT
+	VENDOR AS 'RAN Vendor', 
+	HIERARCHY_3 AS 'Controller', 
+	CELL_ID AS 'Access Area',
+	EVENT_ID_ALTERNATE_DESC As 'Event Type', 
+	aggView.NO_OF_ERRORS, 
+	IMPACTED_SUBSCRIBERS AS 'Impacted Subscriber',
+	aggView.HIER3_CELL_ID,
+	aggView.EVENT_ID,
+	(CASE 
+		WHEN aggView.EVENT_ID = 438
+		THEN cast( ROUND((aggView.RAB_CNT * 100.00) / allcalls.NUM_CALLS_SUC,2) as numeric(36,2))
+		WHEN aggView.EVENT_ID = 456
+		THEN cast( ROUND((aggView.RAB_CNT * 100.00) / allcalls.NUM_CALLS_ATTEMPT,2) as numeric(36,2))
+	END) AS 'Failure Ratio (%)',
+	##DRILL_CAT and CATEGORY_ID value is got from UI and return to UI since it needs for drilling.
+	:categoryId AS CATEGORY_ID,
+	'$drillCat' AS DRILL_CAT
+	##
+FROM
+
+(
+    SELECT
+        SUM(CALLS_PS_ALL + CALLS_CS_ALL + CALLS_MR_ALL) as NUM_CALLS_ATTEMPT,
+		SUM(PS_SUC+CS_SUC+MR_SUC) as NUM_CALLS_SUC,
+        HIER3_CELL_ID
+    FROM
+       	$allCallsAggregationView
+    WHERE
+		HIER3_CELL_ID = :HIER3_CELL_ID
+    AND DATETIME_ID >= :dateFrom
+    AND DATETIME_ID < :dateTo
+    GROUP BY
+        HIER3_CELL_ID
+	) AS allcalls
+	
+	RIGHT OUTER JOIN
+(
+	select 
+		    #if($categoryId == "0")
+				SUM(CS_ERR_CNT) AS NO_OF_ERRORS,
+				SUM(CS_RAB_FAIL_CNT) AS RAB_CNT,
+			#elseif($categoryId == "1")
+				SUM(PS_ERR_CNT) AS NO_OF_ERRORS,
+				SUM(PS_RAB_FAIL_CNT) AS RAB_CNT,
+			#elseif($categoryId == "2")
+				SUM(MULTI_ERR_CNT) AS NO_OF_ERRORS,
+				SUM(MULTI_RAB_FAIL_CNT) AS RAB_CNT,
+			#elseif($categoryId == "3")
+				SUM(CS_ERR_CNT+PS_ERR_CNT+MULTI_ERR_CNT) AS NO_OF_ERRORS,
+				SUM(CS_RAB_FAIL_CNT+PS_RAB_FAIL_CNT+MULTI_RAB_FAIL_CNT) AS RAB_CNT,
+			###Hide total failure at the moment until UI puts back
+			##elseif($categoryId == "4")
+				##SUM(aggview.NO_OF_ERRORS) as FAILURES,
+			#end
+		EVENT_ID, HIER3_CELL_ID
+	from 
+		$aggregationView as tempAgg
+	where
+		#if($categoryId == "0")
+				CS_RAB_FAIL_CNT > 0
+		#elseif($categoryId == "1")
+				PS_RAB_FAIL_CNT > 0 
+		#elseif($categoryId == "2")
+			    MULTI_RAB_FAIL_CNT > 0 
+		#elseif($categoryId == "3")
+				(CS_RAB_FAIL_CNT > 0 OR PS_RAB_FAIL_CNT > 0 OR MULTI_RAB_FAIL_CNT > 0)
+		#end
+		AND tempAgg.HIER3_CELL_ID = :HIER3_CELL_ID
+		AND tempAgg.EVENT_ID = :eventID
+		and
+		#GET_DATETIME_RANGE()
+	group by
+		EVENT_ID,
+		HIER3_CELL_ID
+) 
+as aggView
+
+   ON
+    (
+        allcalls.HIER3_CELL_ID = aggview.HIER3_CELL_ID
+    )
+
+left outer join 
+(
+	select 
+		count(distinct rawview.IMSI), HIER3_CELL_ID 
+	FROM
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToSelect $whereClause $useExclusiveTACs $distinct)
+	WHERE
+		    #if($categoryId == "0")
+				CS_RAB_FAIL_CNT > 0
+			#elseif($categoryId == "1")
+				PS_RAB_FAIL_CNT > 0 
+			#elseif($categoryId == "2")
+			    MULTI_RAB_FAIL_CNT > 0 
+			#elseif($categoryId == "3")
+				(CS_RAB_FAIL_CNT > 0 OR PS_RAB_FAIL_CNT > 0 OR MULTI_RAB_FAIL_CNT > 0)
+			#end
+	group by
+		HIER3_CELL_ID
+) 
+as subscribers(IMPACTED_SUBSCRIBERS, HIER3_CELL_ID)
+on 
+(		
+	aggView.HIER3_CELL_ID = subscribers.HIER3_CELL_ID
+)
+left outer join 
+(
+	select distinct VENDOR, HIERARCHY_3, HIERARCHY_1, HIER3_CELL_ID, CELL_ID from dc.DIM_E_SGEH_HIER321_CELL where RAT=1
+) 
+as topology(VENDOR, HIERARCHY_3, HIERARCHY_1, HIER3_CELL_ID, CELL_ID)
+on
+(		
+	aggView.HIER3_CELL_ID=topology.HIER3_CELL_ID
+)	
+inner join dc.DIM_E_RAN_CFA_EVENTTYPE eventDesc
+on
+(
+	 aggView.EVENT_ID = eventDesc.EVENT_ID
+)
+END

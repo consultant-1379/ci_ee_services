@@ -1,0 +1,15 @@
+{
+  "launchWindowTypeId" : "RAN_LTE_CFA_ANALYSIS",
+  "menuItem" : "RAN_LTE_CFA_SUMMARY",
+  "searchValFromCol" : "2",
+  "type" : "IMSI",
+  "needSearchParam": "FALSE",
+  "params" : [ {
+    "id" : "IMSI",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "imsi"
+  } ]
+}

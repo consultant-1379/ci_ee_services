@@ -1,0 +1,8 @@
+{
+	"drillWindowName" : "Roaming by Operator (WCDMA Call Failure Event Volume)",
+	"nameForTaskBar" : "Roaming by Operator",
+	"id": "DRILL_GRID_CHART_ROAMING_WCDMA_OPERATOR_EVENTS",
+	"drillType" : "launchChart",
+	"drillToolBarType": "ROAMING_EVENTS_ANALYSIS_PIE_DRILL",
+	"url" : "NETWORK/WCDMA/CALL_FAILURE_ROAMING_ANALYSIS/OPERATOR/DRILL"
+}

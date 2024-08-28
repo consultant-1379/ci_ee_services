@@ -1,0 +1,46 @@
+{
+  "id" : "DRILL_CHART_CAUSE_CODE_FROM_PIE_SLICE",
+  "title" : "Sub Cause Code Analysis",
+  "ylabel" : "Number of Events",
+  "xlabel" : "Group Name",
+  "secondYAxisID" : "6",
+  "xaxisID" : "4",
+  "items" : [ {
+    "id" : "1",
+    "name" : "Cause Prototype",
+    "color" : "5494c5",
+    "queryParam" : "causeProtType"
+  }, {
+    "id" : "2",
+    "name" : "Cause Code ID",
+    "color" : "333986",
+    "queryParam" : "causeCode",
+    "displayInTooltip" : "TRUE"
+  }, {
+    "id" : "3",
+    "name" : "Sub Cause Code ID",
+    "color" : "34fff4",
+    "queryParam" : "subCauseCode",
+    "isLegendPrefix" : "TRUE",
+    "displayInTooltip" : "TRUE"
+  }, {
+    "id" : "4",
+    "name" : "Sub Cause Code DESC (Cause Prototype DESC)",
+    "color" : "2200FF"
+  }, {
+    "id" : "5",
+    "name" : "What Next Text",
+    "color" : "3da5a4"
+  }, {
+    "id" : "6",
+    "name" : "Number of failures",
+    "color" : "cb5853",
+    "displayInTooltip" : "TRUE",
+    "drillDownWindowType" : "NETWORK_CAUSE_CODE_ANALYSIS_FROM_SUBPIE"
+  }, {
+    "id" : "7",
+    "name" : "Impacted Subscribers",
+    "color" : "5400FF",
+    "displayInTooltip" : "TRUE"
+  } ]
+}

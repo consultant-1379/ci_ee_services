@@ -1,0 +1,14 @@
+{
+  "toolBarType" : "TOOLBAR_CAUSE_CODE_TABLE",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    } ]
+  } ]
+}

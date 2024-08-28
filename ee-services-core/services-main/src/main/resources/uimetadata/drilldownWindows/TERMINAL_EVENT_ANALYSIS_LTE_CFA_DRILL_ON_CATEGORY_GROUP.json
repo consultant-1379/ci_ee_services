@@ -1,0 +1,20 @@
+{
+  "id" : "TERMINAL_EVENT_ANALYSIS_LTE_CFA_DRILL_ON_CATEGORY_GROUP",
+  "name" : "Terminal Group LTE Call Failure : Event Analysis",
+  "gridDisplayID" : "TERMINAL_EVENT_ANALYSIS_LTE_CFA_DRILL_ON_CATEGORY_GROUP",
+  "url" : "TERMINAL/LTE_CALL_FAILURE_EVENT_SUMMARY/CATEGORISED_TERMINAL",
+  "searchValFromCol" : "1",
+  "params" : [ 
+  	{
+    "id" : "1",
+    "queryParamName" : "groupname"
+  	},{
+  	"id" : "2",
+  	"queryParamName" : "CATEGORY_ID"
+  	}],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

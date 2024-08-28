@@ -1,0 +1,64 @@
+{
+    "id": "NETWORK_EVENT_VOLUME_LTE_HFA",
+    "isChartData": "TRUE",
+    "title": "Network Event Volume LTE Handover Failure : Event Analysis",
+    "autoexpand": "9",
+    "categoryId": "NETWORK_EVENT_VOLUME_LTE_HFA",
+    "defaultSortCol": "9",
+    "defaultSortDir": "DESC",
+    "columns": [
+	    {
+	    "header" : "Time",
+	    "width" : "130",
+	    "datatype" : "string"
+  		},
+        {
+        	"type": "prepX2INFailCount",
+            "header": " INTERNAL_PROC_HO_PREP_X2_IN Fail Count",
+            "width": "300",
+            "datatype": "int"
+        }, 
+        {
+        	"type": "prepX2OUTFailCount",
+            "header": "INTERNAL_PROC_HO_PREP_X2_OUT Fail Count",
+            "width": "300",
+            "datatype": "int"
+        },
+        {
+        	"type": "execX2INFailCount",
+            "header": " INTERNAL_PROC_HO_EXEC_X2_IN Fail Count",
+            "width": "300",
+            "datatype": "int"
+        },
+        {
+        	"type": "execX2OUTFailCount",
+            "header": "INTERNAL_PROC_HO_EXEC_X2_OUT Fail Count",
+            "width": "300",
+            "datatype": "int"
+        },
+        {
+        	"type": "prepS1INFailCount",
+            "header": "INTERNAL_PROC_HO_PREP_S1_IN Fail Count",
+            "width": "300",
+            "datatype": "int"
+        },
+        {
+        	"type": "prepS1OUTFailCount",
+            "header": " INTERNAL_PROC_HO_PREP_S1_OUT Fail Count",
+            "width": "300",
+            "datatype": "int"
+        },
+        {
+        	"type": "execS1INFailCount",
+            "header": "INTERNAL_PROC_HO_EXEC_S1_IN Fail Count",
+            "width": "300",
+            "datatype": "int"
+        },
+        {
+        	"type": "execS1OUTFailCount",
+            "header": " INTERNAL_PROC_HO_EXEC_S1_OUT Fail Count",
+            "width": "300",
+            "datatype": "int"
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+  "id" : "NETWORK_EVENT_VOLUME_LTE_CFA",
+  "isChartData" : "TRUE",
+  "title" : "Network Event Volume LTE Call Failure : Event Analysis",
+  "autoexpand" : "6",
+  "defaultSortCol" : "6",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Time",
+    "width" : "130",
+    "datatype" : "string"
+  },{
+    "header" : "INTERNAL_PROC_RRC_CONN_SETUP Fail Count",
+    "width" : "270",
+    "datatype" : "int"
+  }, {
+    "header" : "INTERNAL_PROC_S1_SIG_CONN_SETUP Fail Count",
+    "width" : "280",
+    "datatype" : "int"
+  }, {
+    "header" : "INTERNAL_PROC_INITIAL_CTXT_SETUP Fail Count",
+    "width" : "270",
+    "datatype" : "int"
+  }, {
+    "header" : "INTERNAL_PROC_ERAB_SETUP Fail Count",
+    "width" : "270",
+    "datatype" : "int"
+  }, {
+    "header" : "INTERNAL_PROC_UE_CTXT_RELEASE Fail Count",
+    "width" : "270",
+    "datatype" : "int"
+  } ]
+} 

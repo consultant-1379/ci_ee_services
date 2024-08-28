@@ -1,0 +1,26 @@
+##SESSION_BROWSER SUMMARY VM (APP_LAYER_DETAILS)
+#DEFINE_CONSTANTS()
+#set($columnsToSelect=["DATETIME_ID","BYTES_DOWNLINK","BYTES_UPLINK","FUNCTION"])
+#if($subType==$TYPE_IMSI)
+    #set($filterColumn = ["IMSI"])
+#elseif($subType==$TYPE_MSISDN)
+    #set($filterColumn = ["MSISDN"])
+#end
+
+SELECT
+	DATETIME_ID as EVENT_TIME,
+    CAST(isnull(SUM(rawview.BYTES_DOWNLINK),0) AS NUMERIC(16,4)) AS BYTE_DOWNLINK,
+    CAST(isnull(SUM(rawview.BYTES_UPLINK),0) AS NUMERIC(16,4)) AS BYTE_UPLINK,
+	ISNULL(functionRef.FUNCTION_DESC,'Unclassified') AS FUNCTION_DESC
+FROM
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" $filterColumn $columnsToSelect)
+	FULL OUTER JOIN DIM_E_USER_PLANE_FUNCTION functionRef
+	ON(
+		rawview.FUNCTION = functionRef.FUNCTION
+		)
+WHERE
+    EVENT_TIME is not null
+GROUP BY 
+	EVENT_TIME,
+	FUNCTION_DESC
+ORDER BY EVENT_TIME

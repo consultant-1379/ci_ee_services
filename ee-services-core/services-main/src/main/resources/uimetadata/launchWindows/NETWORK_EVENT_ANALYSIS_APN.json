@@ -1,0 +1,15 @@
+{
+  "launchWindowTypeId" : "NETWORK_EVENT_ANALYSIS_APN",
+  "menuItem" : "NETWORK_EVENT_ANALYSIS",
+  "searchValFromCol" : "2",
+  "type" : "APN",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "node",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "APN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

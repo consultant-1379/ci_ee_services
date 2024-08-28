@@ -1,0 +1,99 @@
+{
+  "id": "NETWORK_RAN_LTE_HFA_QOS_QCI_DETAILED_EVENT_ANALYSIS",
+  "title": "LTE Handover Failure : QOS Statistics Analysis",
+  "autoexpand": "7",
+  "defaultSortCol": "1",
+  "defaultSortDir": "ASC",
+  "columns": [ {
+    "header": "HIER3_ID",
+    "width": "10",
+    "datatype": "string",
+    "isSystem": "TRUE"
+  }, {
+    "header": "HIER321_ID",
+    "width": "10",
+    "datatype": "string",
+    "isSystem": "TRUE"
+  },{
+    "header": "Event Time",
+    "width": "120",
+    "datatype": "date"
+  }, {
+    "header": "IMSI",
+    "width": "110",
+    "datatype": "string"
+  }, {
+    "header": "TAC",
+    "width": "85",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "Terminal Make",
+    "width": "100",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "Terminal Model",
+    "width": "100",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "Event Type",
+    "width": "275",
+    "datatype": "string"
+  }, {
+    "header": "Controller",
+    "width": "215",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "Access Area",
+    "width": "125",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "RAN Vendor",
+    "width": "80",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "Setup Result",
+    "width": "300",
+    "datatype": "string"
+  }, {
+    "header": "Setup Request QCI",
+    "width": "250",
+    "datatype": "int"
+  }, {
+    "header": "Setup Request ARP",
+    "width": "250",
+    "datatype": "int"
+  }, {
+    "header": "Setup Request PCI",
+    "width": "250",
+    "datatype": "string"
+  }, {
+    "header": "Setup Request PVI",
+    "width": "250",
+    "datatype": "string"
+  }, {
+    "header": "Failure 3GPP Cause",
+    "width": "250",
+    "datatype": "int"
+  }, {
+    "header": "Setup Attempted Access Type",
+    "width": "400",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "Setup Successful Access Type",
+    "width": "400",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "Setup Failure 3GPP Cause Group",
+    "width": "450",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  } ]
+}

@@ -1,0 +1,33 @@
+{
+  "id" : "CS_TERMINAL_MOST_POPULAR",
+  "title" : "Terminal Analysis - Most Frequent Signaling",
+  "autoexpand" : "3",
+  "defaultSortCol" : "5",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Model",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Band",
+    "width" : "200",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  } ]
+}

@@ -1,0 +1,17 @@
+#######################
+#######Mapping between tech packs, technology and volume/time based raw partitions
+####### if the tech pack uses volume based (true) or time based (false) raw partitions.
+#######The technology defined here must also be defined in:
+####### com.ericsson.eniq.events.server.utils.config.latency.OffsetOptions enum.
+#######################
+#tech pack name,technology,volume(true)/time(false) based raw partitions
+EVENT_E_SGEH,SGEH,true
+EVENT_E_LTE,SGEH,true
+EVENT_E_GSN_DT,DT,true
+EVENT_E_GSN_DTPDP,DT,true
+EVENT_E_RAN_CFA,WCDMA,true
+EVENT_E_RAN_HFA,WCDMA,true
+EVENT_E_GSM_CFA,GSM,true
+EVENT_E_LTE_CFA,LTE,true
+EVENT_E_LTE_HFA,LTE,true
+DC_Z_ALARM,KPI_NOTIFICATION,false

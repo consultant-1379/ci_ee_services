@@ -1,0 +1,30 @@
+{
+    "id":"GSM_NETWORK_DRILL_SUB_CAUSE_CODE_ANALYSIS_BSC_GROUP",
+    "name":"Controller Group Extended Cause Code Analysis",
+    "url":"NETWORK/GSM/CALL_FAILURE_CAUSE_CODE_ANALYSIS/NETWORK_SUB_CAUSE_CODE_GRID",
+    "params":[{
+            "id":"5",
+            "queryParamName":"groupname",
+            "isTitleParam":"TRUE"
+        },
+        {
+            "id":"2",
+            "queryParamName":"causeCodeDescription",
+            "isTitleParam":"TRUE"
+        },
+        {
+            "id":"BSC",
+            "queryParamName":"type",
+            "isFixedVal":"TRUE"
+        },
+        {
+            "id":"1",
+            "queryParamName":"causeCode"
+        }
+    ],
+    "style":"analysisCausecode",
+    "windowType":"GRID",
+    "isEnabled":"TRUE",
+    "toolBarType":"TOOLBAR1",
+    "display":"grid"
+}

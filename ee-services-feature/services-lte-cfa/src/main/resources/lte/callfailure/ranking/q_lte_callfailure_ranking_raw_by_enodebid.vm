@@ -1,0 +1,46 @@
+##
+## Author : ECHIMMA
+## LTE Call Failure Analysis IMSI Ranking (using raw tables)
+##
+## Velocity Parameter: 
+##		
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+#set($columnsToSelect=["HIER3_ID", "CATEGORY_ID"])
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	RAW_TABLE.HIER3_ID as 'HIER3_ID',
+	RANK() OVER (ORDER BY Failures DESC) as 'Rank',
+	VENDOR as 'Vendor',
+	HIERARCHY_3 as 'eNodeB',
+	FAILURES as 'Failures',
+	'LTE' as 'Radio Access Type'
+FROM
+	(
+		SELECT
+			count(*) as FAILURES,
+			HIER3_ID
+		from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION($TECH_PACK_LIST.getAllRawTables() "rawview" $columnsToSelect)
+		WHERE
+			CATEGORY_ID = $CATEGORY_ID
+		GROUP BY
+			HIER3_ID
+	) as RAW_TABLE
+LEFT OUTER JOIN
+	(
+		SELECT
+			HIER3_ID, HIERARCHY_3, VENDOR
+		FROM
+			DIM_E_LTE_HIER321
+		GROUP BY
+			HIER3_ID, HIERARCHY_3, VENDOR
+	) as TOPO_TABLE
+ON
+	RAW_TABLE.HIER3_ID = TOPO_TABLE.HIER3_ID

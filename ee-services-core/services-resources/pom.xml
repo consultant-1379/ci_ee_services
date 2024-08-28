@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>ee-services-core</artifactId>
+		<groupId>com.ericsson.eniq.events</groupId>
+		<version>14.0-A-2</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>services-resources</artifactId>
+	<name>${eniq.events.app.name} :: Services Resources</name>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-base</artifactId>
+			<version>${project.version}</version>
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-config</artifactId>
+			<version>${project.version}</version>
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-2g3g4g</artifactId>
+			<version>${project.version}</version>
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-dashboard</artifactId>
+			<version>${project.version}</version> 
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-gsm-cfa</artifactId>
+			<version>${project.version}</version> 
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-lte-cfa</artifactId>
+			<version>${project.version}</version> 
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-lte-hfa</artifactId>
+			<version>${project.version}</version> 
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-legacy-base</artifactId>
+			<version>${project.version}</version> 
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-mss</artifactId>
+			<version>${project.version}</version> 
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-wcdma-cfa</artifactId>
+			<version>${project.version}</version> 
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-wcdma-hfa</artifactId>
+			<version>${project.version}</version> 
+ 
+        </dependency>
+        <dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-wcdma-uertt</artifactId>
+			<version>${project.version}</version> 
+ <!-- <classifier>${project.version}</classifier> --> 
+		</dependency>
+        
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-kpi-notification</artifactId>
+			<version>${project.version}</version> 
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-integration-test</artifactId>
+			<version>${project.version}</version> 
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-3g-session-browser</artifactId>
+			<version>${project.version}</version>
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-utils</artifactId>
+			<version>${project.version}</version> 
+ 
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-kpi</artifactId>
+			<version>${project.version}</version> 
+ 
+		</dependency>
+
+	</dependencies>
+
+</project>

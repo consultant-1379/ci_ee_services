@@ -1,0 +1,62 @@
+##SESSION_BROWSER SUMMARY VM (CORE ONLY)
+#DEFINE_CONSTANTS()
+#set($columnsToSelect=["EVENT_TIME","EVENT_ID","HIERARCHY_1","HIERARCHY_3","VENDOR","RAT","TAC","DURATION"])
+#if($subType==$TYPE_IMSI)
+	#set($filterColumn = ["IMSI"])
+#elseif($subType==$TYPE_MSISDN)
+	#set($filterColumn = ["MSISDN"])
+#end
+SELECT
+    dateformat(rawview.EVENT_TIME,'yyyy-MM-dd HH:mm:ss.SSS') AS EVENT_TIME,
+	eventRef.EVENT_ID,
+	eventRef.EVENT_ID_DESC,
+	CAST(cellRef.CID AS VARCHAR) AS CID,
+    cellRef.CELL_ID AS CELL_ID,
+    CAST(rawview.HIERARCHY_1 AS VARCHAR) as SERVING_AREA,
+	CAST(rawview.TAC AS VARCHAR) AS TAC,
+	ISNULL(rawview.DURATION,0) AS DURATION,
+    rawview.ERR_FLAG
+FROM
+	(SELECT
+		EVENT_TIME,
+		EVENT_ID,
+		HIERARCHY_1,
+        HIERARCHY_3,
+        VENDOR,
+		RAT,
+		TAC,
+		DURATION,
+        ERR_FLAG
+	FROM
+	(
+	SELECT
+		EVENT_TIME,EVENT_ID,HIERARCHY_1,HIERARCHY_3,VENDOR,RAT,TAC,DURATION, 'true' AS ERR_FLAG
+	FROM
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "errview" $filterColumn $columnsToSelect)
+    UNION ALL
+	SELECT
+		EVENT_TIME,EVENT_ID,HIERARCHY_1,HIERARCHY_3,VENDOR,RAT,TAC,DURATION, 'false' AS ERR_FLAG
+	FROM
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawSucTables() "sucview" $filterColumn $columnsToSelect)
+	)as tempview)as rawview
+	LEFT OUTER JOIN
+		dc.DIM_E_SGEH_EVENTTYPE eventRef
+	ON(rawview.EVENT_ID = eventRef.EVENT_ID)
+	LEFT OUTER JOIN
+		dc.DIM_E_SGEH_HIER321_CELL cellref
+	ON(rawview.HIERARCHY_1 = cellRef.HIERARCHY_1
+    AND rawview.HIERARCHY_3 = cellRef.HIERARCHY_3
+    AND rawview.VENDOR = cellRef.VENDOR)
+    WHERE rawview.RAT = 1
+GROUP BY
+    rawview.EVENT_TIME,
+    eventRef.EVENT_ID,
+    eventRef.EVENT_ID_DESC,
+    CID,
+    CELL_ID,
+    SERVING_AREA,
+	rawview.TAC,
+	rawview.DURATION,
+    rawview.ERR_FLAG
+ORDER BY
+    rawview.EVENT_TIME DESC

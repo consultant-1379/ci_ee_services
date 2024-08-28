@@ -1,0 +1,39 @@
+{
+  "id" : "CS_SUBSCRIBER_EVENT_ANALYSIS_IMSI",
+  "title" : "IMSI Event Analysis Voice",
+  "autoexpand" : "3",
+  "defaultSortCol" : "4",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "IMSI",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "EventID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "*,CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_IMSI,callForwarding,CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_IMSI_callForwarding,roamingCallForwarding,CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_IMSI_roamingCallForwarding,locationServices,CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_IMSI_locationServices,mSOriginatingSMSinMSC,CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_IMSI_SMS,mSTerminatingSMSinMSC,CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_IMSI_SMS"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Success Ratio",
+    "width" : "100",
+    "datatype" : "float"
+  } ]
+}

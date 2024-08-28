@@ -1,0 +1,73 @@
+{
+    "id": "NETWORK_CAUSE_CODE_ANALYSIS_CELL_GROUP",
+    "title": "Access Area Group Cause Code Analysis",
+    "autoexpand": "7",
+    "categoryId": "NETWORK_CAUSE_CODE_ANALYSIS_GROUP",
+    "defaultSortCol": "9",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "Access Area Group",
+            "width": "100",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Cause Protocol Type ID",
+            "width": "100",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "type": "causeCodeProtocolType",
+            "header": "Cause Protocol Type",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type": "causeCodeId",
+            "header": "Cause Code ID",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "causeCode",
+            "header": "Cause Code",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type": "subCauseCodeId",
+            "header": "Sub Cause Code ID",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "type": "subCauseCode",
+            "header": "Sub Cause Code",
+            "width": "100",
+            "datatype": "string",
+            "drillDownWindowType": "NETWORK_CAUSE_CODE_ANALYSIS_CELL_GROUP_DRILL"
+        },
+        {
+            "type": "recommendedAction",
+            "header": "Recommended action",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "occurences",
+            "header": "Occurrences",
+            "width": "80",
+            "datatype": "int"
+        },
+        {
+            "type": "impactedSubscribers",
+            "header": "Impacted Subscribers",
+            "width": "120",
+            "datatype": "int"
+        }
+    ]
+}

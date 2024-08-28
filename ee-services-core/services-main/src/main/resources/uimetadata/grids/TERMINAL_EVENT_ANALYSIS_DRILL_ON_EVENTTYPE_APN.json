@@ -1,0 +1,124 @@
+{
+    "id" : "TERMINAL_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_APN",
+    "title" : "APN Event Analysis",
+    "autoexpand" : "1",
+    "defaultSortCol" : "3",
+    "defaultSortDir" : "ASC",
+    "categoryId" : "TERMINAL_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_APN",
+    "columns" : [
+        {
+            "type" : "apn",
+            "header" : "APN",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "header" : "EventID",
+            "width" : "60",
+            "datatype" : "string",
+            "isSystem" : "TRUE"
+        },
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "rat",
+            "header" : "RAT",
+            "width" : "130",
+            "datatype" : "string",
+            "isHidden" : "TRUE"
+        },
+        {
+            "type" : "failures",
+            "header" : "Failures",
+            "width" : "90",
+            "datatype" : "int",
+            "drillDownWindowType" : "NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_APN"
+        },
+        {
+            "type" : "successes",
+            "header" : "Successes",
+            "width" : "100",
+            "datatype" : "int"
+        },
+        {
+            "type" : "totalEvents",
+            "header" : "Total Events",
+            "width" : "100",
+            "datatype" : "int"
+        },
+        {
+            "type" : "successRatio",
+            "header" : "Success Ratio",
+            "width" : "100",
+            "datatype" : "float"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header" : "Impacted Subscribers",
+            "width" : "120",
+            "datatype" : "int"
+        },
+        {
+            "type" : "bearerCount",
+            "header" : "Bearer Count",
+            "width" : "100",
+            "datatype" : "float",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        },
+        {
+            "type" : "downlinkDataVol",
+            "header" : "Downlink Data Vol (MB)",
+            "width" : "150",
+            "datatype" : "float",
+            "drillDownWindowType" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_APN_DL_TERMINAL_TAB",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        },
+        {
+            "type" : "downlinkThroughput",
+            "header" : "Downlink Throughput (Mb/s)",
+            "width" : "150",
+            "datatype" : "float",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        },
+        {
+            "type" : "downlinkAvgBearerVolume",
+            "header" : "Downlink Avg Bearer Volume (KB)",
+            "width" : "200",
+            "datatype" : "float",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        },
+        {
+            "type" : "uplinkDataVol",
+            "header" : "Uplink Data Vol (MB)",
+            "width" : "150",
+            "datatype" : "float",
+            "drillDownWindowType" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_APN_UL_TERMINAL_TAB",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        },
+        {
+            "type" : "uplinkThroughput",
+            "header" : "Uplink Throughput (Mb/s)",
+            "width" : "150",
+            "datatype" : "float",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        },
+        {
+            "type" : "uplinkAvgBearerVolume",
+            "header" : "Uplink Avg Bearer Volume (KB)",
+            "width" : "200",
+            "datatype" : "float",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        }
+    ]
+}

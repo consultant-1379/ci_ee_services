@@ -1,0 +1,61 @@
+{
+  "toolBarType" : "TOOLBAR_TERMINAL_GROUP_ANALYSIS_CFA",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnView",
+      "name" : "View",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to change display options",
+      "isEnabled" : "TRUE",
+      "items" : [ {
+        "eventID" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_CFA_CALL_DROPS",
+        "id" : "menuGTA_Most_Call_Drops_Summary",
+        "name" : "Most Call Drops",
+        "style" : "analysisTerminalGroup",
+        "url" : "TERMINAL/CALL_FAILURE_TERMINAL_GROUP_ANALYSIS/MOST_CALL_DROPS",
+        "windowType" : "CHART",
+        "display" : "barOneline"
+      }, {
+        "eventID" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_CFA_CALL_SETUP_FAILURES",
+        "id" : "menuGTA_Most_Call_Setup_Failures_Summary",
+        "name" : "Most Call Setup Failures",
+        "style" : "analysisTerminalGroup",
+        "url" : "TERMINAL/CALL_FAILURE_TERMINAL_GROUP_ANALYSIS/MOST_CALL_SETUP_FAILURES",
+        "windowType" : "CHART",
+        "display" : "barOneline"
+      } ]
+    }, {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnRefresh",
+      "name" : "",
+      "style" : "toolbar_refreshbtn",
+      "tip" : "Refresh",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "REFRESH"
+    }, {
+      "id" : "btnToggleToGrid",
+      "name" : "",
+      "style" : "toolbar_toggleToGridbtn",
+      "tip" : "Click to toggle the display from a graph to a table",
+      "isEnabled" : "TRUE",
+      "isToggle" : "TRUE",
+      "eventID" : "TOGGLE_TO_GRID"
+    }, {
+      "id" : "btnHideShowLegend",
+      "name" : "",
+      "style" : "toolbar_hideShowLegendBtn",
+      "tip" : "Click to hide or show the legend on the chart",
+      "isEnabled" : "TRUE",
+      "isToggle" : "TRUE",
+      "eventID" : "SHOW_HIDE_CHART_LEGEND"
+    } ]
+  } ]
+}

@@ -1,0 +1,20 @@
+{
+  "id" : "CS_CAUSE_CODE_TABLE_SCC",
+  "title" : "Fault Codes Table Voice",
+  "noSearchFieldInTitle" : "TRUE",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "columns" : [ {
+    "header" : "Fault Code",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Fault Code description",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Fault Code help",
+    "width" : "100",
+    "datatype" : "string"
+  } ]
+}

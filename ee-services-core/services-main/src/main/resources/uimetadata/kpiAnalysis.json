@@ -1,0 +1,25 @@
+{
+    "kpiAnalysis": {
+        "kpiPrimaryChart": {
+            "id": "KPI_ANALYSIS_SMARTONE",
+            "urlCore": "SESSION_BROWSER/SESSION_KPI/CORE/KPI_CHART",
+            "urlUserPlane": "SESSION_BROWSER/SESSION_KPI/USER_PLANE/KPI_CHART"            
+        },
+        "kpiDrilldownChart": {
+            "id": "KPI_ANALYSIS_SMARTONE_DRILL",
+            "urlCore": "SESSION_BROWSER/SESSION_KPI/CORE/KPI_CHART/KPI_DRILL",
+            "urlUserPlane": "SESSION_BROWSER/SESSION_KPI/USER_PLANE/KPI_CHART/KPI_DRILL"            
+        },
+        "kpiMap" : { 
+       		"name": "MAP",
+       		"mapLayer": "map",
+       		"rncidsLayer": "rncids",
+       		"cellsLayer": "cells",
+       		"srs": "EPSG:4326",
+       		"rncid": "rncid",
+       		"cellid": "cellid",
+       		"cellsKpiUrl" : "SESSION_BROWSER/SESSION_KPI/CORE/KPI_MAP",
+       		"rncsKpiUrl" : "SESSION_BROWSER/SESSION_KPI/CORE/KPI_MAP"
+	}
+    }
+}

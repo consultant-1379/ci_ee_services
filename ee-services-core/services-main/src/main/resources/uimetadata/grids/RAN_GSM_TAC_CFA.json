@@ -1,0 +1,30 @@
+{
+  "id" : "RAN_GSM_TAC_CFA",
+  "title" : "Terminal Call Failure Analysis Ranking",
+  "autoexpand" : "5",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Terminal Make",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Model",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "string",
+    "drillDownWindowType" : "GSM_TERMINAL_EVENT_ANALYSIS_CFA_SUMMARY_TAC"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+   
+  } ]
+}

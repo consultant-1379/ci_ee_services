@@ -1,0 +1,28 @@
+{
+  "id": "NETWORK_RAN_LTE_CFA_DRILL_ON_QOS_QCI_SUMM_BSC_DRILL",
+  "name": "LTE CFA - Controller QCI Statistics",
+  "url": "NETWORK/LTE_CFA_QOS_SUMMARY_ANALYSIS/QCI_EVENT_SUMMARY/ENODEB",
+  "gridDisplayID": "NETWORK_RAN_LTE_CFA_QOS_QCI_BSC_ANALYSIS_DRILL",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "HIER3_ID"
+  }, {
+    "id": "2",
+    "queryParamName": "QCI_ID"
+  }, {
+    "id": "4",
+    "queryParamName": "CATEGORY_ID"
+  }, {
+    "id": "8",
+    "queryParamName": "Controller"
+  }, {
+    "id": "9",
+    "queryParamName": "Vendor"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

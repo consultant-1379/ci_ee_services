@@ -1,0 +1,14 @@
+{
+  "id" : "GSM_EVENT_SCC_ANALYSIS_SUMMARY_BY_CELL",
+  "gridDisplayID" : "NETWORK_GSM_EVENT_ANALYSIS_SUMMARY_CELL",
+  "menuItem" : "GSM_CFA_CELL_RANKING",
+  "url" : "NETWORK/GSM/CALL_FAILURE_EVENT_SUMMARY/ACCESS_AREA",
+  "params" : [ {
+    "id" : "5",
+    "queryParamName" : "AccessArea",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "15",
+    "queryParamName" : "HIER321_ID"
+  } ]
+}

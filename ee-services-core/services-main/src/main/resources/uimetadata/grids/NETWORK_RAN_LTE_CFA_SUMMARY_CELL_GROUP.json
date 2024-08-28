@@ -1,0 +1,31 @@
+{
+  "id" : "NETWORK_RAN_LTE_CFA_SUMMARY_CELL_GROUP",
+  "title" : "Access Area Group LTE Call Failure : Event Analysis Summary",
+  "autoexpand" : "3",
+  "defaultSortCol" : "2",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Group Name",
+    "width" : "100",
+    "datatype" : "string",
+	"isSystem": "TRUE"
+  }, {
+    "header" : "Category ID",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Failure Category",
+    "width" : "100",
+    "datatype" : "string",
+	"drillDownWindowType" : "NETWORK_RAN_LTE_CFA_SUMMARY_CELL_GRP_DRILL_ON_CATEGORY"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "160",
+    "datatype" : "string"
+  } ]
+}

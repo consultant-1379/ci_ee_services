@@ -1,0 +1,27 @@
+{
+  "id" : "KPI_BY_APN_FROM_APN_GROUP",
+  "name" : "KPI Breakdown by APN",
+  "gridDisplayID" : "NETWORK_EVENT_ANALYSIS_APN",
+  "url" : "NETWORK/EVENT_ANALYSIS",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "groupname",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "APN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

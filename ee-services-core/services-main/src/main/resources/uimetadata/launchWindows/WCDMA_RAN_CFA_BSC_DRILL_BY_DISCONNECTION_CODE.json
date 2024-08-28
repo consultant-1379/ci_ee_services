@@ -1,0 +1,23 @@
+{
+    "launchWindowTypeId": "WCDMA_RAN_CFA_BSC_DRILL_BY_DISCONNECTION_CODE",
+    "menuItem": "DRILL_CHART_RNC_DISCONNECTION_CODE_FROM_DRILL_BY",
+    "searchValFromCol": "3",
+    "type": "BSC",
+    "drillTargetType": "CHART",
+    "needSearchParam": "FALSE",
+    "params": [
+        {
+            "id": "2",
+            "queryParamName": "RAN_VENDOR"
+        },
+        {
+            "id": "3",
+            "queryParamName": "RNC_FDN"
+        },
+        {
+            "id": "BSC",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "id": "SUBSCRIBER_RAN_LTE_HFA_IMSI_PREP",
+    "title": "Handover Stage Event Analysis",
+    "url": "SUBSCRIBER/LTE_HANDOVER_FAILURE_SUBSCRIBER_EVENT_SUMMARY_ANALYSIS/CATEGORY_ID",
+    "gridDisplayID": "RAN_LTE_HFA_IMSI_DRILL_ON_PREP",
+    "needSearchParam": "FALSE",
+    "params": [
+         {
+            "id": "2",
+            "queryParamName": "imsi",
+            "isTitleParam": "TRUE"
+        },
+        {
+            "id": "4",
+            "queryParamName": "categoryId",
+            "isTitleParam": "TRUE"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

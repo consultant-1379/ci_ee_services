@@ -1,0 +1,36 @@
+#set($columnsToSelect=["IMSI", "CATEGORY_ID", "TAC"])
+#set($columnsToBeCheckedForNULL=["TAC"])
+BEGIN
+select
+	#if($count > 0)
+	  top $count
+	#end
+	RANK() over (ORDER BY Failures DESC) AS Rank,
+	data.GROUP_NAME as 'Group',
+	data.FAILURES as 'Failures',
+	data.IMPACTED_SUBSCRIBERS as 'Impacted Subscribers',
+	data.CATEGORY_ID
+from
+	(
+		select
+			count(*) as 'Failures',
+			tacGroup.GROUP_NAME,
+			count(distinct(rawview.IMSI)),
+			rawview.CATEGORY_ID
+		from
+		##### fetching the subscriber data including exclusive tacs also
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_SPECIFY_COLUMNS_NOT_NULL($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" $columnsToSelect $columnsToBeCheckedForNULL)
+			,GROUP_TYPE_E_TAC tacGroup
+		where
+			rawview.TAC = tacGroup.TAC
+			and rawview.CATEGORY_ID = :categoryId
+		group by
+			tacGroup.GROUP_NAME,
+			rawview.CATEGORY_ID
+	) as data(FAILURES, GROUP_NAME, IMPACTED_SUBSCRIBERS, CATEGORY_ID)
+	, DIM_E_RAN_HFA_CATEGORY
+where
+	data.CATEGORY_ID = DIM_E_RAN_HFA_CATEGORY.CATEGORY_ID
+order by
+	FAILURES desc
+END

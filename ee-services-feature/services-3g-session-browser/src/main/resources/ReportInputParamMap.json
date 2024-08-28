@@ -1,0 +1,225 @@
+{
+    "reportParamMetaData":[
+        {
+            "reportName":"RNC, HSPA, Cell Throughput (Network Day)",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"dd/MM/yyyy HH:mm:ss",
+                "START_DATETIME":"First Date",
+                "END_DATETIME":"Last Date"
+            }
+        },
+        {
+            "reportName":"RNC, HSPA, Cell Throughput (RNC Day)",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"dd/MM/yyyy HH:mm:ss",
+                "RNC_ID":"Enter value(s) for RNC Id",
+                "START_DATETIME":"First Date",
+                "END_DATETIME":"Last Date"
+            }
+        },
+        {
+            "reportName":"RNC, HSPA, Cell Throughput (UCell Raw Data)",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"dd/MM/yyyy HH:mm:ss",
+                "CELL_ID":"Enter UCell Id",
+                "START_DATETIME":"Date"
+            }
+        },
+        {
+            "reportName":"CS Dropped Calls by RAB",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "START_DATETIME":"First Date",
+                "END_DATETIME":"Last Date"
+            }
+        },
+        {
+            "reportName":"User Plane Performance",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "START_DATETIME":"Enter Datetime Id(Start)",
+                "END_DATETIME":"Enter Datetime Id(End)"
+            }
+        },
+        {
+            "reportName":"User Plane Classification by IMSI",
+            "reportParams":{
+                "IMSI":"Enter Imsi"
+            }
+        },
+        {
+            "reportName":"WCDMA RAN Capacity Event Analysis",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "CELL_ID":"Enter Cell Id",
+                "RNC_ID":"Enter Rncid",
+                "START_DATETIME":"Enter Datetime Id(First)",
+                "END_DATETIME":"Enter Datetime Id(Last)"
+            }
+        },
+        {
+            "reportName":"Paging Failure Analysis by IMSI",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "IMSI":"Enter Imsi",
+                "LAUNCH_START_DATETIME":"Enter Event Time(First)",
+                "LAUNCH_END_DATETIME":"Enter Event Time(Last)"
+            }
+        },
+        {
+            "reportName":"GPRS Attach Analysis by IMSI",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "IMSI":"Enter Imsi",
+                "LAUNCH_START_DATETIME":"Enter Event Time(First)",
+                "LAUNCH_END_DATETIME":"Enter Event Time(Last)"
+            }
+        },
+        {
+            "reportName":"Subscriber WCDMA Radio Experience Analysis",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "IMSI":"Enter Imsi",
+                "START_DATETIME":"Enter Event Time(Start)",
+                "END_DATETIME":"Enter Event Time(End)"
+            }
+        },
+        {
+            "reportName":"System Release by IMSI",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "IMSI":"Enter Imsi",
+                "START_DATETIME":"Enter Datetime Id(Start)",
+                "END_DATETIME":"Enter Datetime Id(End)"
+            }
+        },
+        {
+            "reportName":"PDP Activate Analysis by IMSI",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "IMSI":"Enter Imsi",
+                "LAUNCH_START_DATETIME":"Enter Event Time(First)",
+                "LAUNCH_END_DATETIME":"Enter Event Time(Last)"
+            }
+        },
+        {
+            "reportName":"WCDMA RAN Congestion Event Analysis",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "CELL_ID":"Enter Cell Id",
+                "RNC_ID":"Enter Rncid",
+                "LAUNCH_START_DATETIME":"Enter Datetime Id(First)",
+                "LAUNCH_END_DATETIME":"Enter Datetime Id(Last)"
+            }
+        },
+        {
+            "reportName":"Subscriber URI Summary",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "IMSI":"Enter Imsi",
+                "LAUNCH_START_DATETIME":"Enter Event Time(First)",
+                "LAUNCH_END_DATETIME":"Enter Event Time(Last)"
+            }
+        },
+        {
+            "reportName":"ISRAU Analysis by IMSI",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "IMSI":"Enter Imsi",
+                "LAUNCH_START_DATETIME":"Enter Event Time(First)",
+                "LAUNCH_END_DATETIME":"Enter Event Time(Last)"
+            }
+        },
+        {
+            "reportName":"RAU Analysis by IMSI",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "IMSI":"Enter Imsi",
+                "LAUNCH_START_DATETIME":"Enter Event Time(First)",
+                "LAUNCH_END_DATETIME":"Enter Event Time(Last)"
+            }
+        },
+        {
+            "reportName":"Service Request Analysis by IMSI",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "IMSI":"Enter Imsi",
+                "LAUNCH_START_DATETIME":"Enter Event Time(First)",
+                "LAUNCH_END_DATETIME":"Enter Event Time(Last)"
+            }
+        },
+        {
+            "reportName":"ENIQ Subscriber URI Summary Report",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "IMSI":"Enter Imsi",
+                "LAUNCH_START_DATETIME":"Enter Event Time(Start)",
+                "LAUNCH_END_DATETIME":"Enter Event Time(End)"
+            }
+        },
+        {
+            "reportName":"App Vol Share Per Terminal - From To",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "LAUNCH_START_DATETIME":"Event Time(Start)",
+                "LAUNCH_END_DATETIME":"Event Time(End)"
+            }
+        },
+        {
+            "reportName":"Apple iPhone Penetration  - From To",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "LAUNCH_START_DATETIME":"Event Time(Start)",
+                "LAUNCH_END_DATETIME":"Event Time(End)"
+            }
+        },
+        {
+            "reportName":"Application Traffic Mix by UE Type - From To",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "LAUNCH_START_DATETIME":"Event Time(Start)",
+                "LAUNCH_END_DATETIME":"Event Time(End)"
+            }
+        },
+        {
+            "reportName":"DL versus UL Traffic Analysis - From To",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "LAUNCH_START_DATETIME":"Event Time(Start)",
+                "LAUNCH_END_DATETIME":"Event Time(End)"
+            }
+        },
+        {
+            "reportName":"Router Penetration - From To",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "LAUNCH_START_DATETIME":"Event Time(Start)",
+                "LAUNCH_END_DATETIME":"Event Time(End)"
+            }
+        },
+        {
+            "reportName":"Tablet Penetration  - From To",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "LAUNCH_START_DATETIME":"Event Time(Start)",
+                "LAUNCH_END_DATETIME":"Event Time(End)"
+            }
+        },
+        {
+            "reportName":"Terminal Category Penetration  - From To",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "LAUNCH_START_DATETIME":"Event Time(Start)",
+                "LAUNCH_END_DATETIME":"Event Time(End)"
+            }
+        },
+        {
+            "reportName":"Terminal OS Category Penetration  - From To",
+            "reportParams":{
+                "REPORT_DATEFORMAT":"M/d/yyyy HH:mm:ss",
+                "LAUNCH_START_DATETIME":"Event Time(Start)",
+                "LAUNCH_END_DATETIME":"Event Time(End)"
+            }
+        }
+    ]
+}

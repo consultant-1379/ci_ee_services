@@ -1,0 +1,39 @@
+{
+  "id" : "DRILL_CHART_RNC_RAB_TYPE_FROM_DRILL_BY",
+  "title" : "RAB Type Analysis (WCDMA Call Failure)",
+  "ylabel" : "Number of Events",
+  "xlabel" : "Group Name",
+  "secondYAxisID" : "2",
+  "xaxisID" : "1",
+  "items" : [ 
+    {
+    "id" : "1",
+    "name" : "RAB Type",
+    "color" : "2200FF",
+    "displayInTooltip" : "TRUE"    
+    },
+    {
+    "id" : "2",
+    "name" : "Number of failures",
+    "color" : "cb5853",
+    "displayInTooltip" : "TRUE",
+    "drillDownWindowType" : "DRILL_CHART_RNC_RAB_DESC_FROM_DRILL_BY"      
+    }, 
+  {
+    "id" : "3",
+    "name" : "Impacted Subscribers",
+    "color" : "5400FF",
+    "displayInTooltip" : "TRUE"
+  },
+  {
+      "id" : "4",
+      "name" : "HIER3_ID",
+      "queryParam" : "HIER3_ID"
+  },
+  {
+      "id" : "5",
+      "name" : "categoryId",
+      "queryParam" : "categoryId"
+  }
+ ]
+}

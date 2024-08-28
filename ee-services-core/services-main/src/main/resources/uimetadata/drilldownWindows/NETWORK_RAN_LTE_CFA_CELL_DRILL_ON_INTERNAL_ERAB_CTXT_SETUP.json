@@ -1,0 +1,19 @@
+{
+  "id": "NETWORK_RAN_LTE_CFA_CELL_DRILL_ON_INTERNAL_ERAB_CTXT_SETUP",
+  "name": "Failed Event Analysis",
+  "url": "NETWORK/LTE_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/ACCESS_AREA",
+  "gridDisplayID": "RAN_LTE_CFA_IMSI_DRILL_ON_BY_ELEMENT_INTERNAL_ERAB_CTXT_SETUP",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "HIER321_ID"
+  }, {
+    "id": "6",
+    "queryParamName": "eventID"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

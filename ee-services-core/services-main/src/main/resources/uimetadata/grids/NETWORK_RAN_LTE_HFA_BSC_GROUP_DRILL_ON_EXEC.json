@@ -1,0 +1,37 @@
+{
+    "id": "NETWORK_RAN_LTE_HFA_BSC_GROUP_DRILL_ON_EXEC",
+    "title": "Controller Group LTE Handover Failure : Event Analysis",
+    "autoexpand": "1",
+    "defaultSortCol": "4",
+    "defaultSortDir": "ASC",
+    "columns": [
+        {
+    		"header" : "Group Name",
+    		"width" : "300",
+    		"datatype" : "string",
+			"isSystem": "TRUE"
+  		},
+  		{
+            "header": "Event Type",
+            "width": "250",
+            "datatype": "string"
+        },
+        {
+            "header": "EventID",
+            "width": "60",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Failures",
+            "width": "90",
+            "datatype": "int",
+            "drillDownWindowType": "INTERNAL_PROC_HO_EXEC_S1_IN,NETWORK_RAN_LTE_HFA_BSC_GROUP_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_IN,INTERNAL_PROC_HO_EXEC_S1_OUT,NETWORK_RAN_LTE_HFA_BSC_GROUP_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_OUT,INTERNAL_PROC_HO_EXEC_X2_IN,NETWORK_RAN_LTE_HFA_BSC_GROUP_DRILL_ON_INTERNAL_PROC_HO_EXEC_X2_IN,INTERNAL_PROC_HO_EXEC_X2_OUT,NETWORK_RAN_LTE_HFA_BSC_GROUP_DRILL_ON_INTERNAL_PROC_HO_EXEC_X2_OUT"
+        },
+        {
+            "header": "Impacted Subscribers",
+            "width": "180",
+            "datatype": "int"
+        }
+    ]
+}

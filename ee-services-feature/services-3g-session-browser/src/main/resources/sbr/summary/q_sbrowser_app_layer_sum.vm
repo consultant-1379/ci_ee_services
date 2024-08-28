@@ -1,0 +1,38 @@
+##USE SERVICE PROVIDER AS TEMP SOLUTION
+#DEFINE_CONSTANTS()
+#set($total_columnsToSelect=["BYTES_DOWNLINK","BYTES_UPLINK", "FUNCTION"])
+#set($maxdl_raw_columnsToSelect=["BYTES_DOWNLINK","SERVICE_PROVIDER","FUNCTION"])
+#set($maxul_raw_columnsToSelect=["BYTES_UPLINK","SERVICE_PROVIDER","FUNCTION"])
+#if($subType==$TYPE_IMSI)
+    #set($filterColumn = ["IMSI"])
+#elseif($subType==$TYPE_MSISDN)
+    #set($filterColumn = ["MSISDN"])
+#end
+SELECT
+    totalraw.TOTAL_DL,
+    totalraw.TOTAL_UL,
+    ISNULL(totalraw.FUNCTION_DESC,'Unclassified') AS FUNCTION_DESC,
+	flowRaw.total_flow AS TOTAL_APP_FLOW
+FROM
+    (
+        SELECT
+            SUM(BYTES_DOWNLINK) AS TOTAL_DL,
+            SUM(BYTES_UPLINK)   AS TOTAL_UL,
+            ref.FUNCTION,
+            ref.FUNCTION_DESC
+        FROM
+            #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" $filterColumn $total_columnsToSelect),
+            DIM_E_USER_PLANE_FUNCTION ref
+        WHERE
+            rawview.FUNCTION *= ref.FUNCTION
+        GROUP BY
+            ref.FUNCTION,
+            ref.FUNCTION_DESC
+    )AS totalraw,
+	(SELECT
+		COUNT(*) AS total_flow
+	FROM
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" $filterColumn ["FUNCTION"]),
+		DIM_E_USER_PLANE_FUNCTION ref
+	WHERE
+		rawview.FUNCTION *= ref.FUNCTION)AS flowRaw

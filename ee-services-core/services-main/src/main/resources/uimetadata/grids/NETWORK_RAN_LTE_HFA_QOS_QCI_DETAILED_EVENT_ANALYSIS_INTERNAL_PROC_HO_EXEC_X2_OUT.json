@@ -1,0 +1,145 @@
+{
+    "id": "NETWORK_RAN_LTE_HFA_QOS_QCI_DETAILED_EVENT_ANALYSIS_INTERNAL_PROC_HO_EXEC_X2_OUT",
+    "title": "LTE Handover Failure : QOS Statistics Analysis",
+    "autoexpand": "10",
+    "defaultSortCol": "5",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "HIER3_ID",
+            "width": "10",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "HIER321_ID",
+            "width": "10",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "THIER3_ID",
+            "width": "10",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "THIER321_ID",
+            "width": "10",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Event Time",
+            "width": "150",
+            "datatype": "date"
+        },
+        {
+            "header": "IMSI",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "header": "TAC",
+            "width": "85",
+            "datatype": "string"
+        },
+        {
+            "header": "Terminal Make",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Terminal Model",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Event Type",
+            "width": "275",
+            "datatype": "string"
+        },
+        {
+            "header": "Source Controller",
+            "width": "215",
+            "datatype": "string",
+            "drillDownLicenseCXC": "CXC4010927",
+            "drillDownWindowType": "NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_SOURCE_ENODEB"
+        },
+        {
+            "header": "Source Access Area",
+            "width": "125",
+            "datatype": "string",
+            "drillDownLicenseCXC": "CXC4010927",
+            "drillDownWindowType": "NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_SOURCE_ACCESS_AREA"
+        },
+        {
+            "header": "Target Controller",
+            "width": "215",
+            "datatype": "string",
+            "drillDownLicenseCXC": "CXC4010927",
+            "drillDownWindowType": "NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_TARGET_ENODEB"
+        },
+        {
+            "header": "Target Access Area",
+            "width": "125",
+            "datatype": "string",
+            "drillDownLicenseCXC": "CXC4010927",
+            "drillDownWindowType": "NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_TARGET_ACCESS_AREA"
+        },
+        {
+            "header": "RAN Vendor",
+            "width": "80",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Controller Node",
+            "width": "215",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Access Node",
+            "width": "215",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Target Node",
+            "width": "215",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Target Cell Node",
+            "width": "215",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Setup Request PCI",
+            "width": "250",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Setup Request PVI",
+            "width": "250",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Exec QCI",
+            "width": "80",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Handover Exec Result",
+            "width": "215",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        }
+    ]
+}

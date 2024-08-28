@@ -1,0 +1,52 @@
+{
+  "id" : "CS_NETWORK_EVENT_ANALYSIS_BSC",
+  "title" : "Controller Event Analysis Voice",
+  "autoexpand" : "2",
+  "defaultSortCol" : "6",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Controller",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "HIER3_ID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event ID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "*,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_BSC,locationServices,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_BSC_locationServices,mSOriginatingSMSinMSC,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_BSC_SMS,mSTerminatingSMSinMSC,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_BSC_SMS"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Success Ratio",
+    "width" : "100",
+    "datatype" : "float",
+    "drillDownWindowType" : "CS_KPI_BY_CELL_FROM_BSC"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "string"
+  } ]
+}

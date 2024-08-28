@@ -1,0 +1,25 @@
+{
+  "id" : "DATAVOLUME_ANALYSIS_TAC_UL",
+  "title" : "Data Volume Analysis",
+  "defaultSortCol" : "4",
+  "autoexpand" : "2",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "IMSI",
+    "width" : "120",
+    "datatype" : "int"
+  }, {
+    "header" : "Manufacturer-Model",
+    "width" : "200",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Downlink Data Vol (KB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Uplink Data Vol (KB)",
+    "width" : "150",
+    "datatype" : "float"
+  } ]
+}

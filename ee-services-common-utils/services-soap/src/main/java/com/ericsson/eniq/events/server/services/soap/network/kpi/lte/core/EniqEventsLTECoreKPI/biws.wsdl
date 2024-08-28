@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema"
+	xmlns:s0="EniqEventsLTENetworkCoreKPI" xmlns:tns1="dsws.businessobjects.com"
+	targetNamespace="EniqEventsLTENetworkCoreKPI" xmlns="http://schemas.xmlsoap.org/wsdl/"
+	name="queryasaservice">
+	<types>
+		<s:schema elementFormDefault="qualified" targetNamespace="EniqEventsLTENetworkCoreKPI">
+			<s:element name="runQueryAsAService">
+				<s:complexType>
+					+
+					<s:sequence>
+						<s:element name="login" type="s:string" />
+						<s:element name="password" type="s:string" />
+						<s:element minOccurs="0" maxOccurs="unbounded"
+							name="Enter_value_s__for__SGSN_Name_" type="s:string" nillable="true" />
+						<s:element name="Date_" type="s:dateTime" nillable="true" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="runQueryAsAServiceEx">
+				<s:complexType>
+					<s:sequence>
+						<s:element name="login" type="s:string" />
+						<s:element name="password" type="s:string" />
+						<s:element minOccurs="0" maxOccurs="unbounded"
+							name="Enter_value_s__for__SGSN_Name_" type="s0:LovValueIndex"
+							nillable="true" />
+						<s:element name="Date_" type="s0:LovValueIndex"
+							nillable="true" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="valuesOf_Date">
+				<s:complexType>
+					<s:sequence>
+						<s:element name="login" type="s:string" />
+						<s:element name="password" type="s:string" />
+						<s:element name="searchLov" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="valuesOf_SGSN_Name">
+				<s:complexType>
+					<s:sequence>
+						<s:element name="login" type="s:string" />
+						<s:element name="password" type="s:string" />
+						<s:element name="searchLov" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="Row">
+				<s:sequence>
+					<s:element name="Date" type="s:dateTime" nillable="true" />
+					<s:element name="OSS_Id" type="s:string" nillable="true" />
+					<s:element name="SGSN_Name" type="s:string" nillable="true" />
+					<s:element name="VS_MM_UnsuccAttach_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_EpsAttachFail_7_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_EpsAttachFail_8_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_EpsAttachFail_11_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_EpsAttachFail_12_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_EpsAttachFail_13_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_EpsAttachFail_15_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_EpsAttachFail_14_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_UnsuccAttachCC27_28_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_UnsuccAttachCC32_33_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_AttAttach_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_UnsuccServiceReq_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_AttServiceRequest_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_AttPsPaging_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_SuccPsPaging_E" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_NbrHomeSub_E__sum_" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_NbrVisitingForeign_E__sum_" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_NbrVisitingNatSub_E__sum_" type="s:double"
+						nillable="true" />
+					<s:element name="VS_MM_NbrActAttachedSub_E__sum_" type="s:double"
+						nillable="true" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="Table">
+				<s:sequence>
+					<s:element name="row" maxOccurs="unbounded" type="s0:Row" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="LovValueIndex">
+				<s:sequence>
+					<s:element name="value" type="s:string" />
+					<s:element name="index" type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="Lov">
+				<s:sequence>
+					<s:element name="valueindex" minOccurs="0" maxOccurs="unbounded"
+						type="s0:LovValueIndex" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="valuesOf_DateResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element name="lov" type="s0:Lov" />
+						<s:element name="message" type="s:string" />
+						<s:element name="delegated" type="s:boolean" />
+						<s:element name="partialResult" type="s:boolean" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="valuesOf_SGSN_NameResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element name="lov" type="s0:Lov" />
+						<s:element name="message" type="s:string" />
+						<s:element name="delegated" type="s:boolean" />
+						<s:element name="partialResult" type="s:boolean" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="runQueryAsAServiceResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element name="table" type="s0:Table" />
+						<s:element name="message" type="s:string" />
+						<s:element name="creatorname" type="s:string" />
+						<s:element name="creationdate" type="s:dateTime" />
+						<s:element name="creationdateformated" type="s:string" />
+						<s:element name="description" type="s:string" />
+						<s:element name="universe" type="s:string" />
+						<s:element name="queryruntime" type="s:int" />
+						<s:element name="fetchedrows" type="s:int" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="runQueryAsAServiceExResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element name="table" type="s0:Table" />
+						<s:element name="message" type="s:string" />
+						<s:element name="creatorname" type="s:string" />
+						<s:element name="creationdate" type="s:dateTime" />
+						<s:element name="creationdateformated" type="s:string" />
+						<s:element name="description" type="s:string" />
+						<s:element name="universe" type="s:string" />
+						<s:element name="queryruntime" type="s:int" />
+						<s:element name="fetchedrows" type="s:int" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="QaaWSHeader">
+				<s:complexType>
+					<s:sequence>
+						<s:element name="sessionID" type="s:string" minOccurs="0"
+							maxOccurs="1" nillable="true" />
+						<s:element name="serializedSession" type="s:string"
+							minOccurs="0" maxOccurs="1" nillable="true" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+	</types>
+	<message name="runQueryAsAServiceSoapIn">
+		<part name="parameters" element="s0:runQueryAsAService" />
+		<part name="request_header" element="s0:QaaWSHeader" />
+	</message>
+	<message name="runQueryAsAServiceSoapOut">
+		<part name="parameters" element="s0:runQueryAsAServiceResponse" />
+	</message>
+	<message name="runQueryAsAServiceExSoapIn">
+		<part name="parameters" element="s0:runQueryAsAServiceEx" />
+		<part name="request_header" element="s0:QaaWSHeader" />
+	</message>
+	<message name="runQueryAsAServiceExSoapOut">
+		<part name="parameters" element="s0:runQueryAsAServiceExResponse" />
+	</message>
+	<message name="valuesOf_DateSoapIn">
+		<part name="parameters" element="s0:valuesOf_Date" />
+		<part name="request_header" element="s0:QaaWSHeader" />
+	</message>
+	<message name="valuesOf_DateSoapOut">
+		<part name="parameters" element="s0:valuesOf_DateResponse" />
+	</message>
+	<message name="valuesOf_SGSN_NameSoapIn">
+		<part name="parameters" element="s0:valuesOf_SGSN_Name" />
+		<part name="request_header" element="s0:QaaWSHeader" />
+	</message>
+	<message name="valuesOf_SGSN_NameSoapOut">
+		<part name="parameters" element="s0:valuesOf_SGSN_NameResponse" />
+	</message>
+	<portType name="QueryAsAServiceSoap">
+		<operation name="runQueryAsAService">
+			<documentation>Get Web Service Provider server info</documentation>
+			<input message="s0:runQueryAsAServiceSoapIn" />
+			<output message="s0:runQueryAsAServiceSoapOut" />
+		</operation>
+		<operation name="runQueryAsAServiceEx">
+			<documentation>Get Web Service Provider server info</documentation>
+			<input message="s0:runQueryAsAServiceExSoapIn" />
+			<output message="s0:runQueryAsAServiceExSoapOut" />
+		</operation>
+		<operation name="valuesOf_Date">
+			<documentation>Get Web Service Provider server info</documentation>
+			<input message="s0:valuesOf_DateSoapIn" />
+			<output message="s0:valuesOf_DateSoapOut" />
+		</operation>
+		<operation name="valuesOf_SGSN_Name">
+			<documentation>Get Web Service Provider server info</documentation>
+			<input message="s0:valuesOf_SGSN_NameSoapIn" />
+			<output message="s0:valuesOf_SGSN_NameSoapOut" />
+		</operation>
+	</portType>
+	<binding name="QueryAsAServiceSoap" type="s0:QueryAsAServiceSoap">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<operation name="runQueryAsAService">
+			<soap:operation soapAction="EniqEventsLTENetworkCoreKPI/runQueryAsAService"
+				style="document" />
+			<input>
+				<soap:header message="s0:runQueryAsAServiceSoapIn" part="request_header"
+					use="literal">
+					<soap:headerfault message="s0:runQueryAsAServiceSoapIn"
+						part="request_header" use="literal" />
+				</soap:header>
+				<soap:body use="literal" parts="parameters" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="runQueryAsAServiceEx">
+			<soap:operation soapAction="EniqEventsLTENetworkCoreKPI/runQueryAsAServiceEx"
+				style="document" />
+			<input>
+				<soap:header message="s0:runQueryAsAServiceExSoapIn"
+					part="request_header" use="literal">
+					<soap:headerfault message="s0:runQueryAsAServiceExSoapIn"
+						part="request_header" use="literal" />
+				</soap:header>
+				<soap:body use="literal" parts="parameters" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="valuesOf_Date">
+			<soap:operation soapAction="EniqEventsLTENetworkCoreKPI/valuesOf_Date"
+				style="document" />
+			<input>
+				<soap:header message="s0:valuesOf_DateSoapIn" part="request_header"
+					use="literal">
+					<soap:headerfault message="s0:valuesOf_DateSoapIn"
+						part="request_header" use="literal" />
+				</soap:header>
+				<soap:body use="literal" parts="parameters" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="valuesOf_SGSN_Name">
+			<soap:operation soapAction="EniqEventsLTENetworkCoreKPI/valuesOf_SGSN_Name"
+				style="document" />
+			<input>
+				<soap:header message="s0:valuesOf_SGSN_NameSoapIn" part="request_header"
+					use="literal">
+					<soap:headerfault message="s0:valuesOf_SGSN_NameSoapIn"
+						part="request_header" use="literal" />
+				</soap:header>
+				<soap:body use="literal" parts="parameters" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="EniqEventsLTENetworkCoreKPI">
+		<documentation />
+		<port name="QueryAsAServiceSoap" binding="s0:QueryAsAServiceSoap">
+			<soap:address
+				location="http://atrcxb1272vm2:8080/dswsbobje/qaawsservices/queryasaservice?&amp;cuid=AVoNMCPoSC9Cr.Tck0K.xgs&amp;authType=secEnterprise&amp;locale=en_US&amp;timeout=60&amp;ConvertAnyType=false" />
+		</port>
+	</service>
+</definitions>

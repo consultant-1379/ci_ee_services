@@ -1,0 +1,20 @@
+{
+  "id" : "SUBSCRIBER_RANKING_GSM_DATA_CONN_FAILURE",
+  "title" : "IMSI GSM Data Connection : Failure Event Ranking",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "IMSI",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  } ]
+}

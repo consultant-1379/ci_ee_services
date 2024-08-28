@@ -1,0 +1,25 @@
+{
+  "id" : "NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_SGSN",
+  "name" : "SGSN-MME Event Analysis",
+  "url" : "NETWORK/EVENT_ANALYSIS",
+  "searchValFromCol" : "12",
+  "type" : "SGSN",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "SGSN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "14",
+    "queryParamName" : "sgsn",
+    "isTitleParam" : "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

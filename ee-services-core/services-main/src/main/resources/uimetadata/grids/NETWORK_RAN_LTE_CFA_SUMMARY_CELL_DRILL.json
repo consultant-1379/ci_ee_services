@@ -1,0 +1,46 @@
+{
+  "id" : "NETWORK_RAN_LTE_CFA_SUMMARY_CELL_DRILL",
+  "title" : "Access Area LTE Call Failure : Event Analysis Summary",
+  "autoexpand" : "6",
+  "defaultSortCol" : "7",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "HIER321_ID",
+    "width" : "20",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Category ID",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Controller",
+    "width" : "200",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Access Area",
+    "width" : "140",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Category",
+    "width" : "100",
+    "datatype" : "string",
+	"drillDownWindowType" : "NETWORK_RAN_LTE_CFA_SUMMARY_CELL_DRILL_ON_CELL_CATEGORY"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "160",
+    "datatype" : "string"
+  } ]
+}

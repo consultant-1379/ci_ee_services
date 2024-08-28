@@ -1,0 +1,30 @@
+{
+  "id" : "TERMINAL_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_CELL",
+  "name" : "Event Analysis",
+  "url" : "TERMINAL/EVENT_ANALYSIS",
+  "searchValFromCol" : "7",
+  "type" : "CELL",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "12",
+    "queryParamName" : "bsc"
+  }, {
+    "id" : "15",
+    "queryParamName" : "vendor"
+  }, {
+    "id" : "14",
+    "queryParamName" : "cell"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

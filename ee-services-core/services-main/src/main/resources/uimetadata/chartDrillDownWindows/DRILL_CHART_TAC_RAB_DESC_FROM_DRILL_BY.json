@@ -1,0 +1,19 @@
+{
+  "id" : "DRILL_CHART_TAC_RAB_DESC_FROM_DRILL_BY",
+  "drillWindowName" : "RAB Description Analysis",
+  "url" : "TERMINAL/WCDMA_NETWORK_CALL_FAILURE_ANALYSIS/PIE_CHART_TERMINAL_BY_RABDESC",
+  "drillToolBarType" : "CAUSE_CODE_PIE_DRILL_SUB_CAUSE_CODE",
+  "drillType" : "launchChart",
+	"params": [
+        {
+            "id": "4",
+            "queryParamName": "tac"
+        },
+        {
+            "id": "TAC",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        }
+    ]
+}
+

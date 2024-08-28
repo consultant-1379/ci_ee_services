@@ -1,0 +1,295 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_CALL_FAILURE_TAC_CALL_SETUP",
+    "title": "Failed Event Analysis",
+    "autoexpand": "2",
+    "defaultSortCol": "1",
+    "defaultSortDir": "ASC",
+    "categoryId" : "NETWORK_DETAILED_EVENT_ANALYSIS_CALL_FAILURE_TAC",
+    "licenceTypes": "Event Summary Details,Active Set Measurements",
+    "columns": [
+        {
+            "type" : "eventTime",
+            "header": "Event Time",
+            "width": "120",
+            "datatype": "date"
+        },
+        {
+            "type" : "imsi",
+            "header": "IMSI",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "type" : "tac",
+            "header": "TAC",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type" : "terminalMake",
+            "header": "Terminal Make",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type" : "terminalModel",
+            "header": "Terminal Model",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type" : "eventType",
+            "header": "Event Type",
+            "width": "130",
+            "datatype": "string"
+        },
+        {
+            "type" : "procedureIndicator",
+            "header": "Procedure Indicator",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type" : "evaluationCase",
+            "header": "Evaluation Case",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type" : "exceptionClass",
+            "header": "Exception Class",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type" : "causeValue",
+            "header": "Cause Value",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type" : "extendedCauseValue",
+            "header": "Extended Cause Value",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type" : "severityIndicator",
+            "header": "Severity Indicator",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "type" : "controller",
+            "header": "Controller",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "type" : "accessArea",
+            "header": "Access Area",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "header": "RAB Type",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "CPICH_EC_NO_CELL_1 (dB)",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "UL_INT_CELL1 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "RSCP_CELL_1 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "RAB Type (Attempted Reconfigure)",
+            "width": "200",
+            "datatype": "string",
+            "isHidden": "true",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "CRNC_ID_SERV_HSDSCH_CELL",
+            "width": "200",
+            "datatype": "string",
+            "isHidden": "true",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "C_ID_SERV_HSDSCH_CELL",
+            "width": "200",
+            "datatype": "string",
+            "isHidden": "true",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "RSCP_CELL_2 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "RSCP_CELL_3 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "RSCP_CELL_4 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "CPICH_EC_NO_CELL_2 (dB)",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "CPICH_EC_NO_CELL_3 (dB)",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "CPICH_EC_NO_CELL_4 (dB)",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "UL_INT_CELL2 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "UL_INT_CELL3",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "UL_INT_CELL4",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "SCRAMBLING_CODE_CELL_1",
+            "width": "200",
+            "datatype": "int",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "SCRAMBLING_CODE_CELL_2",
+            "width": "200",
+            "datatype": "int",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "SCRAMBLING_CODE_CELL_3",
+            "width": "200",
+            "datatype": "int",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "SCRAMBLING_CODE_CELL_4",
+            "width": "200",
+            "datatype": "int",
+            "licence": "Active Set Measurements",
+            "isSystem": "true"
+        },
+        {
+            "header": "GBR_UL",
+            "width": "200",
+            "datatype": "int",
+            "licence": "Event Summary Details",
+            "isSystem": "true"
+        },
+        {
+            "header": "GBR_DL",
+            "width": "200",
+            "datatype": "int",
+            "licence": "Event Summary Details",
+            "isSystem": "true"
+        },
+        {
+            "header": "UTRAN_RANAP_CAUSE",
+            "width": "200",
+            "datatype": "string",
+            "isHidden": "true",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "DATA_IN_DL_RLC_BUFFERS",
+            "width": "200",
+            "datatype": "int",
+            "licence": "Event Summary Details",
+            "isSystem": "true"
+        },
+        {
+            "header": "DISCONNECTION_CODE",
+            "width": "200",
+            "datatype": "int",
+            "licence": "Active Set Measurements",
+            "isSystem" : "true"
+        },
+        {
+            "header": "DISCONNECTION_SUBCODE",
+            "width": "200",
+            "datatype": "int",
+            "licence": "Active Set Measurements",
+            "isSystem" : "true"
+        },
+        {
+            "header": "DISCONNECTION_DESC",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Active Set Measurements",
+            "isSystem" : "true"
+        },
+        {
+            "header": "TRIGGER_POINT",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "RRC_ESTABLISHMENT_CAUSE",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Active Set Measurements"
+        }
+    ]
+}

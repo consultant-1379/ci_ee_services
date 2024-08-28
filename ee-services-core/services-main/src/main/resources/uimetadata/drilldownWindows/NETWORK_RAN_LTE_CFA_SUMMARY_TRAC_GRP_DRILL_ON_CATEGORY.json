@@ -1,0 +1,20 @@
+{
+  "id": "NETWORK_RAN_LTE_CFA_SUMMARY_TRAC_GRP_DRILL_ON_CATEGORY",
+  "name": "Tracking Area Group LTE Call Failure : Event Analysis",
+  "url": "NETWORK/LTE_CALL_FAILURE_EVENT_SUMMARY/CATEGORISED_TRAC",
+  "gridDisplayID": "NETWORK_RAN_LTE_CFA_TRAC_GROUP",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "groupname"
+  }, {
+    "id": "2",
+    "queryParamName": "CATEGORY_ID"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}
+

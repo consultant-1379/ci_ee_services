@@ -1,0 +1,26 @@
+{
+    "id": "TERMINAL_EVENT_ANALYSIS_LTE_HFA_IMSI_DRILL_ON_TAC",
+    "gridDisplayID": "TERMINAL_EVENT_ANALYSIS_LTE_HFA_SUMMARY_DRILL_ON_TAC",
+    "name": "Failed Event Analysis",
+    "url": "TERMINAL/LTE_HFA_EVENT_SUMMARY/TAC",
+    "params": [
+    	{
+            "id": "10",
+            "queryParamName": "model"
+        },
+        {
+            "id": "8",
+            "queryParamName": "TAC"
+        },
+        {
+		    "id" : "TAC",
+		    "queryParamName" : "type",
+		    "isFixedVal" : "TRUE"
+    	} 
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

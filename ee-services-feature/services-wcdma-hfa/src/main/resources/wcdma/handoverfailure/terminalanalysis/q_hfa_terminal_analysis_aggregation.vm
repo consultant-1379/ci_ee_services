@@ -1,0 +1,23 @@
+BEGIN
+select
+	#if($count > 0)
+	  top $count
+	#end
+	RANK()
+	over (ORDER BY Failures DESC) AS Rank,
+	aggview.TAC,
+	DIM_E_SGEH_TAC.MANUFACTURER AS Manufacturer,
+	DIM_E_SGEH_TAC.MARKETING_NAME AS Model,
+	SUM(aggview.NO_OF_ERRORS) AS Failures,
+	aggview.CATEGORY_ID
+from
+	#UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS($aggregationViewList "aggview" ["TAC","NO_OF_ERRORS", "CATEGORY_ID"]),
+	DIM_E_SGEH_TAC
+where	
+	aggview.TAC = DIM_E_SGEH_TAC.TAC and aggview.CATEGORY_ID = :categoryId	
+GROUP BY
+	DIM_E_SGEH_TAC.MANUFACTURER,
+	DIM_E_SGEH_TAC.MARKETING_NAME,
+	aggview.TAC,
+	aggview.CATEGORY_ID
+END

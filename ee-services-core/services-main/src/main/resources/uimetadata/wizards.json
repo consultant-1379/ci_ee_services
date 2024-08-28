@@ -1,0 +1,131 @@
+{
+    "wizards": [
+        {
+            "wizardID": "CAUSE_CODE_ANALYSIS_PIE",
+            "loadURL": "NETWORK/CAUSE_CODE_PIE_CHART/CC_LIST",
+            "url": "NETWORK/CAUSE_CODE_PIE_CHART/CAUSE_CODE_ANALYSIS"
+        },
+        {
+            "wizardID": "CS_CAUSE_CODE_ANALYSIS_PIE",
+            "loadURL": "MSS/NETWORK/CAUSE_CODE_PIE_CHART/CC_LIST",
+            "url": "MSS/NETWORK/CAUSE_CODE_PIE_CHART/CAUSE_CODE_ANALYSIS"
+        },
+        {
+            "wizardID": "DATAVOL_ANALYSIS",
+            "url": "NETWORK/NETWORK_DATAVOL_ANALYSIS",
+            "wizardContentStyle": "wizard-content-body-large"
+        },
+        {
+            "wizardID": "EVENT_VOLUME",
+            "url": "NETWORK/EVENT_VOLUME",
+            "wizardContentStyle": "wizard-content-body-large"
+        },
+        {
+            "wizardID": "CS_EVENT_VOLUME",
+            "url": "MSS/NETWORK/EVENT_VOLUME",
+            "wizardContentStyle": "wizard-content-body-large"
+        },
+        {
+            "wizardID": "EVENT_VOLUME_LTE_CFA",
+            "url": "NETWORK/LTE_CFA_EVENT_VOLUME/EVENT_VOLUME",
+            "wizardContentStyle": "wizard-content-body-large"
+        },
+        {
+            "wizardID": "KPI_ANALYSIS",
+            "url": "NETWORK/KPI",
+            "wizardContentStyle": "wizard-content-body-large"
+        },
+        {
+            "wizardID": "CS_KPI_ANALYSIS",
+            "url": "MSS/NETWORK/KPI",
+            "wizardContentStyle": "wizard-content-body-large"
+        },
+        {
+            "wizardID": "NETWORK_EVENT_VOLUME",
+            "url": "NETWORK/EVENT_VOLUME",
+            "wizardContentStyle": "wizard-content-body-large"
+        },
+        {
+            "wizardID": "CS_NETWORK_EVENT_VOLUME",
+            "url": "MSS/NETWORK/EVENT_VOLUME",
+            "wizardContentStyle": "wizard-content-body-large"
+        },
+        {
+            "wizardID": "NETWORK_EVENT_VOLUME_LTE_CFA",
+            "url": "NETWORK/LTE_CFA_EVENT_VOLUME/NETWORK_EVENT_VOLUME",
+            "wizardContentStyle": "wizard-content-body-large"
+        },
+        {
+            "wizardID": "NETWORK_DATAVOL_ANALYSIS",
+            "url": "NETWORK/NETWORK_DATAVOL_ANALYSIS",
+            "wizardContentStyle": "wizard-content-body-large"
+        },
+        {
+            "wizardID": "GSM_CAUSE_CODE_ANALYSIS_PIE",
+            "loadURL": "NETWORK/GSM/CALL_FAILURE_CAUSE_CODE_ANALYSIS/CC_LIST",
+            "url": "NETWORK/GSM/CALL_FAILURE_CAUSE_CODE_ANALYSIS/CAUSE_CODE_PIE_CHART"
+        },
+        {
+            "wizardID": "GSM_DATA_CONN_CAUSE_CODE_ANALYSIS_PIE",
+            "loadURL": "SUBSCRIBER/GSM/DATA_CONNECTION_CAUSE_CODE_ANALYSIS/CC_LIST_IMSI",
+            "url": "SUBSCRIBER/GSM/DATA_CONNECTION_CAUSE_CODE_ANALYSIS/CAUSE_CODE_PIE_CHART_IMSI"
+        },
+        {
+            "wizardID": "LTE_CFA_CAUSE_CODE_ANALYSIS_PIE",
+            "loadURL": "NETWORK/LTE_CFA_CAUSE_CODE_ANALYSIS/PIE_CHART_CC_LIST",
+            "url": "NETWORK/LTE_CFA_CAUSE_CODE_ANALYSIS/PIE_CHART_CAUSE_CODE_ANALYSIS"
+        },
+        {
+            "wizardID": "WCDMA_CC_ANALYSIS_PIE",
+            "loadURL": "NETWORK/WCDMA_CAUSE_CODE_ANALYSIS/CC_LIST",
+            "url": "NETWORK/WCDMA_CAUSE_CODE_ANALYSIS/CAUSE_CODE"
+        },
+        {
+            "wizardID": "WCDMA_HFA_CC_ANALYSIS_PIE",
+            "loadURL": "NETWORK/WCDMA_HFA_CAUSE_CODE_ANALYSIS/CC_LIST",
+            "url": "NETWORK/WCDMA_HFA_CAUSE_CODE_ANALYSIS/CAUSE_CODE_PIE_CHART"
+        },
+        {
+            "wizardID": "LTE_HFA_CAUSE_CODE_ANALYSIS_PIE",
+            "loadURL": "NETWORK/LTE_HFA_CAUSE_CODE_ANALYSIS/PIE_CHART_CC_LIST",
+            "url": "NETWORK/LTE_HFA_CAUSE_CODE_ANALYSIS/PIE_CHART_CAUSE_CODE_ANALYSIS"
+        },
+        {
+            "wizardID": "EVENT_VOLUME_LTE_HFA",
+            "url": "NETWORK/LTE_HFA_EVENT_VOLUME/EVENT_VOLUME",
+            "wizardContentStyle": "wizard-content-body-large"
+        },
+        {
+            "wizardID": "NETWORK_EVENT_VOLUME_LTE_HFA",
+            "url": "NETWORK/LTE_HFA_EVENT_VOLUME/NETWORK_EVENT_VOLUME",
+            "wizardContentStyle": "wizard-content-body-large"
+        },
+        {
+            "wizardID": "LTE_HFA_CAUSE_CODE_ANALYSIS_PIE",
+            "loadURL": "NETWORK/LTE_HFA_CAUSE_CODE_ANALYSIS/PIE_CHART_CC_LIST",
+            "url": "NETWORK/LTE_HFA_CAUSE_CODE_ANALYSIS/PIE_CHART_CAUSE_CODE_ANALYSIS"
+        }
+    ],
+    "licenceGroupTypes": [
+        {
+            "id": "2G3G",
+            "name": "2G/3G Core Network KPIs"
+        },
+        {
+            "id": "4G",
+            "name": "4G Core Network KPIs"
+        },
+        {
+            "id": "VOICE_SMS",
+            "name": "Voice and SMS Network KPIs"
+        },
+        {
+            "id": "WCDMA_HFA_SOURCE",
+            "name": "WCDMA Handover Source"
+        },
+        {
+            "id": "WCDMA_HFA_TARGET",
+            "name": "WCDMA Handover Target"
+        }
+    ]
+}

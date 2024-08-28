@@ -1,0 +1,84 @@
+{
+    "kpiConfigurationPanel": [
+        {
+            "refreshTime": [
+                {
+                    "defaultValueInMinutes": "60",
+                    "comboTimeData": [
+                        {
+                            "data": [
+                                {
+                                    "display": "5 minutes",
+                                    "value": "5"
+                                },
+                                {
+                                    "display": "15 minutes",
+                                    "value": "15"
+                                },
+                                {
+                                    "display": "30 minutes",
+                                    "value": "30"
+                                },
+                                {
+                                    "display": "1 hour",
+                                    "value": "60"
+                                },
+                                {
+                                    "display": "2 hours",
+                                    "value": "120"
+                                },
+                                {
+                                    "display": "6 hours",
+                                    "value": "360"
+                                }
+                            ]
+                        }
+                    ]                    
+                }
+            ],
+            "refreshRate": [
+                {
+                    "defaultValueInMinutes": "5",
+                    "comboTimeData": [
+                        {
+                            "data": [
+                                {
+                                    "display": "5 minutes",
+                                    "value": "5"
+                                },
+                                {
+                                    "display": "15 minutes",
+                                    "value": "15"
+                                },
+                                {
+                                    "display": "30 minutes",
+                                    "value": "30"
+                                },
+                                {
+                                    "display": "1 hour",
+                                    "value": "60"
+                                },
+                                {
+                                    "display": "2 hours",
+                                    "value": "120"
+                                },
+                                {
+                                    "display": "6 hours",
+                                    "value": "360"
+                                },
+                                {
+                                    "display": "12 hours",
+                                    "value": "720"
+                                },
+                                {
+                                    "display": "24 hours",
+                                    "value": "1440"
+                                }
+                            ]
+                        }
+                    ]                    
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+  "id" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_TAC_DL",
+  "name" : "Data Volume Details",
+  "gridDisplayID" : "DATAVOLUME_ANALYSIS_TAC_DL",
+  "url" : "SUBSCRIBER/DATAVOLUME_ANALYSIS",
+  "needSearchParam" : "FALSE",
+  "params" : [ {
+    "id" : "TAC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "3",
+    "queryParamName" : "tac",
+    "isTitleParam" : "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

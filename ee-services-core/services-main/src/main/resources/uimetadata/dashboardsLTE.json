@@ -1,0 +1,136 @@
+{
+    "dashboardsLTE":[{
+            "tabOwner":"DASHBOARD_TAB",
+            "id":"NETWORK_DASHBOARD",
+            "name":"Latest Network Overview: ",
+            "maxDaysBack":"1095",
+            "items":[{
+                    "id":"RADIO_NETWORK_KPI_LTE",
+                    "name":"4G Radio Network KPIs",
+                    "url":"DASHBOARD/KPI/RAN",
+                    "portletType":"ltenetworkkpi",
+                    "needSearchParam":"PATH",
+                    "display":"lteNetworkKPI",
+                    "excludedSearchTypes":"APN,SGSN,SUMMARY_WCDMA,SUMMARY_CORE",
+                    "dateFrom":"*,1440",
+                    "height":"151",
+                    "thresholds":[{
+                            "id":"INITIAL_ERAB_SUCCESS_RATE",
+                            "name":"Initial ERAB Establishment Success Rate",
+                            "lowest":98,
+                            "format":"percent"
+                        },
+                        {
+                            "id":"ADDED_ERAB_SUCCESS_RATE",
+                            "name":"Added ERAB Establishment Success Rate",
+                            "lowest":98,
+                            "format":"percent"
+                        }
+                    ],
+                    "params":{
+                    	"initialERABTopChartId":"LTE_INITIAL_ERAB_EST_SUCCESS_RATE",
+                        "addedERABBottomChartId":"LTE_ADDED_ERAB_EST_SUCCESS_RATE",
+                        "topSeriesIds":"1,2",
+                        "drillDownTabId":"NETWORK_TAB",
+                        "drillableNodeTypes":"SUMMARY_LTE"
+                    }
+                },
+                {
+                    "id":"DASHBOARD_TOP_CELLS_CFA",
+                    "name":"Top 5 Impacted Access Areas By Call Failures",
+                    "url":"DASHBOARD/CELL/CFA",
+                    "portletType":"accessareaPortlet",
+                    "needSearchParam":"PATH",
+                    "display":"accessareaPortlet",
+                    "dateFrom":"*,1440",
+                    "height":"230",
+                    "licenseCXC": "CXC4011279",
+                    "params":{
+                        "drillDownTabId":"NETWORK_TAB",
+                        "wcdmaNodes":"SUMMARY_WCDMA,MSC,BSC,CELL"
+                    }
+                },
+            	{
+                    "id":"BUSINESS_OBJECTS_PORTLET_LTE",
+                    "name":"ENIQ Reports",
+                    "portletType":"businessObjects",
+                    "height":"151",
+                    "url":"DASHBOARD/REPORTS",
+                    "params":{
+                        "boTabId":"BUSINESS_OBJECTS_TAB",
+                        "url":"DASHBOARD/REPORTS"
+                    }
+                },
+                {
+                    "id":"LTE_CORE_NETWORK_KPIS",
+                    "name":"Core Network KPIs",
+                    "url":"DASHBOARD/KPI/CORE",
+                    "portletType":"ltecorenetworkkpis",
+                    "display":"ltecorenetworkkpis",
+                    "needSearchParam":"PATH",
+                    "excludedSearchTypes":"SUMMARY_WCDMA,SUMMARY_CORE,MSC,BSC,CELL",
+                    "dateFrom":"*,1440",
+                    "height":"310",
+                    "thresholds":[{
+                            "id":"ATTACH_FAILURE_EVENT",
+                            "name":"Attach Failure Rate",
+                            "lowest":98,
+                            "format":"percent"
+                        },
+                        {
+                            "id":"SERVICE_REQUEST_FAILURE_EVENT",
+                            "name":"Service Request Failure Rate",
+                            "lowest":98,
+                            "format":"percent"
+                        },
+                        {
+                            "id":"PAGING_FAILURE_EVENT",
+                            "name":"Paging Failure Rate",
+                            "lowest":10,
+                            "format":"percent"
+                        }
+                    ],
+                    "params":{
+                        "supportedSubscribersId":"SUPPORTED_SUBSCRIBERS_EVENT",
+                        "attachedSubscribersId":"ATTACHED_SUBSCRIBERS_EVENT",
+                        "attachFailureId":"ATTACH_FAILURE_EVENT",
+                        "serviceRequestFailureId":"SERVICE_REQUEST_FAILURE_EVENT",
+                        "pagingFailureId":"PAGING_FAILURE_EVENT",
+                        "topSeriesIds":"1,2",
+                        "bottomSeriesIds":"3,4,5"
+                    }
+                },
+                {
+                    "id":"DASHBOARD_TOP_CELLS_HFA",
+                    "name":"Top 5 Impacted Access Areas By Handover Failures",
+                    "url":"DASHBOARD/CELL/HFA",
+                    "portletType":"accessareaPortlet",
+                    "needSearchParam":"PATH",
+                    "display":"accessareaPortlet",
+                    "dateFrom":"*,1440",
+                    "height":"230",
+                    "licenseCXC": "CXC4011280",
+                    "params":{
+                        "drillDownTabId":"NETWORK_TAB",
+                        "wcdmaNodes":"SUMMARY_WCDMA,MSC,BSC,CELL"
+                    }
+                },
+                {
+                    "id":"DASHBOARD_TOP_TERMINALS_LTE",
+                    "name":"Top 5 Impacted Terminals",
+                    "url":"DASHBOARD/TERMINAL",
+                    "portletType":"terminalPortlet",
+                    "needSearchParam":"PATH",
+                    "display":"terminalPortlet",
+                    "dateFrom":"*,1440",
+                    "height":"310",
+                    "licenseCXC": "CXC4011279",
+                    "params":{
+                        "drillDownTabId":"TERMINAL_TAB",
+                        "wcdmaNodes":"SUMMARY_WCDMA,MSC,BSC,CELL"
+                    }
+                }
+            ]
+        }
+    ]
+}

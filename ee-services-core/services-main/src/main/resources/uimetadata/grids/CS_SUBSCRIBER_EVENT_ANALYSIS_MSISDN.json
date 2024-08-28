@@ -1,0 +1,39 @@
+{
+  "id" : "CS_SUBSCRIBER_EVENT_ANALYSIS_MSISDN",
+  "title" : "MSISDN Event Analysis Voice",
+  "autoexpand" : "3",
+  "defaultSortCol" : "4",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "MSISDN",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "EventID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "*,CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_MSISDN,callForwarding,CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_MSISDN_callForwarding,roamingCallForwarding,CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_MSISDN_roamingCallForwarding,locationServices,CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_MSISDN_locationServices,mSOriginatingSMSinMSC,CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_MSISDN_SMS,mSTerminatingSMSinMSC,CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_MSISDN_SMS"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Success Ratio",
+    "width" : "100",
+    "datatype" : "float"
+  } ]
+}

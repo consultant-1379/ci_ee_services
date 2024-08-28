@@ -1,0 +1,7 @@
+{
+  "id" : "DRILL_GRID_CHART_SUB_BI_IMSI_CFA",
+  "drillTargetDisplayId" : "DRILL_GRID_CHART_SUB_BI_CFA",
+  "chartClickedURLParam" : "event",
+  "drillToolBarType" : "TOOLBAR_SUBSCRIBER_DETAILS_WCDMA_CFA_DRILLDOWN",
+  "maxRowsParam" : "ENIQ_EVENTS_SUBBI_COUNT"
+}

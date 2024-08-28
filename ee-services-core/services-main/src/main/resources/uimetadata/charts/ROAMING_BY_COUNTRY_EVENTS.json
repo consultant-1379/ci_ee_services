@@ -1,0 +1,34 @@
+{
+  "id" : "ROAMING_BY_COUNTRY_EVENTS",
+    "title" : "Inbound Roaming by Country (WCDMA Call Failure Event Volume)",
+  "xlabel" : "Country",
+  "ylabel" : "Number of Events",
+  "secondYAxisID" : "4",
+  "xaxisID" : "1",
+  "items" : [
+	{
+		"id": "1",
+		"queryParam" :"COUNTRY"
+	},
+  {
+    "id" : "2",
+    "name" : "Event Failures",
+    "color" : "cb5853",
+	"drillDownWindowType" : "DRILL_GRID_CHART_ROAMING_BY_COUNTRY_EVENTS"
+  }, {
+    "id" : "3",
+    "name" : "Event Successes",
+    "color" : "9ec057"
+  }, {
+    "id" : "4",
+    "name" : "Roaming Subscribers",
+    "color" : "333986"
+  },{
+    "id":"5" ,
+    "name" :"MCC",
+    "queryParam" :"MCC",
+    "isSystem" :"TRUE",
+    "displayInTooltip" :"TRUE"
+  }
+  ]
+}

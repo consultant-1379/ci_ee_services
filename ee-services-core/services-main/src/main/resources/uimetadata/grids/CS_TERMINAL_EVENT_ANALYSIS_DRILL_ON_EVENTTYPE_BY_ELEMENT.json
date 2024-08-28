@@ -1,0 +1,704 @@
+{
+  "id" : "CS_TERMINAL_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_ELEMENT",
+  "title" : "Event Analysis",
+  "autoexpand" : "10",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "DESC",
+  "licenceTypes" : "DV Throughput,2G Core,3G Core,4G Core,Voice & SMS",
+  "columns" : [ {
+    "header" : "Event Time",
+    "width" : "120",
+    "datatype" : "date"
+  }, {
+    "header" : "IMSI",
+    "width" : "120",
+    "datatype" : "string",
+    "licence" : "2G Core,3G Core"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Terminal Make",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Terminal Model",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Result",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Cause Protocol Type",
+    "width" : "165",
+    "datatype" : "string",
+    "licence" : "2G Core-Causecode,3G Core-Causecode,4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Cause Code",
+    "width" : "130",
+    "licence" : "2G Core-Causecode,3G Core-Causecode,4G Core-Causecode",
+    "datatype" : "string"
+  }, {
+    "header" : "Sub Cause Code",
+    "width" : "220",
+    "licence" : "2G Core-Causecode,3G Core-Causecode,4G Core-Causecode",
+    "datatype" : "string"
+  }, {
+    "header" : "SGSN-MME",
+    "width" : "70",
+    "datatype" : "string"
+  }, {
+    "header" : "RAT",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core,3G Core,4G Core,Voice & SMS",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Controller",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Radio Node",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core,3G Core,4G Core,Voice & SMS"
+  }, {
+    "header" : "Access Area",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "DV Throughput,2G Core,3G Core,4G Core,Voice & SMS"
+  }, {
+    "header" : "Tracking Area",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Handover Type",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Old TAI",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core-Mobility,3G Core-Mobility,4G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Old ECI",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Old MME",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Old MTMSI",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Old SGWIPv4",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Old SGWIPv6",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Deactivation PDN Type",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN Bearer ID1",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN Bearer ID2",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN Bearer ID 3",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN PAA IPV4 1",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN PAA IPV4 2",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN PAA IPV4 3",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN PAA IPV6 1",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN PAA IPV6 2",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN PAA IPV6 3",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN PGW IPV4 1",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN PGW IPV4 2",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN PGW IPV4 3",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN PGW IPV6 1",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN PGW IPV6 2",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDN PGW IPV6 3",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Attach Type",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core-Signaling,3G Core-Signaling",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Detach Trigger",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core-Signaling,3G Core-Signaling"
+  }, {
+    "header" : "Detach Type",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core-Signaling,3G Core-Signaling",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Linked NSAPI",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core,3G Core",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDP NSAPI 1",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "2G Core,3G Core",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "GGSN",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core,3G Core,DV Throughput",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "MS IP Address 1",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core,3G Core",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDP NSAPI 2",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "2G Core,3G Core",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "PDP GGSN Name 2",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core,3G Core",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "MS IP Address 2",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core,3G Core",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Paging Attempts",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "2G Core-Signaling,3G Core-Signaling,4G Core-Signaling",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Service Request Trigger",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core-Signaling,3G Core-Signaling,4G Core-Signaling",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Request Retries",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "2G Core-Signaling,3G Core-Signaling,4G Core-Signaling",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "APN",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Result",
+    "width" : "100",
+    "licence" : "2G Core,3G Core,4G Core",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Cause Code",
+    "width" : "130",
+    "licence" : "2G Core,3G Core,4G Core",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Sub Cause Code",
+    "width" : "220",
+    "licence" : "2G Core,3G Core,4G Core",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "MCC",
+    "width" : "100",
+    "licence" : "DV Throughput,2G Core,3G Core,4G Core,Voice & SMS",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "MNC",
+    "width" : "100",
+    "licence" : "DV Throughput,2G Core,3G Core,4G Core,Voice & SMS",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "RAC",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "DV Throughput,2G Core,3G Core,Voice & SMS",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "LAC",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "DV Throughput,2G Core,3G Core,Voice & SMS",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Update Type",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core-Signaling,3G Core-Signaling",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "OldSGSN-MME",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core-Mobility,3G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Old MCC",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core-Mobility,3G Core-Mobility,4G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Old MNC",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core-Mobility,3G Core-Mobility,4G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Old RAC",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "2G Core-Mobility,3G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Old LAC",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "2G Core-Mobility,3G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Transferred PDP",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core-Session,3G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Dropped PDP",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core-Session,3G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "HLR",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "2G Core-Mobility,3G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Deactivation Trigger",
+    "width" : "150",
+    "datatype" : "string",
+    "licence" : "2G Core-Signaling,3G Core-Signaling,4G Core-Signaling",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Cause Code Value",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core-Causecode,3G Core-Causecode,4G Core-Causecode",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "SubCause Code Value",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core-Causecode,3G Core-Causecode,4G Core-Causecode",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Result Value",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "2G Core,3G Core,4G Core",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Cause Protocol TypeID",
+    "width" : "165",
+    "datatype" : "string",
+    "licence" : "2G Core-Causecode,3G Core-Causecode,4G Core-Causecode",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "RAT ID",
+    "width" : "50",
+    "datatype" : "string",
+    "licence" : "2G Core,3G Core,4G Core,Voice & SMS",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "SMS Only",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Combined TAU Type",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Mobility",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Bearer Cause 1",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "ARP PL 1",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "ARP PCI 1",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "ARP PVI 1",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "GBR Uplink 1",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "GBR Downlink 1",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Bearer Cause 2",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "ARP PL 2",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "ARP PCI 2",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "ARP PVI 2",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "GBR Uplink 2",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "GBR Downlink 2",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Bearer Cause 3",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "ARP PL 3",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "ARP PCI 3",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "ARP PVI 3",
+    "width" : "100",
+    "datatype" : "string",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "GBR Uplink 3",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "GBR Downlink 3",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Causecode",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Duration",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "EPS Bearer ID 1",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "EPS Bearer ID 2",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "EPS Bearer ID 3",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-Session",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Err 1",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Err 2",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Err 3",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Err 4",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Err 5",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Err 6",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Err 7",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Err 8",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Err 9",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Err 10",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Suc 1",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Suc 2",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Suc 3",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Suc 4",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Suc 5",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Suc 6",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Suc 7",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Suc 8",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Suc 9",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QCI Suc 10",
+    "width" : "100",
+    "datatype" : "int",
+    "licence" : "4G Core-QCI",
+    "isHidden" : "TRUE"
+  } ]
+}

@@ -1,0 +1,103 @@
+{
+    "toolBarType": "TOOLBAR_GROUPING_GRID_WCDMA_HFA",
+    "panels": [
+        {
+            "toolBarButtons": [
+                {
+                    "id": "btnBack",
+                    "name": "",
+                    "style": "toolbar_back",
+                    "isEnabled": "FALSE",
+                    "tip": "Backward Navigation",
+                    "isToggle": "False",
+                    "eventID": "BACK"
+                },
+                {
+                    "id": "btnForward",
+                    "name": "",
+                    "style": "toolbar_forward",
+                    "isEnabled": "FALSE",
+                    "tip": "Forward Navigation",
+                    "isToggle": "FALSE",
+                    "eventID": "FORWARD"
+                },
+                {
+                    "id": "btnNav",
+                    "name": "History",
+                    "style": "toolbar_viewbtn",
+                    "tip": "Click to navigate visited windows",
+                    "isEnabled": "FALSE",
+                    "eventID": "NAVIGATION",
+                    "items": [
+                        {
+                            "id": "DUMMY_VALUE",
+                            "name": "DUMMY_VALUE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "toolBarButtons": [
+                {
+                    "id": "btnTime",
+                    "name": "",
+                    "style": "toolbar_timebtn",
+                    "tip": "Click to change Time Constraints",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "TIME"
+                },
+                {
+                    "id": "btnRefresh",
+                    "name": "",
+                    "style": "toolbar_refreshbtn",
+                    "tip": "Refresh",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "REFRESH"
+                },
+                {
+                    "id": "btnProperties",
+                    "name": "",
+                    "style": "toolbar_propertiesbtn",
+                    "tip": "Click to open selected row in properties window",
+                    "isEnabled": "FALSE",
+                    "isToggle": "FALSE",
+                    "eventID": "PROPERTIES"
+                },
+                {
+                    "id": "btnExport",
+                    "name": "",
+                    "style": "toolbar_exportbtn",
+                    "tip": "Click to export the data to CSV",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "EXPORT"
+                }
+            ]
+        },
+        {
+            "toolBarButtons": [
+                {
+                    "id": "btnCC",
+                    "name": "",
+                    "style": "ccButton",
+                    "tip": "Click to view a list of all possible WCDMA Handover Failure cause codes",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "CAUSE_CODE_TABLE_CC_WCDMA_HFA"
+                },
+                {
+                    "id": "btnSCC",
+                    "name": "",
+                    "style": "sccButton",
+                    "tip": "Click to view a list of all possible WCDMA Handover Failure sub-cause codes",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "CAUSE_CODE_TABLE_SCC_WCDMA_HFA"
+                }
+            ]
+        }
+    ]
+}

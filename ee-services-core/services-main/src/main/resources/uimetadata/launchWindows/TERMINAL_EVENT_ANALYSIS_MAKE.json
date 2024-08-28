@@ -1,0 +1,19 @@
+{
+  "launchWindowTypeId" : "TERMINAL_EVENT_ANALYSIS_MAKE",
+  "menuItem" : "TERMINAL_EVENT_ANALYSIS",
+  "searchValFromCol" : "2",
+  "type" : "MANUFACTURER",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "manufacturer",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "true",
+    "queryParamName" : "dataTieredDelay",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "MANUFACTURER",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

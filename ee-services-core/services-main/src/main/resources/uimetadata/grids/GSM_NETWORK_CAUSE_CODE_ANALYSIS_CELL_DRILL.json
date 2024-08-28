@@ -1,0 +1,65 @@
+{
+  "id" : "GSM_NETWORK_CAUSE_CODE_ANALYSIS_CELL_DRILL",
+  "title" : "Access Area GSM Call Failure : Extended Cause Analysis Summary",
+  "autoexpand" : "2",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "DESC",
+  "categoryId": "GSM_NETWORK_CAUSE_CODE_ANALYSIS_CELL_DRILL",
+  "columns" : [ {
+  	"type" : "SubCauseGroupID",
+    "header" : "Extended Cause ID",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+  	"type" : "SubCauseGroup",
+    "header" : "Extended Cause Value",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+  	"type" : "failures",
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int",
+    "drillDownWindowType" : "Call\u0020Setup\u0020Failures,GSM_NETWORK_CSF_CC_SCC_DETAILED_EVENT_ANALYSIS_CELL_DRILL, Call\u0020Drops,GSM_NETWORK_CC_SCC_DETAILED_EVENT_ANALYSIS_CELL_DRILL"
+  }, {
+  	"type" : "impactedSubs",
+    "header" : "Impacted Subscribers",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Node",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }, {
+    "header" : "Cause Group",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }, {
+    "header" : "Cause Group ID",
+    "width" : "50",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }, {
+    "header" : "HIER321_ID",
+    "width" : "0",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "CATEGORY_ID",
+    "width" : "0",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  } ],
+   "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

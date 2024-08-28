@@ -1,0 +1,24 @@
+{
+    "launchWindowTypeId": "CC_WCDMA_HFA_HANDOVER_TYPE_EVENT_ANALYSIS",
+    "menuItem": "CC_WCDMA_HFA_HANDOVER_TYPE_EVENT_ANALYSIS",
+    "searchValFromCol": "4,5",
+    "type": "CC",
+    "params": [
+        {
+            "id": "3",
+            "name": "Category Id",
+            "queryParamName": "categoryId"
+        },
+        {
+            "id": "4",
+            "name": "Cause Code Description",
+            "queryParamName": "causeCodeDescription",
+            "isTitleParam": "TRUE"
+        },
+        {
+            "id": "5",
+            "name": "Cause Code Id",
+            "queryParamName": "causeCode"
+        }
+    ]
+}

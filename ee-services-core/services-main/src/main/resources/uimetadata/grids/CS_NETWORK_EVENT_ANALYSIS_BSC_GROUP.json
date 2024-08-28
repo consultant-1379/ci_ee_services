@@ -1,0 +1,44 @@
+{
+  "id" : "CS_NETWORK_EVENT_ANALYSIS_BSC_GROUP",
+  "title" : "Controller Group Event Analysis Voice",
+  "autoexpand" : "3",
+  "defaultSortCol" : "4",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Controller Group",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event ID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "*,CS_NETWORK_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE_BY_BSC,locationServices,CS_NETWORK_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE_BY_BSC_locationServices,mSOriginatingSMSinMSC,CS_NETWORK_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE_BY_BSC_SMS,mSTerminatingSMSinMSC,CS_NETWORK_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE_BY_BSC_SMS"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Success Ratio",
+    "width" : "100",
+    "datatype" : "float",
+    "drillDownWindowType" : "CS_KPI_BY_BSC_FROM_BSC_GROUP"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "string"
+  } ]
+}

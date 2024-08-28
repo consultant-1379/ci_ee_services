@@ -1,0 +1,24 @@
+{
+  "id" : "DATAVOLUME_ANALYSIS_UL",
+  "title" : "Data Volume Analysis",
+  "defaultSortCol" : "4",
+  "autoexpand" : "2",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "IMSI",
+    "width" : "120",
+    "datatype" : "int"
+  }, {
+    "header" : "Manufacturer-Model",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Downlink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Uplink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  } ]
+}

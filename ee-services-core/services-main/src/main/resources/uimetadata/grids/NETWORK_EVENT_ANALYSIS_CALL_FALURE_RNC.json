@@ -1,0 +1,60 @@
+{
+    "id" : "NETWORK_EVENT_ANALYSIS_CALL_FALURE_RNC",
+    "title" : "Controller Event Analysis",
+    "autoexpand" : "2",
+    "defaultSortCol" : "1",
+    "defaultSortDir" : "ASC",
+    "categoryId" : "NETWORK_EVENT_ANALYSIS_CALL_FALURE_RNC",
+    "columns" : [
+        {
+            "type" : "vendor",
+            "header" : "RAN Vendor",
+            "width" : "80",
+            "datatype" : "string"
+        },
+        {
+            "type" : "controller",
+            "header" : "Controller",
+            "width" : "250",
+            "datatype" : "string"
+        },
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "failures",
+            "header" : "Failures",
+            "width" : "90",
+            "datatype" : "int",
+            "drillDownWindowType" : "Call Drops,NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_BSC_CALL_DROPS,Call Setup Failures,NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_BSC_CALL_SETUP"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header" : "Impacted Subscribers",
+            "width" : "150",
+            "datatype" : "string"
+        },
+        {
+            "header": "HIER3_ID",
+            "width": "100",
+            "datatype": "long",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "EVENT_ID",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        
+        {
+			"header" : "Failure Ratio (%)",
+			"width" : "100",
+			"datatype" : "double"
+		}
+        
+    ]
+}

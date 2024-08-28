@@ -1,0 +1,105 @@
+{
+  "id" : "CS_EVENT_VOLUME",
+  "isChartData" : "TRUE",
+  "title" : "Event Volume Analysis",
+  "autoexpand" : "1",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Time",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "MS Originating Call Completion Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "MS Originating Call Block Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "MS Originating Call Drop Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "MS Originating Emergency Call Completion Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "MS Originating Emergency Call Block Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "MS Originating Emergency Call Drop Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "MS Terminating Call Completion Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "MS Terminating Call Block Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "MS Terminating Call Drop Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "Call Forwarding Call Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "Call Forwarding Call Block Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "Call Forwarding Call Drop Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "Roaming Call Forwarding Call Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "Roaming Call Forwarding Call Block Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "Roaming Call Forwarding Call Drop Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "Location Requests Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "Unsuccessful Location Request Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "MS Originating SMS Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "MS Originating SMS Fail Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "MS Terminating SMS Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "MS Terminating SMS Fail Count",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Network Events",
+    "width" : "200",
+    "datatype" : "int"
+  } ]
+}

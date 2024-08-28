@@ -1,0 +1,89 @@
+##
+## WCDMA Call Failure Analysis controller group Cause Code Summary (using aggregation tables)
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time#
+
+SELECT
+	events.CAUSE_CODE as 'Cause Code ID',
+	events.CAUSE_CODE_DESC as 'Cause Code Description',
+	events.NO_OF_ERRORS as 'Failures',
+	isnull(subscribers.NO_OF_SUBSCRIBERS,0) as 'Impacted Subscribers',
+	:groupname as 'groupname'
+FROM
+	(
+	SELECT
+    	err.CAUSE_CODE as CAUSE_CODE,
+    	err.CAUSE_CODE_DESC as CAUSE_CODE_DESC,
+    	sum(isnull(err.NO_OF_ERRORS, 0)) as NO_OF_ERRORS
+    FROM
+    	(
+        SELECT
+        	ccref.CAUSE_VALUE,
+        	CAUSE_VALUE_DESC,
+        	sum(NO_OF_ERRORS)
+        FROM
+        	dc.${aggregationView} errRef,
+        	dc.DIM_E_RAN_CFA_CAUSE_VALUE ccref,
+        	dc.GROUP_TYPE_E_RAT_VEND_HIER3 controllerGroup
+        WHERE
+        	#GET_DATETIME_RANGE()
+        	and controllerGroup.GROUP_NAME = :groupname
+        	and controllerGroup.HIER3_ID = errRef.HIER3_ID
+        	AND ccref.CAUSE_VALUE = errRef.CAUSE_VALUE
+			#if ($display == "chart")
+				and
+				errRef.CAUSE_VALUE IN ($causeCodeIds)
+			#end
+        GROUP BY
+        	ccref.CAUSE_VALUE,
+        	CAUSE_VALUE_DESC
+    	) AS err (CAUSE_CODE, CAUSE_CODE_DESC, NO_OF_ERRORS)
+    GROUP BY
+    	err.CAUSE_CODE,
+    	err.CAUSE_CODE_DESC
+    ) events,
+    (
+	SELECT
+    	subscribers.CAUSE_CODE  as CAUSE_CODE,
+    	isnull(count(distinct(IMSI)),0) as NO_OF_SUBSCRIBERS
+    FROM
+    	(
+    	#foreach ($errtable in $TECH_PACK_LIST.getAllRawTables())
+    	(
+        SELECT
+        	ccref.CAUSE_VALUE,
+        	IMSI
+        FROM
+        	dc.${errtable} errRef,
+        	dc.DIM_E_RAN_CFA_CAUSE_VALUE ccref,
+        	dc.GROUP_TYPE_E_RAT_VEND_HIER3 controllerGroup
+        WHERE
+        	#GET_DATETIME_RANGE()
+        	AND #GET_TAC_EXCLUSION()
+        	and controllerGroup.GROUP_NAME = :groupname
+			and controllerGroup.HIER3_ID = errRef.HIER3_ID
+        	AND ccref.CAUSE_VALUE = errRef.CAUSE_VALUE
+			#if ($display == "chart")
+				AND
+				errRef.CAUSE_VALUE IN ($causeCodeIds)
+			#end
+        GROUP BY
+        	ccref.CAUSE_VALUE,
+        	IMSI
+        )
+    		#if($velocityCount < $TECH_PACK_LIST.getAllRawTables().size())
+    			UNION ALL
+    		#end
+    	#end
+    	) AS subscribers (CAUSE_CODE, IMSI)
+    GROUP BY
+    	subscribers.CAUSE_CODE) subscribers
+WHERE
+	events.CAUSE_CODE *= subscribers.CAUSE_CODE
+ORDER BY
+	events.CAUSE_CODE
+	

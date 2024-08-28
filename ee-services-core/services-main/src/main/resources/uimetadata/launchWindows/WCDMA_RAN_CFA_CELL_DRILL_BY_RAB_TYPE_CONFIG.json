@@ -1,0 +1,27 @@
+{
+    "launchWindowTypeId":"WCDMA_RAN_CFA_CELL_DRILL_BY_RAB_TYPE_CONFIG",
+    "menuItem":"DRILL_CHART_CELL_RAB_TYPE_FROM_DRILL_BY",
+    "searchValFromCol":"3",
+    "type":"CELL",
+    "drillTargetType":"CHART",
+    "needSearchParam":"FALSE",
+    "params":[
+        {
+            "id":"7",
+            "queryParamName":"HIER3_CELL_ID"
+        },
+        {
+            "id":"CELL",
+            "queryParamName":"type",
+            "isFixedVal":"TRUE"
+        },
+        {
+            "id":"8",
+            "queryParamName":"eventID"
+        },
+        {
+            "id":"11",
+            "queryParamName":"drillCat"
+        }
+    ]
+}

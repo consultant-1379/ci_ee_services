@@ -1,0 +1,35 @@
+{
+    "id": "RAN_WCDMA_TAC_HFA",
+    "title": "Terminal WCDMA Handover Failure : Event Ranking",
+    "autoexpand": "2",
+    "defaultSortCol": "1",
+    "defaultSortDir": "ASC",
+    "columns": [
+        {
+            "header": "Rank",
+            "width": "50",
+            "datatype": "int"
+        },
+        {
+            "header": "Manufacturer",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Model",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "header": "TAC",
+            "width": "100",
+            "datatype": "string",
+            "launchWindowType": "TERMINAL_EVENT_ANALYSIS_WCDMA_HFA_SUMMARY_TAC"
+        },
+        {
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int"  
+        }
+    ]
+}

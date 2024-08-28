@@ -1,0 +1,263 @@
+#DEFINE_CONSTANTS()
+#set($classifications_columnsToSelect=["SUM(BYTES_DOWNLINK) AS BYTES_DOWNLINK","SUM(BYTES_UPLINK) AS BYTES_UPLINK"])
+#set($tp_base_columnsToSelect=["DOWNLINK","datetime_id","THROUGHPUT"])
+#set($tp_host_columnsToSelect=["HOST","THROUGHPUT"])
+#set($latency_base_columnsToSelect=["DATETIME_ID", "SETUP_TIME_NET", "SETUP_TIME_TERM"])
+#set($latency_host_columnsToSelect=["HOST", "SETUP_TIME_NET", "SETUP_TIME_TERM"])
+#set($packet_base_columnsToSelect=["DATETIME_ID","PACKET_LOSS_NET", "PACKET_LOSS_TERM"])
+#set($packet_host_columnsToSelect=["HOST","PACKET_LOSS_NET", "PACKET_LOSS_TERM"])
+#set($userPlaneTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_USER_PLANE_TPNAME).getRawTablesWithMeasurementTypes())
+#set($tcpTableList=[])
+#set($appTableList=[])
+#foreach ($table in $userPlaneTableList)
+    #if($table.contains("TCP"))
+        #set($isAdded=$tcpTableList.add($table))
+    #elseif($table.contains("CLASSIFICATION"))
+        #set($isAdded=$appTableList.add($table))
+    #end
+#end
+#*
+TODO eeitsik: as MSISDN is currently disabled. All below queries haven been optimized for IMSI only!
+This means IMSI-column has been removed from $columnsToSelect variable and GROUP BY statements
+ *#
+#if($subType==$TYPE_IMSI)
+    #set($filterColumn = ["IMSI"])
+#elseif($subType==$TYPE_MSISDN)
+    #set($filterColumn = ["MSISDN"])
+#end
+##Modified function used to replace raw view with raw tables with filter columns and add a DOWNLINK condition
+#macro (RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS $rawtables $rawview $columns $columnsToIncludeInNewView $downLinkValue $isTimeRange $useDownlink $useDateTimeID)
+(
+    #foreach ($rawtable in $rawtables)
+    select
+        #foreach ($columnToInclude in $columnsToIncludeInNewView)
+            $columnToInclude
+            #if($velocityCount < $columnsToIncludeInNewView.size())
+            ,
+            #end
+        #end
+    from dc.$rawtable
+	where
+		#GET_COLUMNS_WHERE($columns)
+		#if($isTimeRange)
+			AND #GET_DATETIME_RANGE()
+		#end
+		#if($useDownlink)
+			AND downlink = $downLinkValue
+		#end
+		#if($useDateTimeID)
+			AND datetime_id = @PEAK_TIME
+		#end
+        #if($velocityCount < $rawtables.size())
+        union all
+        #end
+    #end
+) as $rawview
+#end
+
+
+
+BEGIN
+## Global variables (used by several queries))
+DECLARE @PEAK_TIME TIMESTAMP
+
+## Throughput tables data
+## tcp_performance_tp_classifications
+DECLARE @DATA_VOL_UPLINK BIGINT, @DATA_VOL_DOWNLINK BIGINT
+SELECT
+@DATA_VOL_UPLINK = SUM(BYTES_UPLINK),
+@DATA_VOL_DOWNLINK = SUM(BYTES_DOWNLINK)
+FROM #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($appTableList "rawview" $filterColumn $classifications_columnsToSelect)
+
+## tcp_performance_tp_avg
+DECLARE @AVG_TP_DL DECIMAL(16,4), @AVG_TP_UL DECIMAL(16,4)
+SELECT
+@AVG_TP_DL = AVG(CASE WHEN DOWNLINK = 1 THEN THROUGHPUT ELSE null END),
+@AVG_TP_UL = AVG(CASE WHEN DOWNLINK = 1 THEN null ELSE THROUGHPUT END)
+FROM #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($tcpTableList "rawview" $filterColumn $tp_base_columnsToSelect)
+
+## tcp_performance_tp_peak_ul
+DECLARE @PEAK_UL REAL, @PEAK_UL_HOST VARCHAR(127)
+SELECT TOP 1
+@PEAK_UL = AVG(throughput),
+@PEAK_TIME = datetime_id
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $tp_base_columnsToSelect 0 true true false)
+GROUP BY datetime_id
+ORDER BY AVG(throughput) DESC
+
+SELECT TOP 1
+@PEAK_UL_HOST = HOST
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $tp_host_columnsToSelect 0 false true true)
+ORDER BY throughput DESC
+
+## tcp_performance_tp_peak_dl
+DECLARE @PEAK_DL REAL, @PEAK_DL_HOST VARCHAR(127)
+SELECT TOP 1
+@PEAK_DL = AVG(throughput),
+@PEAK_TIME = datetime_id
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $tp_base_columnsToSelect 1 true true false)
+GROUP BY datetime_id
+ORDER BY AVG(throughput) DESC
+
+SELECT TOP 1
+@PEAK_DL_HOST = HOST
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $tp_host_columnsToSelect 1 false true true)
+ORDER BY throughput DESC
+
+############################################
+## Latency tables data
+############################################
+
+##tcp_performance_latency_avg
+DECLARE @AVG_UE_GN REAL, @AVG_GN_SERVER REAL
+SELECT
+@AVG_UE_GN = AVG(SETUP_TIME_TERM),
+@AVG_GN_SERVER = AVG(SETUP_TIME_NET)
+FROM #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($tcpTableList "rawview" $filterColumn $latency_base_columnsToSelect)
+
+##tcp_performance_latency_ue_gn_peak
+DECLARE @SLOWEST_HOST_TIME_UE_GN TIMESTAMP, @SLOWEST_HOST_UE_GN VARCHAR(127), @PEAK_UE_GN_RTT REAL
+SELECT
+TOP 1
+@PEAK_TIME = DATETIME_ID,
+@PEAK_UE_GN_RTT = AVG(SETUP_TIME_TERM)
+FROM #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($tcpTableList "rawview" $filterColumn $latency_base_columnsToSelect)
+GROUP BY DATETIME_ID
+ORDER BY
+AVG(SETUP_TIME_TERM) DESC
+
+SELECT TOP 1
+@SLOWEST_HOST_UE_GN = HOST
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $latency_host_columnsToSelect "" false false true)
+ORDER BY SETUP_TIME_TERM DESC
+SET @SLOWEST_HOST_TIME_UE_GN = @PEAK_TIME
+
+##tcp_performance_latency_gn_serv_peak
+DECLARE @SLOWEST_HOST_TIME_GN_SERV TIMESTAMP, @SLOWEST_HOST_GN_SERV VARCHAR(127), @PEAK_GN_SERV_RTT REAL
+SELECT
+TOP 1
+@PEAK_TIME = DATETIME_ID,
+@PEAK_GN_SERV_RTT = AVG(SETUP_TIME_NET)
+FROM #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($tcpTableList "rawview" $filterColumn $latency_base_columnsToSelect)
+GROUP BY DATETIME_ID
+ORDER BY
+AVG(SETUP_TIME_NET) DESC
+
+SELECT TOP 1
+@SLOWEST_HOST_GN_SERV = HOST
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $latency_host_columnsToSelect "" false false true)
+ORDER BY SETUP_TIME_NET DESC
+SET @SLOWEST_HOST_TIME_GN_SERV = @PEAK_TIME
+
+##tcp_performance_latency_host (slowest host)
+DECLARE @PEAK_RTT_HOST VARCHAR(127)
+SET @PEAK_RTT_HOST = CASE WHEN @SLOWEST_HOST_TIME_GN_SERV > @SLOWEST_HOST_TIME_UE_GN THEN @SLOWEST_HOST_GN_SERV ELSE @SLOWEST_HOST_UE_GN END
+
+###############################################
+## Packet loss tables data
+###############################################
+##tcp_performance_packet_loss_ue_gn_ul
+DECLARE @UE_GN_UPLINK DECIMAL(10,6), @HOST_UE_GN_UPLINK VARCHAR(127)
+SELECT
+TOP 1
+@UE_GN_UPLINK = CAST(AVG(PACKET_LOSS_TERM) AS DECIMAL(10,6)),
+@PEAK_TIME = datetime_id
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $packet_base_columnsToSelect 0 true true false)
+GROUP BY datetime_id
+ORDER BY
+AVG(PACKET_LOSS_TERM) DESC
+
+SELECT TOP 1
+@HOST_UE_GN_UPLINK = HOST
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $packet_host_columnsToSelect 0 false true true)
+ORDER BY PACKET_LOSS_TERM DESC
+
+##tcp_performance_packet_loss_gn_server_ul
+DECLARE @GN_SERVER_UPLINK DECIMAL(10,6), @HOST_GN_SERVER_UPLINK VARCHAR(127)
+SELECT
+TOP 1
+@GN_SERVER_UPLINK = CAST(AVG(PACKET_LOSS_NET) AS DECIMAL(10,6)),
+@PEAK_TIME = datetime_id
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $packet_base_columnsToSelect 0 true true false)
+GROUP BY datetime_id
+ORDER BY
+AVG(PACKET_LOSS_NET) DESC
+
+SELECT TOP 1
+@HOST_GN_SERVER_UPLINK = HOST
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $packet_host_columnsToSelect 0 false true true)
+ORDER BY PACKET_LOSS_NET DESC
+
+## tcp_performance_packet_loss_ue_gn_dl
+DECLARE @UE_GN_DOWNLINK DECIMAL(10,6), @HOST_UE_GN_DOWNLINK VARCHAR(127)
+SELECT
+TOP 1
+@UE_GN_DOWNLINK = CAST(AVG(PACKET_LOSS_TERM) AS DECIMAL(10,6)),
+@PEAK_TIME = datetime_id
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $packet_base_columnsToSelect 1 true true false)
+GROUP BY datetime_id
+ORDER BY
+AVG(PACKET_LOSS_TERM) DESC
+
+SELECT TOP 1
+@HOST_UE_GN_DOWNLINK = HOST
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $packet_host_columnsToSelect 1 false true true)
+ORDER BY PACKET_LOSS_TERM DESC
+
+## tcp_performance_packet_loss_gn_server_dl
+DECLARE @GN_SERVER_DOWNLINK DECIMAL(10,6), @HOST_GN_SERVER_DOWNLINK VARCHAR(127)
+SELECT
+TOP 1
+@GN_SERVER_DOWNLINK = CAST(AVG(PACKET_LOSS_NET) AS DECIMAL(10,6)),
+@PEAK_TIME = datetime_id
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $packet_base_columnsToSelect 1 true true false)
+GROUP BY datetime_id
+ORDER BY
+AVG(PACKET_LOSS_NET) DESC
+
+SELECT TOP 1
+@HOST_GN_SERVER_DOWNLINK = HOST
+FROM #RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_AND_EXTRA_USERPLANE_CONDITIONS($tcpTableList "rawview" $filterColumn $packet_host_columnsToSelect 1 false true true)
+ORDER BY PACKET_LOSS_NET DESC
+
+SELECT
+    ## Throughput data
+    0 as TCP_FLOWS,
+    @DATA_VOL_UPLINK                                      AS TOTAL_TP_UL,
+    @DATA_VOL_DOWNLINK                                    AS TOTAL_TP_DL,
+    @AVG_TP_DL                     						  AS AVG_TP_DL,
+    @AVG_TP_UL                    						  AS AVG_TP_UL,
+    @PEAK_DL                                              AS PEAK_TP_DL,
+    @PEAK_UL                                              AS PEAK_TP_UL,
+    @PEAK_DL_HOST                                         AS PEAK_HOST_DL,
+    @PEAK_UL_HOST                                         AS PEAK_HOST_UL,
+    ISNULL(@AVG_GN_SERVER,0)+ISNULL(@AVG_UE_GN,0)         AS AVG_RTT_UE_SERVER,
+    @AVG_UE_GN                                            AS AVG_RTT_UE_GN,
+    @AVG_GN_SERVER                                        AS AVG_RTT_GN_SERVER,
+    ISNULL(@PEAK_UE_GN_RTT,0)+ISNULL(@PEAK_GN_SERV_RTT,0) AS PEAK_RTT_UE_SERVER,
+    @PEAK_UE_GN_RTT                                       AS PEAK_RTT_UE_GN,
+    @PEAK_GN_SERV_RTT                                     AS PEAK_RTT_GN_SERVER,
+    @PEAK_RTT_HOST                                        AS HIGHEST_RTT_HOST,
+    @UE_GN_DOWNLINK                                       AS MAX_PACKET_LOSS_UE_GN_DL,
+    @GN_SERVER_DOWNLINK                                   AS MAX_PACKET_LOSS_GN_SERVER_DL,
+        (CASE
+			WHEN (@UE_GN_DOWNLINK IS NULL AND @GN_SERVER_DOWNLINK IS NULL)
+			THEN NULL
+			WHEN @UE_GN_DOWNLINK > @GN_SERVER_DOWNLINK
+            THEN @HOST_UE_GN_DOWNLINK
+			WHEN @UE_GN_DOWNLINK < @GN_SERVER_DOWNLINK
+            THEN @HOST_GN_SERVER_DOWNLINK
+			ELSE NULL
+        END)                                               AS MOST_PACKET_LOSS_HOST_DL,
+    @UE_GN_UPLINK                                         AS MAX_PACKET_LOSS_UE_GN_UL,
+    @GN_SERVER_UPLINK                                     AS MAX_PACKET_LOSS_GN_SERVER_UL,
+        (CASE
+			WHEN (@UE_GN_UPLINK IS NULL AND @GN_SERVER_UPLINK IS NULL)
+			THEN NULL
+            WHEN @UE_GN_UPLINK > @GN_SERVER_UPLINK
+            THEN @HOST_UE_GN_UPLINK
+			WHEN @UE_GN_UPLINK < @GN_SERVER_UPLINK
+            THEN @HOST_GN_SERVER_UPLINK
+			ELSE NULL
+        END)                                               AS MOST_PACKET_LOSS_HOST_UL
+END

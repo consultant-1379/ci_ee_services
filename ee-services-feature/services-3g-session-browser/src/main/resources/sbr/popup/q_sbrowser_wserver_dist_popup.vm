@@ -1,0 +1,62 @@
+#DEFINE_CONSTANTS()
+#set($columnsToSelect=["DOWNLINK","DATA_RECEIVED", "THROUGHPUT","SETUP_TIME_NET", "SETUP_TIME_TERM","PACKET_LOSS_NET", "PACKET_LOSS_TERM","HOST","EVENT_TIME","DATETIME_ID"])
+#if($subType==$TYPE_IMSI)
+    #set($filterColumn = ["IMSI"])
+#elseif($subType==$TYPE_MSISDN)
+    #set($filterColumn = ["MSISDN"])
+#end
+SELECT
+    isnull((CASE WHEN HOST = '\N' THEN 'Unknown' ELSE HOST END),'Unknown') AS HOST,
+    isnull((
+            CASE
+                WHEN DOWNLINK=1
+                THEN COUNT(*)
+            END),0) AS SAMPLE_DL,
+    isnull((
+            CASE
+                WHEN DOWNLINK=0
+                THEN COUNT(*)
+            END),0) AS SAMPLE_UL,
+    isnull((
+            CASE
+                WHEN DOWNLINK=1
+                THEN SUM(DATA_RECEIVED)/1024
+            END),0) AS DV_DL,
+    isnull((
+            CASE
+                WHEN DOWNLINK=0
+                THEN SUM(DATA_RECEIVED)/1024
+            END),0) AS DV_UL,
+    isnull((
+            CASE
+                WHEN DOWNLINK=1
+                THEN SUM(THROUGHPUT)
+            END),0) AS TP_DL,
+    isnull((
+            CASE
+                WHEN DOWNLINK=0
+                THEN SUM(THROUGHPUT)
+            END),0)                                        AS TP_UL,
+    isnull(SUM(SETUP_TIME_TERM),0)                         AS SETUP_TIME_TERM,
+    isnull(SUM(SETUP_TIME_NET),0)                          AS SETUP_TIME_NET,
+    CAST(isnull(SUM(PACKET_LOSS_TERM),0) AS NUMERIC(16,4)) AS PACKET_LOSS_TERM,
+    CAST(isnull(SUM(PACKET_LOSS_NET),0) AS NUMERIC(16,4))  AS PACKET_LOSS_NET
+FROM
+    (
+      SELECT * FROM
+	  #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_WITH_EVENT_TIME($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "tempRawview" $filterColumn $columnsToSelect)
+	  GROUP BY
+	    DOWNLINK ,
+        DATA_RECEIVED ,
+        THROUGHPUT ,
+        SETUP_TIME_NET ,
+        SETUP_TIME_TERM ,
+        PACKET_LOSS_NET ,
+        PACKET_LOSS_TERM ,
+        HOST,
+        EVENT_TIME,
+        DATETIME_ID
+	) AS rawview
+GROUP BY
+    HOST,
+    DOWNLINK

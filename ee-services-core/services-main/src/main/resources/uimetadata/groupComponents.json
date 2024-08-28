@@ -1,0 +1,104 @@
+{
+    "groupComponents": [
+        {
+            "tabOwner": "DASHBOARD_TAB",
+            "tip": "Click to submit group of nodes",
+            "infoTip": "Click to view node group information in dashboard",
+            "type": [
+                {
+                    "id": "APN",
+                    "winMetaSupport": "PS",
+                    "loadGroupURL": "NETWORK/GROUP/APN",
+                    "emptyText": "Enter APN Group"
+                },
+                {
+                    "id": "BSC",
+                    "loadGroupURL": "NETWORK/GROUP/RAT_VEND_HIER3",
+                    "winMetaSupport": "CS,PS",
+                    "emptyText": "Enter Controller Group"
+                },
+                {
+                    "id": "CELL",
+                    "loadGroupURL": "NETWORK/GROUP/RAT_VEND_HIER321",
+                    "winMetaSupport": "CS,PS",
+                    "emptyText": "Enter Access Area Group"
+                },
+                {
+                    "id": "SGSN",
+                    "winMetaSupport": "PS",
+                    "loadGroupURL": "NETWORK/GROUP/EVNTSRC",
+                    "emptyText": "Enter SGSN-MME Group"
+                },
+                {
+                    "id": "MSC",
+                    "winMetaSupport": "CS",
+                    "loadGroupURL": "NETWORK/GROUP/EVNTSRC_CS",
+                    "emptyText": "Enter MSC Group"
+                }
+            ],
+            "defaultIDType": "BSC"
+        },
+        {
+            "tabOwner": "NETWORK_TAB",
+            "tip": "Click to submit group of nodes",
+            "infoTip": "Click to view node group information",
+            "type": [
+                {
+                    "id": "APN",
+                    "loadGroupURL": "NETWORK/GROUP/APN",
+                    "winMetaSupport": "PS",
+                    "emptyText": "Enter APN Group"
+                },
+                {
+                    "id": "BSC",
+                    "loadGroupURL": "NETWORK/GROUP/RAT_VEND_HIER3",
+                    "winMetaSupport": "CS,PS",
+                    "emptyText": "Enter Controller Group"
+                },
+                {
+                    "id": "CELL",
+                    "loadGroupURL": "NETWORK/GROUP/RAT_VEND_HIER321",
+                    "winMetaSupport": "CS,PS",
+                    "emptyText": "Enter Access Area Group"
+                },
+                {
+                    "id": "SGSN",
+                    "loadGroupURL": "NETWORK/GROUP/EVNTSRC",
+                    "winMetaSupport": "PS",
+                    "emptyText": "Enter SGSN-MME Group"
+                },
+                {
+                    "id": "TRAC",
+                    "loadGroupURL": "NETWORK/GROUP/LTE_TRAC",
+                    "winMetaSupport": "CS,PS",
+                    "emptyText": "Enter Tracking Area Group"
+                },
+                {
+                    "id": "MSC",
+                    "loadGroupURL": "NETWORK/GROUP/EVNTSRC_CS",
+                    "winMetaSupport": "CS",
+                    "emptyText": "Enter MSC Group"
+                }
+            ],
+            "defaultIDType": "APN"
+        },
+        {
+            "tabOwner": "TERMINAL_TAB",
+            "tip": "Click to submit group of terminals",
+            "infoTip": "Click to view terminal group information",
+            "loadGroupURL": "NETWORK/GROUP/TAC",
+            "winMetaSupport": "CS,PS",
+            "groupType": "TAC",
+            "emptyText": "Enter Terminal Group"
+        },
+        {
+            "tabOwner": "SUBSCRIBER_TAB",
+            "tip": "Click to submit group of IMSI numbers",
+            "infoTip": "Click to view IMSI group information",
+            "loadGroupURL": "NETWORK/GROUP/IMSI",
+            "winMetaSupport": "CS,PS",
+            "groupType": "IMSI",
+            "emptyText": "Enter IMSI Group"
+        }
+    ]
+}

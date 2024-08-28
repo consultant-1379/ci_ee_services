@@ -1,0 +1,74 @@
+##
+## WCDMA Handover Failure Cause Code Analysis by Cell Hash ID (using raw tables)
+##
+## Velocity Parameter:
+##
+## Named PreparedStatement Parameter:
+##
+##	   :HIER3_CELL_ID:   The cell hash id for 3G
+##	   :HIER321_ID:      The cell hash id for 2G (IRAT Target only)
+##
+
+#set($columnsToSelectSource=["HIER3_CELL_ID","CAUSE_VALUE","EVENT_ID","CATEGORY_ID"])
+#set($columnsToSelectTarget=["THIER3_CELL_ID","THIER321_ID","CAUSE_VALUE","EVENT_ID","CATEGORY_ID"])
+#set($conditionSource="and HIER3_CELL_ID = :HIER3_CELL_ID")
+#set($conditionTarget="and (THIER3_CELL_ID = :HIER3_CELL_ID or THIER321_ID = :HIER321_ID)")
+#set($counterColumn="NO_OF_ERRORS")
+#set($imsiColumn="IMSI")
+#set($impactedSubscribers="TOTAL_NO_OF_SUBSCRIBERS")
+#set($useExclusiveTACs="no")
+
+SELECT
+    'CC'||causeCode.CAUSE_VALUE||'-'||category.CATEGORY_TABLE_NAME||eventType.EVENT_ID_LABEL AS Label,
+    causeCode.CAUSE_VALUE_DESC                                                               AS 'Cause Code',
+    ISNULL(sourceRawView.NO_OF_ERRORS, 0) + ISNULL(targetRawView.NO_OF_ERRORS, 0)            AS 'Failures',
+    ISNULL(sourceRawView.TOTAL_NO_OF_SUBSCRIBERS, 0)                                         AS 'Source Impacted Subscribers',
+    ISNULL(targetRawView.TOTAL_NO_OF_SUBSCRIBERS, 0)                                         AS 'Target Impacted Subscribers',
+    causeCode.CAUSE_VALUE                                                                    AS 'Cause Code Id',
+    eventType.EVENT_ID                                                                       AS 'Event Id',
+    category.CATEGORY_ID                                                                     AS 'Category Id',
+    category.CATEGORY_DESC                                                                   AS 'Handover Type',
+    NULL                                                                                     AS 'Group Name',
+    CASE
+        WHEN ISNULL(sourceRawView.NO_OF_ERRORS, 0) != 0 AND ISNULL(targetRawView.NO_OF_ERRORS, 0) = 0 THEN 'WCDMA_HFA_SOURCE'
+        WHEN ISNULL(sourceRawView.NO_OF_ERRORS, 0) = 0 AND ISNULL(targetRawView.NO_OF_ERRORS, 0) != 0 THEN 'WCDMA_HFA_TARGET'
+        WHEN ISNULL(sourceRawView.NO_OF_ERRORS, 0) != 0 AND ISNULL(targetRawView.NO_OF_ERRORS, 0) != 0 THEN 'WCDMA_HFA_SOURCE_AND_TARGET'
+    END AS 'State'
+FROM
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED_IMPACTED_SUBSCRIBERS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "sourceRawView" $columnsToSelectSource $counterColumn $conditionSource $imsiColumn $impactedSubscribers $useExclusiveTACs)
+FULL OUTER JOIN
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED_IMPACTED_SUBSCRIBERS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "targetRawView" $columnsToSelectTarget $counterColumn $conditionTarget $imsiColumn $impactedSubscribers $useExclusiveTACs)
+ON
+    (
+        sourceRawView.CAUSE_VALUE = targetRawView.CAUSE_VALUE
+    AND sourceRawView.EVENT_ID = targetRawView.EVENT_ID
+    AND sourceRawView.CATEGORY_ID = targetRawView.CATEGORY_ID
+    )
+    ,
+    DIM_E_RAN_HFA_CAUSE_CODE_VALUE AS causeCode,
+    DIM_E_RAN_HFA_CATEGORY         AS category,
+    DIM_E_RAN_HFA_EVENTTYPE        AS eventType
+WHERE
+    (
+        (
+            sourceRawView.CAUSE_VALUE = causeCode.CAUSE_VALUE
+        AND sourceRawView.EVENT_ID = causeCode.EVENT_ID
+        AND sourceRawView.EVENT_ID = eventType.EVENT_ID
+        AND sourceRawView.CATEGORY_ID = category.CATEGORY_ID
+        #if ($display == "chart")
+            AND Label IN ($causeCodeLabelsSource)
+        #end
+        )
+     OR
+        (
+            targetRawView.CAUSE_VALUE = causeCode.CAUSE_VALUE
+        AND targetRawView.EVENT_ID = causeCode.EVENT_ID
+        AND targetRawView.EVENT_ID = eventType.EVENT_ID
+        AND targetRawView.CATEGORY_ID = category.CATEGORY_ID
+        #if ($display == "chart")
+            AND Label IN ($causeCodeLabelsTarget)
+        #end
+        )
+    )
+ORDER BY
+    Failures DESC

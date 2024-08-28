@@ -1,0 +1,40 @@
+{
+  "id" : "KPI_BY_CC_FROM_APN",
+  "name" : "KPI Breakdown by Cause Code",
+  "url" : "NETWORK/KPI_RATIO",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "RAT"
+  }, {
+    "id" : "2",
+    "queryParamName" : "apn",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "3",
+    "queryParamName" : "sgsn",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "4",
+    "queryParamName" : "vendor"
+  }, {
+    "id" : "5",
+    "queryParamName" : "bsc",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "6",
+    "queryParamName" : "cell",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "8",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "APN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

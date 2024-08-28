@@ -1,0 +1,39 @@
+#set($columnsToIncludeInNewView=["CATEGORY_ID","SUB_CAUSE_VALUE","NO_OF_ERRORS","CAUSE_VALUE"])
+SELECT
+    #if($count > 0) top $count #end
+    data.SUB_CAUSE_VALUE                                                  AS 'SUB CAUSE VALUE ID', 
+    dim_subCauseCode.SUB_CAUSE_VALUE_DESC 								  AS 'SUB CAUSE VALUE',
+    data.Failures                                                         AS 'Failures',
+    data.IMPACTED_SUBSCRIBERS                                             AS 'Impacted Subscribers'
+FROM
+    (
+        SELECT
+            COUNT (*) AS failures,
+            SUB_CAUSE_VALUE,
+            EVENT_ID,
+            CATEGORY_ID,
+            COUNT (DISTINCT rawview.IMSI)
+        FROM
+            #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" ["CAUSE_VALUE", "SUB_CAUSE_VALUE", "EVENT_ID", "CATEGORY_ID", "IMSI"])
+        WHERE
+            CAUSE_VALUE= :CAUSE_CODE
+        AND CATEGORY_ID = :categoryId
+        GROUP BY
+            SUB_CAUSE_VALUE,
+            EVENT_ID,
+            CATEGORY_ID
+    ) AS data(FAILURES, SUB_CAUSE_VALUE, EVENT_ID, CATEGORY_ID, IMPACTED_SUBSCRIBERS)
+LEFT OUTER JOIN
+    (
+        SELECT
+            SUB_CAUSE_VALUE,
+            EVENT_ID,
+            SUB_CAUSE_VALUE_DESC
+        FROM
+            DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE
+    ) AS dim_subCauseCode(SUB_CAUSE_VALUE, EVENT_ID, SUB_CAUSE_VALUE_DESC)
+ON
+    (
+        data.SUB_CAUSE_VALUE = dim_subCauseCode.SUB_CAUSE_VALUE
+    AND data.EVENT_ID = dim_subCauseCode.EVENT_ID
+    )

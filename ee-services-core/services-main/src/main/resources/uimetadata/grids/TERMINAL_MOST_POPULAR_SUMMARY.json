@@ -1,0 +1,45 @@
+{
+  "id" : "TERMINAL_MOST_POPULAR_SUMMARY",
+  "title" : "Terminal Analysis - Most Frequent Signaling Summary",
+  "autoexpand" : "3",
+  "defaultSortCol" : "7",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Model",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Successes",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Success Ratio",
+    "width" : "100",
+    "datatype" : "float"
+  }, {
+    "header" : "Band",
+    "width" : "200",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  } ]
+}

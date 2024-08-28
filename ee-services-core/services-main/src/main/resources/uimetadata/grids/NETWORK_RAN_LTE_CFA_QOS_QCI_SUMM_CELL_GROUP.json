@@ -1,0 +1,39 @@
+{
+  "id" : "NETWORK_RAN_LTE_CFA_QOS_QCI_SUMM_CELL_GROUP",
+  "title" : "Access Area Group LTE Call Failure : QOS Statistics Summary",
+  "autoexpand" : "3",
+  "defaultSortCol" : "2",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "eCell Group Name",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "QCI ID",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "QCI Description",
+    "width" : "110",
+    "datatype" : "string"
+  }, {
+    "header" : "CATEGORY_ID",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Failure Category",
+    "width" : "150",
+    "datatype" : "string",
+    "drillDownWindowType" : "NETWORK_RAN_LTE_CFA_DRILL_ON_QOS_QCI_SUMM_CELL_GROUP"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "140",
+    "datatype" : "string"
+  } ]
+}

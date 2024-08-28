@@ -1,0 +1,29 @@
+##
+## WCDMA Handover Failure Cause Code Analysis by RNC Hash ID (using raw tables)
+##
+## Velocity Parameter:
+##
+## Named PreparedStatement Parameter:
+##
+##	   :HIER3_ID:   The RNC hash id
+##
+#set($columnsToSelect=["HIER3_ID","CAUSE_VALUE","EVENT_ID","CATEGORY_ID"])
+#set($condition="and HIER3_ID = :HIER3_ID")
+#set($useExclusiveTACs="no")
+
+SELECT
+    'CC'||rawView.CAUSE_VALUE||'-'||category.CATEGORY_TABLE_NAME||eventType.EVENT_ID_LABEL AS CAUSE_VALUE_LABEL,
+    causeCode.CAUSE_VALUE_DESC                                                             AS CAUSE_CODE_DESC,
+    'WCDMA_HFA_SOURCE'                                                                     AS GROUP_ID
+FROM
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawView" $columnsToSelect $condition $useExclusiveTACs "DISTINCT") ,
+    DIM_E_RAN_HFA_CAUSE_CODE_VALUE AS causeCode,
+    DIM_E_RAN_HFA_CATEGORY         AS category,
+    DIM_E_RAN_HFA_EVENTTYPE        AS eventType
+WHERE
+    rawView.CAUSE_VALUE = causeCode.CAUSE_VALUE
+AND rawView.EVENT_ID = causeCode.EVENT_ID
+AND rawView.EVENT_ID = eventType.EVENT_ID
+AND rawView.CATEGORY_ID = category.CATEGORY_ID
+ORDER BY
+    rawView.CAUSE_VALUE

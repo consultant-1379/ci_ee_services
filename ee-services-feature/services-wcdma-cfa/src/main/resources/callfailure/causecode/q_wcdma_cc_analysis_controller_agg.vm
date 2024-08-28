@@ -1,0 +1,89 @@
+##
+## WCDMA Call Failure Cause Code Analysis by Controller Hash ID (using agg tables)
+##
+## Velocity Parameter:
+##
+##		$display	Type of data display (usually chart or grid)
+##
+## Named PreparedStatement Parameter:
+##
+##	   :HIER3_ID:   The controller hash id
+##
+#DEFINE_CONSTANTS()
+BEGIN
+SELECT
+	events.CAUSE_CODE,
+	events.CAUSE_CODE_DESC,
+	events.NO_OF_ERRORS,
+	isnull(subscribers.NO_OF_SUBSCRIBERS,0)
+
+FROM
+	(
+	SELECT
+    	err.CAUSE_CODE as CAUSE_CODE,
+    	err.CAUSE_CODE_DESC as CAUSE_CODE_DESC,
+    	sum(isnull(err.NO_OF_ERRORS, 0)) as NO_OF_ERRORS
+    FROM
+    	(
+        SELECT
+        	ccref.CAUSE_VALUE,
+        	CAUSE_VALUE_DESC,
+        	sum(NO_OF_ERRORS)
+        FROM
+        	dc.${aggregationView} errRef,
+        	dc.DIM_E_RAN_CFA_CAUSE_VALUE ccref
+        WHERE
+        	#GET_DATETIME_RANGE()
+        	AND HIER3_ID = :HIER3_ID
+        	AND ccref.CAUSE_VALUE = errRef.CAUSE_VALUE
+			#if ($display == "chart")
+				and
+				errRef.CAUSE_VALUE IN ($causeCodeIds)
+			#end
+        GROUP BY
+        	ccref.CAUSE_VALUE,
+        	CAUSE_VALUE_DESC
+    	) AS err (CAUSE_CODE, CAUSE_CODE_DESC, NO_OF_ERRORS)
+    GROUP BY
+    	err.CAUSE_CODE,
+    	err.CAUSE_CODE_DESC
+    ) events,
+    (
+	SELECT
+    	sub.CAUSE_CODE  as CAUSE_CODE,
+    	isnull(count(distinct(IMSI)),0) as NO_OF_SUBSCRIBERS
+    FROM
+    	(
+    	#foreach ($errtable in $TECH_PACK_LIST.getAllRawTables())
+    	(
+        SELECT
+        	ccref.CAUSE_VALUE,
+        	IMSI
+        FROM
+        	dc.${errtable} errRef,
+        	dc.DIM_E_RAN_CFA_CAUSE_VALUE ccref
+        WHERE
+        	#GET_DATETIME_RANGE()
+        	AND #GET_TAC_EXCLUSION()
+			AND HIER3_ID = :HIER3_ID
+        	AND ccref.CAUSE_VALUE = errRef.CAUSE_VALUE
+			#if ($display == "chart")
+				AND
+				errRef.CAUSE_VALUE IN ($causeCodeIds)
+			#end
+        GROUP BY
+        	ccref.CAUSE_VALUE,
+        	IMSI
+        )
+    		#if($velocityCount < $TECH_PACK_LIST.getAllRawTables().size())
+    			UNION ALL
+    		#end
+    	#end
+    	) AS sub (CAUSE_CODE, IMSI)
+    GROUP BY
+    	sub.CAUSE_CODE) subscribers
+WHERE
+	events.CAUSE_CODE *= subscribers.CAUSE_CODE
+order by
+	NO_OF_ERRORS desc
+END

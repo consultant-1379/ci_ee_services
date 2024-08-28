@@ -1,0 +1,21 @@
+{
+    "id":"GSM_ROAMING_ANALYSIS_SUMMARY_BY_OPERATOR",
+    "name":"Roaming by Operator (Event Volume)",
+    "gridDisplayId": "GSM_ROAMING_ANALYSIS_SUMMARY_BY_OPERATOR",
+    "url":"NETWORK/GSM/CALL_FAILURE_ROAMING_ANALYSIS/OPERATOR/DRILL",
+    "drilltoolBarType": "TOOLBAR1",
+    "params": [ 
+    	{
+    		"id":"2",
+    		"isTitleParam" : "TRUE"
+    	},
+    	{
+            "id":"3",
+            "queryParamName":"MNC"
+        },
+    	{
+            "id":"5",
+            "queryParamName":"MCC"
+        }    
+    ]
+}

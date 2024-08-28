@@ -1,0 +1,25 @@
+{
+  "id" : "CS_MS_TERMINATING_UNANSWERED_CALLS_RANKING",
+  "title" : "Unanswered Calls Ranking - MS Terminating Voice Calls",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "IMSI",
+    "width" : "100",
+    "datatype" : "string",
+    "launchWindowType" : "CS_SUBSCRIBER_EVENT_ANALYSIS_IMSI"
+  }, {
+    "header" : "Calling Party Number",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Unanswered Calls",
+    "width" : "150",
+    "datatype" : "string"
+  } ]
+}

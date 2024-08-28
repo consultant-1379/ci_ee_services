@@ -1,0 +1,25 @@
+{
+  "id" : "NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_APN",
+  "name" : "APN Event Analysis",
+  "url" : "NETWORK/EVENT_ANALYSIS",
+  "searchValFromCol" : "55",
+  "type" : "APN",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "APN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "57",
+    "queryParamName" : "apn",
+    "isTitleParam" : "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

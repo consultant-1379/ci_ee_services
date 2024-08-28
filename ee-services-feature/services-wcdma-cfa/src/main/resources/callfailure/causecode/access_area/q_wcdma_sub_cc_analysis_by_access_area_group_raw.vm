@@ -1,0 +1,47 @@
+##
+## WCDMA Call Failure Sub-Cause Code Analysis by Access area Group (using raw tables)
+##
+## Velocity Parameter:
+##
+##		:causeCode		Cause code parameter
+##		:groupname		Access area group name		
+##
+##
+SELECT
+	err.SUB_CAUSE_CODE as SUB_CAUSE_CODE,
+	sccref.EXTENDED_CAUSE_VALUE_DESC as SUB_CAUSE_CODE_DESC,
+	count(*) as NO_OF_ERRORS,
+	isnull(count(distinct(IMSI)),0) as TOTAL_NO_OF_SUBSCRIBERS,
+	$causeCode,
+	:groupname as groupname
+FROM 
+(
+	#foreach ($errtable in $TECH_PACK_LIST.getAllRawTables())
+        (
+        Select
+			EXTENDED_CAUSE_VALUE,        	
+        	IMSI
+        From
+        	dc.${errtable} errRef,        	
+			dc.GROUP_TYPE_E_RAT_VEND_HIER321_CELL accessAreaGroup
+        Where
+        	#GET_DATETIME_RANGE()
+        	and accessAreaGroup.GROUP_NAME = :groupname
+        	and accessAreaGroup.HIER3_CELL_ID = errRef.HIER3_CELL_ID
+        	and errRef.CAUSE_VALUE = :CAUSE_CODE
+        	and #GET_TAC_EXCLUSION()        	
+        )	
+		#if($velocityCount < $TECH_PACK_LIST.getAllRawTables().size())
+			union all
+		#end
+	#end
+) as err (SUB_CAUSE_CODE, IMSI)
+left outer join DIM_E_RAN_CFA_EXTENDED_CAUSE_VALUE sccref on
+(
+	err.SUB_CAUSE_CODE = sccref.EXTENDED_CAUSE_VALUE
+)
+group by
+	err.SUB_CAUSE_CODE,
+	sccref.EXTENDED_CAUSE_VALUE_DESC	
+order by
+	err.SUB_CAUSE_CODE

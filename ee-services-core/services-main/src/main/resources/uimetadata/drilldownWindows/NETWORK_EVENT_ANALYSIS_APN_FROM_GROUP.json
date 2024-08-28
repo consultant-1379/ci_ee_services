@@ -1,0 +1,7 @@
+ {
+    
+     "id" : "NETWORK_EVENT_ANALYSIS_APN_FROM_GROUP",
+     "url" : "NETWORK/EVENT_ANALYSIS",
+     "comment": "used for dashboard drill from group - to second level summary screen (two calls)",
+     "gridDisplayID" : "NETWORK_EVENT_ANALYSIS_APN"
+  }

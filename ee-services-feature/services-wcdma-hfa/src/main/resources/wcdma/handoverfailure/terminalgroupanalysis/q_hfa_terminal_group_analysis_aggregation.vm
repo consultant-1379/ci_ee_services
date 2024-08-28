@@ -1,0 +1,63 @@
+BEGIN
+select
+	#if($count > 0)
+	  top $count
+	#end
+	RANK() over (ORDER BY Failures DESC) AS Rank,
+	data.GROUP_NAME as 'Group',
+	data.NO_OF_ERRORS as 'Failures',
+	impacted_subscribers.IMPACTED_SUBSCRIBERS as 'Impacted Subscribers',
+	data.CATEGORY_ID
+from
+	(
+    	## count num of errors without exclusive tac group
+    	select 
+    		GROUP_NAME,
+    		sum(NO_OF_ERRORS),
+    		aggview.CATEGORY_ID
+    	from
+    		#UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS($aggregationViewList "aggview" ["TAC","CATEGORY_ID", "NO_OF_ERRORS"]),
+    		GROUP_TYPE_E_TAC
+    	where
+    		aggview.TAC = GROUP_TYPE_E_TAC.TAC
+    		and aggview.CATEGORY_ID = :categoryId
+    	group by
+    		GROUP_NAME,
+    		CATEGORY_ID
+	union all
+    	## count num of errors about exclusive tac group
+    	select
+    		GROUP_NAME,
+    		count(*),
+    		rawview.CATEGORY_ID
+    	from
+    		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_SPECIFY_COLUMNS_NOT_NULL($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" ["TAC","CATEGORY_ID"] ["TAC"]),
+    		GROUP_TYPE_E_TAC
+    	where
+    		rawview.TAC = GROUP_TYPE_E_TAC.TAC
+    		and rawview.CATEGORY_ID = :categoryId
+    		#AND_IS_EXCLUSIVE_TAC_GROUP()
+    	group by
+    		GROUP_NAME,
+    		CATEGORY_ID
+	) as data (GROUP_NAME, NO_OF_ERRORS, CATEGORY_ID)
+	left outer join
+	(
+	   ## count num of impacted subscribers 
+		select
+			GROUP_NAME,
+			count(distinct(IMSI))
+		from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_SPECIFY_COLUMNS_NOT_NULL($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" ["TAC", "CATEGORY_ID", "IMSI"] ["TAC"]),
+			GROUP_TYPE_E_TAC
+		where
+			rawview.CATEGORY_ID = :categoryId
+			and rawview.TAC = GROUP_TYPE_E_TAC.TAC
+		group by
+			GROUP_NAME
+	) as impacted_subscribers(GROUP_NAME, IMPACTED_SUBSCRIBERS)
+	on
+		(data.GROUP_NAME = impacted_subscribers.GROUP_NAME)
+order by
+	data.NO_OF_ERRORS DESC
+END

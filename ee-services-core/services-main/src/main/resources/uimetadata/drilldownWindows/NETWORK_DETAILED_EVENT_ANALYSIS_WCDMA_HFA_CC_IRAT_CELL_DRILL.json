@@ -1,0 +1,43 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_IRAT_CELL_DRILL",
+    "gridDisplayID": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_IRAT_CELL_DRILL",
+    "url": "NETWORK/WCDMA_HFA_CAUSE_CODE_ANALYSIS/DETAIL_SUB_CAUSE_CODE_GRID",
+    "needSearchParam": "TRUE",
+    "params": [
+        {
+            "id": "6",
+            "name": "Cause Code Id",
+            "queryParamName": "causeCode"
+        },
+        {
+            "id": "7",
+            "name": "Sub Cause Code Id",
+            "queryParamName": "subCauseCode"
+        },
+        {
+            "id": "8",
+            "name": "Event Id",
+            "queryParamName": "eventID"
+        },
+        {
+            "id": "9",
+            "name": "Category Id",
+            "queryParamName": "categoryId"
+        },
+        {
+            "id": "11",
+            "name": "State",
+            "queryParamName": "state"
+        },
+        {
+            "id": "CELL",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR_WCDMA_HFA_GRID_CAUSE_CODE_NO_NAV",
+    "display": "grid"
+}

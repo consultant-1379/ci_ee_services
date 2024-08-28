@@ -1,0 +1,22 @@
+{
+    "id": "RAN_LTE_HFA_GROUP_EXEC",
+    "title": "Handover Stage Event Analysis",
+    "url": "SUBSCRIBER/LTE_HANDOVER_FAILURE_SUBSCRIBER_EVENT_SUMMARY_ANALYSIS/CATEGORY_ID",
+    "gridDisplayID": "RAN_LTE_HFA_GROUP_DRILL_ON_EXEC",
+    "needSearchParam": "FALSE",
+    "params": [
+        {
+            "id": "1",
+            "queryParamName": "groupname"
+        },
+        {
+            "id": "3",
+            "queryParamName": "categoryId"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

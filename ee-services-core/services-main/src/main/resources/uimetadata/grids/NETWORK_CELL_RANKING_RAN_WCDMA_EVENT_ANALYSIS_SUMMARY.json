@@ -1,0 +1,65 @@
+{
+    "id" : "NETWORK_CELL_RANKING_RAN_WCDMA_EVENT_ANALYSIS_SUMMARY",
+    "title" : "Access Area - Event Analysis Summary",
+    "autoexpand" : "2",
+    "defaultSortCol" : "1",
+    "defaultSortDir" : "ASC",
+    "categoryId" : "NETWORK_CELL_RANKING_RAN_WCDMA_EVENT_ANALYSIS_SUMMARY",
+    "columns" : [
+        {
+            "type" : "vendor",
+            "header" : "RAN Vendor",
+            "width" : "80",
+            "datatype" : "string"
+        },
+        {
+            "type" : "rnc",
+            "header" : "RNC",
+            "width" : "70",
+            "datatype" : "string"
+        },
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "failures",
+            "header" : "Failures",
+            "width" : "70",
+            "datatype" : "int",
+            "drillDownWindowType" : "Call Drops,NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_CELL_CALL_DROPS,Call Setup Failures,NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_CELL_CALL_SETUP"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header" : "Impacted Subscribers",
+            "width" : "150",
+            "datatype" : "int"
+        },
+        {
+            "header" : "Cell Id",
+            "width" : "70",
+            "datatype" : "string",
+            "isSystem" : "true"
+        },
+        {
+        	"header": "HIER3_CELL_ID",
+        	"width": "100",
+            "datatype": "long",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "EVENT_ID",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        
+        {
+			"header" : "Failure Ratio (%)",
+			"width" : "100",
+			"datatype" : "double"
+		}
+    ]
+}

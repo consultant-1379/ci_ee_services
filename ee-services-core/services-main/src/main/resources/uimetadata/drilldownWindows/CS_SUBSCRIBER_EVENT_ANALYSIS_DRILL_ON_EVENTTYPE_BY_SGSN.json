@@ -1,0 +1,26 @@
+{
+  "id" : "CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_SGSN",
+  "gridDisplayID" : "CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_ELEMENT",
+  "name" : "Event Analysis",
+  "url" : "SUBSCRIBER/EVENT_ANALYSIS",
+  "params" : [ {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "SGSN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "sgsn"
+  }, {
+    "id" : "2",
+    "queryParamName" : "eventID"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

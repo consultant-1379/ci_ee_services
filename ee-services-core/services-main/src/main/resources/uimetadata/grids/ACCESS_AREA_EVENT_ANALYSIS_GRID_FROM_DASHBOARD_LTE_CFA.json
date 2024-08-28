@@ -1,0 +1,40 @@
+{
+  "id" : "ACCESS_AREA_EVENT_ANALYSIS_GRID_FROM_DASHBOARD_LTE_CFA",
+  "title" : "LTE Call Failure Event Analysis From Top Access Areas",
+  "autoexpand" : "5",
+  "defaultSortCol" : "7",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "HIER321_ID",
+    "width" : "20",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Category ID",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Controller",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Access Area",
+    "width" : "140",
+    "datatype" : "string"
+  }, {
+    "header" : "Failure Category",
+    "width" : "100",
+    "datatype" : "string",
+    "drillDownLicenseCXC" : "CXC4010927",
+    "drillDownWindowType" : "NETWORK_RAN_LTE_CFA_SUMMARY_CELL_DRILL_ON_CATEGORY"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  } ]
+}

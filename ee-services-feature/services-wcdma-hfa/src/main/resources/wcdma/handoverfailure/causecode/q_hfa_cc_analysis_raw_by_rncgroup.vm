@@ -1,0 +1,46 @@
+##
+## WCDMA Handover Failure Cause Code Analysis by Controller Group (using raw tables)
+##
+## Velocity Parameter:
+##
+## Named PreparedStatement Parameter:
+##
+##	   :groupname   The controller group name with hash ids
+##
+
+#set($columnsToSelect=["CAUSE_VALUE","EVENT_ID","CATEGORY_ID"])
+#set($columnsToSelectOuter=["CAUSE_VALUE","EVENT_ID","CATEGORY_ID"])
+#set($groupTables=["dc.GROUP_TYPE_E_RAT_VEND_HIER3"])
+#set($groupCondition="dc.GROUP_TYPE_E_RAT_VEND_HIER3.GROUP_NAME = :groupname and tmpTable.HIER3_ID = dc.GROUP_TYPE_E_RAT_VEND_HIER3.HIER3_ID and")
+#set($counterColumn="NO_OF_ERRORS")
+#set($imsiColumn="IMSI")
+#set($impactedSubscribers="TOTAL_NO_OF_SUBSCRIBERS")
+#set($useExclusiveTACs="no")
+
+SELECT
+    'CC'||causeCode.CAUSE_VALUE||'-'||category.CATEGORY_TABLE_NAME||eventType.EVENT_ID_LABEL AS Label,
+    causeCode.CAUSE_VALUE_DESC                                                               AS 'Cause Code Description',
+    rawView.NO_OF_ERRORS                                                                     AS 'Failures',
+    rawView.TOTAL_NO_OF_SUBSCRIBERS                                                          AS 'Source Impacted Subscribers',
+    NULL                                                                                     AS 'Target Impacted Subscribers',
+    causeCode.CAUSE_VALUE                                                                    AS 'Cause Code',
+    eventType.EVENT_ID                                                                       AS 'Event Id',
+    category.CATEGORY_ID                                                                     AS 'Category Id',
+    category.CATEGORY_DESC                                                                   AS 'Handover Type',
+    :groupname                                                                               AS 'Group Name',
+    'WCDMA_HFA_SOURCE'                                                                       AS 'State'
+FROM
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED_IMPACTED_SUBSCRIBERS_GROUPS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawView" $columnsToSelect $columnsToSelectOuter $groupTables $groupCondition "" $counterColumn $imsiColumn $impactedSubscribers $useExclusiveTACs) ,
+    dc.DIM_E_RAN_HFA_CAUSE_CODE_VALUE AS causeCode,
+    dc.DIM_E_RAN_HFA_CATEGORY         AS category,
+    dc.DIM_E_RAN_HFA_EVENTTYPE        AS eventType
+WHERE
+    rawView.CAUSE_VALUE = causeCode.CAUSE_VALUE
+AND rawView.EVENT_ID = causeCode.EVENT_ID
+AND rawView.EVENT_ID = eventType.EVENT_ID
+AND rawView.CATEGORY_ID = category.CATEGORY_ID
+#if ($display == "chart")
+    AND Label IN ($causeCodeLabelsSource)
+#end
+ORDER BY
+    Failures DESC

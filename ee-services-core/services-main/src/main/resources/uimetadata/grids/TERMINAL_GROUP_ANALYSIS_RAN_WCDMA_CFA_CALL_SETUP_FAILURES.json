@@ -1,0 +1,25 @@
+{
+  "id" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_CFA_CALL_SETUP_FAILURES",
+  "isChartData" : "TRUE",
+  "title": "Group Analysis - WCDMA Call Failure - Most Call Setup Failures Summary",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "Group Name",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Call Setup Failures",
+    "width" : "160",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "160",
+    "datatype" : "int"
+  } ]
+}

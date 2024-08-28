@@ -1,0 +1,82 @@
+{
+    "id" : "NETWORK_CELL_RANKING_RAN_WCDMA_DETAILED_EVENT_ANALYSIS",
+    "title" : "Access Area - Call Failure Analysis",
+    "defaultSortCol" : "1",
+    "defaultSortDir" : "ASC",
+    "autoexpand" : "2",
+    "categoryId" : "NETWORK_CELL_RANKING_RAN_WCDMA_DETAILED_EVENT_ANALYSIS",
+    "columns" : [
+        {
+            "type" : "eventTime",
+            "header" : "Event Time",
+            "width" : "200",
+            "datatype" : "date"
+        },
+        {
+            "type" : "imsi",
+            "header" : "IMSI",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "tac",
+            "header" : "TAC",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "terminalMake",
+            "header" : "Terminal Make",
+            "width" : "250",
+            "datatype" : "string"
+        },
+        {
+            "type" : "terminalModel",
+            "header" : "Terminal Model",
+            "width" : "250",
+            "datatype" : "string"
+        },
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "procedureIndicator",
+            "header" : "Procedure Indicator",
+            "width" : "320",
+            "datatype" : "string"
+        },
+        {
+            "type" : "evaluationCase",
+            "header" : "Evaluation Case",
+            "width" : "300",
+            "datatype" : "string"
+        },
+        {
+            "type" : "exceptionClass",
+            "header" : "Exception Class",
+            "width" : "300",
+            "datatype" : "string"
+        },
+        {
+            "type" : "causeValue",
+            "header" : "Cause Value",
+            "width" : "150",
+            "datatype" : "string"
+        },
+        {
+            "type" : "extendedCauseValue",
+            "header" : "Extended Cause Value",
+            "width" : "300",
+            "datatype" : "string"
+        },
+        {
+            "type" : "severityIndicator",
+            "header" : "Severity Indicator",
+            "width" : "400",
+            "datatype" : "string"
+        }
+    ]
+}

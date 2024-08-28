@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>ee-services-logging</artifactId>
+		<groupId>com.ericsson.eniq.events</groupId>
+		<version>14.0-A-2</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>services-aspect</artifactId>
+	<name>ENIQ Events :: Services Aspect</name>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>sun.jersey.glassfish.v3.osgi</groupId>
+			<artifactId>jersey-gf-bundle</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-logging</artifactId>
+			<version>${project.version}</version> 
+			
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>aspectj-maven-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+				<executions>
+					<execution>
+						<id>aspect-compile</id>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+						<phase>prepare-package</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,15 @@
+{
+  "launchWindowTypeId" : "NETWORK_CAUSE_CODE_ANALYSIS_CC",
+  "menuItem" : "EXTRA_NETWORK_CAUSE_CODE_ANALYSIS",
+  "searchValFromCol" : "3,5",
+  "type" : "CC",
+  "params" : [ {
+    "id" : "true",
+    "queryParamName" : "dataTieredDelay",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "5",
+    "queryParamName" : "causeCode",
+    "isTitleParam" : "TRUE"
+  } ]
+}

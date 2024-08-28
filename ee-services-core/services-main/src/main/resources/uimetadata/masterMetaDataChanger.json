@@ -1,0 +1,24 @@
+{
+  "masterMetaDataChanger" : [ {
+            "items": [
+                {
+                    "name": "Radio - Voice & Data, Core - Data",
+                    "shortText": "Data",
+                    "key": "PS",
+                    "style": "packetSwitch",
+                    "tip": "Enable Radio - Voice & Data and Core - Data menu options",
+                    "metaDataPath": "METADATA/UI",
+                    "isLicenced": "TRUE"
+                },
+                {
+                    "name": "Core - Voice",
+                    "shortText": "Voice",
+                    "key": "CS",
+                    "style": "circuitSwitch",
+                    "tip": "Enable Core - Voice menu options",
+                    "metaDataPath": "METADATA/UI_MSS",
+                    "isLicenced": "TRUE"
+                }
+            ]
+        }]
+}

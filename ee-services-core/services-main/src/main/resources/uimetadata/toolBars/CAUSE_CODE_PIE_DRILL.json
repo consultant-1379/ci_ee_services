@@ -1,0 +1,38 @@
+{
+  "toolBarType" : "CAUSE_CODE_PIE_DRILL",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    }, {
+      "id" : "btnExport",
+      "name" : "",
+      "style" : "toolbar_exportbtn",
+      "tip" : "Click to export the data to CSV",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "EXPORT"
+    }, {
+      "id" : "btnRefresh",
+      "name" : "",
+      "style" : "toolbar_refreshbtn",
+      "tip" : "Refresh",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "REFRESH"
+    } ]
+  } ]
+}

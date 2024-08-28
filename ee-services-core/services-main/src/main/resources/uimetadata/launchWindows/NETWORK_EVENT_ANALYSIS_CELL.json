@@ -1,0 +1,24 @@
+{
+  "launchWindowTypeId" : "NETWORK_EVENT_ANALYSIS_CELL",
+  "menuItem" : "NETWORK_EVENT_ANALYSIS",
+  "searchValFromCol" : "6",
+  "type" : "CELL",
+  "params" : [ {
+    "id" : "3",
+    "queryParamName" : "RAT"
+  }, {
+    "id" : "4",
+    "queryParamName" : "vendor"
+  }, {
+    "id" : "5",
+    "queryParamName" : "bsc"
+  }, {
+    "id" : "6",
+    "queryParamName" : "cell",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

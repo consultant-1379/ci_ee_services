@@ -1,0 +1,10 @@
+{
+  "gridConstants" : [ {
+    "rowsPerPage" : "50",
+    "loadingMsg" : "Loading please wait...",
+    "autoRefreshFeatureOn" : "FALSE",
+    "autoRefreshIntervalMS" : "54000000",
+    "rankingRowCount" : "50",
+    "maxWindowsPerInstanceType" : "5"
+  } ]
+}

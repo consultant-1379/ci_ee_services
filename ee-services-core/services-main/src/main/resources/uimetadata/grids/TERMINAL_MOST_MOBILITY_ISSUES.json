@@ -1,0 +1,34 @@
+{
+  "id" : "TERMINAL_MOST_MOBILITY_ISSUES",
+  "title" : "Terminal Analysis - Most Mobility Failures",
+  "autoexpand" : "3",
+  "defaultSortCol" : "5",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Model",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "TERMINAL_MOST_MOBILITY_ISSUES_DRILL_ON_FAILURES"
+  }, {
+    "header" : "Band",
+    "width" : "200",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  } ]
+}

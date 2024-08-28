@@ -1,0 +1,85 @@
+{
+  "id" : "CS_KPI_ANALYSIS",
+  "isChartData" : "TRUE",
+  "title" : "KPI Analysis Voice",
+  "autoexpand" : "1",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Time",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "MS Originating Call Completion Ratio",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "MS Terminating Call Completion Ratio",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "MS Originating Call Drop Ratio",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "MS Terminating Call Drop Ratio",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "MS Originating Call Attempts Intensity",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "MS Terminating Call Attempts Intensity",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "MS Originating Call Drop Intensity",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "MS Terminating Call Drop Intensity",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "Call Forwarding Success Ratio",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "Roaming Call Success Ratio",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "Call Forwarding Drop Ratio",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "Roaming Call Drop Ratio",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "MS Originating Emergency Call Completion Ratio",
+    "width" : "400",
+    "datatype" : "string"
+  }, {
+    "header" : "MS Originating Emergency Call Drop Ratio",
+    "width" : "400",
+    "datatype" : "string"
+  }, {
+    "header" : "Sms Originating Success Ratio",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "Sms Terminating Success Ratio",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "Location Request Success Ratio",
+    "width" : "300",
+    "datatype" : "string"
+  } ]
+}

@@ -1,0 +1,61 @@
+{
+  "id" : "CS_KPI_BY_CELL_FROM_MSC",
+  "title" : "KPI Analysis By Access Area Voice",
+  "autoexpand" : "6",
+  "defaultSortCol" : "11",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "EventID",
+    "width" : "70",
+    "datatype" : "int",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "EVNTSRC_ID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "HIER3_ID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "HIER321_ID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Vendor",
+    "width" : "70",
+    "datatype" : "string"
+  }, {
+    "header" : "Access Area",
+    "width" : "70",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Success Ratio",
+    "width" : "100",
+    "datatype" : "float",
+    "drillDownWindowType" : "*,CS_KPI_BY_CC_FROM_MSC,locationServices,CS_KPI_BY_EVENTS_FROM_MSC_LOC,mSOriginatingSMSinMSC,CS_KPI_BY_EVENTS_FROM_MSC_SMS,mSTerminatingSMSinMSC,CS_KPI_BY_EVENTS_FROM_MSC_SMS"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "string"
+  } ]
+}

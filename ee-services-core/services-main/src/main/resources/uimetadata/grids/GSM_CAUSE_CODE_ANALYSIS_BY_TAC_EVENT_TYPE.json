@@ -1,0 +1,71 @@
+{
+    "id": "GSM_CAUSE_CODE_ANALYSIS_BY_TAC_EVENT_TYPE",
+    "title": "Terminal GSM Call Failure :  Cause Group Analysis Summary",
+    "autoexpand": "6",
+    "defaultSortCol": "7",
+    "defaultSortDir": "DESC",
+    "categoryId": "GSM_CAUSE_CODE_ANALYSIS_BY_TAC_EVENT_TYPE",
+    "columns": [
+        {
+        	"type" : "tac",
+            "header": "TAC",
+            "width": "80",
+            "datatype": "int",
+            "isHidden": "true"
+        },
+        {
+        	"type" : "terminalMake",
+            "header": "Terminal Make",
+            "width": "100",
+            "datatype": "string",
+            "isHidden" : "TRUE"
+        },
+        {
+        	"type" : "terminalModel",
+            "header": "Model",
+            "width": "100",
+            "datatype": "string",
+            "isHidden" : "TRUE"
+        },
+        {
+        	"type" : "eventType",
+            "header": "Event Type",
+            "width": "100",
+            "datatype": "string",
+            "isHidden" : "TRUE"
+        },
+        {
+        	"type" : "causeGroupID",
+            "header": "Cause Group ID",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+        	"type" : "causeGroup",
+            "header": "Cause Group",
+            "width": "200",
+            "datatype": "string",
+            "drillDownWindowType": "GSM_SUB_CAUSE_CODE_ANALYSIS_BY_TAC_EVENT_TYPE"
+        },
+        {
+        	"type" : "failures",
+            "header": "Failures",
+            "width": "100",
+            "datatype": "int"
+            
+        },
+        {
+        	"type" : "impactedSubs",
+            "header": "Impacted Subscribers",
+            "width": "150",
+            "datatype": "int"
+        },
+        
+        {
+            "header": "Category ID",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "true"
+        }   
+    ]
+}

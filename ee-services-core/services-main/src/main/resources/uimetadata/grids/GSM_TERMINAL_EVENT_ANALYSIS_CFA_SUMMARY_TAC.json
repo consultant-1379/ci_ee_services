@@ -1,0 +1,60 @@
+{
+    "id" : "GSM_TERMINAL_EVENT_ANALYSIS_CFA_SUMMARY_TAC",
+    "title" : "Terminal GSM Call Failure : Event Analysis Summary",
+    "autoexpand" : "4",
+    "categoryId" : "GSM_TERMINAL_EVENT_ANALYSIS_CFA_SUMMARY_TAC",
+    "defaultSortCol" : "3",
+  	"defaultSortDir" : "DESC",
+    "columns" : [
+       	{
+            "type" : "Terminal Make",
+            "header" : "Terminal Make",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "model",
+            "header" : "Model",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "category",
+            "header" : "Event Type",
+            "width" : "100",
+            "datatype" : "string",
+            "drillDownWindowType" : "GSM_CAUSE_CODE_ANALYSIS_BY_TAC_EVENT_TYPE"
+        },
+        {
+            "type" : "failures",
+            "header" : "Failures",
+            "width" : "90",
+            "datatype" : "int"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header" : "Impacted Subscribers",
+            "width" : "160",
+            "datatype" : "int"
+        },
+	    {
+		    "header" : "Failure Ratio",
+		    "width" : "130",
+		    "datatype" : "double"
+	  	},        
+        {
+            "type" : "CategoryId",
+            "header" : "Category ID",
+            "width" : "100",
+            "datatype" : "int",
+            "isHidden" : "TRUE"
+        },
+        {
+            "type" : "tac",
+            "header" : "TAC",
+            "width" : "100",
+            "datatype" : "int",
+            "isHidden" : "TRUE"
+        }        
+    ]
+}

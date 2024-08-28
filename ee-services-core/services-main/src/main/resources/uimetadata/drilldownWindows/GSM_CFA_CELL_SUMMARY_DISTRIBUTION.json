@@ -1,0 +1,21 @@
+{
+  "id" : "GSM_CFA_CELL_SUMMARY_DISTRIBUTION",
+  "gridDisplayID" : "GSM_CFA_CELL_SUMMARY_DISTRIBUTION",
+  "menuItem" : "GSM_CFA_BSC_RANKING",
+  "url" : "NETWORK/GSM/CALL_FAILURE_EVENT_SUMMARY/ACCESS_AREA_DISTRIBUTION",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "CONTROLLER",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "3",
+    "queryParamName" : "CATEGORY_ID_DESC",
+    "isTitleParam" : "TRUE"
+  }, {
+  	"id" : "9",
+  	"queryParamName" : "HIER3_ID"
+  }, {
+  	"id" : "8",
+  	"queryParamName" : "CATEGORY_ID"
+  } ]
+}

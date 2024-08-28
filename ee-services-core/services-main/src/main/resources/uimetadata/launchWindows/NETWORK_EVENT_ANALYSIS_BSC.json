@@ -1,0 +1,21 @@
+{
+  "launchWindowTypeId" : "NETWORK_EVENT_ANALYSIS_BSC",
+  "menuItem" : "NETWORK_EVENT_ANALYSIS",
+  "searchValFromCol" : "5",
+  "type" : "BSC",
+  "params" : [ {
+    "id" : "3",
+    "queryParamName" : "RAT"
+  }, {
+    "id" : "4",
+    "queryParamName" : "vendor"
+  }, {
+    "id" : "5",
+    "queryParamName" : "bsc",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

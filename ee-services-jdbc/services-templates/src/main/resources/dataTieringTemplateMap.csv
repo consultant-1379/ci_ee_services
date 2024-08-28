@@ -1,0 +1,73 @@
+PATH_NAME,TYPE,ISGROUP,DRILLTYPE,hasEventID,KEY,TIMERANGE(optional),TEMPLATE_NAME_WITH_FILEPATH
+EVENT_ANALYSIS,APN,false,null,false,SUM,_TIERED,datatiering/q_event_analysis_non_aggregation_tiered_summary.vm
+EVENT_ANALYSIS,BSC,false,null,false,SUM,_TIERED,datatiering/q_event_analysis_non_aggregation_tiered_summary.vm
+EVENT_ANALYSIS,SGSN,false,null,false,SUM,_TIERED,datatiering/q_event_analysis_non_aggregation_tiered_summary.vm
+EVENT_ANALYSIS,CELL,false,null,false,SUM,_TIERED,datatiering/q_event_analysis_non_aggregation_tiered_summary.vm
+EVENT_ANALYSIS,TAC,false,null,false,SUM,_TIERED,datatiering/q_event_analysis_non_aggregation_tiered_summary.vm
+EVENT_ANALYSIS,APN,true,null,false,SUM,_TIERED,datatiering/q_event_analysis_group_non_aggregation_tiered_summary.vm
+EVENT_ANALYSIS,BSC,true,null,false,SUM,_TIERED,datatiering/q_event_analysis_group_non_aggregation_tiered_summary.vm
+EVENT_ANALYSIS,SGSN,true,null,false,SUM,_TIERED,datatiering/q_event_analysis_group_non_aggregation_tiered_summary.vm
+EVENT_ANALYSIS,CELL,true,null,false,SUM,_TIERED,datatiering/q_event_analysis_group_non_aggregation_tiered_summary.vm
+EVENT_ANALYSIS,TAC,true,null,false,SUM,_TIERED,datatiering/q_event_analysis_group_non_aggregation_tiered_summary.vm
+EVENT_ANALYSIS,APN,true,null,true,SUM,_TIERED,datatiering/q_event_analysis_non_aggregation_tiered_summary.vm
+EVENT_ANALYSIS,BSC,true,null,true,SUM,_TIERED,datatiering/q_event_analysis_non_aggregation_tiered_summary.vm
+EVENT_ANALYSIS,SGSN,true,null,true,SUM,_TIERED,datatiering/q_event_analysis_non_aggregation_tiered_summary.vm
+EVENT_ANALYSIS,CELL,true,null,true,SUM,_TIERED,datatiering/q_event_analysis_non_aggregation_tiered_summary.vm
+#####Ranking Templates######
+RANKING_ANALYSIS,BSC,false,null,false,null,_TIERED,datatiering/q_ranking_by_controller_tiered.vm
+RANKING_ANALYSIS,RNC,false,null,false,null,_TIERED,datatiering/q_ranking_by_controller_tiered.vm
+RANKING_ANALYSIS,ENODEB,false,null,false,null,_TIERED,datatiering/q_ranking_by_controller_tiered.vm
+RANKING_ANALYSIS,CC,false,null,false,null,_TIERED,datatiering/q_ranking_by_cause_code_tiered.vm
+RANKING_ANALYSIS,TAC,false,null,false,null,_TIERED,datatiering/q_ranking_by_tac_tiered.vm
+RANKING_ANALYSIS,APN,false,null,false,null,_TIERED,datatiering/q_ranking_apn_tiered.vm
+RANKING_ANALYSIS,CELL,false,null,false,null,_TIERED,datatiering/q_ranking_by_cell_tiered.vm
+RANKING_ANALYSIS,ECELL,false,null,false,null,_TIERED,datatiering/q_ranking_by_cell_tiered.vm
+RANKING_ANALYSIS_IMSI,null,false,null,false,null,_TIERED,datatiering/q_ranking_imsi_tiered.vm
+#####Event Volume Templates######
+EVENT_VOLUME,APN,false,null,false,null,_TIERED,datatiering/q_network_analysis_summary_sample_tiered.vm
+EVENT_VOLUME,BSC,false,null,false,null,_TIERED,datatiering/q_network_analysis_summary_sample_tiered.vm
+EVENT_VOLUME,SGSN,false,null,false,null,_TIERED,datatiering/q_network_analysis_summary_sample_tiered.vm
+EVENT_VOLUME,CELL,false,null,false,null,_TIERED,datatiering/q_network_analysis_summary_sample_tiered.vm
+EVENT_VOLUME,null,false,null,false,null,_TIERED,datatiering/q_network_analysis_summary_sample_tiered.vm
+EVENT_VOLUME,APN,true,null,false,null,_TIERED,datatiering/q_network_analysis_summary_group_sample_tiered.vm
+EVENT_VOLUME,BSC,true,null,false,null,_TIERED,datatiering/q_network_analysis_summary_group_sample_tiered.vm
+EVENT_VOLUME,SGSN,true,null,false,null,_TIERED,datatiering/q_network_analysis_summary_group_sample_tiered.vm
+EVENT_VOLUME,CELL,true,null,false,null,_TIERED,datatiering/q_network_analysis_summary_group_sample_tiered.vm
+#####QoS Statistics Templates######
+QOS_STATISTICS,APN,false,null,false,null,_TIERED,datatiering/q_qos_statistics_summary_tiered.vm
+QOS_STATISTICS,BSC,false,null,false,null,_TIERED,datatiering/q_qos_statistics_summary_tiered.vm
+QOS_STATISTICS,CELL,false,null,false,null,_TIERED,datatiering/q_qos_statistics_summary_tiered.vm
+QOS_STATISTICS,SGSN,false,null,false,null,_TIERED,datatiering/q_qos_statistics_summary_tiered.vm
+QOS_STATISTICS,TAC,false,null,false,null,_TIERED,datatiering/q_qos_statistics_tac_summary_tiered.vm
+QOS_STATISTICS,APN,true,null,false,null,_TIERED,datatiering/q_qos_statistics_group_summary_tiered.vm
+QOS_STATISTICS,BSC,true,null,false,null,_TIERED,datatiering/q_qos_statistics_group_summary_tiered.vm
+QOS_STATISTICS,CELL,true,null,false,null,_TIERED,datatiering/q_qos_statistics_group_summary_tiered.vm
+QOS_STATISTICS,SGSN,true,null,false,null,_TIERED,datatiering/q_qos_statistics_group_summary_tiered.vm
+QOS_STATISTICS,TAC,true,null,false,null,_TIERED,datatiering/q_qos_statistics_group_summary_tiered.vm
+#####Roaming Analysis Templates######
+ROAMING_ANALYSIS,null,false,null,false,null,_TIERED,datatiering/q_network_analysis_roaming_tiered.vm
+ROAMING_ANALYSIS_DRILL_COUNTRY,null,false,null,false,null,_TIERED,datatiering/q_network_analysis_roaming_drill_country_tiered.vm
+ROAMING_ANALYSIS_DRILL_OPERATOR,null,false,null,false,null,_TIERED,datatiering/q_network_analysis_roaming_drill_operator_tiered.vm
+#####Terminal Analysis Templates######
+TERMINAL_ANALYSIS/MOST_POPULAR_EVENT_SUMMARY,null,false,null,false,null,_TIERED,datatiering/q_device_analysis_summary_tiered.vm
+#####Terminal Group Analysis Templates######
+GROUP_ANALYSIS/MOST_POPULAR_EVENT_SUMMARY,null,false,null,false,null,_TIERED,datatiering/q_device_group_analysis_summary_tiered.vm
+#####KPI Analysis Templates for 2G&3G######
+KPI,APN,false,null,false,null,_TIERED,datatiering/q_network_analysis_KPI_sample_tiered.vm
+KPI,BSC,false,null,false,null,_TIERED,datatiering/q_network_analysis_KPI_sample_tiered.vm
+KPI,SGSN,false,null,false,null,_TIERED,datatiering/q_network_analysis_KPI_sample_tiered.vm
+KPI,CELL,false,null,false,null,_TIERED,datatiering/q_network_analysis_KPI_sample_tiered.vm
+KPI,TAC,false,null,false,null,_TIERED,datatiering/q_network_analysis_KPI_sample_tiered.vm
+KPI,APN,true,null,false,null,_TIERED,datatiering/q_network_analysis_group_KPI_sample_tiered.vm
+KPI,BSC,true,null,false,null,_TIERED,datatiering/q_network_analysis_group_KPI_sample_tiered.vm
+KPI,SGSN,true,null,false,null,_TIERED,datatiering/q_network_analysis_group_KPI_sample_tiered.vm
+KPI,CELL,true,null,false,null,_TIERED,datatiering/q_network_analysis_group_KPI_sample_tiered.vm
+KPI,TAC,true,null,false,null,_TIERED,datatiering/q_network_analysis_group_KPI_sample_tiered.vm
+#####KPI Ratio Analysis Templates   ######
+#####Type supported: APN, BSC, SGSN ######
+KPI_RATIO,APN,false,null,true,null,_TIERED,datatiering/q_event_analysis_summary_drilldown_by_apn_tiered.vm
+KPI_RATIO,BSC,false,null,true,null,_TIERED,datatiering/q_event_analysis_summary_drilldown_by_bsc_tiered.vm
+KPI_RATIO,SGSN,false,null,true,null,_TIERED,datatiering/q_event_analysis_summary_drilldown_by_sgsn_tiered.vm
+KPI_RATIO,APN,true,null,true,null,_TIERED,datatiering/q_event_analysis_group_summary_drilldown_by_apn_tiered.vm
+KPI_RATIO,BSC,true,null,true,null,_TIERED,datatiering/q_event_analysis_group_summary_drilldown_by_bsc_tiered.vm
+KPI_RATIO,SGSN,true,null,true,null,_TIERED,datatiering/q_event_analysis_group_summary_drilldown_by_sgsn_tiered.vm

@@ -1,0 +1,42 @@
+{
+    "id": "RAN_HFA",
+    "title": "RNC WCDMA Handover Failure : Event Ranking",
+    "autoexpand": "5",
+    "defaultSortCol": "1",
+    "defaultSortDir": "ASC",
+    "columns": [
+        {
+            "header": "Rank",
+            "width": "50",
+            "datatype": "int"
+        },
+        {
+            "header": "RAT",
+            "width": "50",
+            "datatype": "string",
+            "isHidden" : "TRUE"
+        },
+        {
+            "header": "RAT ID",
+            "width": "50",
+            "datatype": "int",
+            "isHidden" : "TRUE"
+        },
+        {
+            "header": "RAN Vendor",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "RNC",
+            "width": "200",
+            "datatype": "string",
+            "drillDownWindowType": "NETWORK_EVENT_ANALYSIS_WCDMA_HFA_BSC"
+        },
+        {
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+#DEFINE_CONSTANTS()
+#set($columnsToSelectFromUserPlaneTable=["IMSI","DOWNLINK","THROUGHPUT","SETUP_TIME_TERM","SETUP_TIME_NET","PACKET_LOSS_TERM","PACKET_LOSS_NET"])
+#set($addColumns=$columnsToSelectFromUserPlaneTable.addAll($columns))
+#set($userPlaneTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_USER_PLANE_TPNAME).getRawTablesWithMeasurementTypes())
+#set($sessionTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_RAN_SESSION_TPNAME).getRawTables())
+#set($tempImsiTable="imsi_tp")
+#set($rncTopologyTable="rnc_topology")
+BEGIN
+	
+#CREATE_TEMP_SESSION_TABLE($tempImsiTable)	
+#CREATE_RNC_TOPOLOGY_TABLE($rncTopologyTable)
+
+#SELECT_RNC_IDS_FROM_SESSION_TABLES($tempImsiTable)
+#POPULATE_RNC_TOPOLOGY_TABLE($rncTopologyTable)		
+
+
+SELECT
+	#if($count > 0)
+		top $count
+	#end
+	#GET_COLUMNS($columns)
+	#GET_UKPI_SAMPLES_AND_VALUES()
+FROM
+    (SELECT
+    	#GET_COLUMNS($columns)
+		#SELECT_UKPI_SAMPLING_COUNT(),
+        #GET_UP_KPI_VALUES()
+    FROM
+        #REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION($userPlaneTableList "rawview" $columnsToSelectFromUserPlaneTable)
+    	LEFT OUTER JOIN
+    		imsi_tp tempRef
+    	ON(
+    		rawview.IMSI = tempRef.IMSI
+    		)
+    WHERE #GET_COLUMNS_WHERE_NOT_NULL($columns)
+    GROUP BY #GET_COLUMNS_NO_COMMA_TRAILING($columns),DOWNLINK
+    )AS joinRaw
+GROUP BY #GET_COLUMNS_NO_COMMA_TRAILING($columns)
+ORDER BY
+	"$KPI" DESC
+;
+END
+

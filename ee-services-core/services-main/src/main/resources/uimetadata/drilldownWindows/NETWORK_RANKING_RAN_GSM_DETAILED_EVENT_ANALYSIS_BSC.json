@@ -1,0 +1,17 @@
+{
+  "id" : "NETWORK_RANKING_RAN_GSM_DETAILED_EVENT_ANALYSIS_BSC",
+  "gridDisplayID" : "NETWORK_RANKING_RAN_GSM_DETAILED_EVENT_ANALYSIS_BSC",
+  "menuItem" : "GSM_CFA_BSC_RANKING",
+  "url" : "NETWORK/GSM/CALL_FAILURE_DETAILED_EVENT_ANALYSIS/BSC",
+  "params" : [  {
+    "id" : "2",
+    "queryParamName" : "Controller",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "7",
+    "queryParamName" : "HIER3_ID"
+  }, {
+    "id" : "8",
+    "queryParamName" : "CATEGORY_ID"
+  }  ]
+}

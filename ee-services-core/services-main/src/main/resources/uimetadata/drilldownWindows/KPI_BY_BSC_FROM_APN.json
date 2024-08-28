@@ -1,0 +1,26 @@
+{
+  "id" : "KPI_BY_BSC_FROM_APN",
+  "name" : "KPI Breakdown by Controller",
+  "url" : "NETWORK/KPI_RATIO",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "apn",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "sgsn",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "3",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "APN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

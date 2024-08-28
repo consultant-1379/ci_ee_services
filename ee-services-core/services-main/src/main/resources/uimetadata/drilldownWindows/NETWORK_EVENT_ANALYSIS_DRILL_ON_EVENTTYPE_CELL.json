@@ -1,0 +1,34 @@
+{
+  "id" : "NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_CELL",
+  "name" : "Access Area Event Analysis",
+  "url" : "NETWORK/EVENT_ANALYSIS",
+  "searchValFromCol" : "16",
+  "type" : "CELL",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "18",
+    "queryParamName" : "cell",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "19",
+    "queryParamName" : "vendor"
+  }, {
+    "id" : "16",
+    "queryParamName" : "bsc"
+  }, {
+    "id" : "76",
+    "queryParamName" : "RAT"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

@@ -1,0 +1,198 @@
+#DEFINE_CONSTANTS()
+#if($subType==$TYPE_IMSI)
+    #set($filterColumn = ["IMSI"])
+#elseif($subType==$TYPE_MSISDN)
+    #set($filterColumn = ["MSISDN"])
+#end
+#set($eventColumnsToSelect=["OLD_MCC","OLD_MNC","EVENT_SOURCE_NAME","VENDOR","IMSI_MCC","IMSI_MNC","EVENT_ID","MSISDN","IMSI","TAC","ROAMING","EVENT_TIME","DURATION","RAT","HIERARCHY_3","MCC","MNC","LAC","RAC","SAC","HLR","CAUSE_CODE","SUBCAUSE_CODE","GGSN_NAME","APN","PDP_MS_IPADDRESS_1","REQUEST_RETRIES","ATTACH_TYPE", "ACTIVATION_TYPE", "DEACTIVATION_TRIGGER", "INTRA_RAU_TYPE", "UPDATE_TYPE", "TRANSFERRED_PDP", "DROPPED_PDP", "DETACH_TYPE", "DETACH_TRIGGER", "OLD_LAC", "OLD_RAC", "SERVICE_TYPE", "SERVICE_REQ_TRIGGER", "PAGING_ATTEMPTS", "OLD_SGSN_IPADDRESS"])
+
+#set($errTables=$TECH_PACK_LIST.getAllRawErrTables())
+#set($sucTables=$TECH_PACK_LIST.getAllRawSucTables())
+select 
+top 1 * 
+from
+(
+SELECT
+    ##Subscriber ID
+    eventRaw.MSISDN 								AS MSISDN,
+    eventRaw.IMSI   								AS IMSI,
+	#DISPLAY_TERMINAL("tacRef" "eventRaw"),
+	#DISPLAY_NETWORK("roamingRef"),
+	##Event Summary Details
+	eventType.EVENT_ID_DESC 						AS EVENT_TYPE,
+    dateformat(EVENT_TIME,'yyyy-MM-dd HH:mm:ss.SSS') AS EVENT_TIME,
+	EVENT_RESULT = 
+    (
+        CASE 
+            WHEN eventRaw.success = 1  
+            THEN 'SUCCESS' 
+            ELSE 'FAILURE' 
+        END
+    ) ,
+	eventRaw.DURATION 								AS DURATION,
+	ratRef.RAT_DESC 							    AS RAT,
+    detachRef.DETACH_TYPE_DESC                      AS DETACH_TYPE,
+    detachTriggerRef.DETACH_TRIGGER_DESC            AS DETACH_TRIGGER,
+    attRef.ATTACH_TYPE_DESC                         AS ATTACH_TYPE_DESC,
+    aTypeRef.ACTIVATION_TYPE_DESC                   AS ACTIVATION_TYPE_DESC,
+    dTypeRef.DEACTIVATION_TRIGGER_DESC              AS DEACTIVATION_TRIGGER,
+    eventRaw.APN                                    AS APN,
+    intraTypeRef.INTRA_RAU_TYPE_DESC                AS INTRA_RAU,
+    updateTypeRef.UPDATE_TYPE_DESC                  AS UPDATE_TYPE,
+    eventRaw.TRANSFERRED_PDP                        AS TRANSFERRED_PDP,
+    eventRaw.DROPPED_PDP                            AS DROPPED_PDP,
+    serviceTypeRef.SERVICE_TYPE_DESC                AS SERVICE_TYPE,
+    serviceReqRef.SERVICE_REQ_TRIGGER_DESC          AS SERVICE_TRIGGER,
+    PAGING_ATTEMPTS =
+    (
+        CASE
+            WHEN eventRaw.SERVICE_TYPE != 2 or eventRaw.PAGING_ATTEMPTS IS NULL
+            THEN '-'
+            ELSE '' || eventRaw.PAGING_ATTEMPTS
+        END
+    ),
+    (#CONVERT_HEX_IP_ADDRESS_TO_DECIMAL_DOTTED_NOTATION("eventRaw" "PDP_MS_IPADDRESS_1")                     AS IP_ADDRESS,
+    ##Network Location
+    eventRaw.EVENT_SOURCE_NAME                      AS SGSN,
+    SGSN_ISRAU =
+    (
+        'Old: '||(#CONVERT_HEX_IP_ADDRESS_TO_DECIMAL_DOTTED_NOTATION("eventRaw" "OLD_SGSN_IPADDRESS")
+        ||'.'||' New: '||eventRaw.EVENT_SOURCE_NAME
+    ),
+    eventRaw.HIERARCHY_3                            AS CONTROLLER,
+    eventRaw.GGSN_NAME                              AS GGSN,
+	## For RAU/ISRAU only
+    PLMN_2 = ('Old: '||eventRaw.OLD_MCC ||'.'||eventRaw.OLD_MNC||' New: '||eventRaw.MCC ||'.'||eventRaw.MNC),
+	LAC_2 = ('Old: '||eventRaw.OLD_LAC ||'.'||' New: '||eventRaw.LAC),
+    ROUTING_AREA_2 = ('Old: '||eventRaw.OLD_RAC ||'.'||' New: '||eventRaw.RAC),
+
+    PLMN = (eventRaw.MCC ||'.'||eventRaw.MNC),
+    eventRaw.LAC AS LAC,
+    eventRaw.RAC AS ROUTING_AREA,
+
+	eventRaw.SAC AS SERVING_AREA,
+    eventRaw.HLR AS HLR,
+    eventRaw.REQUEST_RETRIES                        AS REQUEST_RETRIES,
+	##Event Outcome
+	eventRaw.CAUSE_CODE 							AS CAUSE_CODE,
+	eventRaw.SUBCAUSE_CODE 							AS SUB_CAUSE_CODE,
+    ccRef.CAUSE_CODE_DESC                           AS CAUSE_CODE_DESC,
+    sccRef.SUBCAUSE_CODE_DESC                       AS SUB_CAUSE_CODE_DESC
+
+
+FROM
+		(	
+		#foreach ($rawtable in $errTables)
+			select
+				#foreach ($columnToInclude in $eventColumnsToSelect)
+					$columnToInclude ,
+				#end
+				0 as success			
+			from dc.$rawtable 
+			where
+			#GET_DATETIME_RANGE()
+			and #GET_COLUMNS_WHERE($filterColumn)
+			AND EVENT_ID = :eventID
+			#if($velocityCount < $errTables.size())
+					union all
+			#end
+		#end
+		union all
+		#foreach ($rawtable in $sucTables)
+			select
+				#foreach ($columnToInclude in $eventColumnsToSelect)
+					$columnToInclude ,
+				#end
+				1 as success			
+			from dc.$rawtable 
+			where
+			#GET_DATETIME_RANGE()
+			and #GET_COLUMNS_WHERE($filterColumn)
+			AND EVENT_ID = :eventID
+			#if($velocityCount < $sucTables.size())
+					union all
+			#end
+		#end
+	) as eventRaw
+	left outer join DIM_E_SGEH_RAT ratRef
+	on 
+	(
+		eventRaw.RAT = ratRef.RAT
+	)
+	LEFT OUTER JOIN DIM_E_SGEH_TAC tacRef
+    ON
+    (
+        eventRaw.TAC = tacRef.TAC
+    )
+	LEFT OUTER JOIN DIM_E_SGEH_MCCMNC roamingRef
+    ON
+    (
+        eventRaw.IMSI_MCC = roamingRef.MCC
+        AND eventRaw.IMSI_MNC = roamingRef.MNC
+    )
+    INNER JOIN dc.DIM_E_SGEH_EVENTTYPE eventType
+	ON
+    (
+        eventRaw.EVENT_ID = eventType.EVENT_ID
+    )
+    LEFT OUTER JOIN dc.DIM_E_SGEH_CAUSECODE ccRef
+    ON
+    (
+        eventRaw.CAUSE_CODE = ccRef.CAUSE_CODE
+    )
+    LEFT OUTER JOIN dc.DIM_E_SGEH_SUBCAUSECODE sccRef
+    ON
+    (
+        eventRaw.SUBCAUSE_CODE = sccRef.SUBCAUSE_CODE
+    )
+    LEFT OUTER JOIN dc.DIM_E_SGEH_ATTACHTYPE attRef
+    ON
+    (
+        eventRaw.ATTACH_TYPE = attRef.ATTACH_TYPE
+    )
+    LEFT OUTER JOIN dc.DIM_E_SGEH_ACTIVATIONTYPE aTypeRef
+    ON
+    (
+        eventRaw.ACTIVATION_TYPE = aTypeRef.ACTIVATION_TYPE
+    )
+    LEFT OUTER JOIN dc.DIM_E_SGEH_DEACTIVATIONTRIGGER dTypeRef
+    ON
+    (
+        eventRaw.DEACTIVATION_TRIGGER = dTypeRef.DEACTIVATION_TRIGGER
+    )
+    LEFT OUTER JOIN dc.DIM_E_SGEH_INTRARAUTYPE intraTypeRef
+    ON
+    (
+        eventRaw.INTRA_RAU_TYPE = intraTypeRef.INTRA_RAU_TYPE
+    )
+    LEFT OUTER JOIN dc.DIM_E_SGEH_UPDATETYPE updateTypeRef
+    ON
+    (
+        eventRaw.UPDATE_TYPE = updateTypeRef.UPDATE_TYPE
+    )
+    LEFT OUTER JOIN dc.DIM_E_SGEH_DETACH_TYPE detachRef
+    ON
+    (
+        eventRaw.DETACH_TYPE = detachRef.DETACH_TYPE
+    )
+    LEFT OUTER JOIN dc.DIM_E_SGEH_DETACH_TRIGGER detachTriggerRef
+    ON
+    (
+        eventRaw.DETACH_TRIGGER = detachTriggerRef.DETACH_TRIGGER
+    )
+    LEFT OUTER JOIN dc.DIM_E_SGEH_SERVICE_TYPE serviceTypeRef
+    ON
+    (
+        eventRaw.SERVICE_TYPE  = serviceTypeRef.SERVICE_TYPE
+    )
+    LEFT OUTER JOIN dc.DIM_E_SGEH_SERVICE_REQ_TRIGGER serviceReqRef
+    ON
+    (
+        eventRaw.SERVICE_REQ_TRIGGER  = serviceReqRef.SERVICE_REQ_TRIGGER
+    )
+    ) as popUpDetails
+where
+			EVENT_TIME >= :eventTimeFrom
+			AND EVENT_TIME <= :eventTimeTo
+order by EVENT_TIME
+

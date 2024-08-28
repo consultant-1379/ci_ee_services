@@ -1,0 +1,35 @@
+{
+  "id" : "TERMINAL_RANKINGS",
+  "title" : "Terminal Ranking (Events)",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "130",
+    "datatype" : "string",
+    "launchWindowType" : "TERMINAL_EVENT_ANALYSIS_MAKE"
+  }, {
+    "header" : "Model",
+    "width" : "100",
+    "datatype" : "string",
+    "launchWindowType" : "TERMINAL_EVENT_ANALYSIS_MODEL"
+  }, {
+    "header" : "TAC",
+    "width" : "80",
+    "datatype" : "int"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "TERMINAL_RANKINGS_DRILL_ON_FAILURES"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

@@ -1,0 +1,36 @@
+{
+    "id": "SUBSCRIBER_HANDOVER_FAILURE_EVENT_ANALYSIS_IMSI",
+    "title": "Subscriber Handover Failure Analysis",
+    "autoexpand": "2",
+    "defaultSortCol": "4",
+    "defaultSortDir": "DESC",
+    "categoryId" : "SUBSCRIBER_HANDOVER_FAILURE_EVENT_ANALYSIS_IMSI",
+    "columns": [
+        {
+            "type" : "imsi",
+            "header": "IMSI",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type" : "handoverType",
+            "header": "Handover Type",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "header": "CATEGORY ID",
+            "width": "10",
+            "datatype": "int",
+            "isSystem" : "TRUE"
+        },
+        {
+            "type" : "failures",
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int",
+            "drillDownWindowType": "*,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_IMSI_SOHO,Soft\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_IMSI_SOHO,Interfrequency\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_IMSI_IFHO,IRAT\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_IMSI_IRAT,HSDSCH\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_IMSI_HSDSCH"
+        }
+    ]
+}

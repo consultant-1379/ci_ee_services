@@ -1,0 +1,38 @@
+{
+    "id":"NETWORK_DETAILED_EVENT_ANALYSIS_DRILL_ON_BSC_BY_CELL",
+    "gridDisplayID":"NETWORK_EVENT_ANALYSIS_WCDMA_CFA_BSC",
+    "name":"Network Event Analysis",
+    "url":"NETWORK/WCDMA_CFA_NETWORK_EVENT_ANALYSIS/NODE",
+    "params":[
+        {
+            "id":"17",
+            "queryParamName":"HIER3_ID"
+        },
+        {
+            "id":"BSC",
+            "queryParamName":"type",
+            "isFixedVal":"TRUE"
+        },
+        {
+            "id":"6",
+            "isTitleParam":"TRUE"
+        },
+        {
+            "id":"48",
+            "queryParamName":"eventID"
+        },
+        {
+            "id":"49",
+            "queryParamName":"categoryId"
+        },
+        {
+            "id":"50",
+            "queryParamName":"drillCat"
+        }
+    ],
+    "style":"analysisCausecode",
+    "windowType":"GRID",
+    "isEnabled":"TRUE",
+    "toolBarType":"TOOLBAR1",
+    "display":"grid"
+}

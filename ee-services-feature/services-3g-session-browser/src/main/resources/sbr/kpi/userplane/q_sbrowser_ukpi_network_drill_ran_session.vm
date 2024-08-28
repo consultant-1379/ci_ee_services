@@ -1,0 +1,31 @@
+#DEFINE_CONSTANTS()
+#set($sessionColumnsToSelect=["START_HIER3_ID AS HIER3_ID"])
+#set($ranColumnsToSelect=$sessionColumnsToSelect.addAll($drillColumns))
+#set($ranSessionHier3Columns=[])
+
+#set($tcpColumnsToSelect=["HIER3_ID"])
+#set($columns=[])
+#set($notNullColumns=["HIER3_ID"])
+#set($columnsToIncludeInNewView=["HIER3_ID"])
+#set($groupbyColumns=["DOWNLINK","HIER3_ID"])
+
+#set($joinColumns=["HIER3_ID"])
+
+
+#set($userPlaneTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_USER_PLANE_TPNAME).getRawTablesWithMeasurementTypes())
+#set($sessionTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_RAN_SESSION_TPNAME).getRawTables())
+
+BEGIN
+
+SELECT
+	#SELECT_UKPI_FOR_DRILLDOWN($drillColumns $KPI)
+FROM
+    #USERPLANE_KPI_DRILLDOWN_WITH_FILTERS($userPlaneTableList "rawview" $columns $tcpColumnsToSelect $notNullcolumns $groupbyColumns $KPI)	
+    #UP_KPI_JOIN_PART($sessionTableList $ranSessionHier3Columns $sessionColumnsToSelect $drilltype $joinColumns)
+#UP_KPI_WHERE_PART($drillColumns $drilltype)
+GROUP BY 
+    drillBy
+ORDER BY
+	#UP_KPI_ORDERBY_PART($drilltype)
+
+END

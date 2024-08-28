@@ -1,0 +1,30 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_GSM_CALL_FAILURE_TAC",
+    "gridDisplayID": "NETWORK_DETAILED_EVENT_ANALYSIS_GSM_CALL_FAILURE_TAC",
+    "url": "NETWORK/GSM/CALL_FAILURE_DETAILED_EVENT_ANALYSIS/TAC",
+    "params": [
+        {
+            "id": "1",
+            "queryParamName": "TAC"
+        },
+        {
+            "id": "2",
+            "queryParamName": "titleManufacturer",
+            "isTitleParam": "TRUE"
+        },
+        {
+            "id": "3",
+            "queryParamName": "titleModel",
+            "isTitleParam": "TRUE"
+        },
+        {
+            "id": "9",
+            "queryParamName": "CATEGORY_ID"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

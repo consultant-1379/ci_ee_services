@@ -1,0 +1,34 @@
+{
+    "id": "APPLICATION_LAYER_TCP_SUMMARY",
+    "title": "Application Usage",
+    "ylabel": "",
+    "xlabel": "",
+    "xaxisID": "1",
+    "items": [
+        {
+            "id": "2",
+            "name": "DL Traffic",
+            "color": "#87888a"
+        },
+        {
+            "id": "3",
+            "name": "Web",
+            "color": "#ef8962"
+        },
+        {
+            "id": "4",
+            "name": "Email",
+            "color": "#fed57a"
+        },
+        {
+            "id": "5",
+            "name": "OS Traffic",
+            "color": "#bed682"
+        },
+        {
+            "id": "6",
+            "name": "Media",
+            "color": "#a66c99"
+        }
+    ]
+}

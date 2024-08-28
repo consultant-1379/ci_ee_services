@@ -1,0 +1,27 @@
+{
+  "id" : "KPI_BY_SGSN_FROM_SGSN_GROUP",
+  "name" : "KPI Breakdown by SGSN-MME",
+  "gridDisplayID" : "NETWORK_EVENT_ANALYSIS_SGSN",
+  "url" : "NETWORK/EVENT_ANALYSIS",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "groupname",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "SGSN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

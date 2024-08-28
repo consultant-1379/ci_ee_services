@@ -1,0 +1,72 @@
+{
+    "id" : "NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BSC",
+    "title" : "Controller Event Analysis",
+    "autoexpand" : "3",
+    "defaultSortCol" : "4",
+    "defaultSortDir" : "ASC",
+    "categoryId" : "NETWORK_EVENT_ANALYSIS_BSC",
+    "columns" : [
+        {
+            "type" : "ratId",
+            "header" : "RAT ID",
+            "width" : "50",
+            "datatype" : "int",
+            "isHidden" : "TRUE"
+        },
+        {
+            "type" : "vendor",
+            "header" : "RAN Vendor",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "controller",
+            "header" : "Controller",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "header" : "EventID",
+            "width" : "60",
+            "datatype" : "string",
+            "isSystem" : "TRUE"
+        },
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "failures",
+            "header" : "Failures",
+            "width" : "90",
+            "datatype" : "int",
+            "drillDownWindowType" : "NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_BSC_END"
+        },
+        {
+            "type" : "successes",
+            "header" : "Successes",
+            "width" : "100",
+            "datatype" : "int"
+        },
+        {
+            "type" : "totalEvents",
+            "header" : "Total Events",
+            "width" : "100",
+            "datatype" : "int"
+        },
+        {
+            "type" : "successRatio",
+            "header" : "Success Ratio",
+            "width" : "100",
+            "datatype" : "float"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header" : "Impacted Subscribers",
+            "width" : "120",
+            "datatype" : "int"
+        }
+    ]
+}

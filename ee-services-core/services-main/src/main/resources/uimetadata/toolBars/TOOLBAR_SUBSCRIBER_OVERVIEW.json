@@ -1,0 +1,137 @@
+{
+  "toolBarType" : "TOOLBAR_SUBSCRIBER_OVERVIEW",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnView",
+      "name" : "View",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to change display options",
+      "isEnabled" : "TRUE",
+      "items" : [ {
+        "eventID" : "SUB_BI_FAILED_EVENTS",
+        "id" : "menuBIFailedEvents",
+        "name" : "Failures",
+        "style" : "",
+        "url" : "SUBSCRIBER/SUBBI/FAILURE",
+        "windowType" : "CHART",
+        "display" : "bar"
+      }, {
+        "eventID" : "SUB_BI_APN_USAGE",
+        "id" : "menuBI_APN",
+        "disableWhen" : "PTMSI",
+        "name" : "APN Usage",
+        "style" : "",
+        "url" : "SUBSCRIBER/SUBBI/APN",
+        "windowType" : "CHART",
+        "display" : "bar"
+      }, {
+        "eventID" : "SUB_BI_BUSY_HOUR",
+        "id" : "menuBI_BusyHour",
+        "disableWhen" : "PTMSI",
+        "name" : "Busy Hour",
+        "style" : "",
+        "url" : "SUBSCRIBER/SUBBI/BUSY_HOUR",
+        "windowType" : "CHART",
+        "display" : "bar"
+      }, {
+        "eventID" : "SUB_BI_BUSY_DAY",
+        "id" : "menuBI_BusyDay",
+        "disableWhen" : "PTMSI",
+        "name" : "Busy Day",
+        "style" : "",
+        "url" : "SUBSCRIBER/SUBBI/BUSY_DAY",
+        "windowType" : "CHART",
+        "display" : "bar"
+      }, {
+        "eventID" : "SUB_BI_CELL",
+        "id" : "menuBI_Cell",
+        "disableWhen" : "PTMSI",
+        "name" : "Access Area",
+        "style" : "",
+        "url" : "SUBSCRIBER/SUBBI/CELL",
+        "windowType" : "CHART",
+        "display" : "bar"
+      }, {
+        "eventID" : "SUB_BI_TERMINALS",
+        "id" : "menuBI_Terminals",
+        "disableWhen" : "PTMSI",
+        "name" : "Terminals",
+        "style" : "",
+        "url" : "SUBSCRIBER/SUBBI/TERMINAL",
+        "windowType" : "GRID",
+        "display" : "grid",
+        "needSearchParam" : "TRUE",
+        "hasMultiGridResults" : "FALSE",
+        "toolBarType" : "SUB_BI_DRILL_GRIDS_TOOLBAR"
+      }, {
+        "eventID" : "SUB_BI_TAU",
+        "id" : "menuBI_TAU",
+        "disableWhen" : "PTMSI",
+        "name" : "TAU",
+        "style" : "",
+        "url" : "SUBSCRIBER/SUBBI/TAU",
+        "windowType" : "CHART",
+        "display" : "bar"
+      }, {
+        "eventID" : "SUB_BI_HANDOVER",
+        "id" : "menuBI_HANDOVER",
+        "disableWhen" : "PTMSI",
+        "name" : "Handover",
+        "style" : "",
+        "url" : "SUBSCRIBER/SUBBI/HANDOVER",
+        "windowType" : "CHART",
+        "display" : "bar"
+      } ]
+    }, {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnRefresh",
+      "name" : "",
+      "style" : "toolbar_refreshbtn",
+      "tip" : "Refresh",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "REFRESH"
+    }, {
+      "id" : "btnToggleToGrid",
+      "name" : "",
+      "style" : "toolbar_toggleToGridbtn",
+      "tip" : "Click to toggle the display from a graph to a table",
+      "isEnabled" : "TRUE",
+      "isToggle" : "TRUE",
+      "eventID" : "TOGGLE_TO_GRID"
+    }, {
+      "id" : "btnHideShowLegend",
+      "name" : "",
+      "style" : "toolbar_hideShowLegendBtn",
+      "tip" : "Click to hide or show the legend on the chart",
+      "isEnabled" : "TRUE",
+      "isToggle" : "TRUE",
+      "eventID" : "SHOW_HIDE_CHART_LEGEND"
+    }, {
+      "id" : "btnSubscriberDetails",
+      "name" : "",
+      "style" : "imsiIcon",
+      "visibleWhen" : "IMSI",
+      "tip" : "Click to view subscriber details",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "SUBSCRIBER_DETAILS_TABLE"
+    }, {
+      "id" : "btnSubscriberDetailsPTMSI",
+      "name" : "",
+      "style" : "ptIMSI",
+      "visibleWhen" : "PTMSI",
+      "tip" : "Click to view PTMSI subscriber details",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "SUBSCRIBER_DETAILS_TABLE_PTMSI"
+    } ]
+  } ]
+}

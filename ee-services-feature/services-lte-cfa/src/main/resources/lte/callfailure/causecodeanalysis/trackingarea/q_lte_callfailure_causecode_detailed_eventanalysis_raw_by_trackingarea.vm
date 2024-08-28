@@ -1,0 +1,124 @@
+##
+## LTE Call Failure Cause Code Detailed Event Analysis for Tracking Area (using raw tables)
+##
+## Velocity Parameter: 
+##		EVENT_ID:   Corresponding event id for enodeB
+##		HIER3_ID:   The enodeB
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+#set($conditionColumns=["EVENT_ID", "TRAC", "CAUSE_CODE"])
+
+#if($EVENT_ID == '4097')
+#set($columnsToFilter=["EVENT_TIME", "IMSI", "TAC", "EVENT_ID", "HIER3_ID", "HIER321_ID", "CAUSE_CODE", "MCC", "MNC", "DURATION", "RRC_ESTABL_CAUSE", "GUMMEI_TYPE"])
+#set($resultColumns=[])
+#elseif($EVENT_ID == '4098')
+#set($columnsToFilter=["EVENT_TIME", "IMSI", "TAC", "EVENT_ID", "HIER3_ID", "HIER321_ID", "CAUSE_CODE", "MCC", "MNC", "DURATION", "RRC_ESTABL_CAUSE"])
+#set($resultColumns=[])
+#elseif($EVENT_ID == '4099' || $EVENT_ID == '4106')
+#set($columnsToFilter=["EVENT_TIME", "IMSI", "TAC", "EVENT_ID", "HIER3_ID", "HIER321_ID", "CAUSE_CODE", "MCC", "MNC", "DURATION", "NO_OF_ERABS", "ACCUMULATED_UL_REQ_GBR", "ACCUMULATED_UL_ADM_GBR", "ACCUMULATED_DL_REQ_GBR", "ACCUMULATED_DL_ADM_GBR"])
+#set($resultColumns=["rawview.NO_OF_ERABS", "rawview.ACCUMULATED_UL_REQ_GBR", "rawview.ACCUMULATED_UL_ADM_GBR", "rawview.ACCUMULATED_DL_REQ_GBR", "rawview.ACCUMULATED_DL_ADM_GBR"])
+#elseif($EVENT_ID == '4125')
+#set($columnsToFilter=["EVENT_TIME", "IMSI", "TAC", "EVENT_ID", "HIER3_ID", "HIER321_ID", "CAUSE_CODE", "MCC", "MNC", "DURATION", "NO_OF_ERABS", "INTERNAL_RELEASE_CAUSE", "ERAB_DATA_LOST_BITMAP", "ERAB_DATA_LOST", "ERAB_RELEASE_SUCC", "HO_OUT_PREP_ERAB_FAIL", "ERAB_HO_PREP_DATA_LOST", "TRIGGERING_NODE", "TTI_BUNDLING_MODE"])
+#set($resultColumns=["rawview.NO_OF_ERABS", "rawview.ERAB_DATA_LOST_BITMAP", "dc.DIM_E_LTE_CFA_ERAB_DATA_LOST.DATA_LOST_DESC", "dc.DIM_E_LTE_CFA_ERAB_RELEASE_SUCC.RELEASE_SUCC_DESC", "rawview.HO_OUT_PREP_ERAB_FAIL", "rawview.ERAB_HO_PREP_DATA_LOST"])
+#end
+	
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	rawview.HIER3_ID ,
+	rawview.HIER321_ID ,
+	#if($csv == true)
+   	      DATEADD(minute,$tzOffset,rawview.EVENT_TIME)AS 'Event Time',
+   	    #else
+   	      rawview.EVENT_TIME AS 'Event Time',
+   	    #end 
+
+	dateformat(rawview.EVENT_TIME, 'yyyy-mm-dd hh:mm:ss.SSS') as EVENT_TIME,
+	rawview.IMSI AS IMSI, 
+	rawview.TAC AS TAC, 
+	dc.DIM_E_SGEH_TAC.VENDOR_NAME AS 'Terminal Make' , 
+	dc.DIM_E_SGEH_TAC.MARKETING_NAME AS 'Terminal Model' ,
+	dc.DIM_E_LTE_CFA_EVENTTYPE.EVENT_ID,
+	dc.DIM_E_LTE_CFA_EVENTTYPE.EVENT_ID_DESC as 'Event Type' ,
+	dc.DIM_E_LTE_CFA_CAUSE_CODE.CAUSE_CODE_DESC as 'Cause Code',
+	topology.HIERARCHY_3 as 'eNodeB' ,
+	topology.HIERARCHY_1 as 'Access Area' ,
+	topology.VENDOR as 'Vendor' ,
+	'LTE' as 'Radio Access Type',
+	rawview.MCC AS MCC,
+	rawview.MNC AS MNC,
+	rawview.DURATION AS 'Duration',
+    #if($EVENT_ID == '4097')
+        dc.DIM_E_LTE_CFA_RRC_ESTABL_CAUSE.RRC_ESTABL_CAUSE_DESC as 'RRC ESTABL Cause',
+        dc.DIM_E_LTE_CFA_GUMMEI_TYPE.GUMMEI_TYPE_DESC as 'GUMMEI Type Desc'
+
+    #elseif($EVENT_ID == '4098')
+        dc.DIM_E_LTE_CFA_RRC_ESTABL_CAUSE.RRC_ESTABL_CAUSE_DESC as 'RRC ESTABL Cause'
+
+    #elseif($EVENT_ID == '4125')
+        dc.DIM_E_LTE_CFA_INTERNAL_RELEASE_CAUSE.INTERNAL_RELEASE_CAUSE_DESC as 'Internal Release Cause',
+        dc.DIM_E_LTE_CFA_TRIGGERING_NODE.TRIGGERING_NODE_DESC as 'Triggering Node',
+        dc.DIM_E_LTE_CFA_TTI_BUNDLING_MODE.BUNDLING_MODE_DESC as 'TTI Bundling Mode Desc',
+	#end
+	#GET_COLUMNS_NO_COMMA_TRAILING($resultColumns)
+FROM 
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTables() "rawview" $conditionColumns $columnsToFilter) 
+	,dc.DIM_E_SGEH_TAC,
+    #if($EVENT_ID == '4097')
+        dc.DIM_E_LTE_CFA_RRC_ESTABL_CAUSE,
+        dc.DIM_E_LTE_CFA_GUMMEI_TYPE,
+    #elseif($EVENT_ID == '4098')
+        dc.DIM_E_LTE_CFA_RRC_ESTABL_CAUSE,
+    #elseif($EVENT_ID == '4125')
+        dc.DIM_E_LTE_CFA_INTERNAL_RELEASE_CAUSE,
+        dc.DIM_E_LTE_CFA_TRIGGERING_NODE,
+        dc.DIM_E_LTE_CFA_TTI_BUNDLING_MODE,
+        dc.DIM_E_LTE_CFA_ERAB_DATA_LOST,
+        dc.DIM_E_LTE_CFA_ERAB_RELEASE_SUCC,
+	#end
+	dc.DIM_E_LTE_CFA_EVENTTYPE,
+	dc.DIM_E_LTE_CFA_CAUSE_CODE,
+	(	
+		select
+			HIERARCHY_1,
+			HIERARCHY_3,
+			HIER3_ID,
+			HIER321_ID,
+			VENDOR
+		from 
+			dc.DIM_E_LTE_HIER321
+		where
+			TRAC = :TRAC
+		group by
+			HIERARCHY_1,
+			HIERARCHY_3,
+			HIER3_ID,
+			HIER321_ID,
+			VENDOR
+	) as topology
+WHERE 
+	rawview.HIER321_ID *= topology.HIER321_ID AND
+	rawview.TAC *= dc.DIM_E_SGEH_TAC.TAC AND 
+	dc.DIM_E_LTE_CFA_EVENTTYPE.EVENT_ID = :eventID AND 
+	rawview.CAUSE_CODE *= dc.DIM_E_LTE_CFA_CAUSE_CODE.CAUSE_CODE AND
+	rawview.EVENT_ID *= dc.DIM_E_LTE_CFA_CAUSE_CODE.EVENT_ID
+    #if($EVENT_ID == '4097')
+        AND
+        rawview.RRC_ESTABL_CAUSE *= dc.DIM_E_LTE_CFA_RRC_ESTABL_CAUSE.RRC_ESTABL_CAUSE
+        AND rawview.GUMMEI_TYPE *= dc.DIM_E_LTE_CFA_GUMMEI_TYPE.GUMMEI_TYPE
+    #elseif($EVENT_ID == '4098')
+        AND
+        rawview.RRC_ESTABL_CAUSE *= dc.DIM_E_LTE_CFA_RRC_ESTABL_CAUSE.RRC_ESTABL_CAUSE
+    #elseif($EVENT_ID == '4125')
+        AND
+        rawview.INTERNAL_RELEASE_CAUSE *= dc.DIM_E_LTE_CFA_INTERNAL_RELEASE_CAUSE.INTERNAL_RELEASE_CAUSE AND
+        rawview.TRIGGERING_NODE *= dc.DIM_E_LTE_CFA_TRIGGERING_NODE.TRIGGERING_NODE
+        and rawview.TTI_BUNDLING_MODE *= dc.DIM_E_LTE_CFA_TTI_BUNDLING_MODE.BUNDLING_MODE
+        and rawview.ERAB_RELEASE_SUCC *= dc.DIM_E_LTE_CFA_ERAB_RELEASE_SUCC.RELEASE_SUCC
+        and rawview.ERAB_DATA_LOST *= dc.DIM_E_LTE_CFA_ERAB_DATA_LOST.DATA_LOST
+	#end

@@ -1,0 +1,55 @@
+{
+  "toolBarType" : "TOOLBAR_TERMINAL_GROUP_ANALYSIS_CFA_TOGGLE_ON_GRID",
+  "panels" : [ {
+  "toolBarButtons" : [ {
+      "id" : "btnView",
+      "name" : "View",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to change display options",
+      "isEnabled" : "TRUE",
+      "items" : [ {
+        "eventID" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_CFA_CALL_DROPS",
+        "id" : "menuGTA_Pop_Summary",
+        "name" : "Most Call Drops",
+        "style" : "analysisTerminalGroup",
+        "url" : "TERMINAL/CALL_FAILURE_TERMINAL_GROUP_ANALYSIS/MOST_CALL_DROPS",
+        "windowType" : "CHART",
+        "toolBarType": "TOOLBAR_TERMINAL_GROUP_ANALYSIS_CFA",
+        "display" : "barOneline"
+      }, {
+        "eventID" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_CFA_CALL_SETUP_FAILURES",
+        "id" : "menuGTA_Pop_Summary",
+        "name" : "Most Call Setup Failures",
+        "style" : "analysisTerminalGroup",
+        "url" : "TERMINAL/CALL_FAILURE_TERMINAL_GROUP_ANALYSIS/MOST_CALL_SETUP_FAILURES",
+        "windowType" : "CHART",
+        "toolBarType": "TOOLBAR_TERMINAL_GROUP_ANALYSIS_CFA",
+        "display" : "barOneline"
+      } ]
+    }, {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    }, {
+      "id" : "btnToggleToGrid",
+      "name" : "",
+      "style" : "toolbar_toggleToGraphbtn",
+      "tip" : "Click to toggle display from a table to a graph",
+      "isEnabled" : "TRUE",
+      "isToggle" : "TRUE",
+      "eventID" : "TOGGLE_TO_GRID"
+    } ]
+  } ]
+}

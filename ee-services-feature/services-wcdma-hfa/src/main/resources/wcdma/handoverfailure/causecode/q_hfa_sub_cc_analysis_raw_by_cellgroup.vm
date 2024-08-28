@@ -1,0 +1,57 @@
+##
+## WCDMA Handover Failure Sub-Cause Code Analysis by Access area Group (using raw tables)
+##
+## Velocity Parameter:
+##
+##		:CAUSE_CODE		Cause code parameter
+##		:groupname		Access area group name
+##      :eventID        Cause code event ID
+##      :categoryId     Hanover type ID
+##
+
+#set($columnsToSelect=["SUB_CAUSE_VALUE"])
+#set($groupTablesSource=["dc.GROUP_TYPE_E_RAT_VEND_HIER321_CELL"])
+#set($groupTablesTarget=["dc.GROUP_TYPE_E_RAT_VEND_HIER321_CELL", "dc.GROUP_TYPE_E_RAT_VEND_HIER321"])
+#set($groupConditionSourceColumn=["HIER3_CELL_ID"])
+#set($groupConditionTargetColumn=["THIER3_CELL_ID","THIER321_ID"])
+#set($groupConditionTargetColumnEquals=["HIER3_CELL_ID","HIER321_ID"])
+#set($counterColumn="NO_OF_ERRORS")
+#set($imsiColumn="IMSI")
+#set($impactedSubscribers="TOTAL_NO_OF_SUBSCRIBERS")
+#set($useExclusiveTACs="no")
+#set($whereConditionSource=["AND EVENT_ID = :eventID AND CATEGORY_ID = :categoryId AND CAUSE_VALUE = :CAUSE_CODE"])
+#set($whereConditionTarget=["AND EVENT_ID = :eventID AND CATEGORY_ID = :categoryId AND CAUSE_VALUE = :CAUSE_CODE","AND RAT=0 AND EVENT_ID = :eventID AND CATEGORY_ID = :categoryId AND CAUSE_VALUE = :CAUSE_CODE"])
+
+SELECT
+    'SCC'||subCauseCode.SUB_CAUSE_VALUE||'-'||category.CATEGORY_TABLE_NAME||eventType.EVENT_ID_LABEL AS Label,
+    subCauseCode.SUB_CAUSE_VALUE_DESC                                                                AS 'Cause Code Description',
+    ISNULL(sourceRawView.NO_OF_ERRORS, 0) + ISNULL(targetRawView.NO_OF_ERRORS, 0) AS 'Failures',
+    ISNULL(sourceRawView.TOTAL_NO_OF_SUBSCRIBERS, 0)                                                 AS 'Source Impacted Subscribers',
+    ISNULL(targetRawView.TOTAL_NO_OF_SUBSCRIBERS, 0)                                                 AS 'Target Impacted Subscribers',
+    :CAUSE_CODE                                                                                      AS 'Cause Code Id',
+    subCauseCode.SUB_CAUSE_VALUE                                                                     AS 'Sub Cause Code Id',
+    :eventID                                                                                         AS 'Event Id',
+    :categoryId                                                                                      AS 'Category Id',
+    category.CATEGORY_DESC                                                                           AS 'Handover Type',    
+    '$state'                                                                                         AS 'State',
+    :groupname                                                                                       AS 'Group Name'
+FROM
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED_IMPACTED_SUBSCRIBERS_GROUPS_IMPROVED($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "sourceRawView" $columnsToSelect $columnsToSelect $groupTablesSource $groupConditionSourceColumn $groupConditionSourceColumn $whereConditionSource $counterColumn $imsiColumn $impactedSubscribers $useExclusiveTACs)    
+FULL OUTER JOIN
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED_IMPACTED_SUBSCRIBERS_GROUPS_IMPROVED($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "targetRawView" $columnsToSelect $columnsToSelect $groupTablesTarget $groupConditionTargetColumn $groupConditionTargetColumnEquals $whereConditionTarget $counterColumn $imsiColumn $impactedSubscribers $useExclusiveTACs)    
+ON
+    (
+        sourceRawView.SUB_CAUSE_VALUE = targetRawView.SUB_CAUSE_VALUE
+    )
+    ,
+    dc.DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE AS subCauseCode,
+    dc.DIM_E_RAN_HFA_CATEGORY             AS category,
+    dc.DIM_E_RAN_HFA_EVENTTYPE            AS eventType
+WHERE
+    ((sourceRawView.SUB_CAUSE_VALUE = subCauseCode.SUB_CAUSE_VALUE)
+    OR (targetRawView.SUB_CAUSE_VALUE = subCauseCode.SUB_CAUSE_VALUE))
+	AND subCauseCode.EVENT_ID = :eventID
+	AND eventType.EVENT_ID = :eventID
+	AND category.CATEGORY_ID = :categoryId
+ORDER BY
+    Failures DESC

@@ -1,0 +1,51 @@
+##
+## Author : ECHIMMA
+## LTE Call Failure Analysis IMSI Ranking (using raw tables)
+##
+## Velocity Parameter: 
+##		
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+#set($columnsToSelect=["HIER3_ID", "HIER321_ID", "CATEGORY_ID"])
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	RAW_TABLE.HIER321_ID as 'HIER321_ID',
+	RAW_TABLE.HIER3_ID as 'HIER3_ID',
+	rank() over (order by Failures desc) as 'Rank',
+	VENDOR as 'Vendor',
+	HIERARCHY_3 as 'eNodeB',
+	HIERARCHY_1 as 'Access Area',
+	FAILURES as 'Failures',
+	'LTE' as 'Radio Access Type'
+FROM
+	(
+		SELECT
+			count(*) as FAILURES,
+			HIER321_ID,
+			HIER3_ID
+		from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION($TECH_PACK_LIST.getAllRawTables() "rawview" $columnsToSelect)
+		WHERE
+			CATEGORY_ID = $CATEGORY_ID
+		GROUP BY
+			HIER321_ID,
+			HIER3_ID
+	) as RAW_TABLE
+LEFT OUTER JOIN
+	(
+		SELECT
+			HIER321_ID, HIER3_ID, HIERARCHY_1, HIERARCHY_3, VENDOR
+		FROM
+			DIM_E_LTE_HIER321
+		GROUP BY
+			HIER321_ID, HIER3_ID, HIERARCHY_1, HIERARCHY_3, VENDOR
+	) as TOPO_TABLE
+ON
+	RAW_TABLE.HIER321_ID = TOPO_TABLE.HIER321_ID AND
+	RAW_TABLE.HIER3_ID = TOPO_TABLE.HIER3_ID

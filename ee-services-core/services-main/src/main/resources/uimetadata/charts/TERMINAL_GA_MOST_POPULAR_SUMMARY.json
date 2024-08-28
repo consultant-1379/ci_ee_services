@@ -1,0 +1,23 @@
+{
+  "id" : "TERMINAL_GA_MOST_POPULAR_SUMMARY",
+  "title" : "Most Frequent Signaling Event Summary",
+  "ylabel" : "Number of Events",
+  "xlabel" : "Group Name",
+  "secondYAxisID" : "7",
+  "xaxisID" : "2",
+  "items" : [ {
+    "id" : "3",
+    "name" : "Event Failures",
+    "color" : "cb5853",
+    "drillDownWindowType" : "DRILL_CHART_TERMINAL_GA_MOST_POPULAR_SUMMARY"
+  }, {
+    "id" : "4",
+    "name" : "Event Successes",
+    "color" : "9ec057",
+    "drillDownWindowType" : "DRILL_CHART_TERMINAL_GA_MOST_POPULAR_SUMMARY"
+  }, {
+    "id" : "7",
+    "name" : "Impacted Subscribers",
+    "color" : "333986"
+  } ]
+}

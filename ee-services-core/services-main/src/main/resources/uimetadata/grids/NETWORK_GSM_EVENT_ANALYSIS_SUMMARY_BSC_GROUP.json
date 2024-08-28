@@ -1,0 +1,36 @@
+{
+  "id" : "NETWORK_GSM_EVENT_ANALYSIS_SUMMARY_BSC_GROUP",
+  "title" : "Controller Group : Event Analysis Summary",
+  "autoexpand" : "1",
+  "columns" : [ {
+    "header" : "Event Type",
+    "width" : "120",
+    "datatype" : "string",
+    "drillDownWindowType" : "GSM_BSC_GROUP_EVENT_ANALYSIS_SUMMARY"
+  }, {
+    "header" : "Failures",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "130",
+    "datatype" : "int"
+  }, 
+  {
+    "header" : "Failure Ratio",
+    "width" : "150",
+    "datatype" : "double"
+  },
+  {
+    "header" : "CATEGORY_ID",
+    "width" : "0",
+    "datatype" : "int",
+    "isSystem": "TRUE"
+  }, {
+    "type" : "groupName",
+    "header" : "Group Name",
+    "width" : "250",
+    "datatype" : "string",
+    "isHidden": "TRUE"
+  }]
+}

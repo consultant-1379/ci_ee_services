@@ -1,0 +1,54 @@
+{
+    "toolBarType": "TOOLBAR_WIZARD_WCDMA_CFA_CAUSE_CODE",
+    "panels": [
+        {
+            "toolBarButtons": [
+                {
+                    "id": "btnTime",
+                    "name": "",
+                    "style": "toolbar_timebtn",
+                    "tip": "Click to change Time Constraints",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "TIME"
+                },
+                {
+                    "id": "btnRefresh",
+                    "name": "",
+                    "style": "toolbar_refreshbtn",
+                    "tip": "Refresh",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "REFRESH"
+                },
+                {
+                    "id": "btnHideShowLegend",
+                    "name": "",
+                    "style": "toolbar_hideShowLegendBtn",
+                    "tip": "Click to hide or show the legend on the chart",
+                    "isEnabled": "TRUE",
+                    "isToggle": "TRUE",
+                    "eventID": "SHOW_HIDE_CHART_LEGEND"
+                },
+                {
+                    "id": "btnCC",
+                    "name": "",
+                    "style": "ccButton",
+                    "tip": "Click to view a list of all possible WCDMA Call Failure Analysis Cause Codes",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "CAUSE_CODE_TABLE_CC_WCDMA"
+                },
+                {
+                    "id": "btnSCC",
+                    "name": "",
+                    "style": "sccButton",
+                    "tip": "Click to view a list of all possible WCDMA Call Failure Analysis  Sub Cause Codes",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "CAUSE_CODE_TABLE_SCC_WCDMA"
+                }
+            ]
+        }
+    ]
+}

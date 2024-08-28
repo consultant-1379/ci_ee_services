@@ -1,0 +1,35 @@
+{
+    "kpiPanel": [
+        {
+            "id": "NETWORK_KPI_ALARM_PANEL",
+            "name": "Kpi Alarm Panel",
+            "licenseCXC": "CXC4011291",
+            "isRoleEnabled": "TRUE",
+            "url": "NETWORK/KPI_NOTIFICATION/NOTIFICATION_COUNT",
+            "style": "kpiAlarmPanel",
+            "isEnabled": "TRUE",
+            "notificationSeverities": [
+                {
+                    "severity": "Critical",
+                    "menuItem": "NETWORK_KPI_NOTIFICATION_CRITICAL_DATA",
+                    "popUpMessage": "Critical Alarms"
+                },
+                {
+                    "severity": "Major",
+                    "menuItem": "NETWORK_KPI_NOTIFICATION_MAJOR_DATA",
+                    "popUpMessage": "Major Alarms"
+                },
+                {
+                    "severity": "Minor",
+                    "menuItem": "NETWORK_KPI_NOTIFICATION_MINOR_DATA",
+                    "popUpMessage": "Minor Alarms"
+                },
+                {
+                    "severity": "Warning",
+                    "menuItem": "NETWORK_KPI_NOTIFICATION_WARNING_DATA",
+                    "popUpMessage": "Warning Alarms"
+                }
+            ]
+        }
+    ]
+}

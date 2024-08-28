@@ -1,0 +1,143 @@
+{
+  "id" : "KPI_ANALYSIS",
+  "isChartData" : "TRUE",
+  "title" : "KPI Analysis",
+  "autoexpand" : "1",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Time",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "Attach Success Rate",
+    "width" : "200",
+    "datatype" : "float",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "PDP Context Activation SR",
+    "width" : "200",
+    "datatype" : "float",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "RA Update Success Rate",
+    "width" : "200",
+    "datatype" : "float",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Inter SGSN-MME RA Update SR",
+    "width" : "200",
+    "datatype" : "float",
+	"licenceType": "4G"
+  }, {
+    "header" : "PDP Context Cutoff Ratio",
+    "width" : "200",
+    "datatype" : "float",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Detach Success Rate",
+    "width" : "200",
+    "datatype" : "float",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Service Request Failure Ratio",
+    "width" : "250",
+    "datatype" : "float",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Paging Failure Ratio",
+    "width" : "200",
+    "datatype" : "float",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Paging attempts per Subscriber",
+    "width" : "200",
+    "datatype" : "float",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "int",
+	"licenceType": "2G3G"
+  }, {
+    "header" : "Attach Success Rate (LTE)",
+    "width" : "120",
+    "datatype" : "float",
+    "licenceType": "4G"
+  }, {
+    "header" : "PDN Connection SR",
+    "width" : "200",
+    "datatype" : "float",
+    "licenceType": "4G"
+  }, {
+    "header" : "Impacted Subscribers (LTE)",
+    "width" : "200",
+    "datatype" : "int",
+    "licenceType": "4G"
+  }, {
+    "header" : "Bearer Activation SR",
+    "width" : "200",
+    "datatype" : "float",
+    "licenceType": "4G"
+  }, {
+    "header" : "UE Initiated Service Request Failure Ratio (LTE)",
+    "width" : "200",
+    "datatype" : "float",
+    "licenceType": "4G"
+  }, {
+    "header" : "Paging Failure Ratio (LTE)",
+    "width" : "200",
+    "datatype" : "float",
+    "licenceType": "4G"
+  }, {
+    "header" : "Tracking Area Update Success Rate",
+    "width" : "200",
+    "datatype" : "float",
+	"licenceType": "4G"
+  }, {
+    "header" : "Inter-MME Tracking Area Update Success Rate",
+    "width" : "200",
+    "datatype" : "float",
+    "licenceType": "4G"
+  }, {
+    "header" : "X2 based handover",
+    "width" : "200",
+    "datatype" : "float",
+    "licenceType": "4G"
+  }, {
+    "header" : "X2 based HO without SGW relocation",
+    "width" : "200",
+    "datatype" : "float",
+    "licenceType": "4G"
+  }, {
+    "header" : "X2 based HO with SGW relocation",
+    "width" : "200",
+    "datatype" : "float",
+    "licenceType": "4G"
+  }, {
+    "header" : "S1 based handover",
+    "width" : "200",
+    "datatype" : "float",
+    "licenceType": "4G"
+  }, {
+    "header" : "S1 based HO without SGW and with MME relocation",
+    "width" : "200",
+    "datatype" : "float",
+    "licenceType": "4G"
+  }, {
+    "header" : "S1 based HO without SGW and MME relocation",
+    "width" : "200",
+    "datatype" : "float",
+    "licenceType": "4G"
+  }, {
+    "header" : "S1 based HO with SGW and without MME relocation",
+    "width" : "200",
+    "datatype" : "float",
+    "licenceType": "4G"
+  }, {
+    "header" : "S1 based HO with SGW and MME relocation",
+    "width" : "200",
+    "datatype" : "float",
+    "licenceType": "4G"
+  } ]
+}

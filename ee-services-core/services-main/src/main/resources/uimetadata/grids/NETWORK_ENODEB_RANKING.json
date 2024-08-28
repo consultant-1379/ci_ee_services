@@ -1,0 +1,40 @@
+{
+  "id" : "NETWORK_ENODEB_RANKING",
+  "title" : "Controller Ranking",
+  "autoexpand" : "5",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "RAT",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "RAT ID",
+    "width" : "50",
+    "datatype" : "int",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden": "TRUE"
+  }, {
+    "header" : "Controller",
+    "width" : "100",
+    "datatype" : "string",
+    "launchWindowType" : "NETWORK_EVENT_ANALYSIS_BSC"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

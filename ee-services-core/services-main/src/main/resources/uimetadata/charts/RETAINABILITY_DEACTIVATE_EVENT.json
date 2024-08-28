@@ -1,0 +1,17 @@
+{
+    "id": "RETAINABILITY_DEACTIVATE_EVENT",
+    "title": "",
+    "ylabel": "",
+    "xlabel": "",
+    "xaxisID": "",
+    "items": [
+        {
+            "id": "5",
+            "name": "PDP Cutoff",
+            "color": "88A44D",
+            "drillDownWindowType": "NETWORK_EVENT_ANALYSIS_PORTLET",
+            "queryParam": "eventID",
+            "queryParamValue": "4"
+        }
+    ]
+}

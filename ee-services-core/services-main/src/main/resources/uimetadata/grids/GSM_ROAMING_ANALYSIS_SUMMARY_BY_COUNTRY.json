@@ -1,0 +1,49 @@
+{
+    "id" : "GSM_ROAMING_ANALYSIS_SUMMARY_BY_COUNTRY",
+    "title" : "Network GSM Call Failure : Roaming Analysis Summary",
+    "autoexpand" : "2",
+    "categoryId" : "GSM_ROAMING_ANALYSIS_SUMMARY_BY_COUNTRY",
+    "toolBarType": "TOOLBAR1",
+    "columns" : [
+    	{
+    	"type" : "country",
+    	"header" : "Country",
+    	"width" : "100",
+    	"datatype" : "string",
+		"isHidden": "TRUE"
+  		}, {
+  		"type" : "eventType",
+    	"header" : "Event Type",
+    	"width" : "150",
+    	"datatype" : "string"
+     	}, {
+     	"type" : "failures",
+    	"header" : "Failures",
+    	"width" : "90",
+    	"datatype" : "int",
+    	"drillDownWindowType" : "Call\u0020Setup\u0020Failures,GSM_ROAMING_CSF_DETAILED_EVENT_ANALYSIS_BY_COUNTRY, Call\u0020Drops,GSM_ROAMING_DETAILED_EVENT_ANALYSIS_BY_COUNTRY"
+  		}, {
+  		 "type" : "impactedSubscribers",
+   		 "header" : "Impacted Subscribers",
+    	 "width" : "150",
+  		 "datatype" : "string"
+        }, {
+        "type" : "failureRatio",
+    	"header" : "Failure Ratio",
+    	"width" : "150",
+    	"datatype" : "double"
+  		},  {
+  		"type" : "categoryId",
+    	"header" : "CATEGORY_ID",
+    	"width" : "0",
+    	"datatype" : "int",
+    	"isSystem": "TRUE"
+  		},  {
+  		"type" : "mcc",
+    	"header" : "MCC",
+    	"width" : "100",
+    	"datatype" : "string",
+		"isHidden": "TRUE"
+  		}
+      ]
+}      

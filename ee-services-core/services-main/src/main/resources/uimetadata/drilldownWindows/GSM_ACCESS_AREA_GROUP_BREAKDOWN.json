@@ -1,0 +1,32 @@
+{
+    "id":"GSM_ACCESS_AREA_GROUP_BREAKDOWN",
+    "gridDisplayID":"GSM_ACCESS_AREA_GROUP_BREAKDOWN",
+    "url":"NETWORK/GSM/CALL_FAILURE_CAUSE_CODE_ANALYSIS/ACCESS_AREA_GROUP/BREAKDOWN",
+    "params":[{
+            "id":"CELL",
+            "queryParamName":"type",
+            "isFixedVal":"TRUE"
+        },
+        {
+            "id":"1",
+            "queryParamName":"subCauseCode"
+        },
+        {
+            "id":"2",
+            "queryParamName":"subCauseCodeDescription"
+        },
+        {
+            "id":"6",
+            "queryParamName":"causeCodeDescription"
+        },
+        {
+            "id":"7",
+            "queryParamName":"causeCode"
+        },
+        {
+            "id":"5",
+            "queryParamName":"groupname",
+            "isTitleParam":"TRUE"
+        }
+    ]
+}

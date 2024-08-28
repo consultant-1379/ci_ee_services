@@ -1,0 +1,9 @@
+{
+    "id": "CS_NETWORK_CAUSE_CODE_ANALYSIS_FROM_SUBPIE",
+    "drillTargetDisplayId": "CS_NETWORK_CAUSE_CODE_ANALYSIS",
+    "url": "MSS/NETWORK/EVENT_ANALYSIS",
+    "drillToolBarType": "TOOLBAR_PLAIN_GRID_NO_DRILLDOWNS",
+    "widgetSpecificParams": "&key=ERR",
+    "nameForTaskBar": "Sub Cause Code Details Voice",
+    "drillType": "launchGrid"
+}

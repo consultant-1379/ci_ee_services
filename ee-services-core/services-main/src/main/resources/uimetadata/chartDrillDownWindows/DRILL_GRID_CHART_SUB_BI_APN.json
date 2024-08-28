@@ -1,0 +1,7 @@
+{
+  "id" : "DRILL_GRID_CHART_SUB_BI_APN",
+  "drillTargetDisplayId" : "DRILL_GRID_CHART_SUB_BI",
+  "chartClickedURLParam" : "apn",
+  "drillToolBarType" : "SUB_BI_DRILL_GRIDS_TOOLBAR",
+  "maxRowsParam" : "ENIQ_EVENTS_SUBBI_COUNT"
+}

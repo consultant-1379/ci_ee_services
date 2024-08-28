@@ -1,0 +1,10 @@
+{
+  "launchWindowTypeId" : "CS_NETWORK_CAUSE_CODE_ANALYSIS_ICC",
+  "menuItem" : "CS_EXTRA_NETWORK_CAUSE_CODE_ANALYSIS",
+  "searchValFromCol" : "2,3",
+  "type" : "ICC",
+  "params" : [ {
+    "id" : "3",
+    "queryParamName" : "internalCauseCode"
+  } ]
+}

@@ -1,0 +1,104 @@
+{
+  "toolBarType" : "TOOLBAR_TERMINAL_ANALYSIS_HFA",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnView",
+      "name" : "View",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to change display options",
+      "isEnabled" : "TRUE",
+      "items" : [ {
+        "eventID" : "TERMINAL_ANALYSIS_RAN_WCDMA_HFA_SOHO",
+        "id" : "menuGTA_HFA_SOHO",
+        "name" : "Most Soft Handover Failures",
+        "style" : "",
+        "url" : "TERMINAL/WCDMA_HANDOVER_FAILURE_TERMINAL_ANALYSIS/MOST_SOHO_FAILURES",
+        "windowType" : "GRID",
+        "maxRowsParam" : "ENIQ_EVENTS_TERMINAL_ANALYSIS_COUNT",
+        "display" : "grid"
+      },
+      {
+        "eventID" : "TERMINAL_ANALYSIS_RAN_WCDMA_HFA_HSDSCH",
+        "id" : "menuGTA_HFA_HSDSCH",
+        "name" : "Most HSDSCH Handover Failures",
+        "style" : "",
+        "url" : "TERMINAL/WCDMA_HANDOVER_FAILURE_TERMINAL_ANALYSIS/MOST_HSDSCH_FAILURES",
+        "windowType" : "GRID",
+        "maxRowsParam" : "ENIQ_EVENTS_TERMINAL_ANALYSIS_COUNT",
+        "display" : "grid"
+      },
+      {
+        "eventID" : "TERMINAL_ANALYSIS_RAN_WCDMA_HFA_IFHO",
+        "id" : "menuGTA_HFA_IFHO",
+        "name" : "Most Inter Frequency Handover Failures",
+        "style" : "",
+        "url" : "TERMINAL/WCDMA_HANDOVER_FAILURE_TERMINAL_ANALYSIS/MOST_IFHO_FAILURES",
+        "windowType" : "GRID",
+        "maxRowsParam" : "ENIQ_EVENTS_TERMINAL_ANALYSIS_COUNT",
+        "display" : "grid"
+      },
+      {
+        "eventID" : "TERMINAL_ANALYSIS_RAN_WCDMA_HFA_IRAT",
+        "id" : "menuGTA_HFA_IRAT",
+        "name" : "Most IRAT Handover Failures",
+        "style" : "",
+        "url" : "TERMINAL/WCDMA_HANDOVER_FAILURE_TERMINAL_ANALYSIS/MOST_IRAT_FAILURES",
+        "windowType" : "GRID",
+        "maxRowsParam" : "ENIQ_EVENTS_TERMINAL_ANALYSIS_COUNT",
+        "display" : "grid"
+      }]
+    }, {
+      "id" : "btnBack",
+      "name" : "",
+      "style" : "toolbar_back",
+      "isEnabled" : "FALSE",
+      "tip" : "Backward Navigation",
+      "isToggle" : "False",
+      "eventID" : "BACK"
+    }, {
+      "id" : "btnForward",
+      "name" : "",
+      "style" : "toolbar_forward",
+      "isEnabled" : "FALSE",
+      "tip" : "Forward Navigation",
+      "isToggle" : "FALSE",
+      "eventID" : "FORWARD"
+    }, {
+      "id" : "btnNav",
+      "name" : "History",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to navigate visited windows",
+      "isEnabled" : "FALSE",
+      "isVisible" : "FALSE",
+      "eventID" : "NAVIGATION",
+      "items" : [ {
+        "id" : "DUMMY_VALUE",
+        "name" : "DUMMY_VALUE"
+      } ]
+    }, {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    }, {
+      "id" : "btnExport",
+      "name" : "",
+      "style" : "toolbar_exportbtn",
+      "tip" : "Click to export the data to CSV",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "EXPORT"
+    } ]
+  } ]
+}

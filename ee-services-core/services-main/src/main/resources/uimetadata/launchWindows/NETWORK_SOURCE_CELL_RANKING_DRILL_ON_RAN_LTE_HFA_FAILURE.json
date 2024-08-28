@@ -1,0 +1,14 @@
+{
+  "launchWindowTypeId" : "NETWORK_SOURCE_CELL_RANKING_DRILL_ON_RAN_LTE_HFA_FAILURE",
+  "menuItem" : "NETWORK_RAN_LTE_HFA",
+  "searchValFromCol" : "6,5,4,8",
+  "type" : "CELL",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

@@ -1,0 +1,42 @@
+{
+  "id" : "NETWORK_CELL_RANKING",
+  "title" : "Access Area Ranking",
+  "autoexpand" : "6",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "RAT",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "RAT ID",
+    "width" : "50",
+    "datatype" : "int",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Controller",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Access Area",
+    "width" : "100",
+    "datatype" : "string",
+    "launchWindowType" : "NETWORK_EVENT_ANALYSIS_CELL"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

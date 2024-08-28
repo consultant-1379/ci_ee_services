@@ -1,0 +1,24 @@
+{
+  "id" : "TERMINAL_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_APN",
+  "name" : "APN Event Analysis",
+  "url" : "TERMINAL/EVENT_ANALYSIS",
+  "searchValFromCol" : "9",
+  "type" : "APN",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "APN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "54",
+    "queryParamName" : "apn"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

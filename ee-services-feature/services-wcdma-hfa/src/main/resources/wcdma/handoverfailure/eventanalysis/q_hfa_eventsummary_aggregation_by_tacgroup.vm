@@ -1,0 +1,32 @@
+#set($columnsToIncludeInSourceView=["TAC","CATEGORY_ID"])
+#set($counterColumn="NO_OF_ERRORS")
+#set($imsiColumn="IMSI")
+#set($impactedSubscribers="NO_OF_TOTAL_ERR_SUBSCRIBERS")
+#set($useExclusiveTACs="no")
+
+SELECT
+    groupDef.GROUP_NAME                       AS 'Group Name',
+    categoryDesc.CATEGORY_DESC                AS 'Handover Type',
+    sourceAggView.CATEGORY_ID                 AS 'Category ID',
+    sum(sourceAggView.${counterColumn})       AS 'Failures',
+    sum(sourceAggView.${impactedSubscribers}) AS 'Impacted Subscribers'
+FROM
+    #UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS_POST_AGGREGATE_IMPACTED_SUBSCRIBERS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() $aggregationViewList "sourceAggView" $columnsToIncludeInSourceView $counterColumn $imsiColumn $impactedSubscribers $useExclusiveTACs)
+INNER JOIN GROUP_TYPE_E_TAC groupDef
+ON
+    (
+        sourceAggView.TAC = groupDef.TAC
+    )
+INNER JOIN dc.DIM_E_RAN_HFA_CATEGORY categoryDesc
+ON
+    (
+        categoryDesc.CATEGORY_ID = sourceAggView.CATEGORY_ID
+    )
+WHERE
+    groupDef.GROUP_NAME = :groupname
+GROUP BY
+    groupDef.GROUP_NAME,
+    sourceAggView.CATEGORY_ID,
+    categoryDesc.CATEGORY_DESC
+ORDER BY
+    Failures DESC

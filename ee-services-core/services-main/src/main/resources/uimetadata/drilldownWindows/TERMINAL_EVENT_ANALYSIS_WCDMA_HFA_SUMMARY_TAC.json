@@ -1,0 +1,22 @@
+{
+    "id": "TERMINAL_EVENT_ANALYSIS_WCDMA_HFA_SUMMARY_TAC",
+    "gridDisplayID": "TERMINAL_EVENT_ANALYSIS_WCDMA_HFA_SUMMARY_TAC",
+    "name": "Failed Event Analysis",
+    "url": "TERMINAL/WCDMA_HANDOVER_FAILURE_EVENT_SUMMARY/TAC",
+    "params": [
+        {
+            "id": "4",
+            "queryParamName": "tac"
+        },
+        {
+		    "id" : "TAC",
+		    "queryParamName" : "type",
+		    "isFixedVal" : "TRUE"
+    	} 
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

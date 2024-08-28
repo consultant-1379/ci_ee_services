@@ -1,0 +1,64 @@
+{
+    "id" : "NETWORK_DETAILED_EVENT_ANALYSIS_GSM_CALL_FAILURE_TAC",
+    "title" : "Terminal GSM Call Failure : Event Analysis Detail",
+    "autoexpand" : "3",
+    "defaultSortCol" : "1",
+    "defaultSortDir" : "ASC",
+    "categoryId" : "NETWORK_DETAILED_EVENT_ANALYSIS_GSM_CALL_FAILURE_TAC",
+    "columns" : [
+        {
+            "type" : "eventTime",
+            "header" : "Event Time",
+            "width" : "150",
+            "datatype" : "date"
+        },
+        {
+            "type" : "imsi",
+            "header" : "IMSI",
+            "width" : "120",
+            "datatype" : "string"
+        },
+        {
+            "type" : "tac",
+            "header" : "TAC",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "releaseType",
+            "header" : "Release Type",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "causeValue",
+            "header" : "Cause Value",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "extendedCauseValue",
+            "header" : "Extended Cause Value",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "controller",
+            "header" : "Controller",
+            "width" : "120",
+            "datatype" : "string"
+        },
+        {
+            "type" : "accessArea",
+            "header" : "Access Area",
+            "width" : "120",
+            "datatype" : "string"
+        }
+    ]
+}

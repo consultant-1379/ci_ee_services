@@ -1,0 +1,23 @@
+{
+  "id" : "TERMINAL_GA_HIGHEST_DATAVOLUME_SUMMARY",
+  "title" : "Highest Data Volume",
+  "ylabel" : "Data Volume (MB)",
+  "xlabel" : "Group Name",
+  "secondYAxisID" : "6",
+  "xaxisID" : "2",
+  "items" : [ {
+    "id" : "3",
+    "name" : "Total DownLink Data Vol (MB)",
+    "color" : "00625f",
+    "drillDownWindowType" : "DRILL_CHART_TERMINAL_GA_HIGHEST_DATAVOLUME"
+  }, {
+    "id" : "4",
+    "name" : "Total UpLink Data Vol (MB)",
+    "color" : "5494c5",
+    "drillDownWindowType" : "DRILL_CHART_TERMINAL_GA_HIGHEST_DATAVOLUME"
+  }, {
+    "id" : "6",
+    "name" : "Total Bearer Count",
+    "color" : "333986"
+  } ]
+}

@@ -1,0 +1,22 @@
+{
+  "id" : "NETWORK_TRACKING_AREA_RAN_LTE_RANKING_CALL_DROP",
+  "title" : "Tracking Area LTE Call Failure Call Drops : Failure Event Ranking",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "autoexpand" : "2",
+  "columns" : [  {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "Tracking Area",
+    "width" : "50",
+    "datatype" : "string",
+    "drillDownLicenseCXC" : "CXC4010927",
+    "launchWindowType" : "NETWORK_LTE_CFA_TRACKING_AREA_ANALYSIS"
+  }, {
+    "header" : "Failures",
+    "width" : "150",
+    "datatype" : "int"
+  } ]
+}

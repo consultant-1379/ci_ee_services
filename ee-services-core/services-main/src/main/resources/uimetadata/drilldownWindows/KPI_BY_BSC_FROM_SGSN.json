@@ -1,0 +1,22 @@
+{
+  "id" : "KPI_BY_BSC_FROM_SGSN",
+  "name" : "KPI Breakdown by Controller",
+  "url" : "NETWORK/KPI_RATIO",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "sgsn",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "SGSN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

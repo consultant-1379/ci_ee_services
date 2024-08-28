@@ -1,0 +1,41 @@
+{
+  "id" : "NETWORK_RAN_LTE_CFA_SUMMARY_BSC",
+  "title" : "Controller LTE Call Failure : Event Analysis Summary",
+  "autoexpand" : "5",
+  "defaultSortCol" : "2",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "HIER3_ID",
+    "width" : "20",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Category ID",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Controller",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Failure Category",
+    "width" : "100",
+    "datatype" : "string",
+	"drillDownWindowType" : "NETWORK_RAN_LTE_CFA_SUMMARY_BSC_DRILL_ON_CATEGORY"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "160",
+    "datatype" : "string"
+  } ]
+}

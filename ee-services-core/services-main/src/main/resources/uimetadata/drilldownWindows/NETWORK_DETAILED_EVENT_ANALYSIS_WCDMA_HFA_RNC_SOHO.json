@@ -1,0 +1,30 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_RNC_SOHO",
+    "gridDisplayID": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_RNC_SOHO",
+    "name": "Failed Event Analysis",
+    "url": "NETWORK/WCDMA_HANDOVER_FAILURE_DETAILED_EVENT_ANALYSIS/NODE",
+    "params": [
+        {
+            "id": "2",
+            "queryParamName": "RAN_VENDOR"
+        },
+        {
+            "id": "3",
+            "queryParamName": "RNC_FDN"
+        },
+        {
+            "id": "4",
+            "queryParamName": "categoryId"
+        },
+        {
+		    "id" : "BSC",
+		    "queryParamName" : "type",
+		    "isFixedVal" : "TRUE"
+    	}
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

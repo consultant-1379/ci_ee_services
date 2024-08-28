@@ -1,0 +1,86 @@
+#DEFINE_CONSTANTS()
+#set($columnsToSelect=[$RAT,$VENDOR,$BSC,$CELL])
+#set($columnsToDisplay=[$RAT,$VENDOR,$BSC,$CELL])
+#if(${type}==$TYPE_BSC)
+#set($conditionColumns=[$RAT,$VENDOR,$BSC])
+#elseif(${type}==$TYPE_CELL)
+#set($conditionColumns=[$RAT,$VENDOR,$BSC,$CELL])
+#end
+
+SELECT
+	cellRef.CELL_ID AS CELL_ID,
+	total.RAT AS RAT,
+    total.VENDOR AS VENDOR,
+    total.HIERARCHY_3 AS HIERARCHY_3,
+    total.HIERARCHY_1 AS HIERARCHY_1,
+	#GET_DRILLDOWN_KPI_VALUES()
+FROM
+(
+SELECT
+	#GET_NOT_NULL_COLUMN (["suc","err"] $columnsToDisplay)
+    isnull( suc.EVENT_ID, err.EVENT_ID) AS EVENT_ID,
+	SUM(NO_OF_ERRORS)                   AS NO_OF_ERRORS,
+    SUM(NO_OF_SUCCESSES)                AS NO_OF_SUCCESSES,
+    SUM(err.NO_OF_NET_INIT_DEACTIVATES) AS NO_OF_NET_INIT_DEACTIVATES_ERR,
+    SUM(suc.NO_OF_NET_INIT_DEACTIVATES) AS NO_OF_NET_INIT_DEACTIVATES_SUC,
+    SUM(err.NO_OF_PAGING_ATTEMPTS)      AS NO_OF_PAGING_ATTEMPTS_ERR,
+    SUM(suc.NO_OF_PAGING_ATTEMPTS)      AS NO_OF_PAGING_ATTEMPTS_SUC
+from    
+    (select
+		
+        #GET_COLUMNS($columnsToSelect)
+        EVENT_ID,
+        NO_OF_ERRORS,
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS	
+    from
+		$errAggregationView temp_err
+    where
+        #GET_COLUMNS_WHERE($conditionColumns)
+        and #GET_DATETIME_RANGE()
+    )as err (
+        
+        #GET_COLUMNS($columnsToSelect)
+        EVENT_ID,                        
+        NO_OF_ERRORS,
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    )
+    full outer join        
+    (select
+		
+        #GET_COLUMNS($columnsToSelect)
+        EVENT_ID,
+        NO_OF_SUCCESSES,            
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    from
+		$sucAggTables temp_suc
+    where
+        #GET_COLUMNS_WHERE($conditionColumns)
+        and #GET_DATETIME_RANGE()
+    ) as suc(
+        
+        #GET_COLUMNS($columnsToSelect)
+        EVENT_ID,                        
+        NO_OF_SUCCESSES,        
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    )
+    on (
+        #GET_JOIN("err" "suc" ["EVENT_ID"])
+        and #GET_JOIN("err" "suc" $columnsToSelect)
+    )
+	 GROUP BY
+		#GET_COLUMNS($columnsToDisplay)
+		EVENT_ID
+)AS total
+INNER JOIN
+			dc.DIM_E_SGEH_HIER321_CELL cellRef
+	  ON
+	  (
+		#GET_JOIN("total" "cellRef" $columnsToDisplay)
+	  )
+group by
+    #GET_COLUMNS($columnsToDisplay)
+    CELL_ID

@@ -1,0 +1,65 @@
+{
+    "id": "DETAIL_RADIO_CELL_LOAD_RAB",
+    "title": "",
+    "ylabel": "RSCP (dBm),UL Interference (dBm),Ec/No (dB),Average HS Users in Cell",
+    "xlabel": "",
+    "xaxisID": "eventTime",
+    "firstYAxisID": "0,1",
+    "secondYAxisID": "2,3",
+    "items": [
+        {
+            "id": "startCellId",
+            "name": "Start Cell Id",
+            "isSystem": "TRUE",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "endCellId",
+            "name": "End Cell Id",
+            "isSystem": "TRUE",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "rscpAverage",
+            "name": "Average RSCP (dBm)",
+            "color": "#ef8962",
+            "yAxisIndex": "0"
+        },
+        {
+            "id": "ecnoAverage",
+            "name": "Average Ec/No (dB)",
+            "color": "#549895",
+            "yAxisIndex": "2"
+        },
+        {
+            "id": "rscp",
+            "name": "RSCP (dBm)",
+            "color": "#5b6592",
+            "yAxisIndex": "0"
+        },
+        {
+            "id": "ecno",
+            "name": "Ec/No (dB)",
+            "color": "#a66a99",
+            "yAxisIndex": "2"
+        },
+        {
+            "id": "cellId",
+            "name": "Cell Id",
+            "isSystem": "TRUE",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "ulInterference",
+            "name": "UL Interference (dBm)",
+            "color": "#d3ad59",
+            "yAxisIndex": "1"
+        },
+        {
+            "id": "avgUsersInCell",
+            "name": "Average HS Users in Cell",
+            "color": "#bed682",
+            "yAxisIndex": "3"
+        }
+    ]
+}

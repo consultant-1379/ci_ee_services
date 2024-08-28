@@ -1,0 +1,11 @@
+{
+  "id" : "SUBSCRIBER_GSM_CALL_DROPS_EVENT_ANALYSIS",
+  "gridDisplayID" : "GSM_SUBSCRIBER_DETAILED_EVENT_ANALYSIS_BY_IMSI",
+  "menuItem" : "SUBSCRIBER_CALL_DROPS",
+  "url" : "NETWORK/GSM/CALL_FAILURE_DETAILED_EVENT_ANALYSIS/SUBSCRIBER/CALL_DROP",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "IMSI",
+    "isTitleParam" : "TRUE"
+  } ]
+}

@@ -1,0 +1,44 @@
+{
+    "id": "WCDMA_HFA_NETWORK_SUB_CAUSE_CODE_ANALYSIS_BSC",
+    "name": "Controller Sub Cause Codes Table (WCDMA Handover Failure)",
+    "gridDisplayID": "WCDMA_HFA_NETWORK_SUB_CAUSE_CODE_ANALYSIS_BSC",
+    "url": "NETWORK/WCDMA_HFA_CAUSE_CODE_ANALYSIS/SUB_CAUSE_CODE_GRID",
+    "needSearchParam": "TRUE",
+    "params": [
+        {
+            "id": "2",
+            "name": "Sub Cause Code",
+            "isTitleParam": "TRUE"
+        },
+        {
+            "id": "6",
+            "name": "Cause Code Id",
+            "queryParamName": "causeCode"
+        },
+        {
+            "id": "7",
+            "name": "Event Id",
+            "queryParamName": "eventID"
+        },
+        {
+            "id": "8",
+            "name": "Category Id",
+            "queryParamName": "categoryId"
+        },
+        {
+            "id": "11",
+            "name": "State",
+            "queryParamName": "state"
+        },
+        {
+            "id": "BSC",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR_GROUPING_GRID_WCDMA_HFA",
+    "display": "grid"
+}

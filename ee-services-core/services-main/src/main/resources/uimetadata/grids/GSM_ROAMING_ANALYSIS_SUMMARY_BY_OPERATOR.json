@@ -1,0 +1,59 @@
+{
+    "id":"GSM_ROAMING_ANALYSIS_SUMMARY_BY_OPERATOR",
+    "title":" Inbound Roaming by Operator : Event Analysis Summary",
+    "autoexpand":"2",
+    "categoryId":"GSM_ROAMING_ANALYSIS_SUMMARY_BY_OPERATOR",
+    "toolBarType": "TOOLBAR1",
+    "columns":[
+    	{
+        	"type":"operator",
+            "header":"Operator",
+            "width":"100",
+            "datatype":"string",
+            "isHidden":"TRUE"
+        },
+    	{
+            "type":"eventType",
+            "header":"Event Type",
+            "width":"100",
+            "datatype":"string"
+        },
+        {
+            "type":"failures",
+            "header":"Failures",
+            "width":"100",
+            "datatype":"int",
+            "drillDownWindowType" : "Call\u0020Setup\u0020Failures,GSM_ROAMING_CSF_DETAILED_ANALYSIS_BY_OPERATOR, Call\u0020Drops,GSM_ROAMING_DETAILED_ANALYSIS_BY_OPERATOR"
+        },
+        {
+            "type":"impactedSubs",
+            "header":"Impacted Subscribers",
+            "width":"130",
+            "datatype":"int"
+        },{
+            "type":"failureRatio",
+            "header":"Failure Ratio",
+            "width":"130",
+            "datatype":"double"
+        },{
+            "header":"CATEGORY_ID",
+            "width":"100",
+            "datatype":"int",
+            "isSystem" : "TRUE"
+        },
+        {
+        	"type":"MCC",
+            "header":"MCC",
+            "width":"100",
+            "datatype":"string",
+            "isHidden":"TRUE"
+        },
+        {
+        	"type":"MNC",
+            "header":"MNC",
+            "width":"100",
+            "datatype":"string",
+            "isHidden":"TRUE"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+  "id" : "CS_KPI_EVENTS_FROM_CELL_LOC",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_ELEMENTS_locationServices",
+  "name" : "KPI Breakdown by Access Area Location Services",
+  "url" : "MSS/NETWORK/KPI_RATIO",
+  "needSearchParam" : "FALSE",
+  "params" : [ {
+    "id" : "5",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "4",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

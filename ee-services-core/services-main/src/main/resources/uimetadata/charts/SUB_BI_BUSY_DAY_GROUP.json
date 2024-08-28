@@ -1,0 +1,17 @@
+{
+  "id" : "SUB_BI_BUSY_DAY_GROUP",
+  "title" : "Busy Day Event Summary for Subscriber",
+  "xlabel" : "Day",
+  "ylabel" : "Number of Events",
+  "xaxisID" : "3",
+  "items" : [ {
+    "id" : "1",
+    "name" : "Event Failures",
+    "color" : "cb5853",
+    "drillDownWindowType" : "DRILL_GRID_CHART_SUB_BI_BUSY_DAY"
+  }, {
+    "id" : "2",
+    "name" : "Event Successes",
+    "color" : "9ec057"
+  } ]
+}

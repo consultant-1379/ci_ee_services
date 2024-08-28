@@ -1,0 +1,46 @@
+{
+    "id": "ROAMING_ANALYSIS_RAN_WCDMA_OPERATOR",
+    "title": "Inbound Roaming by Operator (WCDMA Call Failure Event Volume)",
+    "xlabel": "Operator",
+    "ylabel": "Number of Events",
+    "secondYAxisID": "3",
+    "xaxisID": "1",
+    "items": [
+        {
+            "id": "2",
+            "name": "Event Failures",
+            "color": "cb5853",
+            "displayInTooltip": "FALSE",
+            "drillDownWindowType" : "DRILL_GRID_CHART_ROAMING_WCDMA_OPERATOR_EVENTS"
+        },
+        {
+            "id": "3",
+            "name": "Roaming Subscribers",
+            "color": "333986",
+            "displayInTooltip": "FALSE"
+        },
+        {
+            "id": "4",
+            "name": "Country",
+            "color": "333986",
+            "isSystem": "TRUE",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "5",
+            "name": "MCC",
+            "color": "333986",
+            "isSystem": "TRUE",
+            "displayInTooltip": "TRUE",
+            "queryParam" :"MCC"
+        },
+        {
+            "id": "6",
+            "name": "MNC",
+            "color": "333986",
+            "isSystem": "TRUE",
+            "displayInTooltip": "TRUE",
+            "queryParam" :"MNC"
+        }
+    ]
+}

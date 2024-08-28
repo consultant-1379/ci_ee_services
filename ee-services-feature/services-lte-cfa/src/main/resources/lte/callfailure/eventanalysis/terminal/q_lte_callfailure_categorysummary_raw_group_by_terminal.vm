@@ -1,0 +1,48 @@
+##
+## Author : ECHCHIk
+## LTE Call Failure Terminal Category Summary Analysis (Raw)
+##
+## Velocity Parameter: 
+##		
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+#set($columnsToSelect=["CATEGORY_ID", "IMSI"])
+#set($groupTable="dc.GROUP_TYPE_E_TAC")
+#set($groupnameColumn="GROUP_NAME")
+#set($joinKeys=["TAC"])
+
+SELECT 
+	'${groupname}' as 'Group Name',
+	data.CATEGORY_ID AS 'Category ID', 
+	eventDesc.CATEGORY_ID_DESC as 'Category Type',
+	FAILURES as 'Failures', 
+	IMPACTED_SUBSCRIBERS as 'Impacted Subscribers'
+FROM 	
+	(	
+		select 
+			count (*),
+			CATEGORY_ID,
+			count (distinct rawview.IMSI)
+		from 
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_GROUPS($TECH_PACK_LIST.getAllRawTables() "rawview" $columnsToSelect)
+		group by
+			CATEGORY_ID
+	) as data(FAILURES,CATEGORY_ID, IMPACTED_SUBSCRIBERS) 
+	inner join	
+	(
+		 select 
+			CATEGORY_ID,
+			CATEGORY_ID_DESC
+		from 
+			dc.DIM_E_LTE_CFA_EVENTTYPE
+		group by
+			CATEGORY_ID,
+			CATEGORY_ID_DESC
+	 )	as eventDesc
+	 on(
+		eventDesc.CATEGORY_ID = data.CATEGORY_ID
+	)
+order by data.CATEGORY_ID DESC

@@ -1,0 +1,55 @@
+##
+## LTE Call Failure Analysis enodeB Event Analysis (using raw tables)
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time#
+
+#set($conditionColumns=["HIER3_ID","CATEGORY_ID"])
+#set($columnsToSelect=["EVENT_ID", "IMSI"])
+
+SELECT 
+	:HIER3_ID as HIER3_ID,
+	topology.VENDOR,
+	topology.HIERARCHY_3,		
+	eventDesc.EVENT_ID_DESC as 'Event Type',
+	data.EVENT_ID AS 'Event ID', 
+	FAILURES, 
+	IMPACTED_SUBSCRIBERS as 'Impacted Subscribers'
+FROM 	
+	(	
+		select 
+			count (*),
+			:HIER3_ID as HIER3_ID,
+			EVENT_ID,
+			count (distinct rawview.IMSI)
+		from 
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTables() "rawview" $conditionColumns $columnsToSelect)
+		group by
+			EVENT_ID
+	) as data(FAILURES, HIER3_ID, EVENT_ID, IMPACTED_SUBSCRIBERS) 
+	left outer join
+	 (	
+		select 
+			HIERARCHY_3,
+			HIER3_ID,
+			VENDOR
+		from 
+			DIM_E_LTE_HIER321
+		where
+			HIER3_ID = :HIER3_ID
+		group by
+			HIER3_ID,
+			HIERARCHY_3,
+			VENDOR
+	) as topology
+	on (
+		topology.HIER3_ID = data.HIER3_ID
+		)
+	inner join	
+		DIM_E_LTE_CFA_EVENTTYPE eventDesc
+	on(
+		eventDesc.EVENT_ID = data.EVENT_ID
+	)

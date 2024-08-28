@@ -1,0 +1,9 @@
+{
+    "id":"NETWORK_CAUSE_CODE_ANALYSIS_FROM_SUBPIE",
+    "nameForTaskBar":"Sub Cause Code Details",
+    "url":"NETWORK/CAUSE_CODE_ANALYSIS",
+    "drillTargetDisplayId":"NETWORK_CAUSE_CODE_ANALYSIS",
+    "drillToolBarType":"TOOLBAR_PLAIN_GRID_NO_DRILLDOWNS",
+    "widgetSpecificParams":"&key=ERR",
+    "drillType":"launchGrid"
+}

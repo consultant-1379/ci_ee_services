@@ -1,0 +1,55 @@
+{
+    "id": "NETWORK_EVENT_ANALYSIS_WCDMA_HFA_CELL_GROUP",
+    "title": "Access Area Group Event Analysis",
+    "autoexpand": "2",
+    "defaultSortCol": "7",
+    "defaultSortDir": "DESC",
+    "categoryId" : "NETWORK_EVENT_ANALYSIS_WCDMA_HFA_CELL_GROUP",
+    "columns": [
+        {
+            "type" : "groupName",
+            "header": "Group Name",
+            "width": "150",
+            "datatype": "string",
+            "isHidden" : "TRUE"
+        },
+        {
+            "type" : "handoverType",
+            "header": "Handover Type",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "header": "Category Id",
+            "width": "10",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "type" : "sourceFailures",
+            "header": "Source Failures",
+            "width": "150",
+            "datatype": "int",
+            "drillDownWindowType": "*,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_SOURCE_CELL_SOHO_GROUP,Soft\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_SOURCE_CELL_SOHO_GROUP,Interfrequency\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_SOURCE_CELL_IFHO_GROUP,IRAT\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_SOURCE_CELL_IRAT_GROUP,HSDSCH\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_SOURCE_CELL_HSDSCH_GROUP"
+        },
+        {
+            "type" : "sourceImpactedSubscribers",
+            "header": "Source Impacted Subscribers",
+            "width": "200",
+            "datatype": "int"
+        },
+        {
+            "type" : "targetFailures",
+            "header": "Target Failures",
+            "width": "150",
+            "datatype": "int",
+            "drillDownWindowType": "*,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_TARGET_CELL_SOHO_GROUP,Soft\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_TARGET_CELL_SOHO_GROUP,Interfrequency\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_TARGET_CELL_IFHO_GROUP,IRAT\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_TARGET_CELL_IRAT_GROUP,HSDSCH\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_TARGET_CELL_HSDSCH_GROUP"
+        },
+        {
+            "type" : "targetImpactedSubscribers",
+            "header": "Target Impacted Subscribers",
+            "width": "200",
+            "datatype": "int"
+        }
+    ]
+}

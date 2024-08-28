@@ -1,0 +1,18 @@
+{
+  "id" : "GSM_CFA_SCC_SUMMARY_EVENT_ANALYSIS",
+  "gridDisplayID" : "GSM_CFA_SCC_SUMMARY_EVENT_ANALYSIS",
+  "menuItem" : "GSM_CFA_CC_CALL_DROPS_RANKING",
+  "url" : "NETWORK/GSM/CALL_FAILURE_EVENT_SUMMARY/EXTENDED_CAUSE",
+  "params" : [ {
+    "id" : "3",
+    "queryParamName" : "causeCode"
+  }, {
+    "id" : "2",
+    "queryParamName" : "causeCodeDescription",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "0",
+    "queryParamName" : "CATEGORY_ID",
+    "isFixedVal" : "TRUE"
+  } ]
+}

@@ -1,0 +1,27 @@
+{
+  "id" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_CELL_SMS",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_ELEMENT_SMS",
+  "name" : "Access Area Event Analysis",
+  "url" : "MSS/NETWORK/EVENT_ANALYSIS",
+  "needSearchParam" : "FALSE",
+  "params" : [ {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "4",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "5",
+    "queryParamName" : "eventID"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

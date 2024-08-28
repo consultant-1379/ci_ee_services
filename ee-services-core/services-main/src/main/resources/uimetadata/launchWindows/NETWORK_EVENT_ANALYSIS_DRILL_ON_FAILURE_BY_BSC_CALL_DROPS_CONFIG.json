@@ -1,0 +1,36 @@
+{
+    "launchWindowTypeId": "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_BSC_CALL_DROPS_CONFIG",
+    "menuItem": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_BSC_CALL_DROPS_CONFIG",
+    "searchValFromCol": "2",
+    "drillTargetType": "GRID",
+    "needSearchParam": "FALSE",
+    "type": "BSC",
+    "params": [
+        {
+            "id": "6",
+            "queryParamName": "HIER3_ID"
+        },
+        {
+            "id": "7",
+            "queryParamName": "eventID"
+        },
+        {
+            "id": "BSC",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        },
+        {
+            "id": "true",
+            "queryParamName": "dataTieredDelay",
+            "isFixedVal": "TRUE"
+        },
+        {
+            "id": "9",
+            "queryParamName": "categoryId"
+        },
+        {
+            "id": "10",
+            "queryParamName": "drillCat"
+        }
+    ]
+}

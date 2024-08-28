@@ -1,0 +1,47 @@
+{
+  "id" : "TERMINAL_HIGHEST_DATAVOLUME_VIEW",
+  "title" : "Terminal Analysis - Highest Data Volume",
+  "autoexpand" : "3",
+  "defaultSortCol" : "8",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Model",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Band",
+    "width" : "200",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Total Downlink Data Vol (KB)",
+    "width" : "150",
+    "datatype" : "float",
+    "drillDownWindowType" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_TAC_DL_TERMINAL_TAB_RANK"
+  }, {
+    "header" : "Total Uplink Data Vol (KB)",
+    "width" : "150",
+    "datatype" : "float",
+    "drillDownWindowType" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_TAC_UL_TERMINAL_TAB_RANK"
+  }, {
+    "header" : "Total Data Vol (KB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Total Bearer Count",
+    "width" : "150",
+    "datatype" : "int"
+  } ]
+}

@@ -1,0 +1,76 @@
+#set($columnsToSelectInSourceView3GCell=["CATEGORY_ID"])
+#set($columnsToSelectInIratView=["CATEGORY_ID"])
+#set($columnsToSelectInOtherView3GCell=["CATEGORY_ID"])
+#set($specificMeasurementType=["IRAT"])
+#set($otherMeasurementType=["SOHO","IFHO","HSDSCH"])
+#set($counterColumn="NO_OF_ERRORS")
+#set($groupTablesInSourceView3GCell=["dc.GROUP_TYPE_E_RAT_VEND_HIER321_CELL"])
+#set($groupConditionInSourceView3GCell="dc.GROUP_TYPE_E_RAT_VEND_HIER321_CELL.GROUP_NAME = :groupname and tmpTable.HIER3_CELL_ID = dc.GROUP_TYPE_E_RAT_VEND_HIER321_CELL.HIER3_CELL_ID and")
+#set($groupTablesInIratView=["dc.GROUP_TYPE_E_RAT_VEND_HIER321"])
+#set($groupConditionInIratView="dc.GROUP_TYPE_E_RAT_VEND_HIER321.GROUP_NAME = :groupname and tmpTable.THIER321_ID = dc.GROUP_TYPE_E_RAT_VEND_HIER321.HIER321_ID and")
+#set($groupTablesInOtherView3GCell=["dc.GROUP_TYPE_E_RAT_VEND_HIER321_CELL"])
+#set($groupConditionInOtherView3GCell="dc.GROUP_TYPE_E_RAT_VEND_HIER321_CELL.GROUP_NAME = :groupname and tmpTable.THIER3_CELL_ID = dc.GROUP_TYPE_E_RAT_VEND_HIER321_CELL.HIER3_CELL_ID and")
+#set($imsiColumn="IMSI")
+#set($impactedSubscribers="TOTAL_NO_OF_SUBSCRIBERS")
+#set($useExclusiveTACs="no")
+BEGIN
+SELECT
+    :groupname                                                 AS 'Group Name',
+    category.CATEGORY_DESC                                     AS 'Handover Type',
+    category.CATEGORY_ID                                       AS 'Category ID',
+    isnull(distinctCellsSource.FAILURES_SOURCE, 0)             AS 'Source_Failures',
+    isnull(distinctCellsSource.IMPACTED_SUBSCRIBERS_SOURCE, 0) AS 'Source Impacted Subscribers',
+    isnull(distinctCellsTarget.FAILURES_TARGET, 0)             AS 'Target_Failures',
+    isnull(distinctCellsTarget.IMPACTED_SUBSCRIBERS_TARGET, 0) AS 'Target Impacted Subscribers'
+FROM
+    (
+        SELECT
+            sourceCells.CATEGORY_ID,
+            SUM(sourceCells.${counterColumn})       AS FAILURES_SOURCE,
+            SUM(sourceCells.${impactedSubscribers}) AS IMPACTED_SUBSCRIBERS_SOURCE
+        FROM
+            #REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED_IMPACTED_SUBSCRIBERS_GROUPS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "sourceCells" $columnsToSelectInSourceView3GCell $columnsToSelectInSourceView3GCell $groupTablesInSourceView3GCell $groupConditionInSourceView3GCell "" $counterColumn $imsiColumn $impactedSubscribers $useExclusiveTACs)
+        GROUP BY
+            sourceCells.CATEGORY_ID
+    ) AS distinctCellsSource(CATEGORY_ID, FAILURES_SOURCE, IMPACTED_SUBSCRIBERS_SOURCE)
+FULL OUTER JOIN
+    (
+        SELECT
+            targetCells.CATEGORY_ID,
+            SUM(targetCells.FAILURES_TARGET)             AS FAILURES_TARGET,
+            SUM(targetCells.IMPACTED_SUBSCRIBERS_TARGET) AS IMPACTED_SUBSCRIBERS_TARGET
+        FROM
+            (
+                SELECT
+                    otherRawView3GCell.CATEGORY_ID,
+                    SUM(otherRawView3GCell.${counterColumn})       AS FAILURES_TARGET,
+                    SUM(otherRawView3GCell.${impactedSubscribers}) AS IMPACTED_SUBSCRIBERS_TARGET
+                FROM
+                    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED_IMPACTED_SUBSCRIBERS_GROUPS($TECH_PACK_LIST.getSpecificRawTablesWithMeasurementType($otherMeasurementType) "otherRawView3GCell" $columnsToSelectInOtherView3GCell $columnsToSelectInOtherView3GCell $groupTablesInOtherView3GCell $groupConditionInOtherView3GCell "" $counterColumn $imsiColumn $impactedSubscribers $useExclusiveTACs)
+                GROUP BY
+                    otherRawView3GCell.CATEGORY_ID
+                UNION ALL
+                SELECT
+                    iratRawView.CATEGORY_ID,
+                    SUM(iratRawView.${counterColumn})       AS FAILURES_TARGET,
+                    SUM(iratRawView.${impactedSubscribers}) AS IMPACTED_SUBSCRIBERS_TARGET
+                FROM
+                    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED_IMPACTED_SUBSCRIBERS_GROUPS($TECH_PACK_LIST.getSpecificRawTablesWithMeasurementType($specificMeasurementType) "iratRawView" $columnsToSelectInIratView $columnsToSelectInIratView $groupTablesInIratView $groupConditionInIratView "" $counterColumn $imsiColumn $impactedSubscribers $useExclusiveTACs)
+                GROUP BY
+                    iratRawView.CATEGORY_ID
+            ) AS targetCells(CATEGORY_ID, FAILURES_TARGET, IMPACTED_SUBSCRIBERS_TARGET)
+        GROUP BY
+            targetCells.CATEGORY_ID
+    ) AS distinctCellsTarget(CATEGORY_ID, FAILURES_TARGET, IMPACTED_SUBSCRIBERS_TARGET)
+ON
+    (
+        distinctCellsSource.CATEGORY_ID = distinctCellsTarget.CATEGORY_ID
+    )
+INNER JOIN dc.DIM_E_RAN_HFA_CATEGORY category
+ON
+    (
+        ISNULL(distinctCellsSource.CATEGORY_ID,distinctCellsTarget.CATEGORY_ID) = category.CATEGORY_ID
+    )
+ORDER BY
+    Source_Failures DESC
+END

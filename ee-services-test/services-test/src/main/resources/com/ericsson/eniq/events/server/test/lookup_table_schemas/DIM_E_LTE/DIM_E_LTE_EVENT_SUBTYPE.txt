@@ -1,0 +1,14 @@
+DIM_E_LTE_EVENT_SUBTYPE
+EVENT_ID,EVENT_SUBTYPE_ID,EVENT_SUBTYPE_ID_DESC
+7,0,X2 with SGW relocation
+7,1,X2 without SGW relocation
+7,2,X2
+7,3,S1 with SGW and MME relocation
+7,4,S1 without SGW and MME relocation
+7,5,S1 with SGW and without MME relocation
+7,6,S1 without SGW and with MME relocation
+7,7,S1
+8,0,Inter TAU type
+8,1,Intra TAU type
+8,2,Periodic TAU type
+8,3,From Gn SGSN TAU type

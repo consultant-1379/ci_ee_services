@@ -1,0 +1,97 @@
+##
+## WCDMA Call Failure Analysis Access Area Ranking (using aggregation table)
+##
+##
+## Named PreparedStatement Parameter:
+##
+## Least squares fit Linear Regression
+## Formula: slope = (n(Sigma(t*v)) - Sigma(t)*Sigma(v)) /( n(Sigma(t^2)) - (Sigma(t))^2)
+## t --- timestamp
+## v --- value
+## n --- number of measurement
+## This algorithm indicate to the user whether the overall trend is increasing, decreasing, or remaining the same.
+## When the slope is postive, the the overall trend is upward.
+## When the slope is negative, the the overall trend is downward.
+## When the slope is zero, the the overall trend is level.
+##
+##     :dateTo     ending time
+##
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	RANK() 
+	over (order by failures desc) as rank, 
+	(
+        CASE
+            WHEN slopevalue > 0
+            THEN 'UP'
+            WHEN slopevalue < 0
+            THEN 'DOWN'
+            WHEN slopevalue = 0
+            THEN 'LEVEL'
+        END)AS SLOPE,
+	dim_hier321_cell.CELL_ID as 'Access Area',
+	dim_hier321_cell.HIERARCHY_3 as 'Controller',
+	dim_hier321_cell.VENDOR as 'RAN Vendor',
+	eventtype.EVENT_ID_ALTERNATE_DESC,
+	aggView.NO_OF_ERR AS FAILURES,
+	aggView.HIER3_CELL_ID AS HIDDEN_HIER3_CELL_ID_FOR_DRILL_TITLE,
+    eventtype.EVENT_ID AS HIDDEN_EVENT_ID_FOR_TITLE,
+	##DRILL_CAT and CATEGORY_ID value is got from UI and return to UI since it needs for drilling.
+	:categoryId AS CATEGORY_ID,
+	'$drillCat' AS DRILL_CAT
+	##
+FROM	
+	(SELECT
+		##Least squares fit linear regression algorithm
+	    (( COUNT(*)*SUM(tv)-SUM(t)*SUM(v))/( COUNT(*)*SUM(t2)-POWER(SUM(t),2))) AS slopevalue,
+		SUM(v)                                                                  AS NO_OF_ERR,
+		HIER3_CELL_ID
+	FROM
+		(SELECT 
+		    #if($categoryId == "0")
+				SUM(CS_ERR_CNT) AS v,
+			#elseif($categoryId == "1")
+				SUM(PS_ERR_CNT) AS v,
+			#elseif($categoryId == "2")
+				SUM(MULTI_ERR_CNT) AS v,
+			#elseif($categoryId == "3")
+				SUM(CS_ERR_CNT+PS_ERR_CNT+MULTI_ERR_CNT) AS v,
+			#end
+			DATEDIFF(SECOND,'1970-01-01',DATETIME_ID) AS t,
+			(v*t) AS tv,
+			POWER(t,2) AS t2,
+			HIER3_CELL_ID
+		FROM 
+			$aggregationView as tempAgg
+		WHERE
+			#if($categoryId == "0")
+				CS_RAB_FAIL_CNT > 0
+			#elseif($categoryId == "1")
+				PS_RAB_FAIL_CNT > 0 
+			#elseif($categoryId == "2")
+			    MULTI_RAB_FAIL_CNT > 0 
+			#elseif($categoryId == "3")
+				(CS_RAB_FAIL_CNT > 0 OR PS_RAB_FAIL_CNT > 0 OR MULTI_RAB_FAIL_CNT > 0)
+			#end
+		AND tempAgg.HIER3_CELL_ID IS NOT NULL
+		AND tempAgg.EVENT_ID = :eventID
+		AND #GET_DATETIME_RANGE()
+		GROUP BY
+			t,HIER3_CELL_ID
+		)AS raw_results
+	GROUP BY HIER3_CELL_ID)AS aggView
+LEFT OUTER JOIN 
+	        (SELECT DISTINCT
+				HIER3_CELL_ID,VENDOR,CELL_ID,HIERARCHY_3
+			FROM
+				DIM_E_SGEH_HIER321_CELL
+			) as dim_hier321_cell
+on
+(		
+	aggView.HIER3_CELL_ID=dim_hier321_cell.HIER3_CELL_ID
+)
+,
+(SELECT DISTINCT EVENT_ID_ALTERNATE_DESC,EVENT_ID FROM DIM_E_RAN_CFA_EVENTTYPE WHERE EVENT_ID = :eventID)AS eventtype

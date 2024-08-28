@@ -1,0 +1,120 @@
+{
+  "toolBarType" : "TOOLBAR_TERMINAL_ANALYSIS",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnView",
+      "name" : "View",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to change display options",
+      "isEnabled" : "TRUE",
+      "items" : [ {
+        "eventID" : "TERMINAL_MOST_POPULAR_SUMMARY",
+        "id" : "menuGTA_Pop_Summary",
+        "name" : "Most Frequent Signaling Event Summary",
+        "style" : "",
+        "url" : "TERMINAL/TERMINAL_ANALYSIS/MOST_POPULAR_EVENT_SUMMARY",
+        "windowType" : "GRID",
+        "maxRowsParam" : "ENIQ_EVENTS_TERMINAL_ANALYSIS_COUNT",
+        "display" : "grid"
+      }, {
+        "eventID" : "TERMINAL_MOST_POPULAR",
+        "id" : "menuTA_MostPop",
+        "name" : "Most Frequent Signaling",
+        "style" : "",
+        "url" : "TERMINAL/TERMINAL_ANALYSIS/MOST_POPULAR",
+        "windowType" : "GRID",
+        "maxRowsParam" : "ENIQ_EVENTS_TERMINAL_ANALYSIS_COUNT",
+        "display" : "grid"
+      }, {
+        "eventID" : "TERMINAL_MOST_ATTACHED_FAILURES",
+        "id" : "menuGTA_AttachedFailures",
+        "name" : "Most Attach Failures",
+        "style" : "",
+        "url" : "TERMINAL/TERMINAL_ANALYSIS/MOST_ATTACHED_FAILURES",
+        "windowType" : "GRID",
+        "maxRowsParam" : "ENIQ_EVENTS_TERMINAL_ANALYSIS_COUNT",
+        "display" : "grid"
+      }, {
+        "eventID" : "TERMINAL_MOST_PDP_SESSION_SETUP_FAILURES",
+        "id" : "menuGTA_PDPSetupFailures",
+        "name" : "Most PDP Session Setup Failures",
+        "style" : "",
+        "url" : "TERMINAL/TERMINAL_ANALYSIS/MOST_PDP_SESSION_SETUP_FAILURES",
+        "windowType" : "GRID",
+        "maxRowsParam" : "ENIQ_EVENTS_TERMINAL_ANALYSIS_COUNT",
+        "display" : "grid"
+      }, {
+        "eventID" : "TERMINAL_MOST_MOBILITY_ISSUES",
+        "id" : "menuGTA_MostMobilityIssues",
+        "name" : "Most Mobility Failures",
+        "style" : "",
+        "url" : "TERMINAL/TERMINAL_ANALYSIS/MOST_MOBILITY_ISSUES",
+        "windowType" : "GRID",
+        "maxRowsParam" : "ENIQ_EVENTS_TERMINAL_ANALYSIS_COUNT",
+        "display" : "grid"
+      }, {
+        "eventID" : "TERMINAL_HIGHEST_DATAVOLUME_VIEW",
+        "id" : "menuGTA_HighestDataVolume",
+        "name" : "Highest Data Volume",
+        "style" : "",
+        "url" : "TERMINAL/TERMINAL_ANALYSIS/HIGHEST_DATAVOL",
+        "windowType" : "GRID",
+        "maxRowsParam" : "ENIQ_EVENTS_TERMINAL_ANALYSIS_COUNT",
+        "display" : "grid",
+        "licenseCXC" : "CXC4011159"
+      } ]
+    }, {
+      "id" : "btnBack",
+      "name" : "",
+      "style" : "toolbar_back",
+      "isEnabled" : "FALSE",
+      "tip" : "Backward Navigation",
+      "isToggle" : "False",
+      "eventID" : "BACK"
+    }, {
+      "id" : "btnForward",
+      "name" : "",
+      "style" : "toolbar_forward",
+      "isEnabled" : "FALSE",
+      "tip" : "Forward Navigation",
+      "isToggle" : "FALSE",
+      "eventID" : "FORWARD"
+    }, {
+      "id" : "btnNav",
+      "name" : "History",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to navigate visited windows",
+      "isEnabled" : "FALSE",
+      "isVisible" : "FALSE",
+      "eventID" : "NAVIGATION",
+      "items" : [ {
+        "id" : "DUMMY_VALUE",
+        "name" : "DUMMY_VALUE"
+      } ]
+    }, {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    }, {
+      "id" : "btnExport",
+      "name" : "",
+      "style" : "toolbar_exportbtn",
+      "tip" : "Click to export the data to CSV",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "EXPORT"
+    } ]
+  } ]
+}

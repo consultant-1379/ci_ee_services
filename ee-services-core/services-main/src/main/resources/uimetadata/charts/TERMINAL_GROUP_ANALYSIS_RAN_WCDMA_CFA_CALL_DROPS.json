@@ -1,0 +1,18 @@
+{
+  "id" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_CFA_CALL_DROPS",
+  "title" : "Most Call Drops Summary",
+  "ylabel" : "Number of Events",
+  "xlabel" : "Group Name",
+  "secondYAxisID" : "4",
+  "xaxisID" : "2",
+  "items" : [ {
+    "id" : "3",
+    "name" : "Call Drops",
+    "color" : "cb5853",
+    "drillDownWindowType": "DRILL_CHART_TERMINAL_GROUP_ANALYSIS_WCDMA_CALL_FAILURE_MOST_CALL_DROPS"
+  	},{
+    "id" : "4",
+    "name" : "Impacted Subscribers",
+    "color" : "333986"
+  } ]
+}

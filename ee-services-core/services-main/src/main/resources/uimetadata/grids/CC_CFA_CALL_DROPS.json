@@ -1,0 +1,25 @@
+{
+  "id" : "CC_CFA_CALL_DROPS",
+  "title" : "Cause Code WCDMA Call Failure by Call Drops : Event Ranking",
+  "autoexpand" : "3",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Cause Code",
+    "width" : "280",
+    "datatype" : "string",
+    "launchWindowType" : "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CALL_DROP"
+  }, {
+    "header" : "Cause Code Id",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Failures",
+    "width" : "70",
+    "datatype" : "int"
+  } ]
+}

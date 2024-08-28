@@ -1,0 +1,23 @@
+{
+  "id" : "GSM_BSC_GROUP_EVENT_ANALYSIS_SUMMARY",
+  "gridDisplayID" : "GSM_BSC_GROUP_EVENT_ANALYSIS_SUMMARY",
+  "url" : "NETWORK/GSM/CALL_FAILURE_EVENT_SUMMARY/BSC_GROUP",
+  "params" : [ 
+   { 
+  	"id" : "BSC",
+  	"queryParamName" : "type",
+  	"isFixedVal" : "TRUE"
+  },
+  {
+  	"id" : "5",
+  	"queryParamName" : "CATEGORY_ID"
+  }, {
+  	"id" : "6",
+  	"queryParamName" : "groupname",
+  	"isTitleParam" : "TRUE"
+  }, {
+  	"id" : "1",
+  	"isTitleParam" : "TRUE"
+  }]
+}
+

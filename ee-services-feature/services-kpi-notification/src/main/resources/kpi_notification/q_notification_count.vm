@@ -1,0 +1,41 @@
+##=============================================================================
+##
+## Notifications count : The total number of notification for each severity level.
+##  
+## Description:
+##       Return the number of warning, major, critical and minor notifications in the specified time interval.
+##
+## Template Parameters:
+##		TECH_PACK_LIST - see Javadoc for this object
+##	
+## Query Parameters:
+## 		:dateFrom
+##      :dateTo
+##=============================================================================
+
+#set($rawtables=$TECH_PACK_LIST.getAllRawTables())		
+
+select
+	perceivedSeverityText,
+	isnull(data.numberRows,0)
+from
+	(
+	select
+		perceivedSeverityText,
+		count (*) as total
+	from 
+		(
+		#foreach ($rawtable in $rawtables)
+			select
+				perceivedSeverityText				
+			from dc.$rawtable 
+			where
+                EventDate >= :dateFrom and EventDate < :dateTo
+			#if($velocityCount < $rawtables.size())
+					union all
+			#end
+		#end
+	) as "temp_raw"		
+	group by 
+		perceivedSeverityText
+	) as data(perceivedSeverityText, numberRows)

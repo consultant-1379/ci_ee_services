@@ -1,0 +1,7 @@
+DIM_E_LTE_CAUSECODE
+CAUSE_CODE,CAUSE_CODE_DESC,CAUSE_CODE_HELP,CAUSE_PROT_TYPE
+307,text,text,0
+0,text,text,0
+2,text,text,0
+3,This cause is sent when the PDN connection is released due to LTE generated reasons.,text,0
+6,text,text,0

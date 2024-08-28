@@ -1,0 +1,16 @@
+{
+    "id": "DATAVOL_ANALYSIS_PORTLET_DOWNLINK",
+    "title": "Downlink",
+    "xlabel": "Timestamp",
+    "ylabel": "Data Volume (MB)",
+    "xaxisID": "1",
+    "zoomableXAxis": "TRUE",
+    "items": [
+        {
+            "id": "2",
+            "name": "Downlink (MB)",
+            "color": "333986",
+            "drillDownWindowType": "DOWNLINK"
+        }
+    ]
+}

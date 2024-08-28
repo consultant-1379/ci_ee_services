@@ -1,0 +1,18 @@
+{
+    "id": "DATAVOLUME_ANALYSIS_BY_IMSI",
+    "gridDisplayID": "GSM_PS_SUBSCRIBER_DATAVOLUME_ANALYSIS_BY_IMSI",
+    "menuItem": "SUBSCRIBER_DATA_VOLUME_ANALYSIS",
+    "url": "SUBSCRIBER/GSM/DATA_CONNECTION_DATAVOLUME_ANALYSIS/SUBSCRIBER",
+    "params": [
+        {
+            "id": "IMSI",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        },
+        {
+            "id": "2",
+            "queryParamName": "IMSI",
+            "isTitleParam": "TRUE"
+        }
+    ]
+}

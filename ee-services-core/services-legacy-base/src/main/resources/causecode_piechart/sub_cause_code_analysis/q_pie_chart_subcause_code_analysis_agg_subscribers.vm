@@ -1,0 +1,54 @@
+#DEFINE_CONSTANTS()
+
+#macro(SCCAS_QUERY_SUB_COUNT $errTable $ccTable $sccTable $cptTable)
+(
+select	
+	IMSI,
+	ccref.CAUSE_CODE, 
+	sccref.SUBCAUSE_CODE,
+	cptref.CAUSE_PROT_TYPE
+from
+	dc.${errTable} errRef,
+	dc.${ccTable} ccref,
+	dc.${sccTable} sccref,
+	dc.${cptTable} cptref
+	#GROUP_TABLE_INFO()
+where
+	#GET_DATETIME_RANGE()
+	#GROUP_OR_SINGLE_INFO()
+	and #GET_TAC_EXCLUSION()
+	and cptref.CAUSE_PROT_TYPE = errRef.CAUSE_PROT_TYPE
+	and ccref.CAUSE_CODE = errRef.CAUSE_CODE
+	and ccref.CAUSE_PROT_TYPE = errRef.CAUSE_PROT_TYPE
+	and sccref.SUBCAUSE_CODE = errRef.SUBCAUSE_CODE
+	and errRef.CAUSE_CODE = :CAUSE_CODE
+group by
+	ccref.CAUSE_CODE,
+	sccref.SUBCAUSE_CODE,
+	cptref.CAUSE_PROT_TYPE,
+	IMSI
+)
+#end
+
+select
+	isnull(count(distinct(IMSI)),0) as NO_OF_SUBSCRIBERS,
+	err.CAUSE_CODE as CAUSE_CODE,
+	err.SUBCAUSE_CODE as SUBCAUSE_CODE,
+	err.CAUSE_PROT_TYPE as CAUSE_PROT_TYPE
+from 
+(
+	#foreach ($errtable in $rawAllErrTables)
+		#if ($errtable.toString().indexOf($ApplicationConstants.SGEH) > -1)
+			#SCCAS_QUERY_SUB_COUNT($errtable $ccRefForSgeh $sccRefForSgeh $cptRefForSgeh)	
+		#else
+			#SCCAS_QUERY_SUB_COUNT($errtable $ccRefForLte $sccRefForLte $cptRefForLte)
+		#end
+		#if($velocityCount < $rawAllErrTables.size())
+			union all
+		#end
+	#end
+) as err (IMSI, CAUSE_CODE, SUBCAUSE_CODE, CAUSE_PROT_TYPE)
+group by
+	err.CAUSE_CODE,
+	err.SUBCAUSE_CODE,
+	err.CAUSE_PROT_TYPE

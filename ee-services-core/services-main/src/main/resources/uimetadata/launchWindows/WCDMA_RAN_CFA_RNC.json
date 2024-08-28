@@ -1,0 +1,18 @@
+{
+    "launchWindowTypeId": "WCDMA_RAN_CFA_RNC",
+    "menuItem": "NETWORK_EVENT_ANALYSIS_CALL_FALURE_RNC",
+    "searchValFromCol": "3",
+    "type": "BSC",
+    "drillTargetType": "GRID",
+    "needSearchParam": "FALSE",
+    "params": [
+        {
+            "id": "2",
+            "queryParamName": "RAN_VENDOR"
+        },
+        {
+            "id": "3",
+            "queryParamName": "RNC_FDN"
+        }
+    ]
+}

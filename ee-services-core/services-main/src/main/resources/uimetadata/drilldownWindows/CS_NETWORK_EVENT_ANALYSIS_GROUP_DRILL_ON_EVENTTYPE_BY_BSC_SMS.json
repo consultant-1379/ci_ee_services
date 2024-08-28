@@ -1,0 +1,28 @@
+{
+  "id" : "CS_NETWORK_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE_BY_BSC_SMS",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_ELEMENT_SMS",
+  "name" : "Controller Event Analysis Voice",
+  "url" : "MSS/NETWORK/EVENT_ANALYSIS",
+  "needSearchParam" : "FALSE",
+  "params" : [ {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "groupname",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "eventID"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

@@ -1,0 +1,42 @@
+{
+  "id" : "NETWORK_RAN_LTE_HFA_QOS_QCI_BSC_ANALYSIS",
+  "title" : "Controller LTE Handover Failure : QOS Statistics Analysis",
+  "autoexpand" : "4",
+  "defaultSortCol" : "5",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "HIER3_ID",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "QCI ID",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event_ID",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "130",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "INTERNAL_PROC_HO_PREP_X2_OUT,NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_BSC_INTERNAL_PROC_HO_PREP_X2_OUT,INTERNAL_PROC_HO_EXEC_X2_IN,NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_BSC_INTERNAL_PROC_HO_EXEC_X2_IN,INTERNAL_PROC_HO_EXEC_X2_OUT,NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_BSC_INTERNAL_PROC_HO_EXEC_X2_OUT,INTERNAL_PROC_HO_EXEC_S1_IN,NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_BSC_INTERNAL_PROC_HO_EXEC_S1_IN,INTERNAL_PROC_HO_EXEC_S1_OUT,NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_BSC_INTERNAL_PROC_HO_EXEC_S1_OUT,INTERNAL_PROC_HO_PREP_S1_OUT,NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_BSC_INTERNAL_PROC_HO_PREP_S1_OUT"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "string"
+  } , {
+    "header" : "node",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  } 
+  ]
+}

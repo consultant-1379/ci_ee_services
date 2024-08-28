@@ -1,0 +1,55 @@
+#DEFINE_CONSTANTS()
+#set($columns=[$RAT,$VENDOR,$BSC])
+
+SELECT
+	ISNULL(err.DATETIME_ID,suc.DATETIME_ID) AS KPI_TIME,
+    #GET_CORE_KPI_VALUES()
+FROM    
+    (select
+        DATETIME_ID,
+        #GET_COLUMNS($columns)
+        EVENT_ID,
+        NO_OF_ERRORS,
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS	
+    from
+		$errAggregationView temp_err
+    where
+        #GET_COLUMNS_WHERE($columns)
+        and #GET_DATETIME_RANGE()
+    )as err (
+        DATETIME_ID,
+        #GET_COLUMNS($columns)
+        EVENT_ID,                        
+        NO_OF_ERRORS,
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    )
+    full outer join        
+    (select
+        DATETIME_ID,     
+        #GET_COLUMNS($columns)
+        EVENT_ID,
+        NO_OF_SUCCESSES,            
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    from
+		$sucAggTables temp_suc
+    where
+        #GET_COLUMNS_WHERE($columns)
+        and #GET_DATETIME_RANGE()
+    ) as suc(
+        DATETIME_ID,
+        #GET_COLUMNS($columns)
+        EVENT_ID,                        
+        NO_OF_SUCCESSES,        
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    )
+    on (
+        #GET_JOIN("err" "suc" ["DATETIME_ID","EVENT_ID"])
+    )
+group by
+    KPI_TIME
+order by
+    KPI_TIME

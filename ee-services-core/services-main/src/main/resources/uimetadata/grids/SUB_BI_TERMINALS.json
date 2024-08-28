@@ -1,0 +1,57 @@
+{
+  "id" : "SUB_BI_TERMINALS",
+  "title" : "Subscriber Overview - Terminal Analysis",
+  "autoexpand" : "4",
+  "defaultSortCol" : "7",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "IMSI",
+    "width" : "100",
+    "datatype" : "int",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "200",
+    "datatype" : "string",
+    "licenseCXC" : "CXC4010926"
+  }, {
+    "header" : "Model",
+    "width" : "100",
+    "datatype" : "string",
+    "licenseCXC" : "CXC4010926"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Device Capability",
+    "width" : "200",
+    "datatype" : "string",
+    "licenseCXC" : "CXC4010926"
+  }, {
+    "header" : "IMEISV",
+    "width" : "200",
+    "datatype" : "int"
+  }, {
+    "header" : "Event Failures",
+    "width" : "100",
+    "datatype" : "int",
+    "drillDownWindowType" : "DRILL_GRID_CHART_SUB_BI"
+  }, {
+    "header" : "Event Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "First Seen",
+    "width" : "150",
+    "datatype" : "date"
+  }, {
+    "header" : "Last Seen",
+    "width" : "150",
+    "datatype" : "date"
+  } ]
+}

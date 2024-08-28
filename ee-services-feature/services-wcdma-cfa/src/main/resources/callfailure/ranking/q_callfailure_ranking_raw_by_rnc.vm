@@ -1,0 +1,83 @@
+##
+## WCDMA Call Failure Analysis RNC Ranking (using raw tables)
+##
+## Velocity Parameter: 
+##		
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+## 
+
+#set($whereClause = "AND HIER3_ID IS NOT NULL AND EVENT_ID = :eventID")
+#set($useExclusiveTACs="no")
+#set($distinct ="")
+
+
+#if($categoryId == "0")
+#set($columnsToIncludeInNewView = ["HIER3_ID","CS_RAB_FAIL_CNT","CS_ERR_CNT"])
+#elseif($categoryId == "1")
+	#set($columnsToIncludeInNewView = ["HIER3_ID","PS_RAB_FAIL_CNT","PS_ERR_CNT"])
+#elseif($categoryId == "2")
+	#set($columnsToIncludeInNewView = ["HIER3_ID","MULTI_RAB_FAIL_CNT","MULTI_ERR_CNT"])
+#elseif($categoryId == "3")
+	#set($columnsToIncludeInNewView = ["HIER3_ID", "CS_RAB_FAIL_CNT","PS_RAB_FAIL_CNT","MULTI_RAB_FAIL_CNT","CS_ERR_CNT","PS_ERR_CNT","MULTI_ERR_CNT"])
+#end
+
+BEGIN
+
+select
+	#if($count > 0)
+	  top $count
+	#end
+	rank() over (order by FAILURES desc) as rank,
+	topology_table.VENDOR AS VENDOR,	
+	topology_table.HIERARCHY_3 AS HIERARCHY_3,
+	eventtype.EVENT_ID_ALTERNATE_DESC,
+	data.NO_OF_ERRORS AS FAILURES,
+	data.HIER3_ID AS HIDDEN_HIER3_ID_FOR_DRILL_TITLE,
+    eventtype.EVENT_ID AS HIDDEN_EVENT_ID_FOR_TITLE,
+	##DRILL_CAT and CATEGORY_ID value is got from UI and return to UI since it needs for drilling.
+	:categoryId AS CATEGORY_ID,
+	'$drillCat' AS DRILL_CAT
+	##
+from
+	(	
+		SELECT 
+			#if($categoryId == "0")
+				SUM(CS_ERR_CNT) AS NO_OF_ERRORS,
+			#elseif($categoryId == "1")
+				SUM(PS_ERR_CNT) AS NO_OF_ERRORS,
+			#elseif($categoryId == "2")
+				SUM(MULTI_ERR_CNT) AS NO_OF_ERRORS,
+			#elseif($categoryId == "3")
+				COUNT(*) AS NO_OF_ERRORS,
+			#end
+			HIER3_ID
+		FROM
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToIncludeInNewView $whereClause $useExclusiveTACs $distinct)
+		WHERE
+			#if($categoryId == "0")
+				CS_RAB_FAIL_CNT > 0
+			#elseif($categoryId == "1")
+				PS_RAB_FAIL_CNT > 0 
+			#elseif($categoryId == "2")
+			    MULTI_RAB_FAIL_CNT > 0 
+			#elseif($categoryId == "3")
+				(CS_RAB_FAIL_CNT > 0 OR PS_RAB_FAIL_CNT > 0 OR MULTI_RAB_FAIL_CNT > 0)
+			#end
+		GROUP BY
+			HIER3_ID
+	) as data
+	LEFT OUTER JOIN
+	 (	
+		SELECT DISTINCT HIERARCHY_3,HIER3_ID,VENDOR FROM DIM_E_SGEH_HIER321 WHERE RAT = 1
+	) as topology_table(HIERARCHY_3,HIER3_ID,VENDOR)
+	on (
+		topology_table.HIER3_ID = data.HIER3_ID
+		)
+	,
+	(SELECT DISTINCT EVENT_ID_ALTERNATE_DESC,EVENT_ID FROM DIM_E_RAN_CFA_EVENTTYPE WHERE EVENT_ID = :eventID)AS eventtype
+END

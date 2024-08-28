@@ -1,0 +1,48 @@
+{
+  "id" : "GSM_PS_SUBSCRIBER_DATAVOLUME_ANALYSIS_BY_IMSI_GROUP",
+  "title" : "IMSI Data Volume Analysis",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "autoexpand" : "1",
+  "columns" : [ {
+    "header" : "IMSI",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "Download Data Volume (KB)",
+    "width" : "170",
+    "datatype" : "float"
+  }, {
+    "header" : "Download Duration (s)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Download Throughput (Kb/s)",
+    "width" : "180",
+    "datatype" : "float"
+  }, {
+    "header" : "Upload Data Volume (KB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Upload Duration (s)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Upload Throughput (Kb/s)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Total Data Volume (KB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Total Duration (s)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Total Throughput (Kb/s)",
+    "width" : "150",
+    "datatype" : "float"
+  } ]
+}

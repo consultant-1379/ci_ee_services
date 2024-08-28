@@ -1,0 +1,14 @@
+{
+	"id": "NETWORK_RNC_DISCONNECTION_CODE_ANALYSIS_FROM_DRILL_BY",
+	"drillWindowName" : "Failure details",
+	"nameForTaskBar" : "Failure details",
+	"style": "analysisEvent",
+	"isEnabled": "TRUE",
+	"drillTargetDisplayId": "NETWORK_RNC_DISCONNECTION_CODE_ANALYSIS_FROM_DRILL_BY",
+	"drillType" : "launchGrid",
+	"drillToolBarType" : "TOOLBAR_PLAIN_GRID_NO_DRILLDOWNS_NO_TIME_BUTTON",
+	"url" : "NETWORK/WCDMA_NETWORK_CALL_FAILURE_FILTER_ANALYSIS/NODE_BY_FILTER",
+	"toolBarType": "TOOLBAR1",
+	"windowType": "GRID",
+	"display": "grid"
+}

@@ -1,0 +1,35 @@
+##
+## LTE Call Failure Analysis TRAC Ranking (using agg tables)
+##
+## Velocity Parameter: 
+##		$count   max number of rows
+##		$aggregationView the aggregation view to query against	
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	rank() over (order by Failures desc) as 'Rank',
+	RAW_VIEW.TRAC as 'TRAC',
+	FAILURES as 'Failures'
+FROM
+	(
+		SELECT
+			TRAC,
+			SUM (NO_OF_ERRORS) AS FAILURES
+		FROM
+			$aggregationView
+		WHERE
+			CATEGORY_ID = $CATEGORY_ID AND
+			TRAC is not null AND
+			#GET_DATETIME_RANGE()
+		GROUP BY
+			TRAC
+	) RAW_VIEW

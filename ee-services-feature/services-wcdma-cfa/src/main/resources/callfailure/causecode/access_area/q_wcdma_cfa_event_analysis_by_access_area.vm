@@ -1,0 +1,55 @@
+##
+## WCDMA Call Failure Analysis Detailed Analysis by Sub-Cause Code for Access AReas
+##
+## Velocity Parameter:
+##
+##
+## Named PreparedStatement Parameter:
+##
+## 		:HIER3_CELL_ID
+##		:CAUSE_VALUE
+##		:SUB_CAUSE_VALUE
+##
+#set($columnsToSelect=["EVENT_TIME, EVENT_ID, IMSI, TAC, PROCEDURE_INDICATOR, EVALUATION_CASE, EXCEPTION_CLASS, LAC, RAC"])
+
+select
+	#if($count > 0)
+	  top $count
+	#end
+	#SELECT_COLUMN_WCDMA_CFA_DETAILED_EVENT_ANALYSIS()
+from
+	(
+		#foreach ($rawtable in $TECH_PACK_LIST.getAllRawErrTables())
+			select			
+				#foreach ($columnToInclude in $columnsToSelect)
+					$columnToInclude
+					#if($velocityCount < $columnsToSelect.size())
+					,
+					#end
+				#end		
+			from dc.$rawtable 
+			where
+				HIER3_CELL_ID =  :HIER3_CELL_ID
+				and CAUSE_VALUE = :CAUSE_CODE
+				and	EXTENDED_CAUSE_VALUE = :SUBCAUSE_CODE
+				and #GET_DATETIME_RANGE()
+				and #GET_TAC_EXCLUSION()
+			#if($velocityCount < $TECH_PACK_LIST.getAllRawErrTables().size())
+					union all
+			#end
+		#end
+	) as rawview
+	left outer join dc.DIM_E_SGEH_TAC
+		on (rawview.TAC = dc.DIM_E_SGEH_TAC.TAC)
+	inner join dc.DIM_E_RAN_CFA_EVENTTYPE
+		on (rawview.EVENT_ID = dc.DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID)
+	left outer join dc.DIM_E_RAN_CFA_PROCEDURE_INDICATOR
+		on (rawview.PROCEDURE_INDICATOR = dc.DIM_E_RAN_CFA_PROCEDURE_INDICATOR.PROCEDURE_INDICATOR)
+	left outer join dc.DIM_E_RAN_CFA_EVALUATION_CASE
+		on (rawview.EVALUATION_CASE = dc.DIM_E_RAN_CFA_EVALUATION_CASE.EVALUATION_CASE)
+	left outer join dc.DIM_E_RAN_CFA_EXCEPTION_CLASS
+		on (rawview.EXCEPTION_CLASS = dc.DIM_E_RAN_CFA_EXCEPTION_CLASS.EXCEPTION_CLASS)	
+	inner join dc.DIM_E_SGEH_HIER321_CELL
+		on (dc.DIM_E_SGEH_HIER321_CELL.HIER3_CELL_ID = :HIER3_CELL_ID)
+order by
+    rawview.EVENT_TIME desc

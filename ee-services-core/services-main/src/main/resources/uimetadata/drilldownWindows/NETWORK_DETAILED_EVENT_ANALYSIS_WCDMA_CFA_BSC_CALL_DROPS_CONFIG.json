@@ -1,0 +1,39 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_BSC_CALL_DROPS",
+    "gridDisplayID": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_BSC_CALL_DROPS",
+    "name": "Controller Raw Data (Call Drops)",
+    "url": "NETWORK/WCDMA_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/NODE",
+    "params": [
+        {
+            "id": "6",
+            "queryParamName": "HIER3_ID"
+        },
+        {
+            "id": "7",
+            "queryParamName": "eventID"
+        },
+        {
+            "id": "BSC",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        },
+        {
+            "id": "true",
+            "queryParamName": "dataTieredDelay",
+            "isFixedVal": "TRUE"
+        },
+        {
+            "id": "9",
+            "queryParamName": "categoryId"
+        },
+        {
+            "id": "10",
+            "queryParamName": "drillCat"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

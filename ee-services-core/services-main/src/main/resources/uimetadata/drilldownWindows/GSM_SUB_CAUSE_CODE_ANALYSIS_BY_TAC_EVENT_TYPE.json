@@ -1,0 +1,43 @@
+{
+  "id" : "GSM_SUB_CAUSE_CODE_ANALYSIS_BY_TAC_EVENT_TYPE",
+  "name" : "Terminal Sub Cause Code Analysis",
+  "url" : "TERMINAL/GSM/CALL_FAILURE_CAUSE_CODE_ANALYSIS/SUB_CAUSE_CODE_GRID",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "tac"
+  }, {
+    "id" : "2",
+    "queryParamName" : "MANUFACTURER",
+	"isTitleParam": "TRUE"
+  },   {
+    "id" : "3",
+    "queryParamName" : "MODEL",
+	"isTitleParam": "TRUE"
+  }, 
+   {
+    "id" : "4",
+    "queryParamName" : "failure_type",
+	"isTitleParam": "TRUE"
+  }, {
+    "id" : "5",
+    "queryParamName" : "causeCode"
+  }, {
+    "id" : "6",
+    "queryParamName" : "causeCodeDescription",
+	"isTitleParam": "TRUE"
+  }, 
+  {
+    "id" : "TAC",
+    "queryParamName" : "type",
+	"isFixedVal" : "TRUE"
+  },  {
+    "id" : "9",
+    "queryParamName" : "CATEGORY_ID"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}
+

@@ -1,0 +1,32 @@
+{
+    "id": "SUBSCRIBER_RANKING_LTE_HANDOVER_EXEC_FAILURE",
+    "title": "Subscriber Ranking (Events) by Execution Handover Failures",
+    "autoexpand": "2",
+    "defaultSortCol": "1",
+    "defaultSortDir": "ASC",
+    "columns": [
+        {
+            "header": "Rank",
+            "width": "70",
+            "datatype": "int"
+        },
+        {
+            "header": "IMSI",
+            "width": "100",
+            "datatype": "string",
+            "drillDownLicenseCXC" : "CXC4010925",
+            "launchWindowType": "RAN_LTE_HFA_ANALYSIS"
+        },
+        {
+            "header": "Failures",
+            "width": "90",
+            "datatype": "int"
+        },
+        {
+            "header": "Category ID",
+            "width": "100",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        }
+    ]
+}

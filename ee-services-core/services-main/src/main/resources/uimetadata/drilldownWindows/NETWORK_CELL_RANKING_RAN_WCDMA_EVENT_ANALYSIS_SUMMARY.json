@@ -1,0 +1,17 @@
+{
+  "id" : "NETWORK_CELL_RANKING_RAN_WCDMA_EVENT_ANALYSIS_SUMMARY",
+  "gridDisplayID" : "NETWORK_CELL_RANKING_RAN_WCDMA_EVENT_ANALYSIS_SUMMARY",
+  "menuItem" : "NETWORK_CELL_RANKING_RAN_WCDMA_CFA",
+  "url" : "NETWORK/CALL_FAILURE_EVENT_SUMMARY/ACCESS_AREA",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "RAN_VENDOR"
+  }, {
+    "id" : "4",
+    "queryParamName" : "cellId",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "3",
+    "queryParamName" : "RNC_FDN"
+  }]
+}

@@ -1,0 +1,43 @@
+##
+## WCDMA Handover Failure Sub Cause Code Analysis by RNC Hash ID (using aggregation tables)
+##
+## Velocity Parameter:
+##
+## Named PreparedStatement Parameter:
+##
+##	   :HIER3_ID:   The RNC hash id
+##
+
+#set($columnsToSelect=["HIER3_ID","CAUSE_VALUE","SUB_CAUSE_VALUE","EVENT_ID","CATEGORY_ID"])
+#set($condition="and HIER3_ID = :HIER3_ID and CAUSE_VALUE = :CAUSE_CODE and EVENT_ID = :eventID and CATEGORY_ID = :categoryId")
+#set($counterColumn="NO_OF_ERRORS")
+#set($imsiColumn="IMSI")
+#set($impactedSubscribers="TOTAL_NO_OF_SUBSCRIBERS")
+#set($useExclusiveTACs="no")
+
+SELECT
+    'SCC'||subCauseCode.SUB_CAUSE_VALUE||'-'||category.CATEGORY_TABLE_NAME||eventType.EVENT_ID_LABEL AS Label,
+    subCauseCode.SUB_CAUSE_VALUE_DESC                                                                AS 'Cause Code',
+    aggView.NO_OF_ERRORS                                                                             AS 'Failures',
+    aggView.TOTAL_NO_OF_SUBSCRIBERS                                                                  AS 'Source Impacted Subscribers',
+    NULL                                                                                             AS 'Target Impacted Subscribers',
+    :CAUSE_CODE                                                                                      AS 'Cause Code Id',
+    subCauseCode.SUB_CAUSE_VALUE                                                                     AS 'Sub Cause Code Id',
+    eventType.EVENT_ID                                                                               AS 'Event Id',
+    category.CATEGORY_ID                                                                             AS 'Category Id',
+    category.CATEGORY_DESC                                                                           AS 'Handover Type',
+    NULL                                                                                             AS 'Group Name',
+    'WCDMA_HFA_SOURCE'                                                                               AS 'State'
+FROM
+    #UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS_CONDITIONED_IMPACTED_SUBSCRIBERS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() $aggregationViewList "aggView" $columnsToSelect $counterColumn $condition $imsiColumn $impactedSubscribers $useExclusiveTACs) ,
+    DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE AS subCauseCode,
+    DIM_E_RAN_HFA_CATEGORY             AS category,
+    DIM_E_RAN_HFA_EVENTTYPE            AS eventType
+WHERE
+    aggView.SUB_CAUSE_VALUE = subCauseCode.SUB_CAUSE_VALUE
+AND aggView.CAUSE_VALUE = :CAUSE_CODE
+AND subCauseCode.EVENT_ID = :eventID
+AND eventType.EVENT_ID = :eventID
+AND category.CATEGORY_ID = :categoryId
+ORDER BY
+    Failures DESC

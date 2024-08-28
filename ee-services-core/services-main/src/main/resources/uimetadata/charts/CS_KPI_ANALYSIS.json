@@ -1,0 +1,64 @@
+{
+  "id" : "CS_KPI_ANALYSIS",
+  "title" : "KPI Analysis Voice",
+  "xlabel" : "Time",
+  "ylabel" : "KPI",
+  "secondYAxisID" : "2",
+  "xaxisID" : "1",
+  "zoomableXAxis" : "TRUE",
+  "items" : [ {
+    "id" : "2",
+    "name" : "Impacted Subscribers"
+  }, {
+    "id" : "3",
+    "name" : "MS Originating Call Completion Ratio"
+  }, {
+    "id" : "4",
+    "name" : "MS Terminating Call Completion Ratio"
+  }, {
+    "id" : "5",
+    "name" : "MS Originating Call Drop Ratio"
+  }, {
+    "id" : "6",
+    "name" : "MS Terminating Call Drop Ratio"
+  }, {
+    "id" : "7",
+    "name" : "MS Originating Call Attempts Intensity"
+  }, {
+    "id" : "8",
+    "name" : "MS Terminating Call Attempts Intensity"
+  }, {
+    "id" : "9",
+    "name" : "MS Originating Call Drop Intensity"
+  }, {
+    "id" : "10",
+    "name" : "MS Terminating Call Drop Intensity"
+  }, {
+    "id" : "11",
+    "name" : "Call Forwarding Success Ratio"
+  }, {
+    "id" : "12",
+    "name" : "Roaming Call Success Ratio"
+  }, {
+    "id" : "13",
+    "name" : "Call Forwarding Drop Ratio"
+  }, {
+    "id" : "14",
+    "name" : "Roaming Call Drop Ratio"
+  }, {
+    "id" : "15",
+    "name" : "MS Originating Emergency Call Completion Ratio"
+  }, {
+    "id" : "16",
+    "name" : "MS Originating Emergency Call Drop Ratio"
+  }, {
+    "id" : "17",
+    "name" : "Sms Originating Success Ratio"
+  }, {
+    "id" : "18",
+    "name" : "Sms Terminating Success Ratio"
+  }, {
+    "id" : "19",
+    "name" : "Location Request Success Ratio"
+  } ]
+}

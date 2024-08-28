@@ -1,0 +1,14 @@
+{
+  "launchWindowTypeId" : "GSM_ROAMING_ANALYSIS_SUMMARY_BY_COUNTRY",
+  "menuItem" : "GSM_ROAMING_ANALYSIS_SUMMARY_BY_COUNTRY",
+  "searchValFromCol" : "4,1",
+  "params" : [ {
+    "id" : "4",
+    "queryParamName" : "MCC"
+  },
+  {
+    "id" : "1",
+    "queryParamName" : "COUNTRY"
+     
+  }  ]
+}

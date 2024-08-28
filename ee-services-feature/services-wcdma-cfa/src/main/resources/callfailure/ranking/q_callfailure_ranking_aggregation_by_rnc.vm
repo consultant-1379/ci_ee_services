@@ -1,0 +1,82 @@
+##
+## WCDMA Call Failure Analysis RNC Ranking (using aggregation tables)
+##
+## Velocity Parameter: 
+##		$count   max number of rows
+##		$aggregationView the aggregation view to query against	
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+
+#set($whereClause = "AND HIER3_ID = :HIER3_ID AND EVENT_ID = :eventID")
+#set($useExclusiveTACs="no")
+#set($distinct ="")
+
+BEGIN
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	RANK() 
+	over (order by failures desc) as rank,
+    topology.VENDOR AS RAN_VENDOR,
+    topology.HIERARCHY_3 AS CONTROLLER,
+	eventtype.EVENT_ID_ALTERNATE_DESC,
+    aggView.NO_OF_ERRORS AS failures,
+	## hidden for drill title #################################################
+    aggView.HIER3_ID 			AS 'hidden HIER3_ID parameter for drilldown title',
+    eventtype.EVENT_ID 	AS 'hidden EVENT_ID parameter for drilldown title',
+	##DRILL_CAT and CATEGORY_ID value is got from UI and return to UI since it needs for drilling.
+	:categoryId AS CATEGORY_ID,
+	'$drillCat' AS DRILL_CAT
+	##
+FROM
+
+(
+	select 
+		    #if($categoryId == "0")
+				SUM(CS_ERR_CNT) AS NO_OF_ERRORS,
+			#elseif($categoryId == "1")
+				SUM(PS_ERR_CNT) AS NO_OF_ERRORS,
+			#elseif($categoryId == "2")
+				SUM(MULTI_ERR_CNT) AS NO_OF_ERRORS,
+			#elseif($categoryId == "3")
+				SUM(CS_ERR_CNT+PS_ERR_CNT+MULTI_ERR_CNT) AS NO_OF_ERRORS,
+			#end
+			HIER3_ID
+	from 
+		$aggregationView as tempAgg
+	where
+		#if($categoryId == "0")
+				CS_RAB_FAIL_CNT > 0
+		#elseif($categoryId == "1")
+				PS_RAB_FAIL_CNT > 0 
+		#elseif($categoryId == "2")
+			    MULTI_RAB_FAIL_CNT > 0 
+		#elseif($categoryId == "3")
+				(CS_RAB_FAIL_CNT > 0 OR PS_RAB_FAIL_CNT > 0 OR MULTI_RAB_FAIL_CNT > 0)
+		#end
+		AND tempAgg.HIER3_ID IS NOT NULL
+		AND tempAgg.EVENT_ID = :eventID
+		and
+		#GET_DATETIME_RANGE()
+	group by
+		HIER3_ID
+) 
+as aggView
+left outer join 
+(SELECT DISTINCT HIERARCHY_3,HIER3_ID,VENDOR FROM DIM_E_SGEH_HIER321)
+as topology
+on
+(		
+	aggView.HIER3_ID=topology.HIER3_ID
+)
+,
+(SELECT DISTINCT EVENT_ID_ALTERNATE_DESC,EVENT_ID FROM DIM_E_RAN_CFA_EVENTTYPE WHERE EVENT_ID = :eventID)AS eventtype
+
+END
+	

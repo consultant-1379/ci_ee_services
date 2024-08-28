@@ -1,0 +1,20 @@
+{
+  "id": "NETWORK_RAN_LTE_CFA_DRILL_ON_QOS_QCI_ACCESS_AREA",
+  "name": "LTE CFA - QCI Access Area Event Analysis",
+  "url": "NETWORK/LTE_CFA_QOS_SUMMARY_ANALYSIS/ACCESS_AREA",
+  "gridDisplayID": "NETWORK_RAN_LTE_CFA_QOS_QCI_SUMM_CELL_DRILL",
+  "searchValFromCol" : "10,9,11,12",
+  "params": [ {
+    "id": "2",
+    "queryParamName": "HIER321_ID"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

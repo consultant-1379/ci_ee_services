@@ -1,0 +1,24 @@
+{
+  "id" : "CS_TERMINAL_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_TAC",
+  "name" : "TAC Event Analysis",
+  "url" : "MSS/TERMINAL/EVENT_ANALYSIS",
+  "searchValFromCol" : "10",
+  "type" : "TAC",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "TAC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "tac"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

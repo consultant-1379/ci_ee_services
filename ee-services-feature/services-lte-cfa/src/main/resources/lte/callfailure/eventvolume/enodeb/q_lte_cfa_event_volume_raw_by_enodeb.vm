@@ -1,0 +1,68 @@
+##
+## Author : ECHIMMA
+## LTE Call Failure eNodeB Event Volume Analysis (using raw tables)
+##
+## Velocity Parameter: 
+##		
+## Named PreparedStatement Parameter:
+##	   	$starttime 		start time
+## 		$endtime 		end time
+##		$interval 		interval for different timerange
+##     	:dateFrom   	starting time
+##     	:dateTo     	ending time
+##
+#set($columnsToSelect=["DATETIME_ID", "EVENT_ID", "IMSI"])
+#set($columnsToSelectforImpactedIMSI=["DATETIME_ID", "IMSI"])
+#set($notNullColumns=["EVENT_ID"])
+#set($condictionColumns=["HIER3_ID"])
+
+#DEFINE_CONSTANTS()
+
+begin
+
+select
+    dateformat(err.TS, 'yyyy-mm-dd hh:mm:ss.S') as 'TIME',
+	isnull(sum (case when err.EVENT_ID = 4097 then isnull(err.FAILURES, 0) end),0) as INTERNAL_PROC_RRC_CONN_SETUP,
+	isnull(sum (case when err.EVENT_ID = 4098 then isnull(err.FAILURES, 0) end),0) as INTERNAL_PROC_S1_SIG_CONN_SETUP,
+	isnull(sum (case when err.EVENT_ID = 4106 then isnull(err.FAILURES, 0) end),0) as INTERNAL_PROC_INITIAL_CTXT_SETUP,
+	isnull(sum (case when err.EVENT_ID = 4099 then isnull(err.FAILURES, 0) end),0) as INTERNAL_PROC_ERAB_SETUP,
+	isnull(sum (case when err.EVENT_ID = 4125 then isnull(err.FAILURES, 0) end),0) as INTERNAL_PROC_UE_CTXT_RELEASE,
+	isnull(max(imsiTable.IMPACTED_SUBSCRIBERS), 0) as 'Impacted Subscribers'
+	
+from
+	(
+		select
+			tmp_st,
+			EVENT_ID,
+			isnull(count(*), 0) as FAILURES
+		from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_AND_NOT_NULL_COLUMNS($TECH_PACK_LIST.getAllRawTables() "err" $condictionColumns $columnsToSelect $notNullColumns)
+			,#GET_CHART_TIMES($starttime $endtime $interval)
+		where        
+			DATETIME_ID >= tmp_st
+			and DATETIME_ID < tmp_et
+		group by
+			tmp_st,
+			EVENT_ID
+	) as err ( TS, EVENT_ID, FAILURES)
+	full outer join
+	(
+		select
+			tmp_st,
+			count(distinct(IMSI))
+		from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_AND_NOT_NULL_COLUMNS($TECH_PACK_LIST.getAllRawTables() "impactedIMSI" $condictionColumns $columnsToSelectforImpactedIMSI $notNullColumns)
+			,#GET_CHART_TIMES($starttime $endtime $interval)
+		where
+			DATETIME_ID >= tmp_st
+			and DATETIME_ID < tmp_et
+		group by
+			tmp_st
+	) as imsiTable(TS, IMPACTED_SUBSCRIBERS)
+	on
+		err.TS = imsiTable.TS
+group by
+	dateformat(err.TS, 'yyyy-mm-dd hh:mm:ss.S')
+order by
+	dateformat(err.TS, 'yyyy-mm-dd hh:mm:ss.S')	
+end

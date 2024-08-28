@@ -1,0 +1,38 @@
+##
+## WCDMA Call Failure Ranking Analysis by Subscriber  (using raw tables)
+##
+## Velocity Parameter: 
+##		
+##		EVENT_ID	CallSetupFail (456) or CallDropFail (438) ID received from Service
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+
+#set($columnsToSelect=["IMSI, EVENT_ID"])
+
+SELECT
+	
+	#if($count > 0)
+	  top $count
+	#end
+	RANK()
+	Over (order by failures desc) as Rank,
+	rawview.IMSI AS 'IMSI',
+	count (*) AS Failures
+
+FROM
+
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION_IMSI0_EXCLUSION_IMSINULL_EXCLUSION($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToSelect)
+	 
+	
+	
+WHERE
+
+	rawview.EVENT_ID = $EVENT_ID
+
+GROUP BY
+	
+	rawview.IMSI

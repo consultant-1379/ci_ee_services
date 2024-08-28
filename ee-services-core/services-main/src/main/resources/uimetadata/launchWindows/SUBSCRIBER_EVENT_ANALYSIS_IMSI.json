@@ -1,0 +1,15 @@
+{
+  "launchWindowTypeId" : "SUBSCRIBER_EVENT_ANALYSIS_IMSI",
+  "menuItem" : "SUBSCRIBER_EVENT_ANALYSIS",
+  "searchValFromCol" : "2",
+  "type" : "",
+  "params" : [ {
+    "id" : "IMSI",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "imsi",
+    "isTitleParam" : "TRUE"
+  } ]
+}

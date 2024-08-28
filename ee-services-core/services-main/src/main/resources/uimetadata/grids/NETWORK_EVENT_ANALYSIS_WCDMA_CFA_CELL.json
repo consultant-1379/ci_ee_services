@@ -1,0 +1,68 @@
+{
+    "id": "NETWORK_EVENT_ANALYSIS_WCDMA_CFA_CELL",
+    "title": "Access Area Event Analysis",
+    "autoexpand": "2",
+    "defaultSortCol": "6",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "RAN Vendor",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Controller",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "Access Area",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "header": "Event Type",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int",
+            "launchWindowType" : "438_3,WCDMA_RAN_CFA_CELL_DRILL_BY_DROPS_CONFIG_ALL,438_4,WCDMA_RAN_CFA_CELL_DRILL_BY_DROPS_CONFIG,438_0,WCDMA_RAN_CFA_CELL_DRILL_BY_DROPS_CONFIG,438_1,WCDMA_RAN_CFA_CELL_DRILL_BY_DROPS_CONFIG,438_2,WCDMA_RAN_CFA_CELL_DRILL_BY_DROPS_CONFIG, 456_3,WCDMA_RAN_CFA_CELL_DRILL_BY_SETUP_FAILURE_CONFIG_ALL,456_4,WCDMA_RAN_CFA_CELL_DRILL_BY_SETUP_FAILURE_CONFIG,456_0,WCDMA_RAN_CFA_CELL_DRILL_BY_SETUP_FAILURE_CONFIG,456_1,WCDMA_RAN_CFA_CELL_DRILL_BY_SETUP_FAILURE_CONFIG,456_2,WCDMA_RAN_CFA_CELL_DRILL_BY_SETUP_FAILURE_CONFIG"        },
+        {
+            "header": "Impacted Subscribers",
+            "width": "140",
+            "datatype": "string"
+        },
+        {
+        	"header": "HIER3_CELL_ID",
+        	"width": "100",
+            "datatype": "long",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "EVENT_ID",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+			"header" : "RAB Failure Ratio (%)",
+			"width" : "100",
+			"datatype" : "double"
+		},
+        {
+            "header": "CATEGORY_ID",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "DRILL_CAT",
+            "width": "100",
+            "datatype": "string",
+            "isSystem": "TRUE"
+		}
+    ]
+}

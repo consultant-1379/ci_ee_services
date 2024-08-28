@@ -1,0 +1,86 @@
+##
+## LTE Call Failure Analysis eCell category basedEvent Analysis (using aggregation tables)
+##
+## Velocity Parameter:
+##	
+##		$aggregationView the aggregation view to query against	
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time#
+
+#set($conditionColumns=["HIER321_ID"])
+#set($columnsToSelect=["CATEGORY_ID", "IMSI"])
+
+SELECT
+	:HIER321_ID as HIER321_ID,
+	aggView.CATEGORY_ID AS 'Category ID', 
+	topology.VENDOR AS 'Vendor',
+	topology.HIERARCHY_3 AS 'Controller',
+	topology.HIERARCHY_1 AS 'Access Area',	
+	eventDesc.CATEGORY_ID_DESC as 'Category Type',
+	Failures as 'Failures', 
+	subscribers.IMPACTED_SUBSCRIBERS as 'Impacted Subscribers'
+FROM 	
+	(select 
+		CATEGORY_ID,
+		:HIER321_ID as HIER321_ID,
+		sum(NO_OF_ERRORS)
+	from 
+		$aggregationView as tempAgg
+	where	
+		#GET_DATETIME_RANGE()
+		and tempAgg.HIER321_ID = :HIER321_ID
+	group by
+		CATEGORY_ID
+	) as aggView(CATEGORY_ID, HIER321_ID, Failures)	
+	left outer join
+	(
+		select 
+			count(distinct rawview.IMSI),
+			:HIER321_ID as HIER321_ID,
+			CATEGORY_ID
+		from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTables() "rawview" $conditionColumns $columnsToSelect)
+		group by
+			CATEGORY_ID
+	) as subscribers(IMPACTED_SUBSCRIBERS, HIER321_ID, CATEGORY_ID)
+	on (		
+		aggView.CATEGORY_ID = subscribers.CATEGORY_ID
+		)
+	left outer join (
+		select 
+			HIERARCHY_1,
+			HIERARCHY_3,
+			HIER321_ID,
+			VENDOR
+		from 
+			dc.DIM_E_LTE_HIER321
+		where 
+			HIER321_ID = :HIER321_ID	
+		group by
+        	HIERARCHY_1,
+        	HIERARCHY_3,
+			HIER321_ID,
+			VENDOR
+	) as topology
+	on (
+		topology.HIER321_ID = isnull(aggView.HIER321_ID,subscribers.HIER321_ID)
+		)	
+	inner join
+	(
+		 select 
+			CATEGORY_ID,
+			CATEGORY_ID_DESC
+		from 
+			dc.DIM_E_LTE_CFA_EVENTTYPE
+		group by
+			CATEGORY_ID,
+			CATEGORY_ID_DESC
+	 )	as eventDesc
+	 on(
+			eventDesc.CATEGORY_ID = isnull(aggView.CATEGORY_ID,subscribers.CATEGORY_ID)
+		)
+order by aggView.CATEGORY_ID DESC

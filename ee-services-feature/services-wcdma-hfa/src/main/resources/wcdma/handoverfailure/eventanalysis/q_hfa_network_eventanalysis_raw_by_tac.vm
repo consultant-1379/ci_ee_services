@@ -1,0 +1,30 @@
+#set($columnsToIncludeInSourceView=["TAC","CATEGORY_ID"])
+#set($sourceConditions=["TAC"])
+#set($counterColumn="NO_OF_ERRORS")
+#set($imsiColumn="IMSI")
+#set($impactedSubscribers="NO_OF_TOTAL_ERR_SUBSCRIBERS")
+#set($useExclusiveTACs="yes")
+BEGIN
+SELECT
+    sourceRawView.TAC,
+    DIM_E_SGEH_TAC.MANUFACTURER          AS Manufacturer,
+    DIM_E_SGEH_TAC.MARKETING_NAME        AS Model,
+    categoryDesc.CATEGORY_DESC           AS 'Handover Type',
+    sourceRawView.CATEGORY_ID            AS 'Category ID',
+    sourceRawView.${counterColumn}       AS 'Failures',
+    sourceRawView.${impactedSubscribers} AS 'Impacted Subscribers'
+FROM
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_AGGREGATE_CONDITIONED_IMPACTED_SUBSCRIBERS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "sourceRawView" $columnsToIncludeInSourceView $counterColumn $sourceConditions $imsiColumn $impactedSubscribers $useExclusiveTACs)
+LEFT OUTER JOIN DIM_E_SGEH_TAC
+ON
+    (
+        sourceRawView.TAC = DIM_E_SGEH_TAC.TAC
+    )
+INNER JOIN dc.DIM_E_RAN_HFA_CATEGORY categoryDesc
+ON
+    (
+        categoryDesc.CATEGORY_ID = sourceRawView.CATEGORY_ID
+    )
+ORDER BY
+    Failures DESC
+END

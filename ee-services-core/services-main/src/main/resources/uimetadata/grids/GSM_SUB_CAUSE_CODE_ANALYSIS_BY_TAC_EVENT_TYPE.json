@@ -1,0 +1,68 @@
+{
+  "id" : "GSM_SUB_CAUSE_CODE_ANALYSIS_BY_TAC_EVENT_TYPE",
+  "title" : "Terminal GSM Call Failure : Extended Cause Analysis Summary",
+  "autoexpand" : "5",
+  "defaultSortCol" : "6",
+  "defaultSortDir" : "DESC",
+  "categoryId": "GSM_SUB_CAUSE_CODE_ANALYSIS_BY_TAC_EVENT_TYPE",
+  "columns" : [ {  
+  	 "type" : "terminalMake",        
+     "header": "Terminal Make",
+     "width": "100",
+     "datatype": "string",
+     "isHidden" : "TRUE"
+  }, {        
+  	 "type" : "terminalModel",  
+     "header": "Model",
+     "width": "100",
+     "datatype": "string",
+     "isHidden" : "TRUE"
+  }, {      
+  	 "type" : "eventType",    
+     "header": "Event Type",
+     "width": "100",
+     "datatype": "string",
+     "isHidden" : "TRUE"
+  }, {
+  	"type" : "SubCauseGroupID",
+    "header" : "Extended Cause ID",
+    "width" : "150",
+    "datatype" : "int"
+  }, {
+  	"type" : "SubCauseGroup",
+    "header" : "Extended Cause Value",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+  	"type" : "failures",
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int",
+    "drillDownWindowType" :"Call\u0020Setup\u0020Failures,NETWORK_DETAILED_EVENT_ANALYSIS_GSM_CFA_TAC_CALL_SETUP, Call\u0020Drops,NETWORK_DETAILED_EVENT_ANALYSIS_GSM_CFA_TAC_CALL_DROPS"
+  }, {
+  	"type" : "impactedSubs",
+    "header" : "Impacted Subscribers",
+    "width" : "150",
+    "datatype" : "int"
+  }, {
+    "header" : "Cause Group",
+    "width" : "150",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }, {
+    "header" : "Cause Group ID",
+    "width" : "150",
+    "datatype" : "int",
+    "isSystem" : "true"
+  }, {
+    "header" : "CATEGORY_ID",
+    "width" : "0",
+    "datatype" : "int",
+    "isSystem" : "TRUE"
+  }, {          
+     "header" : "TAC",
+     "width" : "100",
+     "datatype" : "int",
+     "isSystem" : "TRUE"
+  } ]
+}

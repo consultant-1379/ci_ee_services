@@ -1,0 +1,15 @@
+{
+  "launchWindowTypeId" : "NETWORK_LTE_CFA_TRACKING_AREA_ANALYSIS",
+  "menuItem" : "NETWORK_RAN_LTE_CFA_SUMMARY",
+  "searchValFromCol" : "2",
+  "type" : "TRAC",
+  "needSearchParam": "FALSE",
+  "params" : [ {
+    "id" : "TRAC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "node"
+  } ]
+}

@@ -1,0 +1,31 @@
+## LTE Handover Failure Analysis Terminal Ranking (using raw tables)
+##
+## Velocity Parameter: 
+##		
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+#set($columnsToSelect=["TAC"])
+#set($conditionColumns=["CATEGORY_ID_2"])
+select
+	#if($count > 0)
+	  top $count
+	#end
+	RANK()
+	over (ORDER BY Failures DESC) AS Rank,
+	$CATEGORY_ID_2 as 'Category ID',
+	DIM_E_SGEH_TAC.VENDOR_NAME AS 'Terminal Make',
+	DIM_E_SGEH_TAC.MARKETING_NAME AS 'Terminal Model',
+	rawview.TAC as 'TAC',
+	COUNT(*) AS Failures
+from
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTables() "rawview" $conditionColumns $columnsToSelect),
+	DIM_E_SGEH_TAC
+where	
+	rawview.TAC = DIM_E_SGEH_TAC.TAC	
+GROUP BY
+	DIM_E_SGEH_TAC.VENDOR_NAME,
+	DIM_E_SGEH_TAC.MARKETING_NAME,
+	rawview.TAC

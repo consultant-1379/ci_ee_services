@@ -1,0 +1,951 @@
+{
+    "extraMenuItems": [
+        {
+            "kpiMenuItem": [
+                {
+                    "id": "KPI_ANALYSIS",
+                    "url": "NETWORK/KPI",
+                    "toolBarType": "TOOLBAR_WIZARD_CHART",
+                    "toggleToolBarType": "TOOLBAR_WIZARD_GRID",
+                    "display": "line",
+                    "wizardID": "KPI_ANALYSIS"
+                }
+            ],
+            "kpiMenuItemCS": [
+                {
+                    "id": "CS_KPI_ANALYSIS",
+                    "url": "MSS/NETWORK/KPI",
+                    "toolBarType": "TOOLBAR_WIZARD_CHART",
+                    "toggleToolBarType": "TOOLBAR_WIZARD_GRID",
+                    "display": "line",
+                    "wizardID": "CS_KPI_ANALYSIS"
+                }
+            ],
+            "ccMenuItem": [
+                {
+                    "id": "CAUSE_CODE_TABLE_CC",
+                    "name": "SGEH Cause Codes Table",
+                    "url": "NETWORK/CAUSE_CODE_ANALYSIS/TABLE_CC",
+                    "toolBarType": "TOOLBAR_CAUSE_CODE_TABLE",
+                    "display": "grid",
+                    "style": "ccButton"
+                }
+            ],
+            "ccMenuItemCS": [
+                {
+                    "id": "CS_CAUSE_CODE_TABLE_CC",
+                    "name": "Cause Codes Table Voice",
+                    "url": "MSS/NETWORK/INTERNAL_CAUSE_CODE_ANALYSIS/TABLE_ICC",
+                    "toolBarType": "TOOLBAR_CAUSE_CODE_TABLE",
+                    "display": "grid",
+                    "style": "ccButton"
+                }
+            ],
+            "ccGSMMenuItem": [
+                {
+                    "id": "GSM_CAUSE_CODE_TABLE_CC",
+                    "name": "Cause Groups Table (GSM Call Failure)",
+                    "url": "NETWORK/GSM/CALL_FAILURE_CAUSE_CODE_ANALYSIS/CAUSE_CODE_TABLE_CC_GSM",
+                    "toolBarType": "TOOLBAR_CAUSE_CODE_TABLE",
+                    "display": "grid",
+                    "style": "ccButton"
+                }
+            ],
+            "sccGSMMenuItem": [
+                {
+                    "id": "GSM_CAUSE_CODE_TABLE_SCC",
+                    "name": "Extended Cause Codes Table (GSM Call Failure)",
+                    "url": "NETWORK/GSM/CALL_FAILURE_CAUSE_CODE_ANALYSIS/CAUSE_CODE_TABLE_SCC_GSM",
+                    "toolBarType": "TOOLBAR_CAUSE_CODE_TABLE",
+                    "display": "grid",
+                    "style": "sccButton"
+                }
+            ],
+            "ccWCDMAMenuItem": [
+                {
+                    "id": "CAUSE_CODE_TABLE_CC_WCDMA",
+                    "name": "Cause Codes Table (WCDMA Call Failure)",
+                    "url": "NETWORK/WCDMA_CAUSE_CODE_ANALYSIS/CAUSE_CODE_TABLE_CC_WCDMA",
+                    "toolBarType": "TOOLBAR_CAUSE_CODE_TABLE",
+                    "display": "grid",
+                    "style": "ccButton"
+                }
+            ],
+            "sccWCDMAMenuItem": [
+                {
+                    "id": "CAUSE_CODE_TABLE_SCC_WCDMA",
+                    "name": "Sub Cause Codes Table (WCDMA Call Failure)",
+                    "url": "NETWORK/WCDMA_CAUSE_CODE_ANALYSIS/CAUSE_CODE_TABLE_SCC_WCDMA",
+                    "toolBarType": "TOOLBAR_CAUSE_CODE_TABLE",
+                    "display": "grid",
+                    "style": "sccButton"
+                }
+            ],
+            "ccWCDMAHFAMenuItem": [
+                {
+                    "id": "CAUSE_CODE_TABLE_CC_WCDMA_HFA",
+                    "name": "Cause Codes Table (WCDMA Handover Failure)",
+                    "url": "NETWORK/WCDMA_HFA_CAUSE_CODE_ANALYSIS/CAUSE_CODE_TABLE_CC_WCDMA",
+                    "toolBarType": "TOOLBAR_CAUSE_CODE_TABLE",
+                    "display": "grid",
+                    "style": "ccButton"
+                }
+            ],
+            "sccWCDMAHFAMenuItem": [
+                {
+                    "id": "CAUSE_CODE_TABLE_SCC_WCDMA_HFA",
+                    "name": "Sub Cause Codes Table (WCDMA Handover Failure)",
+                    "url": "NETWORK/WCDMA_HFA_CAUSE_CODE_ANALYSIS/CAUSE_CODE_TABLE_SCC_WCDMA",
+                    "toolBarType": "TOOLBAR_CAUSE_CODE_TABLE",
+                    "display": "grid",
+                    "style": "sccButton"
+                }
+            ],
+            "sccMenuItem": [
+                {
+                    "id": "CAUSE_CODE_TABLE_SCC",
+                    "name": "SGEH Subcause Codes Table",
+                    "url": "NETWORK/CAUSE_CODE_ANALYSIS/TABLE_SCC",
+                    "toolBarType": "TOOLBAR_CAUSE_CODE_TABLE",
+                    "display": "grid",
+                    "style": "sccButton"
+                }
+            ],
+            "sccMenuItemCS": [
+                {
+                    "id": "CS_CAUSE_CODE_TABLE_SCC",
+                    "name": "Fault Codes Table Voice",
+                    "url": "MSS/NETWORK/INTERNAL_CAUSE_CODE_ANALYSIS/TABLE_FC",
+                    "toolBarType": "TOOLBAR_CAUSE_CODE_TABLE",
+                    "display": "grid",
+                    "style": "sccButton"
+                }
+            ],
+            "sdMenuItem": [
+                {
+                    "id": "SUBSCRIBER_DETAILS_TABLE",
+                    "name": "Subscriber Details",
+                    "url": "SUBSCRIBER/SUBBI/SUBSCRIBER_DETAILS",
+                    "display": "grid",
+                    "style": "imsiIcon",
+                    "needSearchParam": "TRUE",
+                    "columnHeaderPartOfTitle": "1",
+                    "data": [
+                        {
+                            "1": "VIP",
+                            "2": "Mapped MSISDN",
+                            "3": "Home Country",
+                            "4": "Mobile Network Operator",
+                            "5": "Roaming Status",
+                            "6": "Last Cell",
+                            "7": "Last Routing Area",
+                            "8": "Last SGSN-MME",
+                            "9": "First Event Date",
+                            "10": "Last Event Date",
+                            "11": "Last PTMSI"
+                        }
+                    ]
+                }
+            ],
+            "sdMenuItemCS": [
+                {
+                    "id": "CS_SUBSCRIBER_DETAILS_TABLE",
+                    "name": "Subscriber Details Voice",
+                    "url": "MSS/SUBSCRIBER/SUBBI/SUBSCRIBER_DETAILS",
+                    "display": "grid",
+                    "style": "imsiIcon",
+                    "needSearchParam": "TRUE",
+                    "columnHeaderPartOfTitle": "1",
+                    "data": [
+                        {
+                            "1": "VIP",
+                            "2": "Mapped MSISDN",
+                            "3": "HomeCountry",
+                            "4": "MobileNetworkOperator",
+                            "5": "RoamingStatus",
+                            "6": "LastCell",
+                            "7": "LastMSC",
+                            "8": "FirstEventDate",
+                            "9": "LastEventDate"
+                        }
+                    ]
+                }
+            ],
+            "msisdnSdMenuItemCS": [
+                {
+                    "id": "CS_SUBSCRIBER_DETAILS_TABLE_MSISDN",
+                    "name": "MSISDN Subscriber Details Voice",
+                    "url": "MSS/SUBSCRIBER/SUBBI/SUBSCRIBER_DETAILS",
+                    "display": "grid",
+                    "style": "msisdnIcon",
+                    "needSearchParam": "TRUE",
+                    "columnHeaderPartOfTitle": "1",
+                    "data": [
+                        {
+                            "1": "VIP",
+                            "2": "Mapped IMSI",
+                            "3": "HomeCountry",
+                            "4": "MobileNetworkOperator",
+                            "5": "RoamingStatus",
+                            "6": "LastCell",
+                            "7": "LastMSC",
+                            "8": "FirstEventDate",
+                            "9": "LastEventDate"
+                        }
+                    ]
+                }
+            ],
+            "ptmsiSdMenuItem": [
+                {
+                    "id": "SUBSCRIBER_DETAILS_TABLE_PTMSI",
+                    "name": "PTMSI Subscriber Details",
+                    "url": "SUBSCRIBER/SUBBI/SUBSCRIBER_DETAILS",
+                    "display": "grid",
+                    "style": "ptIMSI",
+                    "needSearchParam": "TRUE",
+                    "data": [
+                        {
+                            "1": "Home Country",
+                            "2": "Mobile Network Operator",
+                            "3": "Roaming Status",
+                            "4": "Last Cell",
+                            "5": "Last Routing Area",
+                            "6": "Last SGSN-MME",
+                            "7": "First Event Date",
+                            "8": "Last Event Date"
+                        }
+                    ]
+                }
+            ],
+            "wcdmaCfaSdMenuItem": [
+                {
+                    "id": "WCDMA_CFA_SUBSCRIBER_DETAILS_TABLE",
+                    "name": "Subscriber Details",
+                    "url": "SUBSCRIBER/CALLFAILURE_SUBSESSION_BI/SUBSCRIBER_DETAILS",
+                    "display": "grid",
+                    "style": "imsiIcon",
+                    "needSearchParam": "TRUE",
+                    "data": [
+                        {
+                            "1": "Mapped MSISDN",
+                            "2": "Home Country",
+                            "3": "Mobile Network Operator",
+                            "4": "Roaming Status",
+                            "5": "Last Cell",
+                            "6": "Last RNC",
+                            "7": "First Event Date",
+                            "8": "Last Event Date"
+                        }
+                    ]
+                }
+            ],
+            "sacMenuItem": [
+                {
+                    "id": "SAC_DETAILS_TABLE",
+                    "name": "Cells connected to Access Controller",
+                    "url": "NETWORK/TOPOLOGY/3G/CONNECTED_CELLS",
+                    "display": "grid",
+                    "style": "toolbar_sacbtn",
+                    "needSearchParam": "TRUE",
+                    "columnHeaderPartOfTitle": "",
+                    "data": [
+                        {
+                            "1": "Access Controller",
+                            "2": "Vendor",
+                            "3": "Connected Cell(s)"
+                        }
+                    ]
+                }
+            ],
+            "recurErrMenuItem": [
+                {
+                    "id": "RECUR_ERR_SUMMARY",
+                    "name": "Failure Recurrences",
+                    "display": "grid",
+                    "style": "recurringError",
+                    "toolBarType": "TOOLBAR1",
+                    "params": [
+                        {
+                            "id": "Event Type",
+                            "queryParamName": "eventType"
+                        },
+                        {
+                            "id": "Cause Protocol Type",
+                            "queryParamName": "causeProtTypeHeader"
+                        },
+                        {
+                            "id": "IMSI",
+                            "queryParamName": "imsiHeader",
+                            "optional": "TRUE"
+                        },
+                        {
+                            "id": "Cause Code",
+                            "queryParamName": "causeCodeHeader"
+                        },
+                        {
+                            "id": "Sub Cause Code",
+                            "queryParamName": "subCauseCodeHeader"
+                        },
+                        {
+                            "id": "Cause Code Value",
+                            "queryParamName": "causeCode"
+                        },
+                        {
+                            "id": "Sub Cause Code Value",
+                            "queryParamName": "subCauseCode"
+                        },
+                        {
+                            "id": "Event Result Value",
+                            "queryParamName": "eventResult"
+                        },
+                        {
+                            "id": "Cause Protocol Type ID",
+                            "queryParamName": "causeProtType"
+                        }
+                    ]
+                },
+                {
+                    "id": "CS_RECUR_ERR_SUMMARY",
+                    "name": "Failure Recurrences",
+                    "display": "grid",
+                    "style": "recurringError",
+                    "toolBarType": "TOOLBAR1",
+                    "params": [
+                        {
+                            "id": "Event Type",
+                            "queryParamName": "eventType"
+                        },
+                        {
+                            "id": "Cause Protocol Type",
+                            "queryParamName": "causeProtTypeHeader"
+                        },
+                        {
+                            "id": "IMSI",
+                            "queryParamName": "imsiHeader",
+                            "optional": "TRUE"
+                        },
+                        {
+                            "id": "Cause Code",
+                            "queryParamName": "causeCodeHeader"
+                        },
+                        {
+                            "id": "Sub Cause Code",
+                            "queryParamName": "subCauseCodeHeader"
+                        },
+                        {
+                            "id": "Cause Code Value",
+                            "queryParamName": "causeCode"
+                        },
+                        {
+                            "id": "Sub Cause Code Value",
+                            "queryParamName": "subCauseCode"
+                        },
+                        {
+                            "id": "Event Result Value",
+                            "queryParamName": "eventResult"
+                        },
+                        {
+                            "id": "Cause Protocol Type ID",
+                            "queryParamName": "causeProtType"
+                        }
+                    ]
+                }
+            ],
+            "recurErrMenuItemSubscriber": [
+                {
+                    "url": "SUBSCRIBER/RECUR_ERR/SUM"
+                }
+            ],
+            "recurErrMenuItemNetwork": [
+                {
+                    "url": "NETWORK/RECUR_ERR/SUM"
+                }
+            ],
+            "WCDMA_RAN_CFA_BSC_DRILL_BY_DISCONNECTION_CODE_CONFIG": [
+                {
+                    "id": "DRILL_CHART_RNC_DISCONNECTION_CODE_FROM_DRILL_BY_CONFIG",
+                    "windowType": "CHART",
+                    "style": "rankingBSC",
+                    "name": "Controller Disconnections",
+                    "toolBarType": "TOOLBAR_WIZARD_CHART",
+                    "needSearchParam": "TRUE",
+                    "display": "pie",
+                    "url": "NETWORK/WCDMA_NETWORK_CALL_FAILURE_ANALYSIS/PIE_CHART_NODE_BY_DISCONNECTION",
+                    "isEnabled": "TRUE"
+                }
+            ],
+            "WCDMA_RAN_CFA_CELL_DRILL_BY_DISCONNECTION_CODE_CONFIG":[
+                {
+                    "id":"DRILL_CHART_CELL_DISCONNECTION_CODE_FROM_DRILL_BY_CONFIG",
+                    "windowType":"CHART",
+                    "style":"rankingCell",
+                    "name":"Access Area Disconnections",
+                    "toolBarType":"TOOLBAR_WIZARD_CHART",
+                    "needSearchParam":"TRUE",
+                    "display":"pie",
+                    "url":"NETWORK/WCDMA_NETWORK_CALL_FAILURE_ANALYSIS/PIE_CHART_CELL_BY_DISCONNECTION",
+                    "isEnabled":"TRUE"
+                }
+            ],
+            "EXTRA_NETWORK_CAUSE_CODE_ANALYSIS": [
+                {
+                    "id": "EXTRA_NETWORK_CAUSE_CODE_ANALYSIS",
+                    "name": "Network Cause Code Analysis",
+                    "url": "NETWORK/CAUSE_CODE_ANALYSIS",
+                    "needSearchParam": "TRUE",
+                    "style": "analysisCausecode",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_GROUPING_GRID",
+                    "display": "grid"
+                }
+            ],
+            "CS_EXTRA_NETWORK_CAUSE_CODE_ANALYSIS": [
+                {
+                    "id": "CS_EXTRA_NETWORK_CAUSE_CODE_ANALYSIS",
+                    "name": "Network Cause Code Analysis Voice",
+                    "url": "MSS/NETWORK/INTERNAL_CAUSE_CODE_ANALYSIS",
+                    "needSearchParam": "TRUE",
+                    "style": "analysisCausecode",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "CS_TOOLBAR_GROUPING_GRID",
+                    "display": "grid"
+                }
+            ],
+            "GSM_ROAMING_ANALYSIS_SUMMARY_BY_COUNTRY": [
+                {
+                    "id": "GSM_ROAMING_ANALYSIS_SUMMARY_BY_COUNTRY",
+                    "name": "Roaming by Country",
+                    "url": "NETWORK/GSM/CALL_FAILURE_ROAMING_ANALYSIS/COUNTRY/DRILL",
+                    "needSearchParam": "FALSE",
+                    "style": "analysisRoaming",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR1",
+                    "display": "grid"
+                }
+            ],
+            "GSM_ROAMING_ANALYSIS_SUMMARY_BY_OPERATOR": [
+                {
+                    "id": "GSM_ROAMING_ANALYSIS_SUMMARY_BY_OPERATOR",
+                    "name": "Roaming by Operator",
+                    "url": "NETWORK/GSM/CALL_FAILURE_ROAMING_ANALYSIS/OPERATOR/DRILL",
+                    "needSearchParam": "FALSE",
+                    "style": "analysisRoaming",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR1",
+                    "display": "grid"
+                }
+            ],
+            "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CALL_DROP": [
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CALL_DROP_CC",
+                    "name": "Network Cause Code Analysis",
+                    "nameForTaskBar": "Network Cause Code Analysis (WCDMA Call Drop)",
+                    "url": "NETWORK/CALL_FAILURE_DETAILED_EVENT_ANALYSIS/CAUSECODE/CALL_DROPS",
+                    "needSearchParam": "TRUE",
+                    "style": "analysisCausecode",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_GROUPING_GRID_WCDMA",
+                    "display": "grid"
+                }
+            ],
+            "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CALL_SETUP": [
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CALL_SETUP_CC",
+                    "name": "Network Cause Code Analysis",
+                    "nameForTaskBar": "Network Cause Code Analysis (WCDMA Call Set Up)",
+                    "url": "NETWORK/CALL_FAILURE_DETAILED_EVENT_ANALYSIS/CAUSECODE/CALL_SETUP",
+                    "needSearchParam": "TRUE",
+                    "style": "analysisCausecode",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_GROUPING_GRID_WCDMA",
+                    "display": "grid"
+                }
+            ],
+            "CC_WCDMA_HFA_HANDOVER_TYPE_EVENT_ANALYSIS": [
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_FAILURE_CC",
+                    "name": "Network Cause Code Analysis",
+                    "nameForTaskBar": "Network Cause Code Analysis (WCDMA Handover)",
+                    "url": "NETWORK/WCDMA_HANDOVER_FAILURE_RANKING_ANALYSIS/causeCode/drilldown",
+                    "needSearchParam": "TRUE",
+                    "style": "analysisCausecode",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_GROUPING_GRID_WCDMA_HFA",
+                    "display": "grid"
+                }
+            ],
+            "DATAVOL_ANALYSIS_UPLINK": [
+                {
+                    "id": "DATAVOL_ANALYSIS_UPLINK",
+                    "name": "Data Volume Uplink",
+                    "url": "NETWORK/NETWORK_DATAVOL_ANALYSIS",
+                    "needSearchParam": "TRUE",
+                    "style": "eventVolume",
+                    "windowType": "CHART",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_DATAVOL_CHART",
+                    "toggleToolBarType": "TOOLBAR_TOGGLE_ON_GRID_SAC",
+                    "display": "line"
+                }
+            ],
+            "NETWORK_DATAVOL_ANALYSIS_UPLINK": [
+                {
+                    "id": "NETWORK_DATAVOL_ANALYSIS_UPLINK",
+                    "name": "Network Data Volume Uplink",
+                    "url": "NETWORK/NETWORK_DATAVOL_ANALYSIS",
+                    "needSearchParam": "FALSE",
+                    "style": "eventVolume",
+                    "windowType": "CHART",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_DATAVOL_CHART",
+                    "toggleToolBarType": "TOOLBAR_TOGGLE_ON_GRID",
+                    "display": "line"
+                }
+            ],
+            "DATAVOL_ANALYSIS_DOWNLINK": [
+                {
+                    "id": "DATAVOL_ANALYSIS_DOWNLINK",
+                    "name": "Data Volume Downlink",
+                    "url": "NETWORK/NETWORK_DATAVOL_ANALYSIS",
+                    "needSearchParam": "TRUE",
+                    "style": "eventVolume",
+                    "windowType": "CHART",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_DATAVOL_CHART",
+                    "toggleToolBarType": "TOOLBAR_TOGGLE_ON_GRID_SAC",
+                    "display": "line"
+                }
+            ],
+            "NETWORK_DATAVOL_ANALYSIS_DOWNLINK": [
+                {
+                    "id": "NETWORK_DATAVOL_ANALYSIS_DOWNLINK",
+                    "name": "Network Data Volume Downlink",
+                    "url": "NETWORK/NETWORK_DATAVOL_ANALYSIS",
+                    "needSearchParam": "FALSE",
+                    "style": "eventVolume",
+                    "windowType": "CHART",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_DATAVOL_CHART",
+                    "toggleToolBarType": "TOOLBAR_TOGGLE_ON_GRID",
+                    "display": "line"
+                }
+            ],
+            "DATAVOL_ANALYSIS_PDP": [
+                {
+                    "id": "DATAVOL_ANALYSIS_PDP",
+                    "name": "Data Volume PDP",
+                    "url": "NETWORK/NETWORK_DATAVOL_ANALYSIS",
+                    "needSearchParam": "TRUE",
+                    "style": "eventVolume",
+                    "windowType": "CHART",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_DATAVOL_CHART",
+                    "toggleToolBarType": "TOOLBAR_TOGGLE_ON_GRID_SAC",
+                    "display": "line"
+                }
+            ],
+            "NETWORK_DATAVOL_ANALYSIS_PDP": [
+                {
+                    "id": "NETWORK_DATAVOL_ANALYSIS_PDP",
+                    "name": "Network Data Volume PDP",
+                    "url": "NETWORK/NETWORK_DATAVOL_ANALYSIS",
+                    "needSearchParam": "FALSE",
+                    "style": "eventVolume",
+                    "windowType": "CHART",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_DATAVOL_CHART",
+                    "toggleToolBarType": "TOOLBAR_TOGGLE_ON_GRID",
+                    "display": "line"
+                }
+            ],
+            "DRILL_CHART_RADIO_NETWORK_KPI": [
+                {
+                    "id": "DRILL_CHART_RADIO_NETWORK_KPI",
+                    "name": "Radio Network KPI",
+                    "url": "DASHBOARD/KPI/RAN/DRILL_DOWN",
+                    "needSearchParam": "PATH",
+                    "style": "analysisCausecode",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_PLAIN_GRID_NO_DRILLDOWNS",
+                    "display": "grid"
+                }
+            ],
+            "TERMINAL_EVENT_ANALYSIS_GRID_FROM_DASHBOARD": [
+                {
+                    "id": "TERMINAL_EVENT_ANALYSIS_GRID_FROM_DASHBOARD",
+                    "name": "Top Terminals Event Analysis",
+                    "url": "DASHBOARD/TERMINAL/DRILLDOWN",
+                    "needSearchParam": "PATH",
+                    "style": "analysisEvent",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_PLAIN_GRID_NO_DRILLDOWNS_NO_TIME_BUTTON",
+                    "display": "grid",
+                    "key": "SUM"
+                }
+            ],
+            "TERMINAL_EVENT_ANALYSIS_GRID_FROM_DASHBOARD_WCDMA": [
+                {
+                    "id": "TERMINAL_EVENT_ANALYSIS_GRID_FROM_DASHBOARD_WCDMA",
+                    "name": "WCDMA Top Terminals Event Analysis",
+                    "url": "DASHBOARD/TERMINAL/DRILLDOWN",
+                    "needSearchParam": "PATH",
+                    "style": "analysisEvent",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_PLAIN_GRID_NO_DRILLDOWNS_NO_TIME_BUTTON",
+                    "display": "grid",
+                    "key": "SUM"
+                }
+            ],
+            "TERMINAL_EVENT_ANALYSIS_GRID_FROM_DASHBOARD_LTE": [
+                {
+                    "id": "TERMINAL_EVENT_ANALYSIS_GRID_FROM_DASHBOARD_LTE",
+                    "name": "LTE Call Failure Top Terminals Event Analysis",
+                    "url": "DASHBOARD/TERMINAL/DRILLDOWN",
+                    "needSearchParam": "PATH",
+                    "style": "analysisEvent",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_PLAIN_GRID_NO_DRILLDOWNS_NO_TIME_BUTTON",
+                    "display": "grid",
+                    "key": "SUM"
+                }
+            ],
+            "ACCESS_AREA_EVENT_ANALYSIS_GRID_FROM_DASHBOARD_LTE_CFA": [
+                {
+                    "id": "ACCESS_AREA_EVENT_ANALYSIS_GRID_FROM_DASHBOARD_LTE_CFA",
+                    "name": "LTE Call Failure Top Access Areas Event Analysis",
+                    "url": "DASHBOARD/CELL/CFA/DRILLDOWN",
+                    "needSearchParam": "PATH",
+                    "style": "analysisEvent",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_PLAIN_GRID_NO_DRILLDOWNS_NO_TIME_BUTTON",
+                    "display": "grid",
+                    "key": "SUM"
+                }
+            ],
+            "ACCESS_AREA_EVENT_ANALYSIS_GRID_FROM_DASHBOARD_LTE_HFA": [
+                {
+                    "id": "ACCESS_AREA_EVENT_ANALYSIS_GRID_FROM_DASHBOARD_LTE_HFA",
+                    "name": "LTE Handover Failure Top Access Areas Event Analysis",
+                    "url": "DASHBOARD/CELL/HFA/DRILLDOWN",
+                    "needSearchParam": "PATH",
+                    "style": "analysisEvent",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_PLAIN_GRID_NO_DRILLDOWNS_NO_TIME_BUTTON",
+                    "display": "grid",
+                    "key": "SUM"
+                }
+            ],
+            "ccLTECFAMenuItem": [
+                {
+                    "id": "LTE_CALL_FAILURE_CAUSE_CODE_TABLE_CC",
+                    "name": "Cause Codes Table (LTE Call Failure)",
+                    "url": "NETWORK/LTE_CFA_CAUSE_CODE_ANALYSIS/LTE_CALL_FAILURE_TABLE_CC",
+                    "toolBarType": "TOOLBAR_CAUSE_CODE_TABLE",
+                    "display": "grid",
+                    "style": "ccButton"
+                }
+            ],
+            "ccLTEHFAMenuItem": [
+                {
+                    "id": "LTE_HANDOVER_FAILURE_CAUSE_CODE_TABLE_CC",
+                    "name": "Cause Codes Table (LTE Handover Failure)",
+                    "url": "NETWORK/LTE_HFA_CAUSE_CODE_ANALYSIS/LTE_HANDOVER_FAILURE_TABLE_CC",
+                    "toolBarType": "TOOLBAR_CAUSE_CODE_TABLE",
+                    "display": "grid",
+                    "style": "ccButton"
+                }
+            ],
+            "NETWORK_KPI_NOTIFICATION_CRITICAL_DATA": [
+                {
+                    "id": "NETWORK_KPI_NOTIFICATION_CRITICAL_DATA",
+                    "name": "Critical Alarms",
+                    "url": "NETWORK/KPI_NOTIFICATION/NOTIFICATION_DATA",
+                    "needSearchParam": "FALSE",
+                    "style": "criticalNotificationSeverity",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_KPIPANEL_WIN",
+                    "display": "grid",
+                    "widgetSpecificParams": "&notificationSeverity=critical"
+                }
+            ],
+            "NETWORK_KPI_NOTIFICATION_MAJOR_DATA": [
+                {
+                    "id": "NETWORK_KPI_NOTIFICATION_MAJOR_DATA",
+                    "name": "Major Alarms",
+                    "url": "NETWORK/KPI_NOTIFICATION/NOTIFICATION_DATA",
+                    "needSearchParam": "FALSE",
+                    "style": "majorNotificationSeverity",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_KPIPANEL_WIN",
+                    "display": "grid",
+                    "widgetSpecificParams": "&notificationSeverity=major"
+                }
+            ],
+            "NETWORK_KPI_NOTIFICATION_MINOR_DATA": [
+                {
+                    "id": "NETWORK_KPI_NOTIFICATION_MINOR_DATA",
+                    "name": "Minor Alarms",
+                    "url": "NETWORK/KPI_NOTIFICATION/NOTIFICATION_DATA",
+                    "needSearchParam": "FALSE",
+                    "style": "minorNotificationSeverity",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_KPIPANEL_WIN",
+                    "display": "grid",
+                    "widgetSpecificParams": "&notificationSeverity=minor"
+                }
+            ],
+            "NETWORK_KPI_NOTIFICATION_WARNING_DATA": [
+                {
+                    "id": "NETWORK_KPI_NOTIFICATION_WARNING_DATA",
+                    "name": "Warning Alarms",
+                    "url": "NETWORK/KPI_NOTIFICATION/NOTIFICATION_DATA",
+                    "needSearchParam": "FALSE",
+                    "style": "warningNotificationSeverity",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_KPIPANEL_WIN",
+                    "display": "grid",
+                    "widgetSpecificParams": "&notificationSeverity=warning"
+                }
+            ],
+            "WCDMA_RAN_CFA_BSC_DRILL_BY_DISCONNECTION_CODE": [
+                {
+                    "id": "DRILL_CHART_RNC_DISCONNECTION_CODE_FROM_DRILL_BY",
+                    "name": "Controller Disconnections",
+                    "url": "NETWORK/WCDMA_NETWORK_CALL_FAILURE_ANALYSIS/PIE_CHART_NODE_BY_DISCONNECTION",
+                    "needSearchParam": "TRUE",
+                    "style": "rankingBSC",
+                    "windowType": "CHART",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_WIZARD_CHART",
+                    "display": "pie"
+                }
+            ],
+            "WCDMA_RAN_CFA_BSC_DRILL_BY_RAB_TYPE": [
+                {
+                    "id": "DRILL_CHART_RNC_RAB_TYPE_FROM_DRILL_BY",
+                    "name": "Controller RAB Type",
+                    "url": "NETWORK/WCDMA_NETWORK_CALL_FAILURE_ANALYSIS/PIE_CHART_NODE_BY_RABTYPE",
+                    "needSearchParam": "TRUE",
+                    "style": "rankingBSC",
+                    "windowType": "CHART",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_WIZARD_CHART",
+                    "display": "pie"
+                }
+            ],
+            "WCDMA_RAN_CFA_BSC_DRILL_BY_RAB_TYPE_CONFIG":[
+                {
+                    "id":"DRILL_CHART_RNC_RAB_TYPE_FROM_DRILL_BY",
+                    "name":"Controller RAB Type",
+                    "url":"NETWORK/WCDMA_NETWORK_CALL_FAILURE_ANALYSIS/PIE_CHART_NODE_BY_RABTYPE",
+                    "needSearchParam":"TRUE",
+                    "style":"rankingBSC",
+                    "windowType":"CHART",
+                    "isEnabled":"TRUE",
+                    "toolBarType":"TOOLBAR_WIZARD_CHART",
+                    "display":"pie"
+                }
+            ],
+            "NETWORK_EVENT_ANALYSIS_WCDMA_CFA_BSC_RANKING":[
+                {
+                    "id":"NETWORK_EVENT_ANALYSIS_WCDMA_CFA_BSC",
+                    "name":"Failed Event Analysis",
+                    "url":"NETWORK/WCDMA_CFA_NETWORK_EVENT_ANALYSIS/NODE",
+                    "needSearchParam":"TRUE",
+                    "style":"rankingBSC",
+                    "windowType":"GRID",
+                    "isEnabled":"TRUE",
+                    "toolBarType":"TOOLBAR1",
+                    "display":"grid"
+                }
+            ],
+            "WCDMA_RAN_CFA_RNC": [
+                {
+                    "id": "NETWORK_EVENT_ANALYSIS_CALL_FALURE_RNC",
+                    "name": "Failed Event Analysis",
+                    "url": "NETWORK/CALL_FAILURE_EVENT_SUMMARY/RNC",
+                    "needSearchParam": "TRUE",
+                    "style": "rankingBSC",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR1",
+                    "display": "grid"
+                }
+            ],
+            "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_BSC_CALL_DROPS_CONFIG": [
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_BSC_CALL_DROPS_CONFIG",
+                    "name": "Controller Raw Data (Call Drops)",
+                    "url": "NETWORK/WCDMA_NETWORK_CALL_FAILURE_FILTER_ANALYSIS/NODE_BY_FILTER",
+                    "needSearchParam": "TRUE",
+                    "style": "analysisCausecode",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR1",
+                    "display": "grid"
+                }
+            ],
+            "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_BSC_CALL_SETUP_CONFIG": [
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_BSC_CALL_SETUP_CONFIG",
+                    "name": "Controller Raw Data (Call Setup Failures)",
+                    "url": "NETWORK/WCDMA_NETWORK_CALL_FAILURE_FILTER_ANALYSIS/NODE_BY_FILTER",
+                    "needSearchParam": "TRUE",
+                    "style": "analysisCausecode",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR1",
+                    "display": "grid"
+                }
+            ],
+
+            "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_CELL_CALL_SETUP_CONFIG":[
+                {
+                    "id":"NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CELL_CALL_SETUP_CONFIG",
+                    "name":"Access Area Raw Data (Call Setup Failures)",
+                    "url":"NETWORK/WCDMA_NETWORK_CALL_FAILURE_FILTER_ANALYSIS/NODE_BY_FILTER",
+                    "needSearchParam":"TRUE",
+                    "style":"analysisCausecode",
+                    "windowType":"GRID",
+                    "isEnabled":"TRUE",
+                    "toolBarType":"TOOLBAR1",
+                    "display":"grid"
+                }
+            ],
+            "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_CELL_CALL_DROPS_CONFIG":[
+                {
+                    "id":"NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CELL_CALL_DROPS_CONFIG",
+                    "name":"Access Area Raw Data (Call Drops)",
+                    "url":"NETWORK/WCDMA_NETWORK_CALL_FAILURE_FILTER_ANALYSIS/NODE_BY_FILTER",
+                    "needSearchParam":"TRUE",
+                    "style":"analysisCausecode",
+                    "windowType":"GRID",
+                    "isEnabled":"TRUE",
+                    "toolBarType":"TOOLBAR1",
+                    "display":"grid"
+                }
+            ],
+            "WCDMA_RAN_CFA_CELL_DRILL_BY_DISCONNECTION_CODE": [
+                {
+                    "id": "DRILL_CHART_CELL_DISCONNECTION_CODE_FROM_DRILL_BY",
+                    "name": "Cell Disconnections",
+                    "url": "NETWORK/WCDMA_NETWORK_CALL_FAILURE_ANALYSIS/PIE_CHART_CELL_BY_DISCONNECTION",
+                    "needSearchParam": "TRUE",
+                    "style": "rankingCell",
+                    "windowType": "CHART",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_WIZARD_CHART",
+                    "display": "pie"
+                }
+            ],
+            "WCDMA_RAN_CFA_CELL_DRILL_BY_RAB_TYPE": [
+                {
+                    "id": "DRILL_CHART_CELL_RAB_TYPE_FROM_DRILL_BY",
+                    "name": "Cell RAB Type",
+                    "url": "NETWORK/WCDMA_NETWORK_CALL_FAILURE_ANALYSIS/PIE_CHART_CELL_BY_RABTYPE",
+                    "needSearchParam": "TRUE",
+                    "style": "rankingCell",
+                    "windowType": "CHART",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_WIZARD_CHART",
+                    "display": "pie"
+                }
+            ],
+            "WCDMA_RAN_CFA_CELL_DRILL_BY_RAB_TYPE_CONFIG":[
+                {
+                    "id":"DRILL_CHART_CELL_RAB_TYPE_FROM_DRILL_BY",
+                    "name":"Cell RAB Type",
+                    "url":"NETWORK/WCDMA_NETWORK_CALL_FAILURE_ANALYSIS/PIE_CHART_CELL_BY_RABTYPE",
+                    "needSearchParam":"TRUE",
+                    "style":"rankingCell",
+                    "windowType":"CHART",
+                    "isEnabled":"TRUE",
+                    "toolBarType":"TOOLBAR_WIZARD_CHART",
+                    "display":"pie"
+                }
+            ],
+            "NETWORK_EVENT_ANALYSIS_WCDMA_CFA_CELL_RANKING": [
+                {
+                    "id": "NETWORK_EVENT_ANALYSIS_WCDMA_CFA_CELL",
+                    "name": "Failed Event Analysis",
+                    "url": "NETWORK/WCDMA_CFA_NETWORK_EVENT_ANALYSIS/NODE",
+                    "needSearchParam": "TRUE",
+                    "style": "rankingCell",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_no_nav",
+                    "display": "grid"
+                }
+            ],
+            "WCDMA_RAN_CFA_CELL": [
+                {
+                    "id": "NETWORK_CELL_RANKING_RAN_WCDMA_EVENT_ANALYSIS_SUMMARY",
+                    "name": "Failed Event Analysis",
+                    "url": "NETWORK/CALL_FAILURE_EVENT_SUMMARY/ACCESS_AREA",
+                    "needSearchParam": "TRUE",
+                    "style": "rankingCell",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR1",
+                    "display": "grid"
+                }
+            ],
+            "WCDMA_RAN_CFA_TAC_DRILL_BY_DISCONNECTION_CODE": [
+                {
+                    "id": "DRILL_CHART_TAC_DISCONNECTION_CODE_FROM_DRILL_BY",
+                    "name": "Terminal Disconnections",
+                    "url": "TERMINAL/WCDMA_NETWORK_CALL_FAILURE_ANALYSIS/PIE_CHART_TERMINAL_BY_DISCONNECTION",
+                    "needSearchParam": "TRUE",
+                    "style": "rankingTerminal",
+                    "windowType": "CHART",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_WIZARD_CHART",
+                    "display": "pie"
+                }
+            ],
+            "WCDMA_RAN_CFA_TAC_DRILL_BY_RAB_TYPE": [
+                {
+                    "id": "DRILL_CHART_TAC_RAB_TYPE_FROM_DRILL_BY",
+                    "name": "Terminal RAB Type",
+                    "url": "TERMINAL/WCDMA_NETWORK_CALL_FAILURE_ANALYSIS/PIE_CHART_TERMINAL_BY_RABTYPE",
+                    "needSearchParam": "TRUE",
+                    "style": "rankingTerminal",
+                    "windowType": "CHART",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR_WIZARD_CHART",
+                    "display": "pie"
+                }
+            ],
+            "WCDMA_RAN_CFA_TAC": [
+                {
+                    "id": "TERMINAL_EVENT_ANALYSIS_WCDMA_CFA_SUMMARY_TAC",
+                    "name": "Failed Event Analysis",
+                    "url": "TERMINAL/WCDMA/CALL_FAILURE_EVENT_ANALYSIS/TERMINAL/SUMMARY",
+                    "needSearchParam": "TRUE",
+                    "style": "rankingTerminal",
+                    "windowType": "GRID",
+                    "isEnabled": "TRUE",
+                    "toolBarType": "TOOLBAR1",
+                    "display": "grid"
+                }
+            ]
+        }
+    ]
+}

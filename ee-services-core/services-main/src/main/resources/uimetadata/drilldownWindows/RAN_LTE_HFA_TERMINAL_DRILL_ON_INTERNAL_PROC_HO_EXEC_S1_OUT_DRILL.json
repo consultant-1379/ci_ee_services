@@ -1,0 +1,20 @@
+{
+  "id" : "RAN_LTE_HFA_TERMINAL_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_OUT_DRILL",
+  "name" : "Terminal LTE Handover Failure : Detail Failed Event Analysis",
+  "gridDisplayID" : "RAN_LTE_HFA_TERMINAL_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_HO_EXEC_S1_OUT",
+  "url" : "TERMINAL/LTE_HFA_DETAILED_EVENT_ANALYSIS/TERMINAL",
+  "needSearchParam": "FALSE",
+  "params" : [ 
+  	{
+    "id" : "1",
+    "queryParamName" : "tac"
+  	},{
+  	"id" : "5",
+  	"queryParamName" : "eventID"
+  	}],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

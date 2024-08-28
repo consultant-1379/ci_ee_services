@@ -1,0 +1,24 @@
+{
+  "id" : "DRILL_CHART_TERMINAL_GA_MOST_ATTACHED_FAILURES",
+  "title" : "Group Analysis - Most Attach Failures",
+  "autoexpand" : "2",
+  "defaultSortCol" : "4",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Model",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  } ]
+}

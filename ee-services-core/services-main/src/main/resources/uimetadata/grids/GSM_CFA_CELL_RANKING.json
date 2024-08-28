@@ -1,0 +1,34 @@
+{
+  "id" : "GSM_CFA_CELL_RANKING",
+  "title" : "Access Area - GSM Call Failure Analysis",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "autoexpand" : "4",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Controller",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Access Area",
+    "width" : "150",
+    "datatype" : "string",
+    "drillDownWindowType" : "NETWORK_GSM_EVENT_ANALYSIS_SUMMARY_CELL"
+  }, {
+    "header" : "Failures",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "HIER321_ID",
+    "width" : "0",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  } ]
+}

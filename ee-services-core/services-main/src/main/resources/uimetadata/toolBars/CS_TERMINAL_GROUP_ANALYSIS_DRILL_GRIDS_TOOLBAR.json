@@ -1,0 +1,99 @@
+{
+  "toolBarType" : "CS_TERMINAL_GROUP_ANALYSIS_DRILL_GRIDS_TOOLBAR",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnView",
+      "name" : "View",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to change display options",
+      "isEnabled" : "TRUE",
+      "items" : [ {
+        "eventID" : "CS_TERMINAL_GA_MOST_POPULAR",
+        "id" : "menuGTA_MostPop",
+        "name" : "Most Frequent Signaling",
+        "style" : "",
+        "url" : "MSS/TERMINAL/GROUP_ANALYSIS/MOST_POPULAR",
+        "windowType" : "CHART",
+        "display" : "barOneline"
+      }, {
+        "eventID" : "CS_TERMINAL_GA_MOST_ATTACHED_FAILURES",
+        "id" : "menuGTA_AttachedFailures",
+        "name" : "Most Attach Failures",
+        "style" : "",
+        "url" : "MSS/TERMINAL/GROUP_ANALYSIS/MOST_ATTACHED_FAILURES",
+        "windowType" : "CHART",
+        "display" : "barOneline"
+      }, {
+        "eventID" : "CS_TERMINAL_GA_MOST_PDP_SESSION_SETUP_FAILURES",
+        "id" : "menuGTA_PDPSetupFailures",
+        "name" : "Most PDP Session Setup Failures",
+        "style" : "",
+        "url" : "MSS/TERMINAL/GROUP_ANALYSIS/MOST_PDP_SESSION_SETUP_FAILURES",
+        "windowType" : "CHART",
+        "display" : "barOneline"
+      }, {
+        "eventID" : "CS_TERMINAL_GA_MOST_MOBILITY_ISSUES",
+        "id" : "menuGTA_MostMobilityIssues",
+        "name" : "Most Mobility Failures",
+        "style" : "",
+        "url" : "MSS/TERMINAL/GROUP_ANALYSIS/MOST_MOBILITY_ISSUES",
+        "windowType" : "CHART",
+        "display" : "barOneline"
+      } ]
+    }, {
+      "id" : "btnBack",
+      "name" : "",
+      "style" : "toolbar_back",
+      "isEnabled" : "FALSE",
+      "isVisible" : "FALSE",
+      "tip" : "Backward Navigation",
+      "isToggle" : "False",
+      "eventID" : "BACK"
+    }, {
+      "id" : "btnForward",
+      "name" : "",
+      "style" : "toolbar_forward",
+      "isEnabled" : "FALSE",
+      "isVisible" : "FALSE",
+      "tip" : "Forward Navigation",
+      "isToggle" : "FALSE",
+      "eventID" : "FORWARD"
+    }, {
+      "id" : "btnNav",
+      "name" : "History",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to navigate visited windows",
+      "isEnabled" : "FALSE",
+      "isVisible" : "FALSE",
+      "eventID" : "NAVIGATION",
+      "items" : [ {
+        "id" : "DUMMY_VALUE",
+        "name" : "DUMMY_VALUE"
+      } ]
+    }, {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    }, {
+      "id" : "btnExport",
+      "name" : "",
+      "style" : "toolbar_exportbtn",
+      "tip" : "Click to export the data to CSV",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "EXPORT"
+    } ]
+  } ]
+}

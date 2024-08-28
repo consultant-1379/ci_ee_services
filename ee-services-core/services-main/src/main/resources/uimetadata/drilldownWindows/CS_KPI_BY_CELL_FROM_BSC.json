@@ -1,0 +1,25 @@
+{
+  "id" : "CS_KPI_BY_CELL_FROM_BSC",
+  "name" : "KPI Breakdown by Access Area Voice",
+  "url" : "MSS/NETWORK/KPI_RATIO",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "bsc",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "3",
+    "queryParamName" : "HIER3_ID"
+  }, {
+    "id" : "4",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

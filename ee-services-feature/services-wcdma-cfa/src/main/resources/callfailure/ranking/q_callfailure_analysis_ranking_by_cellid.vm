@@ -1,0 +1,114 @@
+##
+## WCDMA Call Failure Analysis Access Area Ranking (using raw tables)
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+## Least squares fit Linear Regression
+## Formula: slope = (n(Sigma(t*v)) - Sigma(t)*Sigma(v)) /( n(Sigma(t^2)) - (Sigma(t))^2)
+## t --- timestamp
+## v --- value
+## n --- number of measurement
+## This algorithm indicate to the user whether the overall trend is increasing, decreasing, or remaining the same.
+## When the slope is postive, the the overall trend is upward.
+## When the slope is negative, the the overall trend is downward.
+## When the slope is zero, the the overall trend is level.
+
+#set($whereClause = "AND HIER3_CELL_ID IS NOT NULL AND EVENT_ID = :eventID")
+#set($useExclusiveTACs="no")
+#set($distinct ="")
+
+
+#if($categoryId == "0")
+#set($columnsToIncludeInNewView = ["HIER3_CELL_ID","DATETIME_ID","CS_RAB_FAIL_CNT","CS_ERR_CNT"])
+#elseif($categoryId == "1")
+	#set($columnsToIncludeInNewView = ["HIER3_CELL_ID","DATETIME_ID","PS_RAB_FAIL_CNT","PS_ERR_CNT"])
+#elseif($categoryId == "2")
+	#set($columnsToIncludeInNewView = ["HIER3_CELL_ID","DATETIME_ID","MULTI_RAB_FAIL_CNT","MULTI_ERR_CNT"])
+#elseif($categoryId == "3")
+	#set($columnsToIncludeInNewView = ["HIER3_CELL_ID","DATETIME_ID","CS_RAB_FAIL_CNT","PS_RAB_FAIL_CNT","MULTI_RAB_FAIL_CNT","CS_ERR_CNT","PS_ERR_CNT","MULTI_ERR_CNT"])
+#end
+
+BEGIN
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	RANK() 
+	over (order by FAILURES desc) as rank,
+	 (
+        CASE
+            WHEN slopevalue > 0
+            THEN 'UP'
+            WHEN slopevalue < 0
+            THEN 'DOWN'
+            WHEN slopevalue = 0
+            THEN 'LEVEL'
+        END)AS SLOPE,
+	topology_table.CELL_ID as 'Access Area',
+	topology_table.HIERARCHY_3 as 'Controller',
+	topology_table.VENDOR as 'RAN Vendor',
+	eventtype.EVENT_ID_ALTERNATE_DESC,
+	data_view.NO_OF_ERR AS FAILURES,
+	data_view.HIER3_CELL_ID AS HIDDEN_HIER3_CELL_ID_FOR_DRILL_TITLE,
+    eventtype.EVENT_ID AS HIDDEN_EVENT_ID_FOR_TITLE,
+	##DRILL_CAT and CATEGORY_ID value is got from UI and return to UI since it needs for drilling.
+	:categoryId AS CATEGORY_ID,
+	'$drillCat' AS DRILL_CAT
+	##
+FROM
+	(SELECT
+		##Least squares fit linear regression algorithm
+		(( COUNT(*)*SUM(tv)-SUM(t)*SUM(v))/( COUNT(*)*SUM(t2)-POWER(SUM(t),2))) AS slopevalue,
+		SUM(v)                                                                  AS NO_OF_ERR,
+		HIER3_CELL_ID
+	FROM
+	(	
+		SELECT 
+			#if($categoryId == "0")
+				SUM(CS_ERR_CNT) AS v,
+			#elseif($categoryId == "1")
+				SUM(PS_ERR_CNT) AS v,
+			#elseif($categoryId == "2")
+				SUM(MULTI_ERR_CNT) AS v,
+			#elseif($categoryId == "3")
+				COUNT(*) AS v,
+			#end
+			DATEDIFF(SECOND,'1970-01-01',DATETIME_ID) AS t,
+			(v*t) AS tv,
+			POWER(t,2) AS t2,
+			HIER3_CELL_ID
+		FROM
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToIncludeInNewView $whereClause $useExclusiveTACs $distinct)
+		WHERE
+			#if($categoryId == "0")
+				CS_RAB_FAIL_CNT > 0
+			#elseif($categoryId == "1")
+				PS_RAB_FAIL_CNT > 0 
+			#elseif($categoryId == "2")
+			    MULTI_RAB_FAIL_CNT > 0 
+			#elseif($categoryId == "3")
+				(CS_RAB_FAIL_CNT > 0 OR PS_RAB_FAIL_CNT > 0 OR MULTI_RAB_FAIL_CNT > 0)
+			#end
+		GROUP BY
+			t,
+			HIER3_CELL_ID
+	) as raw_results
+	GROUP BY HIER3_CELL_ID) as data_view
+	LEFT OUTER JOIN
+	 (	
+		SELECT DISTINCT
+				HIER3_CELL_ID,VENDOR,CELL_ID,HIERARCHY_3
+			FROM
+				DIM_E_SGEH_HIER321_CELL
+		WHERE RAT = 1
+	) as topology_table(HIER3_CELL_ID,VENDOR,CELL_ID,HIERARCHY_3)
+	on (
+		topology_table.HIER3_CELL_ID = data_view.HIER3_CELL_ID
+		)
+	,
+	(SELECT DISTINCT EVENT_ID_ALTERNATE_DESC,EVENT_ID FROM DIM_E_RAN_CFA_EVENTTYPE WHERE EVENT_ID = :eventID)AS eventtype
+END

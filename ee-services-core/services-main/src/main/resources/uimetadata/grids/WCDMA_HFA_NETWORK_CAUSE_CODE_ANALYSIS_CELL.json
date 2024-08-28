@@ -1,0 +1,70 @@
+{
+    "id": "WCDMA_HFA_NETWORK_CAUSE_CODE_ANALYSIS_CELL",
+    "title": "Access Area Cause Code Analysis (WCDMA Handover Failure)",
+    "autoexpand": "1",
+    "defaultSortCol": "3",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "Label",
+            "width": "280",
+            "datatype": "string"
+        },
+        {
+            "header": "Cause Code",
+            "width": "200",
+            "datatype": "string",
+            "drillDownWindowType": "*,WCDMA_HFA_NETWORK_SUB_CAUSE_CODE_ANALYSIS_CELL,Soft\u0020Handover,WCDMA_HFA_NETWORK_SUB_CAUSE_CODE_ANALYSIS_CELL,Interfrequency\u0020Handover,WCDMA_HFA_NETWORK_SUB_CAUSE_CODE_ANALYSIS_CELL,IRAT\u0020Handover,WCDMA_HFA_NETWORK_SUB_CAUSE_CODE_ANALYSIS_CELL,HSDSCH\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_HSDSCH_CELL_DRILL"
+        },
+        {
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int"
+        },
+        {
+            "header": "Source Impacted Subscribers",
+            "width": "200",
+            "datatype": "int"
+        },
+        {
+            "header": "Target Impacted Subscribers",
+            "width": "200",
+            "datatype": "int"
+        },
+        {
+            "header": "Cause Code Id",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Event Id",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Category Id",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Handover Type",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "header": "Group Name",
+            "width": "100",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "State",
+            "width": "70",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        }
+    ]
+}

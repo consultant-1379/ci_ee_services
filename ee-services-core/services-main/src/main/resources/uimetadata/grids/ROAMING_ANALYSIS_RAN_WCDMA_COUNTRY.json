@@ -1,0 +1,30 @@
+{
+    "id": "ROAMING_ANALYSIS_RAN_WCDMA_COUNTRY",
+    "isChartData": "TRUE",
+    "title": "Inbound Roaming by Country (WCDMA Call Failure Event Volume)",
+    "autoexpand": "1",
+    "defaultSortCol": "3",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "Country",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Event Failures",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "Roaming Subscribers",
+            "width": "120",
+            "datatype": "int"
+        },
+        {
+            "header": "MCC",
+            "width": "100",
+            "datatype": "string"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "id": "CAUSE_CODE_TABLE_CC_WCDMA_HFA",
+    "title": "Cause Codes Table (WCDMA Handover Failure)",
+    "noSearchFieldInTitle": "TRUE",
+    "autoexpand": "4",
+    "defaultSortCol": "1",
+    "columns": [
+        {
+            "header": "Cause Code Id",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "Event Id",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "Event",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "Cause Code",
+            "width": "100",
+            "datatype": "string"
+        }
+    ]
+}
+

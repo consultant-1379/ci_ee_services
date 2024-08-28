@@ -1,0 +1,12 @@
+{
+  "id" : "GSM_CAUSE_CODE_TABLE_CC",
+  "title" : "Cause Groups Table (GSM Call Failure)",
+  "noSearchFieldInTitle" : "TRUE",
+  "autoexpand" : "1",
+  "defaultSortCol" : "1",
+  "columns" : [{
+    "header" : "Cause Groups",
+    "width" : "200",
+    "datatype" : "string"
+  } ]
+}

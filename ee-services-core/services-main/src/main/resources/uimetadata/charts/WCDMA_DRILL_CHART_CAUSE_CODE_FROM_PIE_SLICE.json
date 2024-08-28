@@ -1,0 +1,36 @@
+ {
+    "id" : "WCDMA_DRILL_CHART_CAUSE_CODE_FROM_PIE_SLICE",
+    "title" : "Sub Cause Code Analysis",
+    "ylabel" : "Number of Events",
+    "xlabel" : "Group Name",
+    "secondYAxisID" : "3",
+    "xaxisID" : "2",
+    "items" : [ {
+      "id" : "1",
+      "name" : "Sub Cause Code Id",
+      "queryParam" : "subCauseCode",
+      "color" : "34fff4",
+      "isLegendPrefix" : "TRUE",
+      "displayInTooltip" : "TRUE"
+    }, {
+      "id" : "2",
+      "name" : "Sub Cause Code",
+      "color" : "2200FF"
+    }, {
+      "id" : "3",
+      "name" : "Failures",
+      "color" : "cb5853",
+      "displayInTooltip" : "TRUE",
+      "drillDownWindowType" : "WCDMA_NETWORK_CAUSE_CODE_ANALYSIS_FROM_SUBPIE"
+    }, {
+      "id" : "4",
+      "name" : "Impacted Subscribers",
+      "color" : "5400FF",
+      "displayInTooltip" : "TRUE"
+    },{
+  	  "id" : "5",
+      "name" : "causeCode",
+      "queryParam" : "causeCode",
+      "isSystem" : "true"
+  	}]
+  }

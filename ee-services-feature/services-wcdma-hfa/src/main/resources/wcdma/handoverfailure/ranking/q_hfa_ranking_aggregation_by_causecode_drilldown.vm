@@ -1,0 +1,65 @@
+#set($columnsToIncludeInNewView=["CATEGORY_ID","SUB_CAUSE_VALUE","EVENT_ID","NO_OF_ERRORS","CAUSE_VALUE"])
+SELECT
+    #if($count > 0) top $count #end
+    aggview.SUB_CAUSE_VALUE                                               AS 'SUB CAUSE VALUE ID',
+    dim_subCauseCode.SUB_CAUSE_VALUE_DESC                                 AS 'SUB CAUSE VALUE',
+    SUM(NO_OF_ERRORS)                                                     AS Failures,
+    subscribers.IMPACTED_SUBSCRIBERS                                      AS 'Impacted Subscribers'
+FROM
+    (
+        SELECT
+            CATEGORY_ID,
+            SUB_CAUSE_VALUE,
+            EVENT_ID,
+            SUM(NO_OF_ERRORS)
+        FROM
+            #UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS($aggregationViewList "tempAgg" $columnsToIncludeInNewView)
+        WHERE
+            tempAgg.CAUSE_VALUE = :CAUSE_CODE
+        AND tempAgg.CATEGORY_ID = :categoryId
+        GROUP BY
+            CATEGORY_ID,
+            EVENT_ID,
+            SUB_CAUSE_VALUE
+    )AS aggView(CATEGORY_ID, SUB_CAUSE_VALUE, EVENT_ID, NO_OF_ERRORS)
+INNER JOIN
+    (
+        SELECT
+            COUNT(DISTINCT rawview.IMSI),
+            SUB_CAUSE_VALUE,
+            EVENT_ID,
+            CATEGORY_ID
+        FROM
+            #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" ["CAUSE_VALUE", "SUB_CAUSE_VALUE", "EVENT_ID", "CATEGORY_ID", "IMSI"])
+        WHERE
+            rawview.CAUSE_VALUE = :CAUSE_CODE
+        AND rawview.CATEGORY_ID = :categoryId
+        GROUP BY
+            CATEGORY_ID,
+            EVENT_ID,
+            SUB_CAUSE_VALUE
+    ) AS subscribers(IMPACTED_SUBSCRIBERS, SUB_CAUSE_VALUE, EVENT_ID, CATEGORY_ID)
+ON
+    (
+        aggView.CATEGORY_ID = subscribers.CATEGORY_ID
+    AND aggView.SUB_CAUSE_VALUE = subscribers.SUB_CAUSE_VALUE
+    AND aggView.EVENT_ID = subscribers.EVENT_ID
+    )
+LEFT OUTER JOIN
+    (
+        SELECT
+            SUB_CAUSE_VALUE,
+            EVENT_ID,
+            SUB_CAUSE_VALUE_DESC
+        FROM
+            DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE
+    ) AS dim_subCauseCode(SUB_CAUSE_VALUE, EVENT_ID, SUB_CAUSE_VALUE_DESC)
+ON
+    (
+        subscribers.SUB_CAUSE_VALUE = dim_subCauseCode.SUB_CAUSE_VALUE
+    AND subscribers.EVENT_ID = dim_subCauseCode.EVENT_ID
+    )
+GROUP BY
+    aggview.SUB_CAUSE_VALUE,
+    dim_subCauseCode.SUB_CAUSE_VALUE_DESC,
+    subscribers.IMPACTED_SUBSCRIBERS

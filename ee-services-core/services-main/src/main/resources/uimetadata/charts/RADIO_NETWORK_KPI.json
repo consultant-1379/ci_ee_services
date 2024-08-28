@@ -1,0 +1,15 @@
+{
+    "id": "RADIO_NETWORK_KPI",
+    "title": "RRC Connection",
+    "ylabel": "",
+    "xlabel": "",
+    "xaxisID": "",
+    "items": [
+        {
+            "id": "1",
+            "name": "Success Rate",
+            "color": "5494c5",
+            "drillDownWindowType": "RADIO_NETWORK_KPI_DRILLDOWN"
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+  "id" : "SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_CELL",
+  "name" : "Event Analysis",
+  "url" : "SUBSCRIBER/EVENT_ANALYSIS",
+  "searchValFromCol" : "15",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "15",
+    "queryParamName" : "bsc"
+  }, {
+    "id" : "18",
+    "queryParamName" : "vendor"
+  }, {
+    "id" : "17",
+    "queryParamName" : "cell"
+  }, {
+    "id" : "75",
+    "queryParamName" : "RAT"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

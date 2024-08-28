@@ -1,0 +1,37 @@
+{
+  "id" : "TERMINAL_GA_MOST_POPULAR_SUMMARY",
+  "isChartData" : "TRUE",
+  "title" : "Group Analysis - Most Frequent Signaling Event Summary",
+  "autoexpand" : "2",
+  "defaultSortCol" : "5",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "Group Name",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Success Ratio",
+    "width" : "100",
+    "datatype" : "float"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "int"
+  } ]
+}

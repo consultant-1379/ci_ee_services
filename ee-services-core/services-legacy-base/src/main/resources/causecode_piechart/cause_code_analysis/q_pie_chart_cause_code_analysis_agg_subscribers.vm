@@ -1,0 +1,42 @@
+#DEFINE_CONSTANTS()
+
+#macro(CCAS_QUERY_SUB_COUNT $errTable $ccTable)
+(
+select	
+	ccref.CAUSE_CODE,
+	IMSI
+from
+	dc.${errTable} errRef,
+	dc.${ccTable} ccref
+	#GROUP_TABLE_INFO()
+where
+	#GET_DATETIME_RANGE()
+	#GROUP_OR_SINGLE_INFO()
+	and #GET_TAC_EXCLUSION()
+	and ccref.CAUSE_CODE = errRef.CAUSE_CODE
+	and ccref.CAUSE_PROT_TYPE = errRef.CAUSE_PROT_TYPE
+	and errRef.CAUSE_CODE in ($causeCodeIds)
+group by
+	ccref.CAUSE_CODE,
+	IMSI
+)
+#end
+
+select
+	sub.CAUSE_CODE  as CAUSE_CODE,
+	isnull(count(distinct(IMSI)),0) as NO_OF_SUBSCRIBERS
+from 
+	(
+	#foreach ($errtable in $rawAllErrTables)
+		#if ($errtable.toString().indexOf($ApplicationConstants.SGEH) > -1)
+			#CCAS_QUERY_SUB_COUNT($errtable $ccRefForSgeh)	
+		#else
+			#CCAS_QUERY_SUB_COUNT($errtable $ccRefForLte)
+		#end
+		#if($velocityCount < $rawAllErrTables.size())
+			union all
+		#end
+	#end
+	) as sub (CAUSE_CODE, IMSI)
+group by
+	sub.CAUSE_CODE

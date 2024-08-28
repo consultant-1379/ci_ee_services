@@ -1,0 +1,13 @@
+DIM_E_SGEH_MCCMNC
+MCC,MNC,COUNTRY,OPERATOR
+412,01,Afghanistan,AWCC
+412,20,Afghanistan,Roshan
+412,88,Afghanistan,Afghan Telecom
+722,010,Argentina,Movistar
+242,01,Norway,Telenor
+200,053,USA,Virgin Mobile US
+310,200,USA,T-Mobile
+310,038,USA,AT&T Mobility
+310,150,USA,AT&T Mobility
+310,380,USA,AT&T Mobility
+310,410,USA,AT&T Mobility

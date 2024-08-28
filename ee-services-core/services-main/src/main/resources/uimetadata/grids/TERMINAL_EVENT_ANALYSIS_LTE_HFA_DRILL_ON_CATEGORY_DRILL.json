@@ -1,0 +1,63 @@
+{
+    "id" : "TERMINAL_EVENT_ANALYSIS_LTE_HFA_DRILL_ON_CATEGORY_DRILL",
+    "title" : "Terminal LTE Handover Failure : Event Analysis",
+    "autoexpand" : "4",
+    "defaultSortCol" : "6",
+    "defaultSortDir" : "DESC",
+    "categoryId" : "TERMINAL_EVENT_ANALYSIS_LTE_HFA_DRILL_ON_CATEGORY_DRILL",
+    "columns" : [
+        {
+            "type" : "tac",
+            "header" : "TAC",
+            "width" : "100",
+            "datatype" : "string",
+            "isHidden" : "TRUE",
+            "licenseCXC": "CXC4011280"
+        },
+		{
+            "type" : "terminalmake",
+            "header" : "Terminal Make",
+            "width" : "200",
+            "datatype" : "string",
+            "licenseCXC": "CXC4011280"
+        },
+        {
+            "type" : "terminalModel",
+            "header" : "Terminal Model",
+            "width" : "200",
+            "datatype" : "string",
+            "licenseCXC": "CXC4011280"
+        },
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "250",
+            "datatype" : "string",
+            "licenseCXC": "CXC4011280"
+        },
+		{
+            "type" : "eventId",
+            "header" : "Event ID",
+            "width" : "180",
+            "datatype" : "int",
+            "isSystem": "true",
+            "licenseCXC": "CXC4011280"
+        },
+        {
+            "type" : "failures",
+            "header" : "Failures",
+            "width" : "90",
+            "datatype" : "int",
+            "drillDownWindowType" : "INTERNAL_PROC_HO_EXEC_S1_IN,RAN_LTE_HFA_TERMINAL_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_IN_DRILL,INTERNAL_PROC_HO_EXEC_S1_OUT,RAN_LTE_HFA_TERMINAL_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_OUT_DRILL,INTERNAL_PROC_HO_EXEC_X2_IN,RAN_LTE_HFA_TERMINAL_DRILL_ON_INTERNAL_PROC_HO_EXEC_X2_IN_DRILL,INTERNAL_PROC_HO_EXEC_X2_OUT,RAN_LTE_HFA_TERMINAL_DRILL_ON_INTERNAL_PROC_HO_EXEC_X2_OUT_DRILL,INTERNAL_PROC_HO_PREP_S1_IN,RAN_LTE_HFA_TERMINAL_DRILL_ON_INTERNAL_PROC_HO_PREP_S1_IN_DRILL,INTERNAL_PROC_HO_PREP_S1_OUT,RAN_LTE_HFA_TERMINAL_DRILL_ON_INTERNAL_PROC_HO_PREP_S1_OUT_DRILL,INTERNAL_PROC_HO_PREP_X2_IN,RAN_LTE_HFA_TERMINAL_DRILL_ON_INTERNAL_PROC_HO_PREP_X2_IN_DRILL,INTERNAL_PROC_HO_PREP_X2_OUT,RAN_LTE_HFA_TERMINAL_DRILL_ON_INTERNAL_PROC_HO_PREP_X2_OUT_DRILL",
+            "licenseCXC": "CXC4011280"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header" : "Impacted Subscribers",
+            "width" : "160",
+            "datatype" : "int",
+            "licenseCXC": "CXC4011280"
+        }
+        
+    ]
+}

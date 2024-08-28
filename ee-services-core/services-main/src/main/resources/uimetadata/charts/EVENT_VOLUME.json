@@ -1,0 +1,109 @@
+{
+  "id" : "EVENT_VOLUME",
+  "title" : "Event Volume Analysis",
+  "xlabel" : "Time",
+  "ylabel" : "Number of Events",
+  "secondYAxisID" : "34",
+  "xaxisID" : "1",
+  "zoomableXAxis" : "TRUE",
+  "items" : [ {
+    "id" : "2",
+    "name" : "Attach Event Count"
+  }, {
+    "id" : "3",
+    "name" : "Attach Event Fail Count"
+  }, {
+    "id" : "4",
+    "name" : "Activate Event Count"
+  }, {
+    "id" : "5",
+    "name" : "Activate Event Fail Count"
+  }, {
+    "id" : "6",
+    "name" : "RAU Event Count"
+  }, {
+    "id" : "7",
+    "name" : "RAU Event Fail Count"
+  }, {
+    "id" : "8",
+    "name" : "ISRAU Event Count"
+  }, {
+    "id" : "9",
+    "name" : "ISRAU Event Fail Count"
+  }, {
+    "id" : "10",
+    "name" : "Deactivate Event Count"
+  }, {
+    "id" : "11",
+    "name" : "Deactivate Event Fail Count"
+  }, {
+    "id" : "12",
+    "name" : "Detach Event Count"
+  }, {
+    "id" : "13",
+    "name" : "Detach Event Fail Count"
+  }, {
+    "id" : "14",
+    "name" : "Service Request Event Count"
+  }, {
+    "id" : "15",
+    "name" : "Service Request Event Fail Count"
+  }, {
+    "id" : "16",
+    "name" : "L_ATTACH Event Count"
+  }, {
+    "id" : "17",
+    "name" : "L_ATTACH Event Fail Count"
+  }, {
+    "id" : "18",
+    "name" : "L_DETACH Event Count"
+  }, {
+    "id" : "19",
+    "name" : "L_DETACH Event Fail Count"
+  }, {
+    "id" : "20",
+    "name" : "L_HANDOVER Event Count"
+  }, {
+    "id" : "21",
+    "name" : "L_HANDOVER Fail Event Count"
+  }, {
+    "id" : "22",
+    "name" : "L_TAU Event Count"
+  }, {
+    "id" : "23",
+    "name" : "L_TAU Fail Event Count"
+  }, {
+    "id" : "24",
+    "name" : "L_DEDICATED_BEARER_ACTIVATE Event Count"
+  }, {
+    "id" : "25",
+    "name" : "L_DEDICATED_BEARER_ACTIVATE Fail Event Count"
+  }, {
+    "id" : "26",
+    "name" : "L_DEDICATED_BEARER_DEACTIVATE Event Count"
+  }, {
+    "id" : "27",
+    "name" : "L_DEDICATED_BEARER_DEACTIVATE Fail Event Count"
+  }, {
+    "id" : "28",
+    "name" : "L_PDN_CONNECT Event Count"
+  }, {
+    "id" : "29",
+    "name" : "L_PDN_CONNECT Fail Event Count"
+  }, {
+    "id" : "30",
+    "name" : "L_PDN_DISCONNECT Event Count"
+  }, {
+    "id" : "31",
+    "name" : "L_PDN_DISCONNECT Fail Event Count"
+  }, {
+    "id" : "32",
+    "name" : "L_SERVICE_REQUEST Event Count"
+  }, {
+    "id" : "33",
+    "name" : "L_SERVICE_REQUEST Fail Event Count"
+  }, {
+    "id" : "34",
+    "name" : "Impacted Subscribers"
+  } ]
+}

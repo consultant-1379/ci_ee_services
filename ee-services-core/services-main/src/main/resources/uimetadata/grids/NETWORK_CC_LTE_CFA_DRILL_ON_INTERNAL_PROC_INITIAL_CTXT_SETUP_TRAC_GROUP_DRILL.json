@@ -1,0 +1,122 @@
+{
+  "id": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP_TRAC_GROUP_DRILL",
+  "title": "Tracking Area Group LTE Call Failure Cause Code : Event Analysis",
+  "autoexpand": "11",
+  "defaultSortCol": "3",
+  "defaultSortDir": "DESC",
+  "columns": [ {
+    "header": "HIER3_ID",
+    "width": "10",
+    "datatype": "string",
+    "isSystem": "TRUE"
+  }, {
+    "header": "HIER321_ID",
+    "width": "10",
+    "datatype": "string",
+    "isSystem": "TRUE"
+  }, {
+    "header": "Event Time",
+    "width": "120",
+    "datatype": "date"
+  }, {
+    "header": "Event Time(ms)",
+    "width": "120",
+    "datatype": "String",
+    "isSystem": "TRUE"
+  }, {
+    "header": "IMSI",
+    "width": "120",
+    "datatype": "string",
+    "drillDownLicenseCXC" : "CXC4010925",
+	"drillDownWindowType": "NETWORK_EVENT_ANALYSIS_LTE_CFA_DRILL_ON_IMSI"
+  }, {
+    "header": "TAC",
+    "width": "70",
+    "datatype": "string",
+    "drillDownLicenseCXC" : "CXC4010926",
+	"drillDownWindowType": "TERMINAL_EVENT_ANALYSIS_LTE_CFA_DRILL_ON_TAC"
+  }, {
+    "header": "Terminal Make",
+    "width": "180",
+    "datatype": "string"
+  }, {
+    "header": "Terminal Model",
+    "width": "120",
+    "datatype": "string"
+  }, {
+    "header": "EventID",
+    "width": "10",
+    "datatype": "int",
+    "isSystem": "TRUE"   
+  }, {
+    "header": "Event Type",
+    "width": "200",
+    "datatype": "string"
+  }, {
+    "header": "Cause Code",
+    "width": "200",
+    "datatype": "string"
+  }, {
+    "header": "Controller",
+    "width": "200",
+    "datatype": "string",
+    "drillDownLicenseCXC" : "CXC4010927",
+    "drillDownWindowType": "NETWORK_RAN_LTE_CFA_BSC_DRILL_ON_ENODEB"
+  }, {
+    "header": "Access Area",
+    "width": "140",
+    "datatype": "string",
+    "drillDownLicenseCXC" : "CXC4010927",
+    "drillDownWindowType": "NETWORK_RAN_LTE_CFA_BSC_DRILL_ON_ACCESS_AREA"
+  }, {
+    "header": "RAN Vendor",
+    "width": "90",
+    "datatype": "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header": "RAT",
+    "width": "90",
+    "datatype": "string",
+    "isSystem": "TRUE"
+  }, {
+    "header": "MCC",
+    "width": "70",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "MNC",
+    "width": "70",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "DURATION",
+    "width": "80",
+    "datatype": "int",
+    "isHidden": "TRUE"
+  }, {
+    "header": "Number Of ERABs",
+    "width": "130",
+    "datatype": "int",
+    "drillDownWindowType": "INTERNAL_PROC_ERAB_SETUP,RAN_LTE_CFA_IMSI_ERABS_DRILL_ON,INTERNAL_PROC_INITIAL_CTXT_SETUP,RAN_LTE_CFA_IMSI_ERABS_DRILL_ON,INTERNAL_PROC_UE_CTXT_RELEASE,RAN_LTE_CFA_IMSI_ERABS_INTERNAL_PROC_UE_CTXT_RELEASE_DRILL_ON,0,NO_LINK"
+  }, {
+    "header": "Accumulated Up Link Requested GBR",
+    "width": "200",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "Accumulated Up Link Admitted GBR",
+    "width": "200",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "Accumulated Down Link Requested GBR",
+    "width": "210",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "Accumulated Down Link Admitted GBR",
+    "width": "210",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  } ]
+}

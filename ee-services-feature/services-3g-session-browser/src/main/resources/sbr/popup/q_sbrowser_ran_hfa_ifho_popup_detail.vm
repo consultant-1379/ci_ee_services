@@ -1,0 +1,167 @@
+#set($columnsToSelect=["C_ID_2","RNC_ID_2","C_ID_3","RNC_ID_3","C_ID_4","RNC_ID_4","SOURCE_CONNECTION_PROP", "TARGET_CONNECTION_PROP", "CPICH_EC_NU_FREQ_CELL", "RSCP_NU_FREQ_CELL","SOURCE_CONF", "SUB_CAUSE_VALUE", "CAUSE_VALUE", "EVENT_TIME", "EVENT_ID", "IMSI", "MSISDN", "TAC", "IMSI_MCC", "IMSI_MNC", "HIER3_CELL_ID", "THIER3_CELL_ID",  "EVENT_TRIGGER"])
+#if($subType=="IMSI")
+    #set($filterColumn = ["IMSI"])
+#elseif($subType=="MSISDN")
+    #set($filterColumn = ["MSISDN"])
+#end
+select
+	TOP 1
+	##Subscriber Identity
+	MSISDN,
+	IMSI,
+	#DISPLAY_TERMINAL("tacRef" "raw_tables"),
+	#DISPLAY_NETWORK("roamingRef"),
+	##Handover Details
+	source_cellRef.CELL_ID AS SOURCE_CELL_ID,
+	source_cellRef.CID as SOURCE_CID,
+	source_cellRef.HIERARCHY_3 AS SOURCE_ALTERNATIVE_FDN,
+	target_cellRef.CELL_ID AS TARGET_CELL_ID,
+	target_cellRef.CID AS TARGET_CID,
+	target_cellRef.HIERARCHY_3 AS TARGET_ALTERNATIVE_FDN,
+	NuFreqEcnoMapping.ECNO_DBM as CPICH_EC_NU_FREQ_TARGET_CELL,
+	NuFreqRscpMapping.RSCP_DBM as RSCP_NU_FREQ_TARGET_CELL,
+	##Event Summary Details
+	dateformat(EVENT_TIME,'yyyy-MM-dd HH:mm:ss.SSS') AS EVENT_TIME,
+	cellRef2.CELL_ID AS CELL_ID_2,
+	cellRef2.CID AS CID_2,
+	cellRef2.HIERARCHY_3 AS ALTERNATIVE_FDN_2,
+	cellRef3.CELL_ID AS CELL_ID_3,
+	cellRef3.CID AS CID_3,
+	cellRef3.HIERARCHY_3 AS ALTERNATIVE_FDN_3,
+	cellRef4.CELL_ID AS CELL_ID_4,
+	cellRef4.CID AS CID_4,
+	cellRef4.HIERARCHY_3 AS ALTERNATIVE_FDN_4,
+	eventTrigger.EVENT_TRIGGER_DESC,
+	causeValue.CAUSE_VALUE_DESC AS RESULT,
+	subCauseValue.SUB_CAUSE_VALUE_DESC AS FAILURE_REASON,
+	sourceRab.RABTYPE_DESC AS SOURCE_RABTYPE,
+	SOURCE_CONNECTION_PROP,
+	TARGET_CONNECTION_PROP
+FROM
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_WITH_EVENT_TIME($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "raw_tables" $filterColumn $columnsToSelect)
+left outer join
+	DIM_E_SGEH_TAC tacRef
+	on (tacRef.TAC = raw_tables.TAC)
+left outer join
+	DIM_E_SGEH_MCCMNC roamingRef
+	on (roamingRef.MCC = raw_tables.IMSI_MCC
+		and roamingRef.MNC = raw_tables.IMSI_MNC)
+left outer join
+	(select
+		DISTINCT CID,
+		HIER3_CELL_ID,
+		CELL_ID,
+		HIERARCHY_3
+	from
+		DIM_E_SGEH_HIER321_CELL) as source_cellRef
+	on
+		(raw_tables.HIER3_CELL_ID = source_cellRef.HIER3_CELL_ID)
+left outer join
+  	(select
+   		DISTINCT CID,
+   		HIER3_CELL_ID as CELL_HASH_ID,
+		CELL_ID,
+		HIERARCHY_3
+    from
+    	DIM_E_SGEH_HIER321_CELL
+		)AS target_cellRef
+	on
+		(raw_tables.THIER3_CELL_ID = target_cellRef.CELL_HASH_ID)
+LEFT OUTER JOIN
+	(SELECT
+		SN,
+		rncId
+	 FROM
+        DIM_E_RAN_RNCFUNCTION
+	 )AS rncFuncRef2
+    on (rncFuncRef2.rncId = raw_tables.RNC_ID_2)
+LEFT OUTER JOIN
+	(SELECT
+		ALTERNATIVE_FDN,
+		RNC_FDN
+	FROM
+        DIM_E_RAN_RNC
+    )AS rncRef2
+	ON (rncFuncRef2.SN = rncRef2.RNC_FDN)
+LEFT OUTER JOIN
+	(SELECT
+		DISTINCT CID,
+		CELL_ID,
+		HIERARCHY_3
+	 FROM
+		DIM_E_SGEH_HIER321_CELL
+	 )AS cellRef2
+	 ON(cellRef2.CID = raw_tables.C_ID_2 AND cellRef2.HIERARCHY_3 = rncRef2.ALTERNATIVE_FDN)
+LEFT OUTER JOIN
+	(SELECT
+		SN,
+		rncId
+	 FROM
+        DIM_E_RAN_RNCFUNCTION
+	 )AS rncFuncRef3
+    on (rncFuncRef3.rncId = raw_tables.RNC_ID_2)
+LEFT OUTER JOIN
+	(SELECT
+		ALTERNATIVE_FDN,
+		RNC_FDN
+	FROM
+        DIM_E_RAN_RNC
+    )AS rncRef3
+	ON (rncFuncRef3.SN = rncRef3.RNC_FDN)
+LEFT OUTER JOIN
+	(SELECT
+		DISTINCT CID,
+		CELL_ID,
+		HIERARCHY_3
+	 FROM
+		DIM_E_SGEH_HIER321_CELL
+	 )AS cellRef3
+	 ON(cellRef3.CID = raw_tables.C_ID_2 AND cellRef3.HIERARCHY_3 = rncRef3.ALTERNATIVE_FDN)
+LEFT OUTER JOIN
+	(SELECT
+		SN,
+		rncId
+	 FROM
+        DIM_E_RAN_RNCFUNCTION
+	 )AS rncFuncRef4
+    on (rncFuncRef4.rncId = raw_tables.RNC_ID_2)
+LEFT OUTER JOIN
+	(SELECT
+		ALTERNATIVE_FDN,
+		RNC_FDN
+	FROM
+        DIM_E_RAN_RNC
+    )AS rncRef4
+	ON (rncFuncRef4.SN = rncRef4.RNC_FDN)
+LEFT OUTER JOIN
+	(SELECT
+		DISTINCT CID,
+		CELL_ID,
+		HIERARCHY_3
+	 FROM
+		DIM_E_SGEH_HIER321_CELL
+	 )AS cellRef4
+	 ON(cellRef4.CID = raw_tables.C_ID_2 AND cellRef4.HIERARCHY_3 = rncRef4.ALTERNATIVE_FDN)
+left outer join
+	DIM_E_RAN_HFA_EVENT_TRIGGER eventTrigger
+	on (eventTrigger.EVENT_TRIGGER = raw_tables.EVENT_TRIGGER)
+left outer join
+		DIM_E_RAN_HFA_CAUSE_CODE_VALUE causeValue
+	on (causeValue.CAUSE_VALUE = raw_tables.CAUSE_VALUE
+		and causeValue.EVENT_ID = raw_tables.EVENT_ID)	
+left outer join
+		DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE subCauseValue
+	on (subCauseValue.SUB_CAUSE_VALUE = raw_tables.SUB_CAUSE_VALUE
+		and subCauseValue.EVENT_ID = raw_tables.EVENT_ID)
+LEFT OUTER JOIN
+	DIM_E_RAN_RSCP_MAPPING NuFreqRscpMapping
+ON (raw_tables.RSCP_NU_FREQ_CELL = NuFreqRscpMapping.RSCP)
+LEFT OUTER JOIN
+	DIM_E_RAN_ECNO_MAPPING NuFreqEcnoMapping
+ON (raw_tables.CPICH_EC_NU_FREQ_CELL = NuFreqEcnoMapping.ECNO)
+LEFT OUTER JOIN
+		DIM_E_RAN_RABTYPE sourceRab
+ON (raw_tables.SOURCE_CONF = sourceRab.RABTYPE)
+where 
+	raw_tables.EVENT_ID = :eventID
+order by EVENT_TIME

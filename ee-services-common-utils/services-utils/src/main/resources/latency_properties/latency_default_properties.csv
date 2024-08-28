@@ -1,0 +1,34 @@
+##################################################################################
+#####default, minimum and maximum settings for the latency/offset properties
+#####If a property has no minimum or maximum limit, then enter -1 for those fields
+#####All properties are in minutes
+##################################################################################
+###property name,default value,minimum configurable value,maximum configurable value
+##################################################################################
+ENIQ_EVENTS_SGEH_LEAST_OFFSET,3,-1,-1
+ENIQ_EVENTS_SGEH_MEDIUM_OFFSET,10,-1,-1
+ENIQ_EVENTS_SGEH_LARGE_OFFSET,180,-1,-1
+######################################
+ENIQ_EVENTS_DT_LEAST_OFFSET,30,-1,-1
+ENIQ_EVENTS_DT_MEDIUM_OFFSET,30,-1,-1
+ENIQ_EVENTS_DT_LARGE_OFFSET,240,-1,-1
+######################################
+ENIQ_EVENTS_WCDMA_LEAST_OFFSET,7,7,30
+ENIQ_EVENTS_WCDMA_MEDIUM_OFFSET,30,30,60
+ENIQ_EVENTS_WCDMA_LARGE_OFFSET,180,180,180
+######################################
+ENIQ_EVENTS_STATS_LEAST_OFFSET,0,-1,-1
+ENIQ_EVENTS_STATS_MEDIUM_OFFSET,0,-1,-1
+ENIQ_EVENTS_STATS_LARGE_OFFSET,0,-1,-1
+######################################
+ENIQ_EVENTS_GSM_LEAST_OFFSET,7,7,30
+ENIQ_EVENTS_GSM_MEDIUM_OFFSET,30,30,60
+ENIQ_EVENTS_GSM_LARGE_OFFSET,180,180,180
+######################################
+ENIQ_EVENTS_LTE_LEAST_OFFSET,10,5,15
+ENIQ_EVENTS_LTE_MEDIUM_OFFSET,30,25,35
+ENIQ_EVENTS_LTE_LARGE_OFFSET,180,120,180
+######################################
+ENIQ_EVENTS_KPI_NOTIFICATION_LEAST_OFFSET,3,-1,-1
+ENIQ_EVENTS_KPI_NOTIFICATION_MEDIUM_OFFSET,3,-1,-1
+ENIQ_EVENTS_KPI_NOTIFICATION_LARGE_OFFSET,3,-1,-1

@@ -1,0 +1,27 @@
+##=============================================================================
+##
+## Sub cause code query returning all sub cause code/event id pairs (and descriptions)
+## for the wcdma hfa sub cause code table.
+##
+##=============================================================================
+SELECT
+    SUB_CAUSE_VALUE,
+    DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE.EVENT_ID,
+    EVENT_ID_DESC,
+    SUB_CAUSE_VALUE_DESC
+FROM
+    DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE
+LEFT OUTER JOIN
+    (
+        SELECT
+            EVENT_ID,
+            EVENT_ID_DESC
+        FROM
+            DIM_E_RAN_HFA_EVENTTYPE
+    ) AS eventType
+ON
+    (
+        DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE.EVENT_ID = eventType.EVENT_ID
+    )
+ORDER BY
+    SUB_CAUSE_VALUE

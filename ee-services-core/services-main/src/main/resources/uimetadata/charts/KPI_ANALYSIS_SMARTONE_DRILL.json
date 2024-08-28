@@ -1,0 +1,89 @@
+{
+    "id": "KPI_ANALYSIS_SMARTONE_DRILL",
+    "title": "",
+    "ylabel": "KPI (%),Throughput (bps),RTT (ms),Packet Loss (%)",
+    "xlabel": "",
+    "xaxisID": "drillValue",
+    "firstYAxisID": "0,1",
+    "secondYAxisID": "2,3",
+    "items": [
+        {
+            "id": "drillValue",
+            "name": ""
+        },
+        {
+            "id": "Attach Success Rate",
+            "name": "Attach Success Rate",
+            "yAxisIndex": "0"
+        },
+        {
+            "id": "Detach Success Rate",
+            "name": "Detach Success Rate",
+            "yAxisIndex": "0"
+        },
+        {
+            "id": "PDP Context Activation Success Rate",
+            "name": "PDP Context Activation Success Rate",
+            "yAxisIndex": "0"
+        },
+        {
+            "id": "RAU Success Rate",
+            "name": "RAU Success Rate",
+            "yAxisIndex": "0"
+        },
+        {
+            "id": "ISRAU Success Rate",
+            "name": "ISRAU Success Rate",
+            "yAxisIndex": "0"
+        },
+        {
+            "id": "Service Request Failure Ratio",
+            "name": "Service Request Failure Ratio",
+            "yAxisIndex": "0"
+        },
+        {
+            "id": "PDP Context Cutoff Ratio",
+            "name": "PDP Context Cutoff Ratio",
+            "yAxisIndex": "0"
+        },
+        {
+            "id": "Paging Failure Ratio",
+            "name": "Paging Failure Ratio",
+            "yAxisIndex": "0"
+        },
+        {
+            "id": "Uplink Throughput",
+            "name": "Uplink Throughput",
+            "yAxisIndex": "1"
+        },
+        {
+            "id": "Downlink Throughput",
+            "name": "Downlink Throughput",
+            "yAxisIndex": "1"
+        },
+        {
+            "id": "RTT Terminal",
+            "name": "RTT Terminal",
+            "yAxisIndex": "2"
+        },
+        {
+            "id": "RTT Network",
+            "name": "RTT Server",
+            "yAxisIndex": "2"
+        },
+        {
+            "id": "Packet Loss Terminal",
+            "name": "Packet Loss Terminal",
+            "yAxisIndex": "3"
+        },
+        {
+            "id": "Packet Loss Network",
+            "name": "Packet Loss Network",
+            "yAxisIndex": "3"
+        },
+        {
+            "id": "endTime",
+            "isSystem": "TRUE"
+        }
+    ]
+}

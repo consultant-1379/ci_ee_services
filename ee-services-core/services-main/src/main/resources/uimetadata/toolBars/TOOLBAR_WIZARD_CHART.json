@@ -1,0 +1,30 @@
+{
+  "toolBarType" : "TOOLBAR_WIZARD_CHART",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnRefresh",
+      "name" : "",
+      "style" : "toolbar_refreshbtn",
+      "tip" : "Refresh",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "REFRESH"
+    }, {
+      "id" : "btnHideShowLegend",
+      "name" : "",
+      "style" : "toolbar_hideShowLegendBtn",
+      "tip" : "Click to hide or show the legend on the chart",
+      "isEnabled" : "TRUE",
+      "isToggle" : "TRUE",
+      "eventID" : "SHOW_HIDE_CHART_LEGEND"
+    } ]
+  } ]
+}

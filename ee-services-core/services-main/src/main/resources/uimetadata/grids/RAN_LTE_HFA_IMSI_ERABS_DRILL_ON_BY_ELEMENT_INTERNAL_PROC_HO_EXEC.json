@@ -1,0 +1,110 @@
+{
+    "id": "RAN_LTE_HFA_IMSI_ERABS_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_HO_EXEC",
+    "title": "LTE Handover Failure ERABs : Event Analysis",
+    "autoexpand": "7",
+    "defaultSortCol": "3",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "Event Time",
+            "width": "120",
+            "datatype": "date"
+        },
+        {
+            "header": "IMSI",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "header": "TAC",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Terminal Make",
+            "width": "180",
+            "datatype": "string"
+        },
+        {
+            "header": "Terminal Model",
+            "width": "180",
+            "datatype": "string"
+        },
+        {
+            "header": "EventID",
+            "width": "10",
+            "datatype": "int",
+            "isSystem": "TRUE"                 
+        },         
+        {
+            "header": "Event Type",
+            "width": "250",
+            "datatype": "string"
+        },
+        {
+            "header": "Source Controller",
+            "width": "300",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Source Access Area",
+            "width": "300",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Target Controller",
+            "width": "300",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Target Access Area",
+            "width": "300",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "RAN Vendor",
+            "width": "120",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Setup Request PCI",
+            "width": "250",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Setup Request PVI",
+            "width": "250",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+                        {
+            "header": "HO Prep ERAB Result",
+            "width": "400",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "HO Prep ERAB Request",
+            "width": "200",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Setup Request ARP",
+            "width": "200",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Exec QCI",
+            "width": "200",
+            "datatype": "string"
+        }
+    ]
+}

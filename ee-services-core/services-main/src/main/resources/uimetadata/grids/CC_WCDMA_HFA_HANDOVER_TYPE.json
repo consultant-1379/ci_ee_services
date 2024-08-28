@@ -1,0 +1,41 @@
+{
+    "id": "CC_WCDMA_HFA_HANDOVER_TYPE",
+    "title": "Cause Code WCDMA Handover Failure : Event Ranking",
+    "autoexpand": "4",
+    "defaultSortCol": "1",
+    "defaultSortDir": "ASC",
+    "columns": [
+        {
+            "header": "Rank",
+            "width": "50",
+            "datatype": "int"
+        },
+        {
+            "header": "Handover Type",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "CATEGORY ID",
+            "width": "10",
+            "datatype": "int",
+            "isSystem" : "TRUE"
+        },
+        {
+            "header": "Cause Code",
+            "width": "280",
+            "datatype": "string",
+            "launchWindowType" : "IRAT Handover,CC_WCDMA_HFA_HANDOVER_TYPE_EVENT_ANALYSIS,Soft Handover,CC_WCDMA_HFA_HANDOVER_TYPE_EVENT_ANALYSIS,Interfrequency Handover,CC_WCDMA_HFA_HANDOVER_TYPE_EVENT_ANALYSIS"
+        },
+        {
+            "header": "Cause Code Id",
+            "width": "120",
+            "datatype": "int"
+        },
+        {
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int"
+        }
+    ]
+}

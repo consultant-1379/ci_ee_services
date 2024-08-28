@@ -1,0 +1,9 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_IRAT_BSC_GROUP_DRILL",
+    "nameForTaskBar": "Sub Cause Code Detailed Event Analysis (WCDMA Handover Failure)",
+    "drillWindowName": "Controller Group Sub Cause Code Detailed Event Analysis (WCDMA Handover Failure)",
+    "url": "NETWORK/WCDMA_HFA_CAUSE_CODE_ANALYSIS/DETAIL_SUB_CAUSE_CODE_GRID",
+    "drillTargetDisplayId": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_IRAT",
+    "drillToolBarType": "TOOLBAR_WCDMA_HFA_GRID_CAUSE_CODE_NO_NAV",
+    "drillType": "launchGrid"
+}

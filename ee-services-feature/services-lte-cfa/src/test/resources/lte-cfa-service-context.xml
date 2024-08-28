@@ -1,0 +1,195 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="lteCallFailureSubscriberEventSummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFASubscriberEventSummaryService" />
+
+	<bean id="lteCallFailureSubscriberDetailedEventAnalysisService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFASubscriberDetailedEventAnalysisService" />
+
+	<bean id="lteCallFailureSubscriberCallSetupFailureRankingService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.ranking.LTECFASubscriberCallSetupFailureRankingService" />
+
+	<bean id="lteCallFailureSubscriberCallDropRankingService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.ranking.LTECFASubscriberCallDropRankingService" />
+
+	<bean id="lteCallFailureSubscriberReoccuringFailureRankingService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.ranking.LTECFASubscriberReoccuringFailureRankingService" />
+
+	<bean id="lteCallFailureSubscriberDetailedReoccuringFailureService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFASubscriberDetailedReoccFailureService" />
+
+	<bean id="lteCallFailureAccessAreaCallDropRankingService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.ranking.LTECFAAccessAreaCallDropRankingService" />
+
+	<bean id="lteCallFailureAccessAreaCallSetupRankingService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.ranking.LTECFAAccessAreaCallSetupRankingService" />
+
+	<bean id="lteCallFailureEnodeBCallDropRankingService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.ranking.LTECFAEnodeBCallDropRankingService" />
+
+	<bean id="lteCallFailureEnodeBCallSetupRankingService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.ranking.LTECFAEnodeBCallSetupRankingService" />
+
+	<bean id="lteCallFailureCauseCodeCallDropRankingService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.ranking.LTECFACauseCodeCallDropRankingService" />
+
+	<bean id="lteCallFailureCauseCodeCallSetupRankingService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.ranking.LTECFACauseCodeCallSetupRankingService" />
+
+	<bean id="lteCallFailureTerminalCallDropRankingService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.ranking.LTECFATerminalCallDropRankingService" />
+
+	<bean id="lteCallFailureTerminalCallSetupRankingService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.ranking.LTECFATerminalCallSetupRankingService" />
+
+	<bean id="lteCallFailureTrackingAreaCallDropRankingService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.ranking.LTECFATrackingAreaCallDropRankingService" />
+
+	<bean id="lteCallFailureTrackingAreaCallSetupRankingService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.ranking.LTECFATrackingAreaCallSetupRankingService" />
+
+	<bean id="lteCallFailureSubscriberERABDetailedEventAnalysisService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFASubscriberERABDetailedEAService" />
+
+	<bean id="lteCallFailureEnodeBCauseCodePieChartService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.causecodeanalysis.LTECFAEnodeBCauseCodePieChartService" />
+
+	<bean id="lteCallFailureEnodeBCauseCodeEventSummaryService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.causecodeanalysis.LTECFAEnodeBCauseCodeEventSummaryService" />
+
+	<bean id="lteCallFailureEnodeBCauseCodeListService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.causecodeanalysis.LTECFAEnodeBCauseCodeListService" />
+
+	<bean id="lteCallFailureEnodeBCauseCodeDetailedEventAnalysisService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.causecodeanalysis.LTECFAEnodeBCauseCodeDetailedEAService" />
+
+	<bean id="lteCallFailureEcellCauseCodeEventSummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.causecodeanalysis.LTECFAEcellCauseCodeEventSummaryService" />
+
+	<bean id="lteCallFailureEcellCauseCodeListService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.causecodeanalysis.LTECFAEcellCauseCodeListService" />
+
+	<bean id="lteCallFailureEcellCauseCodePieChartService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.causecodeanalysis.LTECFAEcellCauseCodePieChartService" />
+
+	<bean id="lteCallFailureEcellCauseCodeDetailedEventAnalysisService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.causecodeanalysis.LTECFAEcellCauseCodeDetailedEAService" />
+
+	<bean id="lteCallFailureTrackingAreaCauseCodeDetailedEventAnalysisService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.causecodeanalysis.LTECFATrackingAreaCCDetailedEAService" />
+
+	<bean id="lteCallFailureTrackingAreaCauseCodeEventSummaryService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.causecodeanalysis.LTECFATrackingAreaCCEventSummaryService" />
+
+	<bean id="lteCallFailureTrackingAreaCauseCodeListService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.causecodeanalysis.LTECFATrackingAreaCauseCodeListService" />
+
+	<bean id="lteCallFailureTrackingAreaCauseCodePieChartService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.causecodeanalysis.LTECFATrackingAreaCCPieChartService" />
+
+	<bean id="lteCallFailureEnodeBCategorySummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFAEnodeBCategorySummaryService" />
+
+	<bean id="lteCallFailureEcellCategorySummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFAEcellCategorySummaryService" />
+
+	<bean id="lteCallFailureTrackingAreaCategorySummaryService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFATrackingAreaCategorySummaryService" />
+
+	<bean id="lteCallFailureECellDetailedEventAnalysisService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFAECellDetailedEventAnalysisService" />
+
+	<bean id="lteCallFailureEnodeBEventSummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFAEnodeBEventSummaryService" />
+
+	<bean id="lteCallFailureEnodeBDetailedEventAnalysisService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFAEnodeBDetailedEventAnalysisService" />
+
+	<bean id="lteCallFailureECellEventSummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFAECellEventSummaryService" />
+
+	<bean id="lteCallFailureTrackingAreaDetailedEventAnalysisService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFATrackingAreaDetailedEAService" />
+
+	<bean id="lteCallFailureTrackingAreaEventSummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFATrackingAreaEventSummaryService" />
+
+	<bean id="lteCallFailureECellQCICategorySummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.qos.qcianalysis.LTECFAECellQCICategorySummaryService" />
+
+	<bean id="lteCallFailureECellQCIDetailedEventAnalysisService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.qos.qcianalysis.LTECFAECellQCIDetailedEventAnalysisService" />
+
+	<bean id="lteCallFailureECellQCIEventSummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.qos.qcianalysis.LTECFAECellQCIEventSummaryService" />
+
+	<bean id="lteCallFailureEnodeBQCICategorySummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.qos.qcianalysis.LTECFAEnodeBQCICategorySummaryService" />
+
+	<bean id="lteCallFailureEnodeBQCIDetailedEventAnalysisService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.qos.qcianalysis.LTECFAEnodeBQCIDetailedEventAnalysisService" />
+
+	<bean id="lteCallFailureEnodeBQCIEventSummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.qos.qcianalysis.LTECFAEnodeBQCIEventSummaryService" />
+
+	<bean id="lteCallFailureTrackingAreaQCICategorySummaryService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.qos.qcianalysis.LTECFATrackingAreaQCICategorySummaryService" />
+
+	<bean id="lteCallFailureTrackingAreaQCIDetailedEventAnalysisService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.qos.qcianalysis.LTECFATrackingAreaQCIDetailedEventAnalysisService" />
+
+	<bean id="lteCallFailureTrackingAreaQCIEventSummaryService"
+		parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.qos.qcianalysis.LTECFATrackingAreaQCIEventSummaryService" />
+
+	<bean id="lteCallFailureSubscriberCategorySummaryService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFASubscriberCategorySummaryService" />
+
+	<bean id="lteCFAEcellEventVolumeService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventvolume.LTECFAEcellEventVolumeService" />
+
+	<bean id="lteCFAEnodeBEventVolumeService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventvolume.LTECFAEnodeBEventVolumeService" />
+
+	<bean id="lteCFANetworkEventVolumeService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventvolume.LTECFANetworkEventVolumeService" />
+
+	<bean id="lteCFATrackingAreaEventVolumeService" parent="genericService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventvolume.LTECFATrackingAreaEventVolumeService" />
+		
+		<bean id="lteCFACauseCodeListService" parent="genericSimpleService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.causecodeanalysis.LTECFACauseCodeListService" />
+
+	<bean id="lteCfaTerminalEventSummaryService" parent="genericSimpleService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFATerminalEventSummaryService" />
+
+	<bean id="lteCfaTerminalDetailedEventAnalysisService" parent="genericSimpleService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFATerminalDetailedEventAnalysisService" />
+	
+	<bean id="lteCfaTerminalCategorySummaryService" parent="genericSimpleService"
+		class="com.ericsson.eniq.events.server.serviceprovider.impl.lte.cfa.eventanalysis.LTECFATerminalCategorySummaryService" />
+			
+</beans>

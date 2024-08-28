@@ -1,0 +1,24 @@
+{
+    "id": "CC_WCDMA_HFA_HANDOVER_TYPE_EVENT_ANALYSIS",
+    "gridDisplayID": "CC_WCDMA_HFA_HANDOVER_TYPE_EVENT_ANALYSIS",
+    "menuItem": "CC_WCDMA_HFA_HANDOVER_TYPE",
+    "url": "NETWORK/WCDMA_HANDOVER_FAILURE_RANKING_ANALYSIS/causeCode/drilldown",
+    "params": [
+        {
+            "id": "3",
+            "name": "Category Id",
+            "queryParamName": "categoryId"
+        },
+        {
+            "id": "4",
+            "name": "Cause Code Description",
+            "queryParamName": "causeCodeDescription",
+            "isTitleParam": "TRUE"
+        },
+        {
+            "id": "5",
+            "name": "Cause Code Id",
+            "queryParamName": "causeCode"
+        }
+    ]
+}

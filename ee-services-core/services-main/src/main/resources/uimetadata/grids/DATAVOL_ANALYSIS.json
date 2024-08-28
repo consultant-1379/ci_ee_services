@@ -1,0 +1,25 @@
+{
+  "id" : "DATAVOL_ANALYSIS",
+  "isChartData" : "TRUE",
+  "title" : "Data Volume by Network Entity",
+  "autoexpand" : "1",
+  "defaultSortCol" : "2",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Timestamp",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Downlink (MB)",
+    "width" : "100",
+    "datatype" : "float"
+  }, {
+    "header" : "Uplink (MB)",
+    "width" : "100",
+    "datatype" : "float"
+  }, {
+    "header" : "Number of Bearers",
+    "width" : "120",
+    "datatype" : "float"
+  } ]
+}

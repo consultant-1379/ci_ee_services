@@ -1,0 +1,31 @@
+{
+  "id" : "NETWORK_RAN_LTE_CFA_SUMMARY_TRAC",
+  "title" : "Tracking Area LTE Call Failure : Event Analysis Summary",
+  "autoexpand" : "3",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Category ID",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Tracking Area",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  },  {
+    "header" : "Failure Category",
+    "width" : "100",
+    "datatype" : "string",
+	"drillDownWindowType" : "NETWORK_RAN_LTE_CFA_SUMMARY_TRAC_DRILL_ON_CATEGORY"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "160",
+    "datatype" : "string"
+  } ]
+}

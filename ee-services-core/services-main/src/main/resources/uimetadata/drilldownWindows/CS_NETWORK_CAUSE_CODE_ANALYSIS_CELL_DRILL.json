@@ -1,0 +1,28 @@
+{
+  "id" : "CS_NETWORK_CAUSE_CODE_ANALYSIS_CELL_DRILL",
+  "name" : "Access Area Fault Code Analysis Voice",
+  "url" : "MSS/NETWORK/EVENT_ANALYSIS",
+  "params" : [ {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "3",
+    "queryParamName" : "internalCauseCode"
+  }, {
+    "id" : "5",
+    "queryParamName" : "faultCode"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

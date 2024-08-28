@@ -1,0 +1,16 @@
+{
+  "id" : "GSM_CAUSE_CODE_TABLE_SCC",
+  "title" : "Extended Cause Codes Table (GSM Call Failure)",
+  "noSearchFieldInTitle" : "TRUE",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "columns" : [ {
+    "header" : "Extended Cause ID",
+    "width" : "120",
+    "datatype" : "int"
+  }, {
+    "header" : "Extended Cause Code",
+    "width" : "200",
+    "datatype" : "string"
+  } ]
+}

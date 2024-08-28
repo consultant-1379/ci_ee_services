@@ -1,0 +1,32 @@
+ {
+    "id" : "GSM_DATA_CONN_DRILL_CC2_TO_SCC_CHART",
+    "title" : "Sub Cause Code Analysis",
+    "ylabel" : "Number of Events",
+    "xlabel" : "Group Name",
+    "secondYAxisID" : "3",
+    "xaxisID" : "2",
+    "items" : [ {
+      "id" : "1",
+      "name" : "Sub Cause Code ID",
+      "color" : "34fff4",
+      "queryParam" : "subCauseCode",
+      "isLegendPrefix" : "TRUE",
+      "displayInTooltip" : "TRUE"
+    }, {
+      "id" : "2",
+      "name" : "Sub Cause Code Description",
+      "color" : "2200FF",
+      "queryParam" : "causeCodeDescription"
+    }, {
+      "id" : "3",
+      "name" : "Failures",
+      "color" : "cb5853",
+      "displayInTooltip" : "TRUE",
+      "drillDownWindowType" : "GSM_DATA_CONN_EVENT_ANALYSIS_FROM_SUBPIE"
+    }, {
+      "id" : "4",
+      "name" : "Impacted Subscribers",
+      "color" : "5400FF",
+      "displayInTooltip" : "TRUE"
+    } ]
+  }

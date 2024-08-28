@@ -1,0 +1,57 @@
+##
+## Subscriber Ranking For CFA - Multiple recurring failures
+##
+## Velocity Parameter: 
+##		
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+## 
+
+
+#set($columnsForQuery=['IMSI', 'C_ID_1', 'CAUSE_VALUE', 'EXTENDED_CAUSE_VALUE', 'HIER321_ID'])
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+    RANK() Over (ORDER BY Failures DESC) AS Rank,
+    IMSI                                             AS IMSI,
+    Failures                                         AS 'Failures',
+    VENDOR                                           AS 'Vendor',
+    C_ID_1											 AS 'Cell ID',
+    CAUSE_VALUE                                      AS 'Cause Value',
+    EXTENDED_CAUSE_VALUE                             AS 'Extended Cause Value',
+    HIERARCHY_3                                      AS 'Controller',
+    CELL_ID                                          AS 'Access Area'
+
+FROM
+    (
+        SELECT
+            COUNT (*) AS Failures,
+            IMSI,
+            HIER321_ID,
+            CAUSE_VALUE ,
+            EXTENDED_CAUSE_VALUE,
+            C_ID_1
+        FROM
+            #REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION_IMSI0_EXCLUSION_IMSINULL_EXCLUSION($TECH_PACK_LIST.getAllRawErrTables() 'rawview' $columnsForQuery)
+        group by IMSI, HIER321_ID, C_ID_1, CAUSE_VALUE, EXTENDED_CAUSE_VALUE
+    ) AS result_table
+LEFT OUTER JOIN
+    (
+        SELECT DISTINCT
+            HIERARCHY_3,
+            CELL_ID,
+            HIER321_ID,
+            VENDOR
+        FROM
+            DIM_E_SGEH_HIER321_CELL
+        WHERE
+            RAT=1
+    )AS topology_table
+ON
+    result_table.HIER321_ID = topology_table.HIER321_ID

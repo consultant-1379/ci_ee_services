@@ -1,0 +1,60 @@
+{
+    "id": "NETWORK_EVENT_ANALYSIS_WCDMA_HFA_SUMMARY_CELL",
+    "title": "Access Area Event Analysis - Source",
+    "autoexpand": "3",
+    "defaultSortCol": "7",
+    "defaultSortDir": "DESC",
+    "categoryId" : "NETWORK_EVENT_ANALYSIS_WCDMA_HFA_SUMMARY_CELL",
+    "columns": [
+        {
+            "type" : "ratId",
+            "header": "RAT ID",
+            "width": "70",
+            "datatype": "int",
+            "isHidden" : "TRUE"
+        },
+        {
+            "type" : "vendor",
+            "header": "RAN Vendor",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type" : "controller",
+            "header": "Controller",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type" : "sourceCell",
+            "header": "Source Cell",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "header": "CATEGORY ID",
+            "width": "10",
+            "datatype": "int",
+            "isSystem" : "TRUE"
+        },
+        {
+            "type" : "handoverType",
+            "header": "Handover Type",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "type" : "failures",
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int",
+            "drillDownWindowType": "*,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_SOURCE_CELL_SOHO,Soft\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_SOURCE_CELL_SOHO,Interfrequency\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_SOURCE_CELL_IFHO,IRAT\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_SOURCE_CELL_IRAT,HSDSCH\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_SOURCE_CELL_HSDSCH"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header": "Impacted Subscribers",
+            "width": "140",
+            "datatype": "string"
+        }
+    ]
+}

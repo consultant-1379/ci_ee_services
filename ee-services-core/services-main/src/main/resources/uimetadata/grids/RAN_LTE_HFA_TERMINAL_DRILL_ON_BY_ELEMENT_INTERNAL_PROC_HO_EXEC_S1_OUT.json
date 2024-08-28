@@ -1,0 +1,159 @@
+{
+    "id": "RAN_LTE_HFA_TERMINAL_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_HO_EXEC_S1_OUT",
+    "title": "LTE Handover Failure : Event Analysis",
+    "autoexpand": "10",
+    "defaultSortCol": "5",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "HIER3_ID",
+            "width": "10",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "HIER321_ID",
+            "width": "10",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "THIER3_ID",
+            "width": "10",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "THIER321_ID",
+            "width": "10",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Event Time",
+            "width": "120",
+            "datatype": "date"
+        },
+        {
+            "header": "Event Time(ms)",
+            "width": "120",
+            "datatype": "timestamp",
+            "isSystem": "TRUE"
+        },        
+        {
+            "header": "IMSI",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "header": "TAC",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Terminal Make",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "Terminal Model",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "EventID",
+            "width": "10",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Event Type",
+            "width": "250",
+            "datatype": "string"
+        },
+        {
+            "header": "Handover Result",
+            "width": "400",
+            "datatype": "string"
+        },
+        {
+            "header": "Source Controller",
+            "width": "300",
+            "datatype": "string"
+        },
+        {
+            "header": "Source Access Area",
+            "width": "300",
+            "datatype": "string"
+        },
+        {
+            "header": "Target Controller",
+            "width": "300",
+            "datatype": "string"
+        },
+        {
+            "header": "Target Access Area",
+            "width": "300",
+            "datatype": "string"
+        },
+        {
+            "header": "RAN Vendor",
+            "width": "120",
+            "datatype": "string",
+    		"isHidden": "TRUE"
+        },
+        {
+            "header": "RAT Description",
+            "width": "50",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "MCC",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "MNC",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Duration",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Target Type",
+            "width": "250",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Selection Type",
+            "width": "250",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Config Index",
+            "width": "250",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "HO Attempt",
+            "width": "250",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "No of ERABS",
+            "width": "100",
+            "datatype": "int"
+        }
+    ]
+}

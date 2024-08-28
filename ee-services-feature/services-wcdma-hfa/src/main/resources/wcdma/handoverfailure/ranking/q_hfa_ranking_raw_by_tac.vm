@@ -1,0 +1,19 @@
+select
+	#if($count > 0)
+	  top $count
+	#end
+	RANK()
+	over (ORDER BY Failures DESC) AS Rank,
+	DIM_E_SGEH_TAC.MANUFACTURER AS Manufacturer,
+	DIM_E_SGEH_TAC.MARKETING_NAME AS Model,
+	rawview.TAC,
+	COUNT(*) AS Failures
+from
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" ["TAC"]),
+	DIM_E_SGEH_TAC
+where	
+	rawview.TAC = DIM_E_SGEH_TAC.TAC	
+GROUP BY
+	DIM_E_SGEH_TAC.MANUFACTURER,
+	DIM_E_SGEH_TAC.MARKETING_NAME,
+	rawview.TAC

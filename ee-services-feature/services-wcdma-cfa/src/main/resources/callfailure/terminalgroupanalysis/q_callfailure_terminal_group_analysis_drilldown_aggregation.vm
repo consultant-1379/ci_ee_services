@@ -1,0 +1,43 @@
+##
+## WCDMA Call Failure Analysis  - Terminal Group Analysis Drilldown
+##
+## Velocity Parameter:
+##	
+##		$TECH_PACK_LIST the list of tech packs, see TechPackList's javadoc
+##		$EVENT_ID the event id to query on
+##
+##
+## Named PreparedStatement Parameter:
+##     :dateFrom   starting time
+##     :dateTo     ending time
+
+BEGIN
+select	
+	failures_data.TAC,
+	DIM_E_SGEH_TAC.MANUFACTURER,
+	DIM_E_SGEH_TAC.MARKETING_NAME,
+	failures_data.NO_OF_ERRORS
+from 
+	(select
+		aggView.TAC,
+		sum (NO_OF_ERRORS)
+	from
+		$aggregationView aggView,
+		GROUP_TYPE_E_TAC		
+	where
+		GROUP_NAME = :groupname
+		and aggView.TAC = GROUP_TYPE_E_TAC.TAC
+		and EVENT_ID = $EVENT_ID
+		and
+		#GET_DATETIME_RANGE()
+	group by
+		aggView.TAC
+	) as failures_data(TAC, NO_OF_ERRORS)
+left outer join 
+	DIM_E_SGEH_TAC
+on
+	(failures_data.TAC = DIM_E_SGEH_TAC.TAC)
+order by
+	NO_OF_ERRORS DESC
+
+END

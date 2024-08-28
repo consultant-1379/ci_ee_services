@@ -1,0 +1,31 @@
+{
+    "id": "DATAVOL_ANALYSIS_DOWNLINK",
+    "isChartData": "TRUE",
+    "title": "Data Volume Downlink by Network Entity",
+    "autoexpand": "1",
+    "defaultSortCol": "2",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "Timestamp",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Downlink (MB)",
+            "width": "100",
+            "datatype": "float"
+        },
+        {
+            "header": "Uplink (MB)",
+            "width": "100",
+            "datatype": "float",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Number of Bearers",
+            "width": "120",
+            "datatype": "float"
+        }
+    ]
+}

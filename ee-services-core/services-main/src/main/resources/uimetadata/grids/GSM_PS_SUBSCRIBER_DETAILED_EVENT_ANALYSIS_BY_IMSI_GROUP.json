@@ -1,0 +1,292 @@
+{
+    "id" : "GSM_PS_SUBSCRIBER_DETAILED_EVENT_ANALYSIS_BY_IMSI_GROUP",
+    "title" : "IMSI Event Analysis",
+    "defaultSortCol" : "1",
+    "defaultSortDir" : "ASC",
+    "autoexpand" : "2",
+    "categoryId" : "GSM_PS_SUBSCRIBER_DETAILED_EVENT_ANALYSIS_BY_IMSI_GROUP",
+    "columns" : [
+        {
+            "type" : "eventTime",
+            "header" : "Event Time",
+            "width" : "120",
+            "datatype" : "date"
+        },
+        {
+            "type" : "tac",
+            "header" : "TAC",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "terminalMake",
+            "header" : "Terminal Make",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "terminalModel",
+            "header" : "Terminal Model",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "tbfReleaseCause",
+            "header" : "TBF Release Cause",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "tbfDataVolume",
+            "header" : "TBF Data Volume",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "tbfDuration",
+            "header" : "TBF Duration",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "rpNumber",
+            "header" : "RP Number",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "channelRRCause",
+            "header" : "Channel Related Release Cause",
+            "width" : "180",
+            "datatype" : "string"
+        },
+        {
+            "type" : "channelRRCauseGroup",
+            "header" : "Channel Related Release Cause Group",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "tbfMux",
+            "header" : "TBF Mux",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "efactorSettings",
+            "header" : "Efactor Settings",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "dataValidIndicator",
+            "header" : "Data Valid Indicator",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "msSaicCap",
+            "header" : "MS Saic Cap",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "aqmActive",
+            "header" : "AQM Active",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "dtmFlag",
+            "header" : "DTM Flag",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "rlcMode",
+            "header" : "RLC Mode",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "direction",
+            "header" : "Direction",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "overflow",
+            "header" : "Overflow",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "ms3GppCapablity",
+            "header" : "MS 3GPP Capability",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "ttiMode",
+            "header" : "TTI Mode",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "reducedLatency",
+            "header" : "Reduced Latency",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "radioLinkBitrate",
+            "header" : "Radio Link Bitrate",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "gprsMReportRxqualDL",
+            "header" : "GPRS Measurement Report RXQUAL DL",
+            "width" : "210",
+            "datatype" : "string"
+        },
+        {
+            "type" : "gprsMReportSignVar",
+            "header" : "GPRS Measurement Report SIGN VAR",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "gprsMReportMeanBep",
+            "header" : "GPRS Measurement Report MEAN BEP",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "gprsMReportCvBep",
+            "header" : "GPRS Measurement Report CV BEP",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "gprsMReportCValue",
+            "header" : "GPRS Measurement Report CVALUE",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "ipLatency",
+            "header" : "IP Latency",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "lPModeTime",
+            "header" : "Low Priority Mode Time",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "bler",
+            "header" : "Bler",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "msFreqBandCapGsm850",
+            "header" : "MS Freq Band CAP GSM 850",
+            "width" : "180",
+            "datatype" : "string"
+        },
+        {
+            "type" : "msFreqBandCapGsm900",
+            "header" : "MS Freq Band CAP GSM 900",
+            "width" : "180",
+            "datatype" : "string"
+        },
+        {
+            "type" : "msFreqBandCapGsm1800",
+            "header" : "MS Freq Band CAP GSM 1800",
+            "width" : "190",
+            "datatype" : "string"
+        },
+        {
+            "type" : "msFreqBandCapGsm1900",
+            "header" : "MS Freq Band CAP GSM 1900",
+            "width" : "190",
+            "datatype" : "string"
+        },
+        {
+            "type" : "aqmDataDelivered",
+            "header" : "AQM Data Delivered",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "aqmDataRecieved",
+            "header" : "AQM Data Recieved",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "panIndicator",
+            "header" : "PAN Indicator",
+            "width" : "100",
+            "datatype" : "string"
+        },
+        {
+            "type" : "tbfMode",
+            "header" : "TBF Mode",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "dcdlCapability",
+            "header" : "DCDL Capability",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "dcdlIndicator",
+            "header" : "DCDL Indicator",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "msMslotCapReduction",
+            "header" : "MS MSLOT CAP Reduction",
+            "width" : "140",
+            "datatype" : "string"
+        },
+        {
+            "type" : "controller",
+            "header" : "Controller",
+            "width" : "120",
+            "datatype" : "string"
+        },
+        {
+            "type" : "accessArea",
+            "header" : "Access Area",
+            "width" : "120",
+            "datatype" : "string"
+        },
+        {
+            "type" : "vendor",
+            "header" : "RAN Vendor",
+            "width" : "120",
+            "datatype" : "string"
+        } ,
+        {
+            "type" : "imsi",
+            "header" : "IMSI",
+            "width" : "100",
+            "datatype" : "string"
+        }
+    ]
+}

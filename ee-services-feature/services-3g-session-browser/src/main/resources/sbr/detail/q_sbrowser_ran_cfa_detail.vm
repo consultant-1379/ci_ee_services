@@ -1,0 +1,34 @@
+##SESSION_BROWSER SUMMARY VM (RAN_CFA_ONLY)
+#DEFINE_CONSTANTS()
+#set($columnsToSelect=["EVENT_TIME","EVENT_ID","C_ID_1","TAC"])
+#if($subType==$TYPE_IMSI)
+	#set($filterColumn = ["IMSI"])
+#elseif($subType==$TYPE_MSISDN)
+	#set($filterColumn = ["MSISDN"])
+#end
+	SELECT
+        dateformat(cfaRaw.EVENT_TIME,'yyyy-MM-dd HH:mm:ss.SSS') AS EVENT_TIME,
+        cfaEventRef.EVENT_ID,
+        cfaEventRef.EVENT_ID_DESC,
+		CAST(cfaraw.C_ID_1 AS VARCHAR) AS CID,
+        cellRef.CELL_ID,
+		CAST(cfaRaw.TAC AS VARCHAR) AS TAC
+	FROM
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTables() "cfaraw" $filterColumn $columnsToSelect)
+	JOIN 	
+		dc.DIM_E_RAN_CFA_EVENTTYPE cfaEventRef
+	ON
+	    cfaRaw.EVENT_ID = cfaEventRef.EVENT_ID
+	LEFT OUTER JOIN
+		dc.DIM_E_SGEH_HIER321_CELL cellRef
+	ON
+	    cfaraw.C_ID_1 = cellRef.CID
+	GROUP BY
+		EVENT_TIME,
+        cfaEventRef.EVENT_ID,
+        cfaEventRef.EVENT_ID_DESC,
+		cfaraw.C_ID_1,
+        cellRef.CELL_ID,
+		cfaRaw.TAC
+    ORDER BY
+        EVENT_TIME DESC

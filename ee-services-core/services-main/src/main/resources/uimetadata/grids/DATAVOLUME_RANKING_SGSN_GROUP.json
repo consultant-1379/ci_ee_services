@@ -1,0 +1,28 @@
+{
+  "id" : "DATAVOLUME_RANKING_SGSN_GROUP",
+  "title" : "SGSN-MME Group Ranking (Data Volume)",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "autoexpand" : "2",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "SGSN-MME Group",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Downlink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Uplink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Total Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  } ]
+}

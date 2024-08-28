@@ -1,0 +1,23 @@
+{
+    "id": "NETWORK_RAN_LTE_HFA_TARGET_CELL_DRILL_ON_INTERNAL_PROC_HO_PREP_X2_OUT",
+    "name": "Target Access Area LTE Handover Failure : Event Analysis",
+    "url": "NETWORK/LTE_HANDOVER_FAILURE_SUBSCRIBER_DETAILED_EVENT_ANALYSIS/TARGET_ACCESS_AREA",
+    "gridDisplayID": "NETWORK_RAN_LTE_HFA_TARGET_CELL_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_HO_PREP_X2_OUT",
+    "needSearchParam": "FALSE",
+    "searchValFromCol" : "4,3,2,9",
+    "params": [
+        {
+            "id": "1",
+            "queryParamName": "THIER321_ID"
+        },
+        {
+            "id": "6",
+            "queryParamName": "EVENT_ID"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

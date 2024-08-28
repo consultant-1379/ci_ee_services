@@ -1,0 +1,59 @@
+{
+  "toolBarType" : "TOOLBAR1",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnBack",
+      "name" : "",
+      "style" : "toolbar_back",
+      "isEnabled" : "FALSE",
+      "tip" : "Backward Navigation",
+      "isToggle" : "False",
+      "eventID" : "BACK"
+    }, {
+      "id" : "btnForward",
+      "name" : "",
+      "style" : "toolbar_forward",
+      "isEnabled" : "FALSE",
+      "tip" : "Forward Navigation",
+      "isToggle" : "FALSE",
+      "eventID" : "FORWARD"
+    }, {
+      "id" : "btnNav",
+      "name" : "History",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to navigate visited windows",
+      "isEnabled" : "FALSE",
+      "eventID" : "NAVIGATION",
+      "items" : [ {
+        "id" : "DUMMY_VALUE",
+        "name" : "DUMMY_VALUE"
+      } ]
+    } ]
+  }, {
+    "toolBarButtons" : [ {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    }, {
+      "id" : "btnExport",
+      "name" : "",
+      "style" : "toolbar_exportbtn",
+      "tip" : "Click to export the data to CSV",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "EXPORT"
+    } ]
+  } ]
+}

@@ -1,0 +1,89 @@
+##
+## WCDMA Call Failure Analysis  - Terminal Group Analysis
+##
+## Velocity Parameter:
+##
+##		$TECH_PACK_LIST the list of tech packs, see TechPackList's javadoc
+##		$EVENT_ID the event id to query on
+##
+##
+## Named PreparedStatement Parameter:
+##     :dateFrom   starting time
+##     :dateTo     ending time
+
+
+BEGIN
+select
+	#if($count > 0)
+	  top $count
+	#end
+	RANK() over (ORDER BY data.NO_OF_ERRORS DESC) AS Rank,
+	data.GROUP_NAME as GROUP_NAME,
+	data.NO_OF_ERRORS,
+	impacted_subscribers.IMPACTED_SUBSCRIBERS as 'Impacted Subscribers'
+from
+	(
+		   select
+				GROUP_NAME,
+				sum(NO_OF_ERRORS) as NO_OF_ERRORS
+			from
+				$aggregationView aggView,
+				GROUP_TYPE_E_TAC tacGroup
+			where
+				EVENT_ID = $EVENT_ID
+				and aggView.TAC = tacGroup.TAC
+				and
+				#GET_DATETIME_RANGE()
+			group by
+				GROUP_NAME
+			union all
+			####exclusive tac data isn't included in aggregations, so need to go to the raw tables to get this information
+			select
+				GROUP_NAME,
+				count(*)
+			from
+			    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" ["EVENT_ID", "TAC"])
+				,GROUP_TYPE_E_TAC
+			where
+				EVENT_ID = $EVENT_ID
+				and rawview.TAC = GROUP_TYPE_E_TAC.TAC
+				#AND_IS_EXCLUSIVE_TAC_GROUP()
+			group by
+				GROUP_NAME
+
+	) as data(GROUP_NAME, NO_OF_ERRORS)
+	left outer join
+	(
+		select
+			tacGroup.GROUP_NAME,
+			count(distinct(IMSI))
+		from
+			### excluding the exclusive tacs at this point - don't want raw data for exclusive tacs that are included in the regular tac groups
+	        #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" ["EVENT_ID","IMSI", "TAC"])
+			,GROUP_TYPE_E_TAC tacGroup
+		where
+			tacGroup.TAC = rawview.TAC
+			and EVENT_ID = $EVENT_ID
+		group by
+			GROUP_NAME
+		union all
+		##### fetching the subscriber data for the exclusive tacs in the exclusive tac group
+		select
+			tacGroup.GROUP_NAME,
+			count(distinct(IMSI))
+		from
+	        #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" ["EVENT_ID","IMSI","TAC"])
+			,GROUP_TYPE_E_TAC tacGroup
+		where
+			tacGroup.TAC = rawview.TAC
+			#AND_IS_EXCLUSIVE_TAC_GROUP()
+			and EVENT_ID = $EVENT_ID
+		group by
+			GROUP_NAME
+	) as impacted_subscribers(GROUP_NAME, IMPACTED_SUBSCRIBERS)
+	on
+		(	data.GROUP_NAME = impacted_subscribers.GROUP_NAME )
+
+order by
+	data.NO_OF_ERRORS DESC
+END

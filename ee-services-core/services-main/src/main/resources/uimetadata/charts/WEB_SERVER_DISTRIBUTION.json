@@ -1,0 +1,32 @@
+{
+    "id": "WEB_SERVER_DISTRIBUTION",
+    "title": "",
+    "ylabel": "Volume (MB), Samples",
+    "xlabel": "",
+    "xaxisID": "host",
+    "secondYAxisID": "1",
+    "items": [
+        {
+            "id": "dataVolumeDownlink",
+            "name": "Data Volume DL",
+            "color": "#bed682"
+        },
+        {
+            "id": "dataVolumeUplink",
+            "name": "Data Volume UL",
+            "color": "#9ec057"
+        },
+        {
+            "id": "samplesDownlink",
+            "name": "Samples DL",
+            "color": "#5d6592",
+            "yAxisIndex": "1"
+        },
+        {
+            "id": "samplesUplink",
+            "name": "Samples UL",
+            "color": "#8d92b4",
+            "yAxisIndex": "1"
+        }
+    ]
+}

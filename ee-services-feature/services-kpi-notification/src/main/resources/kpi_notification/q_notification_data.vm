@@ -1,0 +1,55 @@
+##=============================================================================
+##
+## Notification data : Retrieve information about notifications stored in db.
+##  
+## Description:
+## 
+##     Get notification data from database
+##
+## Template Parameters:
+##	    count - max number of records to be returned.
+## Query Parameters:
+##      :perceivedSeverity - the integer value for the severity of the notifications to be returned. See KPINotificationConstants
+##					for this mapping
+## 		:dateFrom
+##      :dateTo
+##=============================================================================
+#set($columnsToSelectFromRawTables=["EventDate", "AdditionalText", "AdditionalInformation", "MonitoredAttributeValues", "MonitoredAttributes", "ThresholdInformation", "ManagedObjectClass", "ManagedObjectInstance", "perceivedSeverity"])
+#set($rawtables=$TECH_PACK_LIST.getAllRawTables())
+
+select
+    #if($count > 0)
+        top $count
+	#end
+    EventDate as "Event_Date",
+	ManagedObjectInstance as "Managed Object Name",
+    AdditionalInformation as "Defined KPI Type",
+	MonitoredAttributeValues as "Computed KPI Value",
+	ThresholdInformation as "Defined Threshold",
+	MonitoredAttributes as "Computed KPI Name",
+	ManagedObjectClass as "Managed Object Type",
+	AdditionalText as "Defined KPI Formula"
+from
+	(	
+		#foreach ($rawtable in $rawtables)
+			select
+				#foreach ($columnToInclude in $columnsToSelectFromRawTables)
+					$columnToInclude
+					#if($velocityCount < $columnsToSelectFromRawTables.size())
+					,
+					#end
+				#end			
+			from dc.$rawtable 
+			where
+                 EventDate >= :dateFrom and EventDate < :dateTo
+				and #GET_COLUMNS_WHERE(["perceivedSeverity"])			
+			#if($velocityCount < $rawtables.size())
+					union all
+			#end
+		#end
+	) as "temp_raw"
+order by
+	Event_Date desc
+
+   
+    	

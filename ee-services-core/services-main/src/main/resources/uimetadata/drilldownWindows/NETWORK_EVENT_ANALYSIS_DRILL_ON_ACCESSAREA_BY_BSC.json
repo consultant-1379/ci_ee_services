@@ -1,0 +1,34 @@
+{
+    "id":"NETWORK_EVENT_ANALYSIS_DRILL_ON_ACCESSAREA_BY_BSC",
+    "gridDisplayID":"NETWORK_EVENT_ANALYSIS_WCDMA_CFA_CELL",
+    "name":"Access Area Event Analysis - WCDMA Call Failure",
+    "url":"NETWORK/WCDMA_CFA_NETWORK_EVENT_ANALYSIS/NODE",
+    "params":[
+        {
+            "id":"17",
+            "queryParamName":"HIER3_CELL_ID"
+        },
+        {
+            "id":"CELL",
+            "queryParamName":"type",
+            "isFixedVal":"TRUE"
+        },
+        {
+            "id":"48",
+            "queryParamName":"eventID"
+        },
+        {
+            "id":"49",
+            "queryParamName":"categoryId"
+        },
+        {
+            "id":"50",
+            "queryParamName":"drillCat"
+        }
+    ],
+    "style":"analysisCausecode",
+    "windowType":"GRID",
+    "isEnabled":"TRUE",
+    "toolBarType":"TOOLBAR1",
+    "display":"grid"
+}

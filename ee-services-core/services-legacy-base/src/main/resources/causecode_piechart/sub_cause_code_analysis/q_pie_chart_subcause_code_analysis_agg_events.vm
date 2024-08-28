@@ -1,0 +1,58 @@
+#DEFINE_CONSTANTS()
+
+#macro(SCCAS_QUERY_BY_CC_AGG $errTable $ccTable $sccTable $cptTable)
+(
+select	
+	cptref.CAUSE_PROT_TYPE, 
+	ccref.CAUSE_CODE, 
+	sccref.SUBCAUSE_CODE, 
+	SUBCAUSE_CODE_DESC || ' (' || CAUSE_PROT_TYPE_DESC || ')', 
+	sum(NO_OF_ERRORS)
+from
+	dc.${errTable} errRef,
+	dc.${ccTable} ccref,
+	dc.${sccTable} sccref,
+	dc.${cptTable} cptref
+	#GROUP_TABLE_INFO()
+where
+	#GET_DATETIME_RANGE()
+	#GROUP_OR_SINGLE_INFO()
+	and cptref.CAUSE_PROT_TYPE = errRef.CAUSE_PROT_TYPE
+	and ccref.CAUSE_CODE = errRef.CAUSE_CODE
+	and ccref.CAUSE_PROT_TYPE = errRef.CAUSE_PROT_TYPE
+	and sccref.SUBCAUSE_CODE = errRef.SUBCAUSE_CODE
+	and errRef.CAUSE_CODE = :CAUSE_CODE
+group by
+	ccref.CAUSE_CODE,
+	sccref.SUBCAUSE_CODE,
+	SUBCAUSE_CODE_DESC,
+	cptref.CAUSE_PROT_TYPE,
+	CAUSE_PROT_TYPE_DESC
+)
+#end
+
+select
+	err.CAUSE_PROT_TYPE as CAUSE_PROT_TYPE,
+	err.CAUSE_CODE as CAUSE_CODE,
+	err.SUBCAUSE_CODE as SUBCAUSE_CODE,
+	err.SUBCAUSE_CODE_DESC as SUBCAUSE_CODE_DESC,
+	sum(isnull(err.NO_OF_ERRORS, 0)) as NO_OF_ERRORS		
+
+from (
+	#foreach ($errtable in $rawErrTables)
+		#if ($errtable.toString().indexOf($ApplicationConstants.SGEH) > -1)
+			#SCCAS_QUERY_BY_CC_AGG($errtable $ccRefForSgeh $sccRefForSgeh $cptRefForSgeh)	
+		#else
+			#SCCAS_QUERY_BY_CC_AGG($errtable $ccRefForLte $sccRefForLte $cptRefForLte)
+		#end
+		#if($velocityCount < $rawErrTables.size())
+			union all
+		#end
+	#end
+) as err (CAUSE_PROT_TYPE, CAUSE_CODE, SUBCAUSE_CODE, SUBCAUSE_CODE_DESC, NO_OF_ERRORS)
+
+group by
+	err.CAUSE_CODE,
+	err.SUBCAUSE_CODE,
+	err.SUBCAUSE_CODE_DESC,
+	err.CAUSE_PROT_TYPE

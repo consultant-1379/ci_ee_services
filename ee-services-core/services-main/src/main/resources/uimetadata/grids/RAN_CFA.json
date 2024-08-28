@@ -1,0 +1,60 @@
+{
+    "id":"RAN_CFA",
+    "title":"3G Ranking - Call Failure by Controller",
+    "autoexpand":"3",
+    "defaultSortCol":"1",
+    "defaultSortDir":"ASC",
+    "columns":[
+        {
+            "header":"Rank",
+            "width":"70",
+            "datatype":"int"
+        },
+        {
+            "header":"RAN Vendor",
+            "width":"100",
+            "datatype":"string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header":"Controller",
+            "width":"100",
+            "datatype":"string",
+            "launchWindowType":"NETWORK_EVENT_ANALYSIS_WCDMA_CFA_BSC_RANKING"
+        },
+        {
+            "header": "Event Type",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "header":"Failures",
+            "width":"90",
+            "datatype":"int"
+        },
+        {
+            "header": "HIER3_ID",
+            "width": "100",
+            "datatype": "long",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "EVENT_ID",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "CATEGORY_ID",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "DRILL_CAT",
+            "width": "100",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        }
+    ]
+}

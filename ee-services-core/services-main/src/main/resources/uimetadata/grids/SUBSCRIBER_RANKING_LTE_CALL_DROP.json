@@ -1,0 +1,22 @@
+{
+  "id": "SUBSCRIBER_RANKING_LTE_CALL_DROP",
+  "title": "Subscriber LTE Call Failure Call Drops : Failure Event Ranking",
+  "autoexpand": "2",
+  "defaultSortCol": "1",
+  "defaultSortDir": "ASC",
+  "columns": [ {
+    "header": "Rank",
+    "width": "70",
+    "datatype": "int"
+  }, {
+    "header": "IMSI",
+    "width": "100",
+    "datatype": "string",
+    "drillDownLicenseCXC" : "CXC4010925",
+    "launchWindowType": "RAN_LTE_CFA_ANALYSIS"
+  }, {
+    "header": "Failures",
+    "width": "90",
+    "datatype": "int"
+  } ]
+}

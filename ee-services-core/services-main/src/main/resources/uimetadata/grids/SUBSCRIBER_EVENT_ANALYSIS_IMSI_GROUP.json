@@ -1,0 +1,87 @@
+{
+  "id" : "SUBSCRIBER_EVENT_ANALYSIS_IMSI_GROUP",
+  "title" : "IMSI Group Summary Event Analysis",
+  "autoexpand" : "3",
+  "defaultSortCol" : "4",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Group Name",
+    "width" : "50",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event ID",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "130",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "SUBSCRIBER_EVENT_ANALYSIS_IMSI"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Success Ratio",
+    "width" : "100",
+    "datatype" : "float"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "int"
+  }, {
+    "header" : "Bearer Count",
+    "width" : "100",
+    "datatype" : "float",
+    "isHidden" : "TRUE",
+	"licenseCXC" : "CXC4011159"
+  }, {
+    "header" : "Downlink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float",
+    "drillDownWindowType" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_IMSI_GROUP_DL",
+    "isHidden" : "TRUE",
+	"licenseCXC" : "CXC4011159"
+  }, {
+    "header" : "Downlink Throughput (Mb/s)",
+    "width" : "150",
+    "datatype" : "float",
+    "isHidden" : "TRUE",
+	"licenseCXC" : "CXC4011159"
+  }, {
+    "header" : "Downlink Avg Bearer Volume (KB)",
+    "width" : "200",
+    "datatype" : "float",
+    "isHidden" : "TRUE",
+	"licenseCXC" : "CXC4011159"
+  }, {
+    "header" : "Uplink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float",
+    "drillDownWindowType" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_IMSI_GROUP_UL",
+    "isHidden" : "TRUE",
+	"licenseCXC" : "CXC4011159"
+  }, {
+    "header" : "Uplink Throughput (Mb/s)",
+    "width" : "150",
+    "datatype" : "float",
+    "isHidden" : "TRUE",
+	"licenseCXC" : "CXC4011159"
+  }, {
+    "header" : "Uplink Avg Bearer Volume (KB)",
+    "width" : "200",
+    "datatype" : "float",
+    "isHidden" : "TRUE",
+	"licenseCXC" : "CXC4011159"
+  } ]
+}

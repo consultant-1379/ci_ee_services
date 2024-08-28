@@ -1,0 +1,127 @@
+<project name="ENIQ Events Services Build" default="copy.war">
+	<description>
+	@author estepdu
+    @author ericker
+	@date 12/04/2010
+	Ant Build File for ENIQ Events Service. 
+    Calls maven to build the war, also copying the war to the directory expected by the build script.
+	</description>
+
+	<!-- Properties -->
+  <condition property="osfamily-unix">
+        <os family="unix" />
+    </condition>
+    <condition property="osfamily-windows">
+        <os family="windows" />
+    </condition>
+
+
+
+
+	<!--====================================================================
+		Required by ENIQ platform installer
+	=====================================================================-->
+	<!--====================================================================
+		Required by ENIQ platform installer
+	=====================================================================-->
+
+	<target name="precompile"/>
+
+	<target name="compile" depends="copy.war" />
+
+	<target name="postcompile"/>
+
+	<!--====================================================================
+		Build zip installer file
+	=====================================================================-->
+	<target name="create.zip" description="Create a zip in install dir with install artifacts for ENIQ platform installer" depends="">
+
+	</target>
+
+    <taskdef resource="org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties">
+
+    </taskdef>
+
+    <target name="weave.classes">
+
+    </target>
+
+	<!--====================================================================
+		Build war file
+	=====================================================================-->
+	<target name="create.war" description="Create the ENIQ Events Services war file." depends="package-unix,package-windows">
+		<!--
+      Tell maven to build the package....
+    -->
+	</target>
+  
+  <target name="package" depends="package-unix,package-windows"
+            description="mvn package" />
+  <target name="package-unix" if="osfamily-unix">
+    <exec executable="/vobs/ossrc_3pp/freeware/apache_maven/apache-maven-3.0/bin/mvn" failonerror="true">
+      <arg value="clean"/>
+      <arg value="package"/>
+      <arg value="-Dmaven.test.skip=true"/>
+      <arg value="-P" />
+      <arg value="noPMD" />
+      <arg value="-U" />
+      <arg value="-f" />
+      <arg value="/vobs/eniq_events/eniq_events_services/pom.xml" />
+    </exec>
+  </target>
+  <target name="package-windows" if="osfamily-windows">
+      <exec executable="cmd" failonerror="true">
+          <arg value="/c" />
+          <arg value="mvn.bat" />
+          <arg value="clean"/>
+          <arg value="package"/>
+          <arg value="-Dmaven.test.skip=true"/>
+          <arg value="-P" />
+          <arg value="noPMD" />
+          <arg value="-f" />
+          <arg value="../pom.xml" />
+          <arg value="-U" />
+      </exec>
+  </target>
+
+	<!--====================================================================
+		Compile Java source
+	=====================================================================-->
+	<target name="compile.java" depends="clean.all" description="Compile java source code">
+		
+	</target>
+
+	<!--====================================================================
+		Remove war folder
+	=====================================================================-->
+	<target name="clean.all" description="remove generated artifacts">
+		
+	</target>
+
+	<target name="clean" depends="clean.all"/>
+
+	<!--====================================================================
+		Copy required libs
+	=====================================================================-->
+	<target name="copy.libs" description="copy libs">
+		
+	</target>
+
+	<!--====================================================================
+		Copy other application resources
+	=====================================================================-->
+	<target name="copy.resources" description="copy resources">
+		
+	</target>
+
+
+
+	<!--====================================================================
+			Required by ENIQ platform installer
+			- copy war file to install folder
+	=====================================================================-->
+	<target name="copy.war" description="copy generated war to install dir" depends="create.war" >
+		
+	</target>
+
+</project>

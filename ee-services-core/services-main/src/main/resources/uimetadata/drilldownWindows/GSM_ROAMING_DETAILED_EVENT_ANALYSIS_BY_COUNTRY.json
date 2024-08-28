@@ -1,0 +1,20 @@
+{
+    "id":"GSM_ROAMING_DETAILED_EVENT_ANALYSIS_BY_COUNTRY",
+    "gridDisplayID":"GSM_ROAMING_DETAILED_EVENT_ANALYSIS_BY_COUNTRY",
+    "url":"NETWORK/GSM/CALL_FAILURE_ROAMING_ANALYSIS/COUNTRY/DRILL/DETAIL/CALL_DROP",
+    "params":[{
+            "id":"1",
+            "queryParamName":"COUNTRY",
+            "isTitleParam": "TRUE"
+        },
+        {
+            "id":"6",
+            "queryParamName":"CATEGORY_ID"
+        },
+        {
+            "id":"7",
+            "queryParamName":"MCC"
+        }
+    ]
+}
+

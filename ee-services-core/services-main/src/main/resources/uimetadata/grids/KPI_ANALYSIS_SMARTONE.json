@@ -1,0 +1,62 @@
+{
+    "id": "KPI_ANALYSIS_SMARTONE",
+    "title": "KPI Analysis",
+    "columns": [
+        {
+            "type": "Attach Success Rate",
+            "licenceType": "SGEH"
+        },
+        {
+            "type": "Detach Success Rate",
+            "licenceType": "SGEH"
+        },
+        {
+            "type": "PDP Context Activation Success Rate",
+            "licenceType": "SGEH"
+        },
+        {
+            "type": "PDP Context Cutoff Ratio",
+            "licenceType": "SGEH"
+        },
+        {
+            "type": "RAU Success Rate",
+            "licenceType": "SGEH"
+        },
+        {
+            "type": "ISRAU Success Rate",
+            "licenceType": "SGEH"
+        },
+        {
+            "type": "Service Request Failure Ratio",
+            "licenceType": "SGEH"
+        },
+        {
+            "type": "Paging Failure Ratio",
+            "licenceType": "SGEH"
+        },
+        {
+            "type": "TCP Throughput Uplink",
+            "licenceType": "UPD"
+        },
+        {
+            "type": "TCP Throughput Downlink",
+            "licenceType": "UPD"
+        },
+        {
+            "type": "RTT Terminal",
+            "licenceType": "UPD"
+        },
+        {
+            "type": "RTT Server",
+            "licenceType": "UPD"
+        },
+        {
+            "type": "Packet Loss Terminal",
+            "licenceType": "UPD"
+        },
+        {
+            "type": "Packet Loss Server",
+            "licenceType": "UPD"
+        }
+    ]
+}

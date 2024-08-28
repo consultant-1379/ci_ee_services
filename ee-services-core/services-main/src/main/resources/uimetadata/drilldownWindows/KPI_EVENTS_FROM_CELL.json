@@ -1,0 +1,41 @@
+{
+  "id" : "KPI_EVENTS_FROM_CELL",
+  "gridDisplayID" : "KPI_EVENTS_FROM_APN",
+  "name" : "KPI Events Breakdown",
+  "url" : "NETWORK/KPI_RATIO",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "RAT"
+  }, {
+    "id" : "2",
+    "queryParamName" : "vendor"
+  }, {
+    "id" : "3",
+    "queryParamName" : "bsc",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "4",
+    "queryParamName" : "cell",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "10",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "5",
+    "queryParamName" : "CC",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "6",
+    "queryParamName" : "SCC",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

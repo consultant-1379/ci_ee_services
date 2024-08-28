@@ -1,0 +1,36 @@
+{
+  "id" : "CS_KPI_EVENTS_FROM_MSC",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_ELEMENTS",
+  "name" : "KPI Events Breakdown",
+  "url" : "MSS/NETWORK/KPI_RATIO",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "2",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "3",
+    "queryParamName" : "HIER3_ID"
+  }, {
+    "id" : "4",
+    "queryParamName" : "EVNTSRC_ID"
+  }, {
+    "id" : "5",
+    "queryParamName" : "internalCauseCode",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "7",
+    "queryParamName" : "faultCode",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "MSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

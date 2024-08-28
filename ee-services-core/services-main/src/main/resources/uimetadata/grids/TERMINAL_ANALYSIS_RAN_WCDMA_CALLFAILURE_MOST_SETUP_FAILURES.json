@@ -1,0 +1,34 @@
+{
+  "id" : "TERMINAL_ANALYSIS_RAN_WCDMA_CALLFAILURE_MOST_SETUP_FAILURES",
+  "title" : "Terminal Analysis - Most Call Setup Failures",
+  "autoexpand" : "3",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Model",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "TERMINAL_RAN_WCDMA_DETAILED_EVENT_ANALYSIS_CALL_FAILURE_TAC"
+  }, {
+    "header" : "EventID",
+    "width" : "90",
+    "datatype" : "int",
+    "isSystem" : "true"
+  } ]
+}

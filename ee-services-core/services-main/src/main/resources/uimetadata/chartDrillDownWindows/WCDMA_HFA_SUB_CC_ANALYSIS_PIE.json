@@ -1,0 +1,7 @@
+{
+    "id": "WCDMA_HFA_SUB_CC_ANALYSIS_PIE",
+    "drillWindowName": "Sub Cause Codes Analysis (WCDMA Handover Failure)",
+    "url": "NETWORK/WCDMA_HFA_CAUSE_CODE_ANALYSIS/SUB_CAUSE_CODE_PIE_CHART",
+    "drillToolBarType": "CAUSE_CODE_PIE_DRILL_SUB_CAUSE_CODE",
+    "drillType": "launchChart"
+}

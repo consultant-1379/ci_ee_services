@@ -1,0 +1,24 @@
+{
+  "id" : "CC_CFA_CALL_DROPS_EVENT_ANALYSIS",
+  "title" : "Network Cause Code Analysis",
+  "autoexpand" : "3",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Extended Cause Code ID",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Extended Cause Code Description",
+    "width" : "280",
+    "datatype" : "string"
+  }, {
+    "header" : "Occurences",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

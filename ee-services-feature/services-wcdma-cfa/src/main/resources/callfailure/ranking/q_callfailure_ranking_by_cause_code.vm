@@ -1,0 +1,31 @@
+##
+## WCDMA Call Failure Analysis Cause Code Ranking (using raw tables)
+##
+## Velocity Parameter: 
+##		EVENT_ID:   Corresponding event id for Cause Code Call Setup or Calls Dropped
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+#set($columnsToSelect=["CAUSE_VALUE, EVENT_ID"])
+
+SELECT 
+	#if($count > 0)
+	  top $count
+	#end
+	RANK() Over (ORDER BY Failures DESC) AS Rank, 
+	DIM_E_RAN_CFA_CAUSE_VALUE.CAUSE_VALUE_DESC AS 'Cause Code Description', 
+	rawview.CAUSE_VALUE AS 'Cause Code ID', 
+	Count (*) AS Failures
+FROM	
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToSelect),
+	DIM_E_RAN_CFA_CAUSE_VALUE
+WHERE
+	rawview.CAUSE_VALUE *= DIM_E_RAN_CFA_CAUSE_VALUE.CAUSE_VALUE AND  
+	rawview.EVENT_ID = $EVENT_ID
+GROUP BY 
+	DIM_E_RAN_CFA_CAUSE_VALUE.CAUSE_VALUE_DESC,
+	rawview.CAUSE_VALUE

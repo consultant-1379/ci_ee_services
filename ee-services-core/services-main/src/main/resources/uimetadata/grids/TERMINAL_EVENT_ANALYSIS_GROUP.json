@@ -1,0 +1,118 @@
+{
+    "id" : "TERMINAL_EVENT_ANALYSIS_GROUP",
+    "title" : "Terminal Event Analysis",
+    "autoexpand" : "3",
+    "defaultSortCol" : "3",
+    "defaultSortDir" : "ASC",
+    "categoryId" : "NETWORK_EVENT_ANALYSIS_GROUP",
+    "columns" : [
+        {
+            "header" : "Terminal Group",
+            "width" : "60",
+            "datatype" : "string",
+            "isSystem" : "TRUE"
+        },
+        {
+            "header" : "EventID",
+            "width" : "50",
+            "datatype" : "string",
+            "isSystem" : "TRUE"
+        },
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "failures",
+            "header" : "Failures",
+            "width" : "100",
+            "datatype" : "int",
+            "drillDownWindowType" : "TERMINAL_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE"
+        },
+        {
+            "type" : "successes",
+            "header" : "Successes",
+            "width" : "100",
+            "datatype" : "int"
+        },
+        {
+            "type" : "totalEvents",
+            "header" : "Total Events",
+            "width" : "100",
+            "datatype" : "int"
+        },
+        {
+            "type" : "successRatio",
+            "header" : "Success Ratio",
+            "width" : "100",
+            "datatype" : "float",
+            "drillDownWindowType" : "TERMINAL_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header" : "Impacted Subscribers",
+            "width" : "120",
+            "datatype" : "int"
+        },
+        {
+            "type" : "bearerCount",
+            "header" : "Bearer Count",
+            "width" : "100",
+            "datatype" : "float",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        },
+        {
+            "type" : "downlinkDataVol",
+            "header" : "Downlink Data Vol (MB)",
+            "width" : "150",
+            "datatype" : "float",
+            "drillDownWindowType" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_TERMINAL_GROUP_DL_TERMINAL_TAB",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        },
+        {
+            "type" : "downlinkThroughput",
+            "header" : "Downlink Throughput (Mb/s)",
+            "width" : "150",
+            "datatype" : "float",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        },
+        {
+            "type" : "downlinkAvgBearerVolume",
+            "header" : "Downlink Avg Bearer Volume (KB)",
+            "width" : "200",
+            "datatype" : "float",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        },
+        {
+            "type" : "uplinkDataVol",
+            "header" : "Uplink Data Vol (MB)",
+            "width" : "150",
+            "datatype" : "float",
+            "drillDownWindowType" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_TERMINAL_GROUP_UL_TERMINAL_TAB",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        },
+        {
+            "type" : "uplinkThroughput",
+            "header" : "Uplink Throughput (Mb/s)",
+            "width" : "150",
+            "datatype" : "float",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        },
+        {
+            "type" : "uplinkAvgBearerVolume",
+            "header" : "Uplink Avg Bearer Volume (KB)",
+            "width" : "200",
+            "datatype" : "float",
+            "isHidden" : "TRUE",
+			"licenseCXC" : "CXC4011159"
+        }
+    ]
+}

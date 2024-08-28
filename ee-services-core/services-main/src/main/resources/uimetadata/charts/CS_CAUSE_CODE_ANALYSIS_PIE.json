@@ -1,0 +1,31 @@
+{
+  "id" : "CS_CAUSE_CODE_ANALYSIS_PIE",
+  "title" : "Internal Cause Code Analysis Voice",
+  "ylabel" : "Number of Events",
+  "xlabel" : "Group Name",
+  "secondYAxisID" : "3",
+  "xaxisID" : "2",
+  "items" : [ {
+    "id" : "1",
+    "name" : "Internal Cause Code Id",
+    "color" : "5494c5",
+    "queryParam" : "internalCauseCode",
+    "isLegendPrefix" : "TRUE",
+    "displayInTooltip" : "TRUE"
+  }, {
+    "id" : "2",
+    "name" : "Internal Cause Code Desc",
+    "color" : "5494c5"
+  }, {
+    "id" : "3",
+    "name" : "Number of Failures",
+    "color" : "cb5853",
+    "displayInTooltip" : "TRUE",
+    "drillDownWindowType" : "CS_DRILL_CHART_CAUSE_CODE_FROM_PIE_SLICE"
+  }, {
+    "id" : "4",
+    "name" : "Impacted Subscribers",
+    "color" : "333986",
+    "displayInTooltip" : "TRUE"
+  } ]
+}

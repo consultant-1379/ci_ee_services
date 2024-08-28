@@ -1,0 +1,81 @@
+<project name="eniqservices" basedir="." default="install">
+
+		<taskdef name="INIGet" classname="com.distocraft.dc5000.install.ant.INIGet"/>
+		<taskdef name="trivialxml" classname="com.ericsson.eniq.install.tools.TrivialXMLTask"/>
+		<taskdef name="forcedelete" classname="com.distocraft.dc5000.install.ant.ForceDeleteFile"/>
+
+		<property name="dir.exists" value="false"/>
+		<property name="rootDir" value="${dc.glassfish.dir}"/>
+		<property name="asinstalldir" value="${rootDir}/glassfish/glassfish"/>
+
+		<property name="app.module.war" value="EniqEventsServices.war"/>
+		<property name="module.name" value="EniqEventsServices"/>
+
+		<property name="domain.name" value="domain1"/>
+		<property name="eniq.events.app.backup.dir" value="${asinstalldir}/domains/${domain.name}/eniq-events-applications-backup"/>
+		<property name="glassfish.autodeploy.dir" value="${asinstalldir}/domains/${domain.name}/autodeploy"/>
+
+	
+	
+	<!-- Check that the /eniq/glassfish/glassfishv3/glassfish directory exists -->
+	<target name="dir-check" depends="" description="Check that the /eniq/glassfish/glassfishv3/glassfish directory exists">
+			<echo message="Checking that the ${asinstalldir} exists..." />
+			<available file="${asinstalldir}" property="isFileAvail"></available>
+			<fail unless="isFileAvail" message="The ${asinstalldir} directory does not exist!"></fail>
+    </target>
+	
+      <!-- Check if it is possible to connect to the database if it is not possible there is no point install the service as the 
+	dataservice bean has a dependancy to connect to the db -->
+      <target name="can-connect-to-db" depends="" description="Check if it is possible to connect to the database if it is not possible there is no point install the service as the dataservice bean has a dependancy to connect to the db">
+	<exec executable="/usr/bin/bash" resultproperty="canConnectToDb">
+	  <arg value = "-c"/>
+	  <arg value = "${dc.admin.bin}/checkDBCon /tmp/checkDBCon_log_file_services eventsservices"/>
+	</exec>
+	
+	<exec executable="/usr/bin/rm">
+	  <arg value = "/tmp/checkDBCon_log_file_services"/>
+	</exec>
+		
+	<fail message="It is not possible to connect to the database, please see the above status of 'dwhdb' and 'dwh_reader'.">
+	  <condition>
+	    <not>
+	      <equals arg1="${canConnectToDb}" arg2="0"/>
+	    </not>
+	  </condition>
+	</fail>
+      </target>
+		 
+	<!-- Make a backup directory of the war so it can be put back in case of failure -->
+	<target name="backup-installed-wars" depends="" description="Make a copy of the already installed wars">
+        <fail unless="dir.exists" message="${rootDir} does not exists"/>
+		<if>
+				<available file="${glassfish.autodeploy.dir}/${app.module.war}"/>
+		<then>
+			<echo message="Making a backup of the ${module.name}..." />
+			<echo message="The current war file ${app.module.war} will be copied to the ${eniq.events.app.backup.dir} as a backup of the current installed version"/>
+		    <copy overwrite="true" failonerror="false" file="${glassfish.autodeploy.dir}/${app.module.war}" toFile="${eniq.events.app.backup.dir}/${app.module.war}"/>
+			<forcedelete file="${glassfish.autodeploy.dir}/${app.module.war}*"/>
+		</then>
+		<else>
+			<mkdir dir="${eniq.events.app.backup.dir}"/>
+		</else>
+		</if>
+	</target>
+
+	<!-- Deploy UI war by copying the war to the glassfish autodeploy directory -->
+	<target name="deploy-war" depends="dir-check,can-connect-to-db,backup-installed-wars" description="Deploy the application by copying the war to the glassfish autodeploy directory">
+			<fail unless="dir.exists" message="${rootDir} does not exists"/>
+		    <echo message="Deploying ${module.name} to the glassfish autodeploy directory..." />
+		    <copy overwrite="true" failonerror="true" file="${dc.installer.dir}/tmp/install/${app.module.war}" toFile="${glassfish.autodeploy.dir}/${app.module.war}"/>
+  	</target>
+
+	
+	<target name="install">
+		<antcall target="deploy-war"/>
+	</target>
+	
+	<target name="update">
+		<antcall target="deploy-war"/>
+	</target>
+	
+</project>

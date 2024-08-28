@@ -1,0 +1,21 @@
+{
+  "id" : "SUB_BI_BUSY_DAY",
+  "isChartData" : "TRUE",
+  "title" : "Subscriber Overview - Busy Day Analysis",
+  "autoexpand" : "3",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Event Failures",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Event Success",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Busy Day",
+    "width" : "300",
+    "datatype" : "string"
+  } ]
+}

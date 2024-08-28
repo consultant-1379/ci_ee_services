@@ -1,0 +1,26 @@
+{
+  "id" : "CS_KPI_BY_EVENTS_FROM_BSC_LOC",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_ELEMENTS_locationServices",
+  "name" : "KPI Breakdown by Access Area Location Services",
+  "url" : "MSS/NETWORK/KPI_RATIO",
+  "needSearchParam" : "FALSE",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "2",
+    "queryParamName" : "HIER3_ID"
+  }, {
+    "id" : "3",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

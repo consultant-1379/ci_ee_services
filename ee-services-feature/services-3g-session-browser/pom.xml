@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>ee-services-feature</artifactId>
+		<groupId>com.ericsson.eniq.events</groupId>
+		<version>14.0-A-2</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>services-3g-session-browser</artifactId>
+	<name>${eniq.events.app.name} :: Services Feature - 3G Session Browser</name>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-legacy-base</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-soap</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.8.5</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.ericsson.eniq</groupId>
+			<artifactId>eniq_events_shared_model</artifactId>
+			<version>${eniq.shared.model}</version><!--$NO-MVN-MAN-VER$ -->
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+</project>

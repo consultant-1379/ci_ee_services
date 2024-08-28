@@ -1,0 +1,20 @@
+{
+  "id" : "WCDMA_NETWORK_SUB_CAUSE_CODE_ANALYSIS_CELL",
+  "name" : "Access Area Sub-Cause Code Analysis",
+  "url" : "NETWORK/WCDMA_CAUSE_CODE_ANALYSIS/SUB_CAUSE_CODE",
+  "needSearchParam": "TRUE",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "causeCode"
+  }, {
+    "id" : "2",
+    "queryParamName" : "causeCodeDescription",
+	"isTitleParam": "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR_GROUPING_GRID_WCDMA",
+  "display" : "grid"
+}
+

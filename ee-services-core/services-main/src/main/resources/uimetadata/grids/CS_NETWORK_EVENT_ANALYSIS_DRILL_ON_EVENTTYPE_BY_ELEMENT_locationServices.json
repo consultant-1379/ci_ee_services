@@ -1,0 +1,168 @@
+{
+  "id" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_ELEMENT_locationServices",
+  "title" : "Failed Event Analysis Voice",
+  "autoexpand" : "12",
+  "defaultSortCol" : "4",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "EVNTSRC_ID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "HIER3_ID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "HIER321_ID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Time",
+    "width" : "120",
+    "datatype" : "date"
+  }, {
+    "header" : "MSISDN",
+    "width" : "120",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "IMSI",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "string",
+    "drillDownWindowType" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_TAC_locationServices"
+  }, {
+    "header" : "Terminal Make",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Terminal Model",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Result",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Unsuccessful Positioning Reason",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "LCS Client Type",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Type Of Location Request",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Unsuccessful Positioning Reason ID",
+    "width" : "200",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "LCS Client Type ID",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Type Of Location Request ID",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "RAT",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "MSC",
+    "width" : "70",
+    "datatype" : "string",
+    "drillDownWindowType" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_MSC_locationServices"
+  }, {
+    "header" : "Controller",
+    "width" : "100",
+    "datatype" : "string",
+    "drillDownWindowType" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BSC_locationServices"
+  }, {
+    "header" : "Access Area",
+    "width" : "100",
+    "datatype" : "string",
+    "drillDownWindowType" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_CELL_locationServices"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Call ID Number",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Target MSISDN",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Target IMSI",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Target IMEI",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "LCS Client Identity",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Positioning Delivery",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Record Sequence Number",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Network Call Reference",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "MCC",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "MNC",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "RAC",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "LAC",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  } ]
+}

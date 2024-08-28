@@ -1,0 +1,24 @@
+##
+## WCDMA Call Failure Cause Code Analysis by Controller Hash ID (using raw tables)
+##
+## Velocity Parameter:
+##
+## Named PreparedStatement Parameter:
+##
+##	   :HIER3_ID:   The controller hash id
+##
+#set($columnsToSelect=["HIER3_ID,CAUSE_VALUE"])
+
+SELECT
+    distinct rawview.CAUSE_VALUE AS CAUSE_CODE,
+    DIM_E_RAN_CFA_CAUSE_VALUE.CAUSE_VALUE_DESC AS CAUSE_CODE_DESC
+FROM
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTables() "rawview" $columnsToSelect),
+	DIM_E_RAN_CFA_CAUSE_VALUE
+
+WHERE
+	rawview.HIER3_ID = :HIER3_ID AND
+	rawview.CAUSE_VALUE = DIM_E_RAN_CFA_CAUSE_VALUE.CAUSE_VALUE
+
+ORDER BY
+	rawview.CAUSE_VALUE

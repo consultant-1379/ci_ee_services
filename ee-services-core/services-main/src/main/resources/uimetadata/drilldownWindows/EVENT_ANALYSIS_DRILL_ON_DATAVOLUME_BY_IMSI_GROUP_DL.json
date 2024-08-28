@@ -1,0 +1,21 @@
+{
+  "id" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_IMSI_GROUP_DL",
+  "name" : "Data Volume Details",
+  "gridDisplayID" : "DATAVOLUME_ANALYSIS_DL",
+  "url" : "SUBSCRIBER/DATAVOLUME_ANALYSIS",
+  "needSearchParam" : "FALSE",
+  "params" : [ {
+    "id" : "IMSI",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "groupname",
+    "isTitleParam" : "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

@@ -1,0 +1,1 @@
+@javax.xml.bind.annotation.XmlSchema(namespace = "EniqEventsServicesNetworkRNCCellQuery", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED) package com.ericsson.eniq.events.server.services.soap.network.kpi.EniqEventsServicesNetworkRNCCellQuery;

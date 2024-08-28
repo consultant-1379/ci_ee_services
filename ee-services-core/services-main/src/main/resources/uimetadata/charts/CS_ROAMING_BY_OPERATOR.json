@@ -1,0 +1,21 @@
+{
+  "id" : "CS_ROAMING_BY_OPERATOR",
+  "title" : "Inbound Roaming by Operator Voice",
+  "xlabel" : "Operator",
+  "ylabel" : "Number of Events",
+  "secondYAxisID" : "4",
+  "xaxisID" : "1",
+  "items" : [ {
+    "id" : "2",
+    "name" : "Event Failures",
+    "color" : "cb5853"
+  }, {
+    "id" : "3",
+    "name" : "Event Successes",
+    "color" : "9ec057"
+  }, {
+    "id" : "4",
+    "name" : "Roaming Subscribers",
+    "color" : "333986"
+  } ]
+}

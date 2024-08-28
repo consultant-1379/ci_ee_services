@@ -1,0 +1,74 @@
+##
+## WCDMA Call Failure Analysis Terminal Event Analysis (using aggregation tables)
+##
+## Velocity Parameter:
+##
+##		
+## Named PreparedStatement Parameter:
+##
+##     :marketingname		provided by service after parsing node parameter
+##     :TAC					provided by service after parsing node parameter
+##     :TECH_PACK_LIST		tables that should be used in query, see TechPackList javadoc
+##     :count 	   max number of rows
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+
+#set($columnsToSelect=["EVENT_ID", "IMSI", "TAC"])
+BEGIN
+SELECT
+	aggview.manufacturer AS 'Manufacturer'
+	,aggview.model AS 'Model'
+	,aggview.event_type AS 'Event Type'
+	,aggview.failures AS 'Failures'
+	,subscriber.impacted_subscribers AS 'Impacted Subscribers'
+	,aggview.event_id AS 'Event ID'
+	,aggview.tac AS 'TAC'
+FROM
+	(	SELECT
+			DIM_E_SGEH_TAC.MANUFACTURER AS 'Manufacturer'
+			,DIM_E_SGEH_TAC.MARKETING_NAME AS 'Model'
+			,DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC AS 'Event Type'
+			,SUM(NO_OF_ERRORS) AS 'Failures'
+			,DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID AS 'Event ID'
+        	,:TAC AS 'TAC'
+		FROM
+			$aggregationView as aggtable
+			,DIM_E_RAN_CFA_EVENTTYPE	
+			,DIM_E_SGEH_TAC
+		WHERE	
+			aggtable.TAC = DIM_E_SGEH_TAC.TAC
+    		AND DIM_E_SGEH_TAC.TAC = :TAC
+    		AND aggtable.EVENT_ID = DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID
+			and
+			#GET_DATETIME_RANGE()
+		GROUP BY
+			DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC
+			,DIM_E_SGEH_TAC.MANUFACTURER
+			,DIM_E_SGEH_TAC.MARKETING_NAME
+			,DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID
+	) AS aggview(manufacturer, model, event_type, failures, event_id, tac)
+	left outer join 
+		DIM_E_SGEH_TAC 
+	on (
+		aggview.tac = DIM_E_SGEH_TAC.TAC
+		)
+,
+
+	(   SELECT
+            rawview.event_id               AS 'Event ID',
+            COUNT (DISTINCT(rawview.IMSI)) AS 'Impacted Subscribers'
+        FROM
+            #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToSelect)       
+		WHERE
+			TAC = :TAC
+        GROUP BY
+            rawview.EVENT_ID
+    ) AS subscriber(event_id, impacted_subscribers)
+    
+    
+
+WHERE
+
+	aggview.event_id = subscriber.event_id
+END

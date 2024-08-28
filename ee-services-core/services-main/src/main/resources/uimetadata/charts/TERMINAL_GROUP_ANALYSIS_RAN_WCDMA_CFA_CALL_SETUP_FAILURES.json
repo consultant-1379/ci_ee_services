@@ -1,0 +1,19 @@
+{
+  "id" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_CFA_CALL_SETUP_FAILURES",
+  "title" : "Most Call Setup Failures Summary",
+  "ylabel" : "Number of Events",
+  "xlabel" : "Group Name",
+  "secondYAxisID" : "4",
+  "xaxisID" : "2",
+  "items" : [ {
+    "id" : "3",
+    "name" : "Call Setup Failures",
+    "color" : "cb5853",
+    "drillDownWindowType": "DRILL_CHART_TERMINAL_GROUP_ANALYSIS_WCDMA_CALL_FAILURE_MOST_CALL_SETUP_FAILURES"
+  	},
+  	{
+    "id" : "4",
+    "name" : "Impacted Subscribers",
+    "color" : "333986"
+  } ]
+}

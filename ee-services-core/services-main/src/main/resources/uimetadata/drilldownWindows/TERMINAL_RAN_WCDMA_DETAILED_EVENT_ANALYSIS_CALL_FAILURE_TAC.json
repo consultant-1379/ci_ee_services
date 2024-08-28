@@ -1,0 +1,25 @@
+{
+  "id" : "TERMINAL_RAN_WCDMA_DETAILED_EVENT_ANALYSIS_CALL_FAILURE_TAC",
+  "gridDisplayID" : "NETWORK_DETAILED_EVENT_ANALYSIS_CALL_FAILURE_TAC_CALL_SETUP",
+  "name" : "Failed Event Analysis - Call Setup Failures",
+  "url" : "NETWORK/CALL_FAILURE_DETAILED_EVENT_ANALYSIS/TAC",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "tacId",
+    "isTitleParam" : "TRUE"
+  },
+  {
+  	"id" : "Most Call Setup Failures ",
+  	"isFixedVal" : "TRUE",
+    "isTitleParam" : "TRUE"
+  },
+  {
+    "id" : "6",
+    "queryParamName" : "eventID"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

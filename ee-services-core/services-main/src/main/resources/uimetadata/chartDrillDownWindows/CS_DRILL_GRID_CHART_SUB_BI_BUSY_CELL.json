@@ -1,0 +1,7 @@
+{
+  "id" : "CS_DRILL_GRID_CHART_SUB_BI_BUSY_CELL",
+  "drillTargetDisplayId" : "CS_DRILL_GRID_CHART_SUB_BI_BUSY_CELL_SUMMARY",
+  "chartClickedURLParam" : "node",
+  "drillToolBarType" : "CS_SUB_BI_DRILL_GRIDS_TOOLBAR",
+  "maxRowsParam" : "ENIQ_EVENTS_SUBBI_COUNT"
+}

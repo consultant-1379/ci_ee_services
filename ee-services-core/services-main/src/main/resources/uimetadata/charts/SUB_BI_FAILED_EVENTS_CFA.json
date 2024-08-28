@@ -1,0 +1,13 @@
+{
+  "id" : "SUB_BI_FAILED_EVENTS_CFA",
+  "title" : "Failure Event Analysis",
+  "xlabel" : "Event",
+  "ylabel" : "Number of Events",
+  "xaxisID" : "2",
+  "items" : [ {
+    "id" : "1",
+    "name" : "Event Failures",
+    "color" : "cb5853",
+    "drillDownWindowType" : "DRILL_GRID_CHART_SUB_BI_IMSI_CFA"
+  } ]
+}

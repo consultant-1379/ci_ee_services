@@ -1,0 +1,22 @@
+{
+  "id": "NETWORK_CC_LTE_CFA_BSC_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP",
+  "name": "Controller LTE Call Failure Cause Code : Event Analysis",
+  "url": "NETWORK/LTE_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/CAUSE_CODE_ENODEB",
+  "gridDisplayID": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP_BSC_DRILL",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "HIER3_ID"
+  }, {
+    "id": "2",
+    "queryParamName": "eventID"
+  }, {
+    "id" : "4",
+    "queryParamName" : "causeCode"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

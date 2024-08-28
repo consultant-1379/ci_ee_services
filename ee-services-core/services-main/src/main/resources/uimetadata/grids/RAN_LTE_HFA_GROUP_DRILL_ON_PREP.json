@@ -1,0 +1,37 @@
+{
+    "id": "RAN_LTE_HFA_GROUP_DRILL_ON_PREP",
+    "title": "IMSI Group LTE Handover Failure : Event Analysis",
+    "autoexpand": "3",
+    "defaultSortCol": "3",
+    "defaultSortDir": "ASC",
+    "columns": [
+        {
+            "header": "Group Name",
+            "width": "250",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "EventID",
+            "width": "50",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Event Type",
+            "width": "250",
+            "datatype": "string"
+        },
+        {
+            "header": "Failures",
+            "width": "120",
+            "datatype": "int",
+            "drillDownWindowType": "INTERNAL_PROC_HO_PREP_S1_IN,RAN_LTE_HFA_GROUP_DRILL_ON_INTERNAL_PROC_HO_PREP_S1_IN,INTERNAL_PROC_HO_PREP_S1_OUT,RAN_LTE_HFA_GROUP_DRILL_ON_INTERNAL_PROC_HO_PREP_S1_OUT,INTERNAL_PROC_HO_PREP_X2_IN,RAN_LTE_HFA_GROUP_DRILL_ON_INTERNAL_PROC_HO_PREP_X2_IN,INTERNAL_PROC_HO_PREP_X2_OUT,RAN_LTE_HFA_GROUP_DRILL_ON_INTERNAL_PROC_HO_PREP_X2_OUT"
+        },
+        {
+            "header": "Impacted Subscribers",
+            "width": "180",
+            "datatype": "int"
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+  "id" : "RECUR_ERR_SUMMARY",
+  "title" : "Failure Recurrences Summary ",
+  "autoexpand" : "4",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Event Type",
+    "width" : "130",
+    "datatype" : "string"
+  }, {
+    "header" : "Cause Protocol Type",
+    "width" : "165",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Cause Code",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Sub Cause Code",
+    "width" : "160",
+    "datatype" : "string"
+  }, {
+    "header" : "Cause Code Value",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Sub Cause Code Value",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Result Value",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Cause Protocol Type ID",
+    "width" : "165",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Occurrences",
+    "width" : "80",
+    "datatype" : "int",
+    "drillDownWindowType" : "RECUR_ERR_SUMMARY_OCCURANCES_DRILL"
+  } ]
+}

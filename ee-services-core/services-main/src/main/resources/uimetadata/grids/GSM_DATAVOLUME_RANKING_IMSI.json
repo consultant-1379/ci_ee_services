@@ -1,0 +1,29 @@
+{
+  "id" : "GSM_DATAVOLUME_RANKING_IMSI",
+  "title" : "Subscriber GSM Data Connection : Total Data Volume Ranking",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "IMSI",
+    "width" : "120",
+    "datatype" : "string",
+    "drillDownWindowType" : "DATAVOLUME_ANALYSIS_BY_IMSI"
+  }, {
+    "header" : "Downlink Data Vol (KB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Uplink Data Vol (KB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Total Data Vol (KB)",
+    "width" : "150",
+    "datatype" : "float"
+  } ]
+}

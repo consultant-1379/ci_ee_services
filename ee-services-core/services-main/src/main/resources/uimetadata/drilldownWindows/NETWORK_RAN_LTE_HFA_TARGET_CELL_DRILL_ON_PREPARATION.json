@@ -1,0 +1,23 @@
+{
+    "id": "NETWORK_RAN_LTE_HFA_TARGET_CELL_DRILL_ON_PREPARATION",
+    "title": "Handover Stage Event Analysis",
+    "url": "NETWORK/LTE_HANDOVER_FAILURE_SUBSCRIBER_EVENT_SUMMARY_ANALYSIS/TARGET_EVENT_ID",
+    "gridDisplayID": "RAN_LTE_HFA_TARGET_CELL_DRILL_ON_PREPARATION",
+    "needSearchParam": "FALSE",
+    "searchValFromCol" : "4,3,2,9",
+    "params": [
+        {
+            "id": "1",
+            "queryParamName": "THIER321_ID"
+        },
+        {
+            "id": "6",
+            "queryParamName": "CATEGORY_ID_2"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

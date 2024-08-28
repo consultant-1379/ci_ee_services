@@ -1,0 +1,14 @@
+{
+  "launchWindowTypeId" : "NETWORK_ENODEB_RANKING_DRILL_ON_RAN_LTE_CFA_CALL_SETUP_DROP",
+  "menuItem" : "NETWORK_RAN_LTE_CFA_SUMMARY",
+  "searchValFromCol" : "4,3,6",
+  "type" : "BSC",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "HIER3_ID"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

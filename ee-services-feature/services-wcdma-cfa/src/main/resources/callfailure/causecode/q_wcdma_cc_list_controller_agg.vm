@@ -1,0 +1,25 @@
+##
+## WCDMA Call Failure Cause Code Analysis by Access Area Hash ID (using raw tables)
+##
+## Velocity Parameter:
+##
+## Named PreparedStatement Parameter:
+##
+##	   :HIER3_ID:   The controller hash id
+##     $errAggregationView: Error aggregation view
+##
+#set($columnsToSelect=["HIER3_ID, CAUSE_VALUE "])
+
+SELECT
+	distinct aggView.CAUSE_VALUE AS CAUSE_CODE,
+    DIM_E_RAN_CFA_CAUSE_VALUE.CAUSE_VALUE_DESC AS CAUSE_CODE_DESC
+FROM
+	$aggregationView as aggView,
+	DIM_E_RAN_CFA_CAUSE_VALUE
+WHERE
+	aggView.HIER3_ID = :HIER3_ID AND
+	#GET_DATETIME_RANGE() AND
+	aggView.CAUSE_VALUE = DIM_E_RAN_CFA_CAUSE_VALUE.CAUSE_VALUE
+
+ORDER BY
+	aggView.CAUSE_VALUE

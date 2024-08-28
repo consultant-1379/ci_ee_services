@@ -1,0 +1,55 @@
+{
+  "id" : "NETWORK_GSM_EVENT_ANALYSIS_SUMMARY_BSC",
+  "title" : " Controller GSM Call Failure : Event Analysis Summary",
+  "autoexpand" : "2",
+  "categoryId" : "NETWORK_GSM_EVENT_ANALYSIS_SUMMARY_BSC",
+  "columns" : [ {
+  	"type" : "ranVendor",
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+  	"type" : "controller",
+    "header" : "Controller",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+  	"type" : "eventType",
+    "header" : "Event Type",
+    "width" : "100",
+    "datatype" : "string",
+    "drillDownWindowType" : "GSM_CAUSE_CODE_ANALYSIS_BY_BSC_EVENT_TYPE"
+  }, {
+  	"type" : "failures",
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+  	"type" : "impactedSubs",
+    "header" : "Impacted Subscribers",
+    "width" : "130",
+    "datatype" : "int"
+  }, {
+  	"type" : "impactedCells",
+    "header" : "Impacted Cells",
+    "width" : "130",
+    "datatype" : "int",
+    "drillDownWindowType" : "GSM_CFA_CELL_SUMMARY_DISTRIBUTION"
+  }, {
+  	"type" : "failureRatio",
+    "header" : "Failure Ratio",
+    "width" : "130",
+    "datatype" : "double"
+  }, {
+    "header" : "CATEGORY_ID",
+    "width" : "0",
+    "datatype" : "int",
+    "isSystem": "TRUE"
+  }, {
+    "header" : "HIER3_ID",
+    "width" : "0",
+    "datatype" : "string",
+    "queryParam" : "HIER3_ID",
+    "isSystem" : "TRUE"
+  } ]
+}

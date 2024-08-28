@@ -1,0 +1,47 @@
+##
+## WCDMA Call Failure Analysis Terminal Event Analysis (using raw tables)
+##
+## Velocity Parameter:
+##
+##		
+## Named PreparedStatement Parameter:
+##
+##     :marketingname		provided by service after parsing node parameter
+##     :tac					provided by service after parsing node parameter
+##     :TECH_PACK_LIST		tables that should be used in query, see TechPackList javadoc
+##     :count 	   max number of rows
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+
+#set($columnsToSelect=["EVENT_ID", "IMSI", "TAC"])
+BEGIN
+SELECT
+	#if($count > 0)
+  		top $count
+	#end
+    rawview.EVENT_ID                 AS 'Event ID',
+    DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC AS 'Event Type',
+    COUNT (*)                                       AS 'Failures',
+    COUNT (distinct(rawview.IMSI))    AS 'Impacted Subscribers',
+    :groupname as 'GROUP_NAME'
+FROM
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToSelect),
+    DIM_E_RAN_CFA_EVENTTYPE
+WHERE
+    rawview.TAC IN
+    (
+        SELECT
+            GROUP_TYPE_E_TAC.TAC
+        FROM
+            GROUP_TYPE_E_TAC
+        WHERE
+            GROUP_TYPE_E_TAC.GROUP_NAME = :groupname
+    )
+AND rawview.EVENT_ID = DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID
+GROUP BY
+    DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC,
+    rawview.EVENT_ID
+
+		
+END

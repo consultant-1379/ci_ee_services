@@ -1,0 +1,19 @@
+{
+    "launchWindowTypeId": "WCDMA_RAN_CFA_TAC",
+    "menuItem": "TERMINAL_EVENT_ANALYSIS_WCDMA_CFA_SUMMARY_TAC",
+    "searchValFromCol": "3",
+    "type": "TAC",
+    "drillTargetType": "GRID",
+    "needSearchParam": "FALSE",
+	"params": [
+        {
+            "id": "4",
+            "queryParamName": "tac"
+        },
+        {
+            "id": "TAC",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        }
+    ]
+}

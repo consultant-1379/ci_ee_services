@@ -1,0 +1,21 @@
+{
+  "id" : "SUBSCRIBER_RANKING_CALL_SETUP_FAILURES",
+  "title" : "Subscriber WCDMA Call Failure by Call Setup Failure : Event Ranking",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "IMSI",
+    "width" : "100",
+    "datatype" : "string",
+    "drillDownWindowType" : "SUBSCRIBER_CALL_SETUP_FAILURES_EVENT_ANALYSIS"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  } ]
+}

@@ -1,0 +1,17 @@
+{
+    "id": "RETAINABILITY_SERVICE_REQUEST_EVENT",
+    "title": "Retainability",
+    "ylabel": "",
+    "xlabel": "",
+    "xaxisID": "",
+    "items": [
+        {
+            "id": "4",
+            "name": "Paging",
+            "color": "88A44D",
+            "drillDownWindowType": "NETWORK_EVENT_ANALYSIS_PORTLET",
+            "queryParam": "eventID",
+            "queryParamValue": "15"
+        }
+    ]
+}

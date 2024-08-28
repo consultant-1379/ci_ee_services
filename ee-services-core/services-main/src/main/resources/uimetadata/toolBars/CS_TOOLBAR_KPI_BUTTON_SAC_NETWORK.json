@@ -1,0 +1,75 @@
+{
+  "toolBarType" : "CS_TOOLBAR_KPI_BUTTON_SAC_NETWORK",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnBack",
+      "name" : "",
+      "style" : "toolbar_back",
+      "isEnabled" : "FALSE",
+      "tip" : "Backward Navigation",
+      "isToggle" : "False",
+      "eventID" : "BACK"
+    }, {
+      "id" : "btnForward",
+      "name" : "",
+      "style" : "toolbar_forward",
+      "isEnabled" : "FALSE",
+      "tip" : "Forward Navigation",
+      "isToggle" : "FALSE",
+      "eventID" : "FORWARD"
+    }, {
+      "id" : "btnNav",
+      "name" : "History",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to navigate visited windows",
+      "isEnabled" : "FALSE",
+      "eventID" : "NAVIGATION",
+      "items" : [ {
+        "id" : "DUMMY_VALUE",
+        "name" : "DUMMY_VALUE"
+      } ]
+    } ]
+  }, {
+    "toolBarButtons" : [ {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    }, {
+      "id" : "btnKPI_CS",
+      "name" : "",
+      "style" : "kpiButton",
+      "tip" : "View KPI values",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "KPI_CS"
+    }, {
+      "id" : "btnExport",
+      "name" : "",
+      "style" : "toolbar_exportbtn",
+      "tip" : "Click to export the data to CSV",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "EXPORT"
+    }, {
+      "id" : "btnSac",
+      "name" : "",
+      "style" : "toolbar_sacbtn",
+      "tip" : "Click to show cell information",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "SAC"
+    } ]
+  } ]
+}

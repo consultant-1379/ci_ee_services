@@ -1,0 +1,54 @@
+##
+## WCDMA Call Failure Analysis RNC Event Analysis (using raw tables)
+##
+## Velocity Parameter:
+##	
+##		$aggregationView the aggregation view to query against	
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time#
+
+
+SELECT 
+	VENDOR,
+	HIERARCHY_3,		
+	eventDesc.EVENT_ID_ALTERNATE_DESC as 'Event Type',
+	failures, 
+	IMPACTED_SUBSCRIBERS,
+	data.HIER3_ID,
+	data.EVENT_ID AS 'Event ID'
+
+	,NULL as 'Failure Ratio (%)'
+
+
+FROM
+	(	
+		select
+			count (*) as failures,
+			HIER3_ID,
+			EVENT_ID,
+			count (distinct rawview.IMSI)
+		from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" ["HIER3_ID", "EVENT_ID", "IMSI"])
+		where
+			HIER3_ID = :HIER3_ID
+		group by
+			HIER3_ID,
+			EVENT_ID
+	) as data(FAILURES, HIER3_ID, EVENT_ID, IMPACTED_SUBSCRIBERS)
+	left outer join
+	 (	
+		select distinct HIERARCHY_3,HIER3_ID,VENDOR from DIM_E_SGEH_HIER321 where RAT = 1
+	) as topology(HIERARCHY_3,HIER3_ID,VENDOR)
+	on (
+		topology.HIER3_ID = data.HIER3_ID
+		)
+	left outer join
+		DIM_E_RAN_CFA_EVENTTYPE eventDesc
+	on(
+		eventDesc.EVENT_ID = data.EVENT_ID
+	)
+

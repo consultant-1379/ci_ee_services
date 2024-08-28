@@ -1,0 +1,20 @@
+{
+  "id" : "RAN_LTE_CFA_TERMINAL_GRP_DRILL_ON_INTERNAL_PROC_S1_SIG_CONN_SETUP",
+  "name" : "Terminal Group LTE Call Failure : Detail Failed Event Analysis",
+  "gridDisplayID" : "RAN_LTE_CFA_IMSI_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_S1_SIG_CONN_SETUP",
+  "url" : "TERMINAL/LTE_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/TERMINAL",
+  "searchValFromCol" : "1",
+  "params" : [ 
+  	{
+    "id" : "1",
+    "queryParamName" : "groupname"
+  	},{
+  	"id" : "3",
+  	"queryParamName" : "eventID"
+  	}],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

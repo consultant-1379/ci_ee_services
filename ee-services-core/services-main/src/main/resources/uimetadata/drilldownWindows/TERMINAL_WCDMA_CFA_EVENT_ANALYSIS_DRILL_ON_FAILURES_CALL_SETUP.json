@@ -1,0 +1,20 @@
+{
+  "id" : "TERMINAL_WCDMA_CFA_EVENT_ANALYSIS_DRILL_ON_FAILURES_CALL_SETUP",
+  "name" : "Event Analysis for Terminal - Failure Drill Down",
+  "gridDisplayID" : "TERMINAL_WCDMA_CFA_EVENT_ANALYSIS_DRILL_ON_FAILURES_CALL_SETUP",
+  "url" : "TERMINAL/WCDMA/CALL_FAILURE_EVENT_ANALYSIS/TERMINAL/DRILL_DOWN",
+  "searchValFromCol" : "9",
+  "params" : [
+  	{
+    "id" : "6",
+    "queryParamName" : "eventID"
+  	},{
+  	"id" : "7",
+  	"queryParamName" : "tac"
+  	}],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

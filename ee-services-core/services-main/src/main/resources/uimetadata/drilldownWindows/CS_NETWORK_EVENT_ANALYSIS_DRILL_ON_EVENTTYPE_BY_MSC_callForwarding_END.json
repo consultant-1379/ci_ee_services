@@ -1,0 +1,27 @@
+{
+  "id" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_MSC_callForwarding_END",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_ELEMENTS_callForwarding",
+  "name" : "MSC Event Analysis Voice",
+  "url" : "MSS/NETWORK/EVENT_ANALYSIS",
+  "needSearchParam" : "FALSE",
+  "params" : [ {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "MSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "EVNTSRC_ID"
+  }, {
+    "id" : "3",
+    "queryParamName" : "eventID"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

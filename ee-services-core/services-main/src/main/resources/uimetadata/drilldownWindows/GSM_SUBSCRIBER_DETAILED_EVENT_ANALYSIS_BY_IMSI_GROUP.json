@@ -1,0 +1,16 @@
+{
+  "id" : "GSM_SUBSCRIBER_DETAILED_EVENT_ANALYSIS_BY_IMSI_GROUP",
+  "gridDisplayID" : "GSM_SUBSCRIBER_DETAILED_EVENT_ANALYSIS_BY_IMSI_GROUP",
+  "url" : "NETWORK/GSM/CALL_FAILURE_DETAILED_EVENT_ANALYSIS/SUBSCRIBER/CALL_DROP",
+  "params" : [  {
+    "id" : "IMSI",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+  	"id" : "4",
+  	"queryParamName" : "CATEGORY_ID"
+  }, {
+  	"id" : "5",
+  	"queryParamName" : "groupname"
+  }]
+}

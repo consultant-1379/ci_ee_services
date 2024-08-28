@@ -1,0 +1,284 @@
+{
+    "id": "CS_NETWORK_EVENT_ANALYSIS_ELEMENTS_callForwarding",
+    "title": "Failed Event Analysis Voice",
+    "autoexpand": "8",
+    "defaultSortCol": "2",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "EVNTSRC_ID",
+            "width": "10",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Event Time",
+            "width": "120",
+            "datatype": "date"
+        },
+        {
+            "header": "MSC",
+            "width": "70",
+            "datatype": "string"
+        },
+        {
+            "header": "External Protocol",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "External Protocol ID",
+            "width": "0",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Incoming Route",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Outgoing Route",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "TAC",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "MSISDN",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "IMSI",
+            "width": "120",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Event Type",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Event Result",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "External Cause Code",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "External Cause Code Value",
+            "width": "200",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Internal Cause Code",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Internal Cause Code Value",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "Fault Code ID",
+            "width": "130",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Fault Code",
+            "width": "220",
+            "datatype": "string"
+        },
+        {
+            "header": "Recommended Action",
+            "width": "200",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Internal Location Code",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Bearer Service Code",
+            "width": "130",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Tele Service Code",
+            "width": "130",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Call ID Number",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Type of Calling Subscriber",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Calling Party Number",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Called Party Number",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Calling Subs IMSI",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Called Subs IMSI",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Calling Subs IMEI",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Called Subs IMEI",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "MS Roaming Number",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Disconnecting Party",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Call Duration",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Seizure Time",
+            "width": "120",
+            "datatype": "date",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Original Called Number",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Redirect Number",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Redirect Counter",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Redirect IMSI",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Redirect SPN",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Call Position",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Eos Info",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Record Sequence Number",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Network Call Reference",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "MCC",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "MNC",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "RAC",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "LAC",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        }
+    ]
+}

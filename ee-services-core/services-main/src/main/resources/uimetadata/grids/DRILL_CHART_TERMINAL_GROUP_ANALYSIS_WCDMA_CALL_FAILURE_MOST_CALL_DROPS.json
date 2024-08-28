@@ -1,0 +1,29 @@
+{
+    "id": "DRILL_CHART_TERMINAL_GROUP_ANALYSIS_WCDMA_CALL_FAILURE_MOST_CALL_DROPS",
+    "title": "Group Analysis - Call Drop Failure Terminal Group Event Summary",
+    "autoexpand": "2",
+    "defaultSortCol": "4",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "TAC",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Manufacturer",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Model",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Failures",
+            "width": "90",
+            "datatype": "int"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_BSC_GROUP",
+    "gridDisplayID": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_BSC_GROUP",
+    "url": "NETWORK/WCDMA_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/NODE",
+    "params": [
+        {
+            "id": "4",
+            "queryParamName": "eventID"
+        },
+        {
+            "id": "5",
+            "queryParamName": "groupname",
+             "isTitleParam" : "TRUE"
+        },
+        {
+		    "id" : "BSC",
+		    "queryParamName" : "type",
+		    "isFixedVal" : "TRUE"
+    	}
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

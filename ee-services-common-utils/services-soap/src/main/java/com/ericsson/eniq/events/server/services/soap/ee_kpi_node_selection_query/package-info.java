@@ -1,0 +1,1 @@
+@javax.xml.bind.annotation.XmlSchema(namespace = "EE_KPI_Node_Selection_Query", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED) package com.ericsson.eniq.events.server.services.soap.ee_kpi_node_selection_query;

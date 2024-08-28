@@ -1,0 +1,67 @@
+{
+  "toolBarType" : "TOOLBAR_TERMINAL_GROUP_ANALYSIS_CFA_DRILLDOWN",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+     "id" : "btnView",
+      "name" : "View",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to change display options",
+      "isEnabled" : "TRUE",
+      "items" : [ {
+        "eventID" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_CFA_CALL_DROPS",
+        "id" : "menuGTA_Pop_Summary",
+        "name" : "Most Call Drops",
+        "style" : "",
+        "url" : "TERMINAL/CALL_FAILURE_TERMINAL_GROUP_ANALYSIS/MOST_CALL_DROPS",
+        "windowType" : "CHART",
+        "toolBarType": "TOOLBAR_TERMINAL_GROUP_ANALYSIS_CFA",
+        "display" : "barOneline"
+      }, {
+        "eventID" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_CFA_CALL_SETUP_FAILURES",
+        "id" : "menuGTA_Pop_Summary",
+        "name" : "Most Call Setup Failures",
+        "style" : "",
+        "url" : "TERMINAL/CALL_FAILURE_TERMINAL_GROUP_ANALYSIS/MOST_CALL_SETUP_FAILURES",
+        "windowType" : "CHART",
+        "toolBarType": "TOOLBAR_TERMINAL_GROUP_ANALYSIS_CFA",
+        "display" : "barOneline"
+      } ]
+    }, {
+      "id" : "btnNav",
+      "name" : "History",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to navigate visited windows",
+      "isEnabled" : "FALSE",
+      "isVisible" : "FALSE",
+      "eventID" : "NAVIGATION",
+      "items" : [ {
+        "id" : "DUMMY_VALUE",
+        "name" : "DUMMY_VALUE"
+      } ]
+    }, {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    }, {
+      "id" : "btnExport",
+      "name" : "",
+      "style" : "toolbar_exportbtn",
+      "tip" : "Click to export the data to CSV",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "EXPORT"
+    } ]
+  } ]
+}

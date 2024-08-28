@@ -1,0 +1,81 @@
+#DEFINE_CONSTANTS()
+#set($columns=[$RAT,$VENDOR,$BSC])
+
+#set($errTableColumns=["DATETIME_ID",$RAT,$VENDOR,$BSC,"EVENT_ID","count(*) AS NO_OF_ERRORS","SUM(CASE WHEN (DEACTIVATION_TRIGGER != 1) THEN 1 ELSE 0 END) AS NO_OF_NET_INIT_DEACTIVATES"," SUM(PAGING_ATTEMPTS) AS NO_OF_PAGING_ATTEMPTS"])
+#set($errTableGroupbyColumns=["DATETIME_ID",$RAT,$VENDOR,$BSC,"EVENT_ID"])
+
+#if(${timerange}==$ApplicationConstants.ONE_MINUTE)
+#set($interval=15)
+#elseif(${timerange}==$ApplicationConstants.FIFTEEN_MINUTES)
+#set($interval=15)
+#elseif($${timerange}==$ApplicationConstants.DAY)
+#set($interval=1440)
+#else
+#set($interval=15)
+#end
+
+SELECT
+	dateformat(chart_times.tmp_st, 'yyyy-mm-dd hh:mm:ss.SSS') as KPI_TIME,
+    #GET_CORE_KPI_VALUES()
+FROM   
+    (SELECT
+		chart_times.tmp_st,
+		#GET_COLUMNS($columns)
+		EVENT_ID,
+		SUM(NO_OF_ERRORS),
+		SUM(NO_OF_NET_INIT_DEACTIVATES),
+		SUM(NO_OF_PAGING_ATTEMPTS)
+	FROM
+		#CP_KPI_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_PLUS_GROUPBY($TECH_PACK_LIST.getAllRawErrTables() "raw" $columns $errTableColumns false $errTableGroupbyColumns)
+		,#GET_CHART_TIMES($starttime $endtime $interval)
+	WHERE
+		DATETIME_ID >= chart_times.tmp_st
+        AND DATETIME_ID < chart_times.tmp_et
+	GROUP BY
+		tmp_st,#GET_COLUMNS($columns) EVENT_ID)AS err
+	(
+        DATETIME_ID,
+        #GET_COLUMNS($columns)
+        EVENT_ID,                        
+        NO_OF_ERRORS,
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    )
+    full outer join        
+    (select
+        chart_times.tmp_st,     
+        #GET_COLUMNS($columns)
+        EVENT_ID,
+        SUM(NO_OF_SUCCESSES),            
+        SUM(NO_OF_NET_INIT_DEACTIVATES),
+        SUM(NO_OF_PAGING_ATTEMPTS)
+    from
+		$sucAggTables temp_suc,
+		#GET_CHART_TIMES($starttime $endtime $interval)
+    where
+        #GET_COLUMNS_WHERE($columns)
+        and #GET_DATETIME_RANGE()
+		AND DATETIME_ID >= chart_times.tmp_st
+        AND DATETIME_ID < chart_times.tmp_et
+    GROUP BY
+		tmp_st, #GET_COLUMNS($columns) EVENT_ID
+    ) as suc(
+        DATETIME_ID,
+        #GET_COLUMNS($columns)
+        EVENT_ID,                        
+        NO_OF_SUCCESSES,        
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    )
+    on (
+        #GET_JOIN("err" "suc" ["DATETIME_ID","EVENT_ID"])
+    )
+	RIGHT OUTER JOIN
+         #GET_CHART_TIMES($starttime $endtime $interval)
+    on(
+         chart_times.tmp_st = isnull(suc.DATETIME_ID, err.DATETIME_ID)
+     )
+group by
+    KPI_TIME
+order by
+    KPI_TIME

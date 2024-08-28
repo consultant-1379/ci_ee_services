@@ -1,0 +1,15 @@
+#DEFINE_CONSTANTS()
+#set($columns=["HIER321_ID"])
+#set($columnsToIncludeInNewView=["FIVE_MIN_AGG_TIME"])
+#set($groupbyColumns=["DOWNLINK","FIVE_MIN_AGG_TIME"])
+#set($userPlaneTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_USER_PLANE_TPNAME).getRawTablesWithMeasurementTypes())
+
+SELECT
+	FIVE_MIN_AGG_TIME AS KPI_TIME,
+    #GET_UKPI_SAMPLES_AND_VALUES()
+FROM
+    #USERPLANE_KPI_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_PLUS_GROUPBY($userPlaneTableList "rawview" $columns $columnsToIncludeInNewView $notNullcolumns $groupbyColumns)
+GROUP BY 
+    KPI_TIME
+ORDER BY
+	KPI_TIME

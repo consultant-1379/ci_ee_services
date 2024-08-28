@@ -1,0 +1,30 @@
+{
+  "id" : "GSM_CAUSE_CODE_ANALYSIS_BY_BSC_EVENT_TYPE",
+  "gridDisplayID" : "GSM_NETWORK_CAUSE_CODE_ANALYSIS_BSC",
+  "name" : "Controller Cause Code Analysis",
+  "url" : "NETWORK/GSM/CALL_FAILURE_CAUSE_CODE_ANALYSIS/CAUSE_CODE_GRID",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "CONTROLLER",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "3",
+    "queryParamName" : "failure_type",
+    "isTitleParam" : "TRUE"
+  }, {
+  	"id" : "9",
+  	"queryParamName" : "HIER3_ID"
+  }, {
+  	"id" : "8",
+  	"queryParamName" : "CATEGORY_ID"
+  }, {
+ 	"id" : "BSC",
+ 	"queryParamName" : "type",
+ 	"isFixedVal" : "TRUE" 
+  } ]
+}

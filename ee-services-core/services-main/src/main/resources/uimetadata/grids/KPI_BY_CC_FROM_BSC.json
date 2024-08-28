@@ -1,0 +1,58 @@
+{
+  "id" : "KPI_BY_CC_FROM_BSC",
+  "title" : "KPI Analysis By Cause Code",
+  "autoexpand" : "5",
+  "defaultSortCol" : "9",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "RAT ID",
+    "width" : "50",
+    "datatype" : "int",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Vendor",
+    "width" : "70",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Controller",
+    "width" : "70",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Access Area",
+    "width" : "70",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Cause Code",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Sub Cause Code",
+    "width" : "220",
+    "datatype" : "string"
+  }, {
+    "header" : "RAT",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "EventID",
+    "width" : "70",
+    "datatype" : "int",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "130",
+    "datatype" : "string"
+  }, {
+    "header" : "Occurrences",
+    "width" : "80",
+    "datatype" : "int",
+    "drillDownWindowType" : "KPI_EVENTS_FROM_BSC"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "int"
+  } ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_BSC_INTERNAL_PROC_HO_EXEC_X2_IN_DRILL",
+  "name": "LTE Handover Failure : QOS Statistics Analysis",
+  "url": "NETWORK/LTE_HFA_QOS_DETAILED_EVENT_ANALYSIS/QCI/ENODEB",
+  "gridDisplayID": "NETWORK_RAN_LTE_HFA_QOS_QCI_DETAILED_EVENT_ANALYSIS_INTERNAL_PROC_HO_EXEC_X2_IN_DRILL",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "HIER3_ID"
+  }, {
+    "id": "2",
+    "queryParamName": "QCI_ID"
+  }, {
+    "id": "3",
+    "queryParamName": "eventID"
+  } 
+  , {
+    "id": "7",
+    "queryParamName": "node"
+  }],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

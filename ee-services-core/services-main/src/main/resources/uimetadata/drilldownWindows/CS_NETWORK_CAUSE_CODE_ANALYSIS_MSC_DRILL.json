@@ -1,0 +1,29 @@
+{
+  "id" : "CS_NETWORK_CAUSE_CODE_ANALYSIS_MSC_DRILL",
+  "name" : "MSC Fault Code Analysis Voice",
+  "url" : "MSS/NETWORK/EVENT_ANALYSIS",
+  "needSearchParam" : "TRUE",
+  "params" : [ {
+    "id" : "MSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "EVNTSRC_ID"
+  }, {
+    "id" : "3",
+    "queryParamName" : "internalCauseCode"
+  }, {
+    "id" : "5",
+    "queryParamName" : "faultCode"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

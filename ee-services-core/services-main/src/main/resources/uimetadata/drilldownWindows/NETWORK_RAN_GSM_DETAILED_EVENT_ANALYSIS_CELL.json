@@ -1,0 +1,17 @@
+{
+  "id" : "NETWORK_RAN_GSM_DETAILED_EVENT_ANALYSIS_CELL",
+  "gridDisplayID" : "NETWORK_RAN_GSM_DETAILED_EVENT_ANALYSIS_CELL",
+  "menuItem" : "NETWORK_GSM_EVENT_ANALYSIS_SUMMARY_CELL",
+  "url" : "NETWORK/GSM/CALL_FAILURE_DETAILED_EVENT_ANALYSIS/ACCESS_AREA",
+  "params" : [ {
+    "id" : "6",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "7",
+    "queryParamName" : "CATEGORY_ID"
+  }, {
+    "id" : "8",
+    "queryParamName" : "AccessArea",
+    "isTitleParam" : "TRUE"
+  } ]
+}

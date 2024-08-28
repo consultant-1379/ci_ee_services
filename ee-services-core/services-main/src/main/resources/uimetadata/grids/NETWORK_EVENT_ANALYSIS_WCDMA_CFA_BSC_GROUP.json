@@ -1,0 +1,37 @@
+{
+    "id": "NETWORK_EVENT_ANALYSIS_WCDMA_CFA_BSC_GROUP",
+    "title": "Controller Group Event Analysis",
+    "autoexpand": "2",
+    "defaultSortCol": "3",
+    "defaultSortDir": "DESC",
+    "columns": [
+    	{
+            "header": "Group Name",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Event Type",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int",
+            "drillDownWindowType": "Call Drops,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_BSC_GROUP_CALL_DROPS,Call Setup Failures,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_BSC_GROUP_CALL_SETUP"
+        },
+        {
+            "header": "Impacted Subscribers",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "header": "EVENT_ID",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        }        
+    ]
+}

@@ -1,0 +1,30 @@
+{
+  "id" : "WCDMA_NETWORK_CAUSE_CODE_ANALYSIS_BSC_GROUP",
+  "title" : "Controller Group Cause Code Analysis (WCDMA Call Failure)",
+  "autoexpand" : "2",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Cause Code Id",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Cause Code",
+    "width" : "200",
+    "datatype" : "string",
+    "drillDownWindowType" : "WCDMA_NETWORK_SUB_CAUSE_CODE_ANALYSIS_BSC_GROUP"
+  }, {
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "150",
+    "datatype" : "int"
+  }, {
+    "header" : "groupname",
+    "width" : "150",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }]
+}

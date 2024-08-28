@@ -1,0 +1,21 @@
+{
+  "id" : "CS_SUB_BI_BUSY_CELL",
+  "isChartData" : "TRUE",
+  "title" : "Subscriber Overview - Access Area Analysis Voice",
+  "autoexpand" : "3",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Event Failures",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Event Success",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Access Area",
+    "width" : "300",
+    "datatype" : "string"
+  } ]
+}

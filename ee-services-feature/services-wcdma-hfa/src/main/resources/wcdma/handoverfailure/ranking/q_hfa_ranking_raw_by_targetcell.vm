@@ -1,0 +1,94 @@
+#set($columnsToIncludeInIratView=["THIER321_ID"])
+#set($columnsToIncludeInOtherView=["THIER3_CELL_ID"])
+#set($specificMeasurementType=["IRAT"])
+#set($otherMeasurementType=["SOHO","IFHO","HSDSCH"])
+#set($counterColumn="NO_OF_ERRORS")
+#set($useExclusiveTACs="no")
+
+SELECT
+    #if($count > 0) top $count #end RANK() over (ORDER BY Failures DESC) AS rank,
+    DIM_E_SGEH_RAT.RAT_DESC                                              AS 'RAT',
+    distinctCells.RAT                                                    AS 'RAT ID',
+    distinctCells.VENDOR                                                 AS 'RAN Vendor',
+    distinctCells.HIERARCHY_3                                            AS 'Controller',
+    distinctCells.CELL_ID                                                AS 'Access Area',
+    distinctCells.FAILURES_IRAT + distinctCells.FAILURES_OTHERS          AS 'Failures'
+FROM
+    (
+        SELECT
+            topologyIrat.RAT,
+            topologyIrat.VENDOR,
+            topologyIrat.HIERARCHY_3,
+            topologyIrat.CELL_ID,
+            iratRawView.${counterColumn} AS FAILURES_IRAT,
+            0                            AS FAILURES_OTHERS
+        FROM
+            #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_AGGREGATE($TECH_PACK_LIST.getSpecificRawTablesWithMeasurementType($specificMeasurementType) "iratRawView" $columnsToIncludeInIratView $counterColumn $useExclusiveTACs)
+        LEFT OUTER JOIN
+            (
+                SELECT DISTINCT
+                    RAT,
+                    HIER321_ID,
+                    VENDOR,
+                    HIERARCHY_3,
+                    HIERARCHY_1 AS CELL_ID
+                FROM
+                    DIM_E_SGEH_HIER321
+                WHERE
+                    RAT = 0
+                UNION ALL
+                SELECT DISTINCT
+                    RAT,
+                    HIER321_ID,
+                    VENDOR,
+                    HIERARCHY_3,
+                    HIERARCHY_1 AS CELL_ID
+                FROM
+                    DIM_Z_SGEH_HIER321
+                WHERE
+                    RAT = 0
+            ) AS topologyIrat(RAT, HIER321_ID, VENDOR, HIERARCHY_3, CELL_ID)
+        ON
+            (
+                iratRawView.THIER321_ID = topologyIrat.HIER321_ID
+            )
+        UNION
+        SELECT
+            topologyOther.RAT,
+            topologyOther.VENDOR,
+            topologyOther.HIERARCHY_3,
+            topologyOther.CELL_ID,
+            0                             AS FAILURES_IRAT,
+            otherRawView.${counterColumn} AS FAILURES_OTHERS
+        FROM
+            #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_AGGREGATE($TECH_PACK_LIST.getSpecificRawTablesWithMeasurementType($otherMeasurementType) "otherRawView" $columnsToIncludeInOtherView $counterColumn $useExclusiveTACs)
+        LEFT OUTER JOIN
+            (
+                SELECT DISTINCT
+                    RAT,
+                    HIER3_CELL_ID,
+                    VENDOR,
+                    HIERARCHY_3,
+                    CELL_ID
+                FROM
+                    DIM_E_SGEH_HIER321_CELL
+                UNION
+                SELECT DISTINCT
+                    RAT,
+                    HIER3_CELL_ID,
+                    VENDOR,
+                    HIERARCHY_3,
+                    CELL_ID
+                FROM
+                    DIM_Z_SGEH_HIER321_CELL
+            ) AS topologyOther(RAT, HIER3_CELL_ID, VENDOR, HIERARCHY_3, CELL_ID)
+        ON
+            (
+                otherRawView.THIER3_CELL_ID = topologyOther.HIER3_CELL_ID
+            )
+    ) AS distinctCells(RAT, VENDOR, HIERARCHY_3, CELL_ID, FAILURES_IRAT, FAILURES_OTHERS)
+INNER JOIN DIM_E_SGEH_RAT
+ON
+    (
+        distinctCells.RAT = DIM_E_SGEH_RAT.RAT
+    )

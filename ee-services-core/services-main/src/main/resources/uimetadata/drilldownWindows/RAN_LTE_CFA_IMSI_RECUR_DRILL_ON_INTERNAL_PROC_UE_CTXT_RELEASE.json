@@ -1,0 +1,23 @@
+{
+  "id": "RAN_LTE_CFA_IMSI_RECUR_DRILL_ON_INTERNAL_PROC_UE_CTXT_RELEASE",
+  "name": "Reoccurring Failure Analysis",
+  "url": "SUBSCRIBER/LTE_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/SUBSCRIBER/REOCCURING",
+  "gridDisplayID": "RAN_LTE_CFA_IMSI_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_UE_CTXT_RELEASE",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "4",
+    "queryParamName": "HIER321_ID"
+  }, {
+    "id": "3",
+    "queryParamName": "eventID"
+  }, {
+    "id": "2",
+    "queryParamName": "imsi",
+    "isTitleParam": "TRUE"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

@@ -1,0 +1,18 @@
+#set($columnsToIncludeInNewView=["CATEGORY_ID","IMSI","NO_OF_ERRORS"])
+select
+	#if($count > 0)
+	  top $count
+	#end
+	RANK()
+	over (ORDER BY Failures DESC) AS Rank,
+	aggview.IMSI AS IMSI,
+	aggview.CATEGORY_ID,
+	SUM(aggview.NO_OF_ERRORS) AS Failures
+from
+	#UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS_WITH_IMSI0_EXCLUSION($aggregationViewList "aggview" $columnsToIncludeInNewView)
+WHERE
+	aggview.IMSI is not null
+	and aggview.CATEGORY_ID = :categoryId
+GROUP BY
+	aggview.IMSI,
+	aggview.CATEGORY_ID

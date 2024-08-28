@@ -1,0 +1,224 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_IRAT_CELL_DRILL",
+    "title": "Failed Event Analysis",
+    "autoexpand": "3",
+    "defaultSortCol": "2",
+    "defaultSortDir": "ASC",
+    "columns": [
+        {
+            "header": "Event Time",
+            "width": "120",
+            "datatype": "date"
+        },
+        {
+            "header": "IMSI",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "header": "TAC",
+            "width": "70",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Terminal Make",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "Terminal Model",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "Event Type",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Procedure Indicator",
+            "width": "280",
+            "datatype": "string"
+        },
+        {
+            "header": "Event Trigger",
+            "width": "280",
+            "datatype": "string"
+        },
+        {
+            "header": "Source Cell",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Source RAT ID",
+            "width": "100",
+            "datatype": "int",
+            "isHidden" : "TRUE"
+        },
+        {
+            "header": "Source RAN Vendor",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Source RNC",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "Source LAC",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "Source RAC",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "Target Cell",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Target RAT ID",
+            "width": "100",
+            "datatype": "int",
+            "isHidden" : "TRUE"
+        },
+        {
+            "header": "Target RAN Vendor",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Target BSC",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "Target LAC",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "Target PLMN",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "Cause Value",
+            "width": "350",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Sub Cause Value",
+            "width": "350",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Evaluation Case",
+            "width": "380",
+            "datatype": "string"
+        },
+        {
+            "header": "Exception Class",
+            "width": "350",
+            "datatype": "string"
+        },
+        {
+            "header": "SEVERITY_INDICATOR",
+            "width": "150",
+            "datatype": "int"
+        },
+        {
+            "header": "SOURCE_CONF",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "CPICH_EC_NO Source Cell (dB)",
+            "width": "180",
+            "datatype": "float"
+        },
+        {
+            "header": "RSCP Source Cell (dBm)",
+            "width": "100",
+            "datatype": "float"
+        },
+        {
+            "header": "RSSI",
+            "width": "70",
+            "datatype": "int"
+        },
+        {
+            "header": "TARGET_CONF",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "CRNC_ID_SERV_HSDSCH_CELL",
+            "width": "180",
+            "datatype": "int"
+        },
+        {
+            "header": "C_ID_SERV_HSDSCH_CELL",
+            "width": "180",
+            "datatype": "int"
+        },
+        {
+            "header": "C_ID_1_SS_HSDSCH_CELL",
+            "width": "180",
+            "datatype": "int"
+        },
+        {
+            "header": "UE_CONTEXT",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "RNC_MODULE_ID",
+            "width": "120",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "IMSI_MCC",
+            "width": "70",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "IMSI_MNC",
+            "width": "70",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "IMEISV",
+            "width": "70",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "SCANNER_ID",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "NE_VERSION",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        }
+    ]
+}

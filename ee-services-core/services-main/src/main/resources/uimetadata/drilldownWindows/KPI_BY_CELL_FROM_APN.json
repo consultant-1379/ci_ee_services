@@ -1,0 +1,36 @@
+{
+  "id" : "KPI_BY_CELL_FROM_APN",
+  "name" : "KPI Breakdown by Access Area",
+  "url" : "NETWORK/KPI_RATIO",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "RAT"
+  }, {
+    "id" : "2",
+    "queryParamName" : "apn",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "3",
+    "queryParamName" : "sgsn",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "4",
+    "queryParamName" : "vendor"
+  }, {
+    "id" : "5",
+    "queryParamName" : "bsc",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "7",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "APN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

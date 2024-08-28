@@ -1,0 +1,8 @@
+{
+  "id" : "GSM_DATA_CONN_DRILL_ERROR_CC_TO_EA_GRID",
+  "drillTargetDisplayId": "GSM_DATA_CONN_EVENT_ANALYSIS_FROM_SUBPIE",
+  "drillWindowName" : "IMSI GSM Data Connection Analysis : Event Analysis",
+  "url" : "NETWORK/GSM/DATA_CONNECTION_DETAILED_EVENT_ANALYSIS/IMSI_CC",
+  "drillToolBarType" : "TOOLBAR1",
+  "drillType" : "launchGrid"
+}

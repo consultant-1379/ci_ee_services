@@ -1,0 +1,40 @@
+{
+  "id" : "ROAMING_BY_OPERATOR_EVENTS",
+  "title" : "Inbound Roaming by Operator (Event Volume)",
+  "xlabel" : "Operator",
+  "ylabel" : "Number of Events",
+  "secondYAxisID" : "4",
+  "xaxisID" : "1",
+  "items" : [ 
+  	{
+	"id": "1",
+	"queryParam" :"OPERATOR"
+	},
+  {
+    "id" : "2",
+    "name" : "Event Failures",
+    "color" : "cb5853",
+	"drillDownWindowType": "DRILL_GRID_CHART_ROAMING_BY_OPERATOR_EVENTS"
+  }, {
+    "id" : "3",
+    "name" : "Event Successes",
+    "color" : "9ec057"
+  }, {
+    "id" : "4",
+    "name" : "Roaming Subscribers",
+    "color" : "333986"
+  },{
+    "id":"5" ,
+    "name" :"MCC",
+    "queryParam" :"MCC",
+    "isSystem" :"TRUE" ,
+    "displayInTooltip" : "TRUE"
+  },{
+    "id":"6" ,
+    "name":"MNC",
+    "queryParam" :"MNC",
+    "isSystem" :"TRUE" ,
+    "displayInTooltip" : "TRUE"
+  }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+    "id": "WCDMA_HFA_CC_ANALYSIS_PIE",
+    "title": "Cause Code Analysis (WCDMA Handover Failure)",
+    "ylabel": "Number of Events",
+    "xlabel": "Group Name",
+    "secondYAxisID": "3",
+    "xaxisID": "2",
+    "items": [
+        {
+            "id": "1",
+            "name": "Label",
+            "color": "5494c5",
+            "isLegendPrefix": "TRUE",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "2",
+            "name": "Cause Code",
+            "color": "5494c5"
+        },
+        {
+            "id": "3",
+            "name": "Failures",
+            "color": "cb5853",
+            "displayInTooltip": "TRUE",
+            "drillDownWindowType": "WCDMA_HFA_CC_ANALYSIS_PIE_FAILURES_DRILL_KEY",
+            "drillDownSeriesId": "9",
+            "groupSeriesId": "10"
+        },
+        {
+            "id": "4",
+            "name": "Source Impacted Subscribers",
+            "color": "333986",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "5",
+            "name": "Target Impacted Subscribers",
+            "color": "333986",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "6",
+            "name": "Cause Code Id",
+            "queryParam": "causeCode"
+        },
+        {
+            "id": "7",
+            "name": "Event Id",
+            "queryParam": "eventID"
+        },
+        {
+            "id": "8",
+            "name": "Category Id",
+            "queryParam": "categoryId"
+        },
+        {
+            "id": "9",
+            "name": "Handover Type",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "10",
+            "name": "Group Name",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "11",
+            "name": "State",
+            "queryParam": "state"
+        }
+    ]
+}

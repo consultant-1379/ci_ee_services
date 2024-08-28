@@ -1,0 +1,44 @@
+#DEFINE_CONSTANTS()
+
+#macro(CCAS_QUERY_BY_CC_AGG $errTable $ccTable)
+(
+select	
+	ccref.CAUSE_CODE, 
+	CAUSE_CODE_DESC, 
+	sum(NO_OF_ERRORS)
+from
+	dc.${errTable} errRef,
+	dc.${ccTable} ccref
+	#GROUP_TABLE_INFO()
+where
+	#GET_DATETIME_RANGE()
+	#GROUP_OR_SINGLE_INFO()
+	and ccref.CAUSE_CODE = errRef.CAUSE_CODE
+	and ccref.CAUSE_PROT_TYPE = errRef.CAUSE_PROT_TYPE
+	and errRef.CAUSE_CODE in ($causeCodeIds)
+group by
+	ccref.CAUSE_CODE,
+	CAUSE_CODE_DESC
+)
+#end
+
+select
+	err.CAUSE_CODE as CAUSE_CODE,
+	err.CAUSE_CODE_DESC as CAUSE_CODE_DESC,
+	sum(isnull(err.NO_OF_ERRORS, 0)) as NO_OF_ERRORS
+from 
+	(
+	#foreach ($errtable in $rawErrTables)
+		#if ($errtable.toString().indexOf($ApplicationConstants.SGEH) > -1)
+			#CCAS_QUERY_BY_CC_AGG($errtable $ccRefForSgeh)	
+		#else
+			#CCAS_QUERY_BY_CC_AGG($errtable $ccRefForLte)
+		#end
+		#if($velocityCount < $rawErrTables.size())
+			union all
+		#end
+	#end
+	) as err (CAUSE_CODE, CAUSE_CODE_DESC ,NO_OF_ERRORS)
+group by
+	err.CAUSE_CODE,
+	err.CAUSE_CODE_DESC

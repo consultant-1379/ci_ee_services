@@ -1,0 +1,38 @@
+{
+  "toolBarType" : "TOOLBAR_ROAMING",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnRefresh",
+      "name" : "",
+      "style" : "toolbar_refreshbtn",
+      "tip" : "Refresh",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "REFRESH"
+    }, {
+      "id" : "btnToggleToGrid",
+      "name" : "",
+      "style" : "toolbar_toggleToGridbtn",
+      "tip" : "Click to toggle the display from a graph to a table",
+      "isEnabled" : "TRUE",
+      "isToggle" : "TRUE",
+      "eventID" : "TOGGLE_TO_GRID"
+    }, {
+      "id" : "btnHideShowLegend",
+      "name" : "",
+      "style" : "toolbar_hideShowLegendBtn",
+      "tip" : "Click to hide or show the legend on the chart",
+      "isEnabled" : "TRUE",
+      "isToggle" : "TRUE",
+      "eventID" : "SHOW_HIDE_CHART_LEGEND"
+    } ]
+  } ]
+}

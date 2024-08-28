@@ -1,0 +1,34 @@
+#set($columnsToIncludeInNewView=["CATEGORY_ID","EVENT_ID","CAUSE_VALUE","NO_OF_ERRORS"])
+SELECT
+    #if($count > 0) top $count #end RANK() over (ORDER BY failures DESC) AS RANK,
+    categoryDesc.CATEGORY_DESC                                           AS 'HANDOVER TYPE',
+    aggview.CATEGORY_ID                                                  AS 'Category ID',
+    dim_causeCode.CAUSE_VALUE_DESC                                       AS 'CAUSE VALUE',
+    aggview.CAUSE_VALUE                                                  AS 'CAUSE VALUE ID',
+    SUM(NO_OF_ERRORS)                                                    AS Failures
+FROM
+    #UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS($aggregationViewList "aggview" $columnsToIncludeInNewView)
+LEFT OUTER JOIN
+    (
+        SELECT
+            CAUSE_VALUE,
+            EVENT_ID,
+            CAUSE_VALUE_DESC
+        FROM
+            DIM_E_RAN_HFA_CAUSE_CODE_VALUE
+    ) AS dim_causeCode
+ON
+    (
+        aggview.CAUSE_VALUE = dim_causeCode.CAUSE_VALUE
+    AND aggview.EVENT_ID = dim_causeCode.EVENT_ID
+    )
+LEFT OUTER JOIN dc.DIM_E_RAN_HFA_CATEGORY categoryDesc
+ON
+    (
+        categoryDesc.CATEGORY_ID = aggView.CATEGORY_ID
+    )
+GROUP BY
+    categoryDesc.CATEGORY_DESC,
+    aggview.CATEGORY_ID,
+    dim_causeCode.CAUSE_VALUE_DESC,
+    aggview.CAUSE_VALUE

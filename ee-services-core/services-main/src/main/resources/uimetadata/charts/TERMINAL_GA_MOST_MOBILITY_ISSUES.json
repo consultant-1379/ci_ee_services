@@ -1,0 +1,18 @@
+{
+  "id" : "TERMINAL_GA_MOST_MOBILITY_ISSUES",
+  "title" : "Most Mobility Failures",
+  "ylabel" : "Number of Failures",
+  "xlabel" : "Group Name",
+  "secondYAxisID" : "4",
+  "xaxisID" : "2",
+  "items" : [ {
+    "id" : "3",
+    "name" : "Failures",
+    "color" : "cb5853",
+    "drillDownWindowType" : "DRILL_CHART_TERMINAL_GA_MOST_MOBILITY_ISSUES"
+  }, {
+    "id" : "4",
+    "name" : "Impacted Subscribers",
+    "color" : "333986"
+  } ]
+}

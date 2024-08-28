@@ -1,0 +1,37 @@
+{
+  "id" : "NETWORK_CAUSE_CODE_ANALYSIS_BSC_DRILL",
+  "name" : "Controller Sub Cause Code Analysis",
+  "url" : "NETWORK/CAUSE_CODE_ANALYSIS",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "RAT"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "vendor"
+  }, {
+    "id" : "3",
+    "queryParamName" : "bsc"
+  }, {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "6",
+    "queryParamName" : "causeCode"
+  }, {
+    "id" : "8",
+    "queryParamName" : "subCauseCode"
+  }, {
+    "id" : "4",
+    "queryParamName" : "causeProtType"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

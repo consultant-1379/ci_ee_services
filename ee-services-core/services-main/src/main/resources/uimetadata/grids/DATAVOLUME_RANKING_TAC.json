@@ -1,0 +1,36 @@
+{
+  "id" : "DATAVOLUME_RANKING_TAC",
+  "title" : "Terminal Ranking (Data Volume)",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "autoexpand" : "2",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Model",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "TAC",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Downlink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Uplink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Total Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  } ]
+}

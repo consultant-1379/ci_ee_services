@@ -1,0 +1,21 @@
+{
+    "id": "NETWORK_DATAVOL_ANALYSIS_DOWNLINK",
+    "title": "Network Data Volume Downlink",
+    "xlabel": "Timestamp",
+    "ylabel": "Data Volume (MB)",
+    "secondYAxisID": "4",
+    "xaxisID": "1",
+    "zoomableXAxis": "TRUE",
+    "items": [
+        {
+            "id": "2",
+            "name": "Downlink (MB)",
+            "color": "333986"
+        },
+        {
+            "id": "4",
+            "name": "Number of Bearers",
+            "color": "f08a00"
+        }
+    ]
+}

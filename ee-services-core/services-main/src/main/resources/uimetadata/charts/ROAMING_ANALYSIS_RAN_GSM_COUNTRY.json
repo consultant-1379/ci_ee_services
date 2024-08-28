@@ -1,0 +1,37 @@
+{
+    "id": "ROAMING_ANALYSIS_RAN_GSM_COUNTRY",
+    "title": "Inbound Roaming by Country",
+    "xlabel": "Country",
+    "ylabel": "Number of Events",
+    "secondYAxisID": "3",
+    "xaxisID": "1",
+    "items": [
+        {
+            "id": "2",
+            "name": "Event Failures",
+            "color": "cb5853",
+            "drillDownWindowType" : "GSM_ROAMING_ANALYSIS_SUMMARY_BY_COUNTRY"
+        },
+        {
+            "id": "3",
+            "name": "Roaming Subscribers",
+            "color": "333986"
+            
+        },
+        {
+            "id": "4",
+            "name": "MCC",
+            "color": "333986",
+            "isSystem": "TRUE",
+            "displayInTooltip": "TRUE",
+            "queryParam" : "MCC"
+        },
+        {
+            "id": "1",
+            "name": "COUNTRY",
+            "isSystem": "TRUE",
+            "queryParam" : "COUNTRY",
+            "isTitleParam" : "TRUE"        
+        }
+    ]
+}

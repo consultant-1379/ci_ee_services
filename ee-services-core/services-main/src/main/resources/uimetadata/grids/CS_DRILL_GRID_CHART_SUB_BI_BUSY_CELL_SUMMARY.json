@@ -1,0 +1,44 @@
+{
+  "id" : "CS_DRILL_GRID_CHART_SUB_BI_BUSY_CELL_SUMMARY",
+  "title" : "Subscriber Overview - Access Area Event Analysis Voice",
+  "autoexpand" : "4",
+  "defaultSortCol" : "7",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "IMSI",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "HIER321_ID",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Event ID",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Failures",
+    "width" : "100",
+    "datatype" : "int",
+    "drillDownWindowType" : "*,CS_DRILL_GRID_CHART_SUB_BI_BUSY_CELL_ERR,callForwarding,CS_DRILL_GRID_CHART_SUB_BI_BUSY_CELL_ERR_callForwarding,roamingCallForwarding,CS_DRILL_GRID_CHART_SUB_BI_BUSY_CELL_ERR_roamingCallForwarding,mSOriginatingSMSinMSC,CS_DRILL_GRID_CHART_SUB_BI_BUSY_CELL_ERR_SMS,mSTerminatingSMSinMSC,CS_DRILL_GRID_CHART_SUB_BI_BUSY_CELL_ERR_SMS,locationServices,CS_DRILL_GRID_CHART_SUB_BI_BUSY_CELL_ERR_locationServices"
+  }, {
+    "header" : "Event Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Success Ratio",
+    "width" : "150",
+    "datatype" : "float"
+  } ]
+}

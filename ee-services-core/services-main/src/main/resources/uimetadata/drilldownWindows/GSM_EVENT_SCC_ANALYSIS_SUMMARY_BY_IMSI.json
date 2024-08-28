@@ -1,0 +1,10 @@
+{
+  "id" : "GSM_EVENT_SCC_ANALYSIS_SUMMARY_BY_IMSI",
+  "gridDisplayID" : "GSM_SUBSCRIBER_SUMMARY_EVENT_ANALYSIS_BY_IMSI",
+  "url" : "NETWORK/GSM/CALL_FAILURE_EVENT_SUMMARY/IMSI",
+  "params" : [ {
+    "id" : "6",
+    "queryParamName" : "imsi",
+     "isTitleParam" : "TRUE"
+  } ]
+}

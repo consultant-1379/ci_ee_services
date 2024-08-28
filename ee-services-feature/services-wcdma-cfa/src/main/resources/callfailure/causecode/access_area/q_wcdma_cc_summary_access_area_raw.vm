@@ -1,0 +1,50 @@
+##
+## WCDMA Call Failure Cause Code Analysis by Cell Hash ID (using raw tables)
+##
+## Velocity Parameter:
+##
+## Named PreparedStatement Parameter:
+##
+##	   :HIER3_CELL_ID   The cell hash id
+##
+#DEFINE_CONSTANTS()
+
+#set($columnsToFilterOn=["HIER3_CELL_ID"])
+#set($columnsToIncludeInNewView=["CAUSE_VALUE", "IMSI"])
+SELECT
+	err.CAUSE_VALUE,
+	ccref.CAUSE_VALUE_DESC,
+	count(*) as NO_OF_ERRORS,
+	isnull(count(distinct(err.IMSI)),0) as TOTAL_NO_OF_SUBSCRIBERS
+FROM
+	(	
+		#foreach ($rawtable in $TECH_PACK_LIST.getAllRawTables())
+			select
+				#foreach ($columnToInclude in $columnsToIncludeInNewView)
+					$columnToInclude
+					#if($velocityCount < $columnsToIncludeInNewView.size())
+					,
+					#end
+				#end			
+			from dc.$rawtable 
+			where
+			#GET_DATETIME_RANGE()
+			and #GET_COLUMNS_WHERE($columnsToFilterOn)
+			#if ($causeCodeIds)				
+				and CAUSE_VALUE  in ($causeCodeIds)
+			#end
+			and #GET_TAC_EXCLUSION()
+			#if($velocityCount < $TECH_PACK_LIST.getAllRawTables().size())
+					union all
+			#end
+		#end
+	) as err	
+left outer join dc.DIM_E_RAN_CFA_CAUSE_VALUE ccref
+on (
+	err.CAUSE_VALUE = ccref.CAUSE_VALUE
+)
+GROUP BY
+	err.CAUSE_VALUE,
+	CAUSE_VALUE_DESC	
+order by
+	NO_OF_ERRORS desc

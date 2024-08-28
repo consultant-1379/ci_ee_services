@@ -1,0 +1,79 @@
+{
+  "id" : "CS_EVENT_VOLUME_GROUP",
+  "title" : "Event Volume Analysis Voice",
+  "xlabel" : "Time",
+  "ylabel" : "Number of Events",
+  "secondYAxisID" : "15",
+  "xaxisID" : "1",
+  "zoomableXAxis" : "TRUE",
+  "items" : [ {
+    "id" : "2",
+    "name" : "MS Originating Call Completion Count"
+  }, {
+    "id" : "3",
+    "name" : "MS Originating Call Block Count"
+  }, {
+    "id" : "4",
+    "name" : "MS Originating Call Drop Count"
+  }, {
+    "id" : "5",
+    "name" : "MS Originating Emergency Call Completion Count"
+  }, {
+    "id" : "6",
+    "name" : "MS Originating Emergency Call Block Count"
+  }, {
+    "id" : "7",
+    "name" : "MS Originating Emergency Call Drop Count"
+  }, {
+    "id" : "8",
+    "name" : "MS Terminating Call Completion Count"
+  }, {
+    "id" : "9",
+    "name" : "MS Terminating Call Block Count"
+  }, {
+    "id" : "10",
+    "name" : "MS Terminating Call Drop Count"
+  }, {
+    "id" : "11",
+    "name" : "Call Forwarding Call Count"
+  }, {
+    "id" : "12",
+    "name" : "Call Forwarding Call Block Count"
+  }, {
+    "id" : "13",
+    "name" : "Call Forwarding Call Drop Count"
+  }, {
+    "id" : "14",
+    "name" : "Roaming Call Forwarding Call Count"
+  }, {
+    "id" : "15",
+    "name" : "Roaming Call Forwarding Call Block Count"
+  }, {
+    "id" : "16",
+    "name" : "Roaming Call Forwarding Call Drop Count"
+  }, {
+    "id" : "17",
+    "name" : "Location Requests Count"
+  }, {
+    "id" : "18",
+    "name" : "Unsuccessful Location Request Count"
+  }, {
+    "id" : "19",
+    "name" : "MS Originating SMS Count"
+  }, {
+    "id" : "20",
+    "name" : "MS Originating SMS Fail Count"
+  }, {
+    "id" : "21",
+    "name" : "MS Terminating SMS Count"
+  }, {
+    "id" : "22",
+    "name" : "MS Terminating SMS Fail Count"
+  }, {
+    "id" : "23",
+    "name" : "Impacted Subscribers"
+  }, {
+    "id" : "24",
+    "name" : "Total Network Events"
+  } ]
+}

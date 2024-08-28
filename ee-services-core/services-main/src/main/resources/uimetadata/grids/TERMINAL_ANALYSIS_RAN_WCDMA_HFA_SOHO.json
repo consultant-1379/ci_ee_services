@@ -1,0 +1,41 @@
+{
+    "id": "TERMINAL_ANALYSIS_RAN_WCDMA_HFA_SOHO",
+    "title": "Terminal Analysis - Most Soft Handover Failures",
+    "autoexpand": "3",
+    "defaultSortCol": "1",
+    "defaultSortDir": "ASC",
+    "columns": [
+        {
+            "header": "Rank",
+            "width": "50",
+            "datatype": "int"
+        },
+        {
+            "header": "TAC",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Manufacturer",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "header": "Model",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int",
+            "drillDownWindowType": "TERMINAL_ANALYSIS_WCDMA_HFA_DRILL_ON_FAILURES_BY_TAC_SOHO"
+        },
+        {
+            "header" : "Category",
+            "width" : "90",
+            "datatype" : "int",
+            "isSystem" : "true"
+        }
+    ]
+}

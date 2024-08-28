@@ -1,0 +1,8 @@
+{
+      "id" : "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_S1_SIG_CONN_SETUP_FROM_SUBPIE_GROUP",
+      "nameForTaskBar" : "Group LTE Call Failure Cause Code : Event Analysis (INTERNAL_PROC_S1_SIG_CONN_SETUP)",
+      "url" : "NETWORK/LTE_CFA_CAUSE_CODE_ANALYSIS/PIE_CHART_CAUSE_CODE_ANALYSIS_DRILLDOWN",
+      "drillTargetDisplayId" : "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_S1_SIG_CONN_SETUP_GROUP",
+      "drillToolBarType" : "TOOLBAR1",
+      "drillType" : "launchGrid"
+}

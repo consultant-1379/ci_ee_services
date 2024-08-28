@@ -1,0 +1,40 @@
+{
+    "id": "TERMINAL_EVENT_ANALYSIS_GRID_FROM_DASHBOARD",
+    "title": "Event Analysis From Top Terminals",
+    "autoexpand": "2",
+    "defaultSortCol": "4",
+    "defaultSortDir": "DESC",
+    "categoryId" : "TERMINAL_EVENT_ANALYSIS_GRID_FROM_DASHBOARD",
+    "columns": [
+        {
+            "type" : "manufacturer",
+            "header": "Manufacturer",
+            "width": "130",
+            "datatype": "string"
+        },
+        {
+            "type" : "model",
+            "header": "Model",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type" : "tac",
+            "header": "TAC",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type" : "failures",
+            "header": "Failures",
+            "width": "90",
+            "datatype": "string"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header": "Impacted Subscribers",
+            "width": "120",
+            "datatype": "string"
+        }
+    ]
+}

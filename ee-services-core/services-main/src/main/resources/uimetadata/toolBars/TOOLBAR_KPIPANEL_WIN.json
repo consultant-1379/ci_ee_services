@@ -1,0 +1,71 @@
+{
+    "panels": [
+        {
+            "toolBarButtons": [
+                {
+                    "id": "btnTime",
+                    "eventID": "TIME",
+                    "style": "toolbar_timebtn",
+                    "isToggle": "FALSE",
+                    "name": "",
+                    "tip": "Click to change Time Constraints",
+                    "isEnabled": "TRUE"
+                },
+                {
+                    "id": "btnExport",
+                    "eventID": "EXPORT",
+                    "style": "toolbar_exportbtn",
+                    "isToggle": "FALSE",
+                    "name": "",
+                    "tip": "Click to export the data to CSV",
+                    "isEnabled": "TRUE"
+                },
+                {
+                    "id": "btnProperties",
+                    "name": "",
+                    "style": "toolbar_propertiesbtn",
+                    "tip": "Click to open selected row in properties window",
+                    "isEnabled": "FALSE",
+                    "isToggle": "FALSE",
+                    "eventID": "PROPERTIES"
+                },
+                {
+                    "id": "btnBack",
+                    "name": "",
+                    "style": "toolbar_back",
+                    "isEnabled": "FALSE",
+                    "isVisible": "FALSE",
+                    "tip": "Backward Navigation",
+                    "isToggle": "False",
+                    "eventID": "BACK"
+                },
+                {
+                    "id": "btnForward",
+                    "name": "",
+                    "style": "toolbar_forward",
+                    "isEnabled": "FALSE",
+                    "isVisible": "FALSE",
+                    "tip": "Forward Navigation",
+                    "isToggle": "FALSE",
+                    "eventID": "FORWARD"
+                },
+                {
+                    "id": "btnNav",
+                    "name": "",
+                    "style": "toolbar_viewbtn",
+                    "tip": "Click to navigate visited windows",
+                    "isEnabled": "FALSE",
+                    "isVisible": "FALSE",
+                    "eventID": "NAVIGATION",
+                    "items": [
+                        {
+                            "id": "DUMMY_VALUE",
+                            "name": "DUMMY_VALUE"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "toolBarType": "TOOLBAR_KPIPANEL_WIN"
+}

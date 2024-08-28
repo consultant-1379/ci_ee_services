@@ -1,0 +1,40 @@
+{
+    "id": "ROAMING_ANALYSIS_RAN_GSM_OPERATOR",
+    "isChartData": "TRUE",
+    "title": "Inbound Roaming by Operator (GSM Call Failure Event Volume)",
+    "autoexpand": "1",
+    "columns": [
+        {
+            "header": "Operator",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Failures",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "Impacted Subscribers",
+            "width": "120",
+            "datatype": "int"
+        },
+        {
+            "header": "Country",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "MCC",
+            "width": "100",
+            "datatype": "string",
+            "queryParam" : "MCC"
+        },
+        {
+            "header": "MNC",
+            "width": "100",
+            "datatype": "string",
+            "queryParam" : "MNC"
+        }
+    ]
+}

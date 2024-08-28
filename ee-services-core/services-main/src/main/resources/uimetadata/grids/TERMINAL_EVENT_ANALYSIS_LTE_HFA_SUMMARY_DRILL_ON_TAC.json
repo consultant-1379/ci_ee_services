@@ -1,0 +1,65 @@
+{
+    "id" : "TERMINAL_EVENT_ANALYSIS_LTE_HFA_SUMMARY_DRILL_ON_TAC",
+    "title" : "Terminal LTE Handover Failure : Event Analysis Summary",
+    "autoexpand" : "5",
+    "defaultSortCol" : "6",
+    "defaultSortDir" : "DESC",
+    "categoryId" : "TERMINAL_EVENT_ANALYSIS_LTE_HFA_SUMMARY_DRILL_ON_TAC",
+    "columns" : [
+        {
+            "type" : "CategoryId",
+            "header" : "Category ID",
+            "width" : "100",
+            "datatype" : "int",
+            "isSystem" : "TRUE",
+            "licenseCXC": "CXC4011280"
+        },
+        {
+            "type" : "tac",
+            "header" : "TAC",
+            "width" : "100",
+            "datatype" : "string",
+            "isSystem" : "TRUE",
+            "licenseCXC": "CXC4011280"
+        },
+		{
+            "type" : "terminalMake",
+            "header" : "Terminal Make",
+            "width" : "200",
+            "datatype" : "string",
+            "isHidden" : "TRUE",
+            "licenseCXC": "CXC4011280"
+        },
+        {
+            "type" : "terminalModel",
+            "header" : "Terminal Model",
+            "width" : "200",
+            "datatype" : "string",
+            "isHidden" : "TRUE",
+            "licenseCXC": "CXC4011280"
+        },
+        {
+            "type" : "handoverStage",
+            "header" : "Handover Stage",
+            "width" : "100",
+            "datatype" : "string",
+            "drillDownWindowType" : "TERMINAL_EVENT_ANALYSIS_LTE_HFA_DRILL_ON_CATEGORY_DRILL",
+            "licenseCXC": "CXC4011280"
+        },
+        {
+            "type" : "failures",
+            "header" : "Failures",
+            "width" : "90",
+            "datatype" : "int",
+            "licenseCXC": "CXC4011280"            
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header" : "Impacted Subscribers",
+            "width" : "160",
+            "datatype" : "int",
+            "licenseCXC": "CXC4011280"
+        }
+        
+    ]
+}

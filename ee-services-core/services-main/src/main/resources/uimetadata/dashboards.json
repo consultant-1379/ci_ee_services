@@ -1,0 +1,154 @@
+{
+    "dashboards":[{
+            "tabOwner":"DASHBOARD_TAB",
+            "id":"NETWORK_DASHBOARD",
+            "name":"Latest Network Overview: ",
+            "maxDaysBack":"1095",
+            "items":[{
+                    "id":"RADIO_NETWORK_KPI",
+                    "name":"Radio Network KPIs",
+                    "url":"DASHBOARD/KPI/RAN",
+                    "portletType":"networkkpi",
+                    "needSearchParam":"PATH",
+                    "display":"networkKPI",
+                    "excludedSearchTypes":"APN,SGSN,SUMMARY_CORE",
+                    "dateFrom":"*,1440",
+                    "height":"151",
+                    "thresholds":[{
+                            "id":"SUCCESS_RATE",
+                            "name":"RRC Connection Success Rate",
+                            "lowest":98,
+                            "format":"percent"
+                        }
+                    ],
+                    "params":{
+                        "requestSeriesId":"3",
+                        "percentChangeSeriesId":"2",
+                        "groupAsCsvUrl":"TRUE",
+                        "drillDownTabId":"NETWORK_TAB"
+                    }
+                },
+                {
+                    "id":"HOMER_ROAMER",
+                    "name":"Top 5 Impacted Inbound Roamers By Country",
+                    "url":"DASHBOARD/HOMER_ROAMER",
+                    "portletType":"homerRoamer",
+                    "needSearchParam":"PATH",
+                    "display":"homerRoamer",
+                    "dateFrom":"*,1440",
+                    "height":"151",
+                    "licenseCXC":"CXC4010925"
+                },
+                {
+                    "id":"BUSINESS_OBJECTS_PORTLET",
+                    "name":"ENIQ Reports",
+                    "portletType":"businessObjects",
+                    "height":"151",
+                    "url":"DASHBOARD/REPORTS",
+                    "params":{
+                        "boTabId":"BUSINESS_OBJECTS_TAB",
+                        "url":"DASHBOARD/REPORTS"
+                    }
+                },
+                {
+                    "id":"CORE_NETWORK_KPIS",
+                    "name":"Core Network KPIs",
+                    "url":"DASHBOARD/KPI/CORE",
+                    "portletType":"corenetworkkpis",
+                    "display":"corenetworkkpis",
+                    "needSearchParam":"PATH",
+                    "excludedSearchTypes":"SUMMARY_WCDMA,SUMMARY_CORE,MSC,BSC,CELL",
+                    "dateFrom":"*,1440",
+                    "height":"310",
+                    "licenseCXC":"CXC4010927",
+                    "thresholds":[{
+                            "id":"ATTACH_SUCCESS_RATE",
+                            "name":"Attach Success Rate",
+                            "lowest":98,
+                            "format":"percent"
+                        },
+                        {
+                            "id":"PDP_SUCCESS_RATE",
+                            "name":"PDP Success Rate",
+                            "lowest":98,
+                            "format":"percent"
+                        },
+                        {
+                            "id":"PAGING",
+                            "name":"Paging Success Rate",
+                            "lowest":98,
+                            "format":"percent"
+                        },
+                        {
+                            "id":"PDP_CUTOFF",
+                            "name":"PDP Cutoff",
+                            "lowest":10,
+                            "format":"percent"
+                        }
+                    ],
+                    "params":{
+                        "accessibilityTopChartId":"ACCESSIBILITY_ATTACH_EVENT",
+                        "accessibilityBottomChartId":"ACCESSIBILITY_ACTIVATE_EVENT",
+                        "retainabilityTopChartId":"RETAINABILITY_SERVICE_REQUEST_EVENT",
+                        "retainabilityBottomChartId":"RETAINABILITY_DEACTIVATE_EVENT",
+                        "topSeriesIds":"2,3",
+                        "bottomSeriesIds":"4,5",
+                        "drillDownTabId":"NETWORK_TAB",
+                        "drillableNodeTypes":"APN,SGSN"
+                    }
+                },
+                {
+                    "id":"DASHBOARD_TOP_TERMINALS",
+                    "name":"Top 5 Impacted Terminals",
+                    "url":"DASHBOARD/TERMINAL",
+                    "portletType":"terminalPortlet",
+                    "needSearchParam":"PATH",
+                    "display":"terminalPortlet",
+                    "dateFrom":"*,1440",
+                    "height":"310",
+                    "licenseCXC":"CXC4010926",
+                    "params":{
+                        "drillDownTabId":"TERMINAL_TAB",
+                        "wcdmaNodes":"SUMMARY_WCDMA,MSC,BSC,CELL"
+                    }
+                },
+                {
+                    "id":"DATAVOL_ANALYSIS",
+                    "name":"Data Usage",
+                    "url":"NETWORK/NETWORK_DATAVOL_ANALYSIS",
+                    "portletType":"dataVolume",
+                    "display":"dataVolume",
+                    "needSearchParam":"TRUE",
+                    "dateFrom":"*,43200",
+                    "excludedSearchTypes":"MSC,BSC,CELL",
+                    "height":"310",
+                    "licenseCXC":"CXC4011159",
+                    "params":{
+                        "portletChartIdPrefix":"DATAVOL_ANALYSIS_PORTLET",
+                        "topChartId":"UPLINK",
+                        "bottomChartId":"DOWNLINK",
+                        "pdpSessionsSeriesId":"4",
+                        "drillDownTabId":"NETWORK_TAB",
+                        "networkChartId":"NETWORK_DATAVOL_ANALYSIS",
+                        "entityChartId":"DATAVOL_ANALYSIS"
+                    }
+                },
+                {
+                    "id":"MAP_PORTLET",
+                    "name":"Map Analysis",
+                    "portletType":"map",
+                    "height":"400",
+                    "licenseCXC":"CXC4011307",
+                    "params":{
+                        "mapLayer":"map",
+                        "rncidsLayer":"rncids",
+                        "cellsLayer":"cells",
+                        "srs":"EPSG:4326",
+                        "rncid":"rncid",
+                        "cell_auto_key":"cell_auto_key"
+                    }
+                }
+            ]
+        }
+    ]
+}

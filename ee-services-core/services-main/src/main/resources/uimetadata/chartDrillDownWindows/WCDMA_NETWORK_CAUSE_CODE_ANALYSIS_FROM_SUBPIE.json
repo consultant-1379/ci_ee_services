@@ -1,0 +1,9 @@
+{
+      "id" : "WCDMA_NETWORK_CAUSE_CODE_ANALYSIS_FROM_SUBPIE",
+      "nameForTaskBar" : "Sub Cause Code Detailed Event Analysis (WCDMA Call Failure)",
+      "drillWindowName" : "Controller Sub Cause Code Detailed Event Analysis (WCDMA Call Failure)",
+      "url" : "NETWORK/WCDMA_CAUSE_CODE_ANALYSIS/DETAIL_SUB_CAUSE_CODE_GRID",
+      "drillTargetDisplayId" : "WCDMA_NETWORK_SCC_DEA",
+      "drillToolBarType" : "TOOLBAR_WCDMA_GRID_CAUSE_CODE_NO_NAV",
+      "drillType" : "launchGrid"
+}

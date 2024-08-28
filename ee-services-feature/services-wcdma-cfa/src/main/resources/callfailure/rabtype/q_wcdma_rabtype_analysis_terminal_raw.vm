@@ -1,0 +1,70 @@
+##
+## WCDMA Call Failure RAB Type Analysis by TAC (using raw tables)
+##
+## Velocity Parameter:
+##
+## Named PreparedStatement Parameter:
+##
+##	   :TAC:   The cell hash id
+##
+#DEFINE_CONSTANTS()
+
+#set($columnsToFilterOn=["TAC"])
+#set($columnsToIncludeInNewView=["SOURCE_CONF", "IMSI", "TAC"])
+
+SELECT
+    isnull(total.RABTYPE, 'Unknown'),
+    sum (total.NO_OF_ERRORS) as NO_OF_ERRORS,
+    max (TOTAL_NO_OF_SUBSCRIBERS) as  TOTAL_NO_OF_SUBSCRIBERS
+    
+from
+(
+
+SELECT
+	rabtyperef.CATEGORY_ID_DESC as RABTYPE,
+	err.SOURCE_CONF,
+	rabtyperef.RABTYPE_DESC,
+	count(*) as NO_OF_ERRORS,
+	isnull(count(distinct(err.IMSI)),0) as TOTAL_NO_OF_SUBSCRIBERS
+	#foreach ($columnToFilterOn in $columnsToFilterOn)
+		,$columnToFilterOn
+	#end
+
+FROM
+	(
+
+		#foreach ($rawtable in $TECH_PACK_LIST.getAllRawTables())
+			select
+				#foreach ($columnToInclude in $columnsToIncludeInNewView)
+					$columnToInclude
+					#if($velocityCount < $columnsToIncludeInNewView.size()),
+					#end
+				#end
+			from dc.$rawtable
+			where
+			#GET_DATETIME_RANGE()
+			and #GET_COLUMNS_WHERE($columnsToFilterOn)
+			and #GET_TAC_EXCLUSION()
+			#if($velocityCount < $TECH_PACK_LIST.getAllRawTables().size())
+					union all
+			#end
+		#end
+	) as err
+left join dc.DIM_E_RAN_RABTYPE rabtyperef
+on (
+	err.SOURCE_CONF = rabtyperef.RABTYPE
+)
+GROUP BY
+	err.SOURCE_CONF,
+	#foreach ($columnToFilterOn in $columnsToFilterOn)
+		$columnToFilterOn,
+	#end
+	RABTYPE_DESC,
+	CATEGORY_ID_DESC
+) as total
+
+group by 
+total.RABTYPE
+
+order by
+	NO_OF_ERRORS desc

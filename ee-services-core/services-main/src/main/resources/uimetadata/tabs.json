@@ -1,0 +1,70 @@
+{
+    "tabs": [
+        {
+            "id": "DASHBOARD_TAB",
+            "name": "Dashboard",
+            "tip": "Dashboard view",
+            "tabItemCenterStyle": "centerPanelBackground",
+            "licenseCXC": "CXC4011325"
+        },
+        {
+            "id": "NETWORK_TAB",
+            "name": "Network",
+            "tip": "Node or Cell analysis",
+            "style": "",
+            "tabItemCenterStyle": "centerPanelBackground",
+            "licenseCXC": "CXC4010927"
+        },
+        {
+            "id": "TERMINAL_TAB",
+            "name": "Terminal",
+            "tip": "Terminal analysis",
+            "style": "",
+            "tabItemCenterStyle": "centerPanelBackground",
+            "licenseCXC": "CXC4010926"
+        },
+        {
+            "id": "SUBSCRIBER_TAB",
+            "name": "Subscriber",
+            "tip": "Subscriber analysis",
+            "style": "",
+            "tabItemCenterStyle": "centerPanelBackground",
+            "licenseCXC": "CXC4010925"
+        },
+        {
+            "id": "RANKINGS_TAB",
+            "name": "Rankings",
+            "tip": "Ranking summary",
+            "style": "",
+            "tabItemCenterStyle": "centerPanelBackground",
+            "defaultMenuItemId": "",
+            "licenseCXC": "CXC4010929"
+        },
+        {
+            "id": "BUSINESS_OBJECTS_TAB",
+            "name": "Reports",
+            "tip": "Reports",
+            "isRoleEnabled": "TRUE",
+            "style": "",
+            "tabItemCenterStyle": "centerPanelBackground",
+            "licenseCXC": "CXC4011426",
+            "params": {
+                "url": "DASHBOARD/REPORTS"
+            }
+        },
+        {
+            "id": "SESSION_BROWSER_TAB",
+            "name": "Session Browser",
+            "tip": "Session Browser view",
+            "tabItemCenterStyle": "centerPanelBackground",
+            "licenseCXC": "CXC4011380"
+        },
+        {
+            "id": "KPI_ANALYSIS_TAB",
+            "name": "KPI Analysis",
+            "tip": "KPI Analysis view",
+            "tabItemCenterStyle": "centerPanelBackground",
+            "licenseCXC": "CXC4011452"
+        }
+    ]
+}

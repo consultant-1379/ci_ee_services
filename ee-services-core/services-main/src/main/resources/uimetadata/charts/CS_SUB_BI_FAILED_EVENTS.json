@@ -1,0 +1,20 @@
+{
+    "id":"CS_SUB_BI_FAILED_EVENTS",
+    "title":"Failure Event Analysis for Subscriber Voice",
+    "xlabel":"Event",
+    "ylabel":"Number of Events",
+    "xaxisID":"3",
+    "items":[{
+            "id":"1",
+            "name":"Event Failures",
+            "color":"cb5853",
+            "drillDownWindowType":"CS_SUB_BI_FAILED_EVENTS_FAILURES_DRILL_KEY",
+            "drillDownSeriesId":"3"
+        },
+        {
+            "id":"2",
+            "name":"Event Successes",
+            "color":"9ec057"
+        }
+    ]
+}

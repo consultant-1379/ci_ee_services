@@ -1,0 +1,31 @@
+{
+    "launchWindowTypeId": "NETWORK_EVENT_ANALYSIS_WCDMA_CFA_CELL_RANKING",
+    "menuItem": "NETWORK_EVENT_ANALYSIS_WCDMA_CFA_CELL",
+    "searchValFromCol": "3",
+    "type": "BSC",
+    "drillTargetType": "GRID",
+    "needSearchParam": "FALSE",
+    "params":[
+        {
+            "id":"8",
+            "queryParamName":"HIER3_CELL_ID"
+        },
+        {
+            "id":"CELL",
+            "queryParamName":"type",
+            "isFixedVal":"TRUE"
+        },
+        {
+            "id":"9",
+            "queryParamName":"eventID"
+        },
+        {
+            "id":"10",
+            "queryParamName":"categoryId"
+        },
+        {
+            "id":"11",
+            "queryParamName":"drillCat"
+        }
+    ]
+}

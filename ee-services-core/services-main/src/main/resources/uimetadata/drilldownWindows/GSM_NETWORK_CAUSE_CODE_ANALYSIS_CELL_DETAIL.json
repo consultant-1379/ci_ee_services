@@ -1,0 +1,29 @@
+{
+  "id" : "GSM_NETWORK_CAUSE_CODE_ANALYSIS_CELL_DETAIL",
+  "name" : "Access Area Sub Cause Code Analysis",
+  "url" : "NETWORK/GSM/CALL_FAILURE_CAUSE_CODE_ANALYSIS/DETAIL_SUB_CAUSE_CODE_GRID",
+  "params" : [ {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "subCauseCode"
+  }, {
+    "id" : "5",
+    "queryParamName" : "node",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "6",
+    "queryParamName" : "causeCodeDescription",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "7",
+    "queryParamName" : "causeCode"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

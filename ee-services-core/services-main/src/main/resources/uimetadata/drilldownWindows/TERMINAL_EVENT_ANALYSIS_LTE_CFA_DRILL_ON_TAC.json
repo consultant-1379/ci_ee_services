@@ -1,0 +1,20 @@
+{
+  "id": "TERMINAL_EVENT_ANALYSIS_LTE_CFA_DRILL_ON_TAC",
+  "name": "Terminal LTE Call Failure : Event Analysis Summary",
+  "url": "TERMINAL/LTE_CALL_FAILURE_EVENT_SUMMARY/TERMINAL",
+  "gridDisplayID": "TERMINAL_EVENT_ANALYSIS_LTE_CFA_SUMMARY_TAC_DRILL",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "6",
+    "queryParamName": "tac"
+  }, {
+    "id" : "TAC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

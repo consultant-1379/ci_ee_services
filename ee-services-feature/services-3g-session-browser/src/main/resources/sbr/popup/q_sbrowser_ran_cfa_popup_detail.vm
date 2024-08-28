@@ -1,0 +1,181 @@
+#DEFINE_CONSTANTS()
+	select
+		TOP 1
+		##Subscriber identity
+		MSISDN,
+		IMSI,
+		#DISPLAY_TERMINAL("tacRef" "cfa_raw"),
+        #DISPLAY_NETWORK("roamingRef"),
+		##Network location
+        cellRef.HIERARCHY_3 as Controller,
+		IMSI_MCC || IMSI_MNC as PLMN,
+		LAC as Location_Area,
+		RAC as Routing_Area,
+        cellRef.CID as CID,
+        cellRef.CELL_ID as CELL_ID,
+		##Event Summary details
+        dateformat(EVENT_TIME,'yyyy-MM-dd HH:mm:ss.SSS') AS EVENT_TIME,
+		PROCEDURE_INDICATOR_DESC,
+		EVALUATION_CASE_DESC,
+		EXCEPTION_CLASS_DESC,
+		CAUSE_VALUE_DESC,
+		EXTENDED_CAUSE_VALUE_DESC,
+		SEVERITY_INDICATOR_DESC,
+		SOURCE_CONNECTION_PROPERTIES,
+		TARGET_CONNECTION_PROPERTIES,
+		WANTED_CONNECTION_PROPERTIES,
+		sourceRab.RABTYPE_DESC AS SOURCE_RAB_TYPE,
+		targetRab.RABTYPE_DESC AS TARGET_RAB_TYPE,
+		wantedRab.RABTYPE_DESC AS WANTED_RAB_TYPE,
+		triggerPoint.TRIGGER_POINT_DESC AS TRIGGER_POINT,
+		GBR_UL,
+		GBR_DL,
+		utranRanapCause.UTRAN_RANAP_CAUSE_DESC AS UTRAN_RANAP_CAUSE,
+        cnRanapCause.UTRAN_RANAP_CAUSE_DESC as CN_RANAP_CAUSE,
+		DATA_IN_DL_RLC_BUFFERS,
+		C_ID_SERV_HSDSCH_CELL,
+        cellRef2.CELL_ID as C_ID_SERV_HSDSCH_CELL_ID,
+        rncRef.ALTERNATIVE_FDN AS CRNC_ID_SERV_HSDSCH_CELL,
+		orginatingState.ORIGINATING_STATE_DESC AS ORIGINATING_STATE,
+		rrcEstCause.RRC_ESTABLISHMENT_CAUSE_DESC as RRC_ESTABLISHMENT_CAUSE,
+        aal2nciReject.CELLO_AAL2NCI_REJECT_DESC AS CELLO_AAL2NCI_REJECT_REASON,
+        rscpMapping1.RSCP_DBM AS RSCP_CELL_1,
+        rscpMapping2.RSCP_DBM AS RSCP_CELL_2,
+        rscpMapping3.RSCP_DBM AS RSCP_CELL_3,
+        rscpMapping4.RSCP_DBM AS RSCP_CELL_4,
+        rscpMapping5.RSCP_DBM AS RSCP_CELL_1_ADDED_CELL,
+        SCRAMBLING_CODE_CELL_1,
+        SCRAMBLING_CODE_CELL_2,
+        SCRAMBLING_CODE_CELL_3,
+        SCRAMBLING_CODE_CELL_4,
+        SCRAMBLING_CODE_ADDED_CELL,
+        ecnoMapping1.ECNO_DBM AS CPICH_EC_NO_CELL_1,
+        ecnoMapping2.ECNO_DBM AS CPICH_EC_NO_CELL_2,
+        ecnoMapping3.ECNO_DBM AS CPICH_EC_NO_CELL_3,
+        ecnoMapping4.ECNO_DBM AS CPICH_EC_NO_CELL_4,
+        ecnoMapping5.ECNO_DBM AS CPICH_EC_NO_ADDED_CELL,
+        ulintMapping1.ULINT_DBM AS UL_INT_CELL1,
+        ulintMapping2.ULINT_DBM AS UL_INT_CELL2,
+        ulintMapping3.ULINT_DBM AS UL_INT_CELL3,
+		ulintMapping4.ULINT_DBM AS UL_INT_CELL4,
+		cfa_raw.RAN_DISCONNECTION_CODE AS DISCONNECTION_CODE,
+		cfa_raw.RAN_DISCONNECTION_SUBCODE AS DISCONNECTION_SUBCODE,
+		disconRef.DISCONNECTION_DESC AS DISCONNECTION_DESC
+	FROM
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_WITH_EVENT_TIME($TECH_PACK_LIST.getAllRawTables() "cfa_raw" ["IMSI"] ["*"])
+	left outer join
+		DIM_E_SGEH_TAC tacRef
+	on (tacRef.TAC = cfa_raw.TAC)
+	left outer join
+		DIM_E_SGEH_MCCMNC roamingRef
+	on (roamingRef.MCC = cfa_raw.IMSI_MCC
+		and roamingRef.MNC = cfa_raw.IMSI_MNC
+		)		
+	left outer join 
+		DIM_E_SGEH_HIER321_CELL cellRef
+	on (  cellRef.HIER3_CELL_ID = cfa_raw.HIER3_CELL_ID)
+    left outer join
+        DIM_E_SGEH_HIER321_CELL cellRef2
+    on (  cellRef2.CID = cfa_raw.C_ID_SERV_HSDSCH_CELL)
+    left outer join
+        DIM_E_RAN_RNCFUNCTION rncFuncRef
+    on (  rncFuncRef.RNCID = cfa_raw.CRNC_ID_SERV_HSDSCH_CELL)
+    left outer join
+        DIM_E_RAN_RNC rncRef
+    on (  rncFuncRef.SN = rncRef.RNC_FDN)
+	left outer join
+		DIM_E_RAN_CFA_PROCEDURE_INDICATOR procedureIndicator
+	on (procedureIndicator.PROCEDURE_INDICATOR = cfa_raw.PROCEDURE_INDICATOR)
+	left outer join
+		DIM_E_RAN_CFA_EVALUATION_CASE evaluationCase
+	on (evaluationCase.EVALUATION_CASE = cfa_raw.EVALUATION_CASE)
+	left outer join
+		DIM_E_RAN_CFA_EXCEPTION_CLASS exceptionClass
+	on (exceptionClass.EXCEPTION_CLASS = cfa_raw.EXCEPTION_CLASS)
+	left outer join
+		DIM_E_RAN_CFA_EXTENDED_CAUSE_VALUE extendedCauseValue
+	on (extendedCauseValue.EXTENDED_CAUSE_VALUE = cfa_raw.EXTENDED_CAUSE_VALUE)
+	left outer join
+		DIM_E_RAN_CFA_CAUSE_VALUE causeValue
+	on (causeValue.CAUSE_VALUE = cfa_raw.CAUSE_VALUE)
+	left outer join
+		DIM_E_RAN_CFA_SEVERITY_INDICATOR severityIndicator
+	on (severityIndicator.SEVERITY_INDICATOR_ID = cfa_raw.SEVERITY_INDICATOR)
+	LEFT OUTER JOIN
+		DIM_E_RAN_CFA_ORIGINATING_STATE orginatingState
+	ON (cfa_raw.ORIGINATING_STATE = orginatingState.ORIGINATING_STATE)
+	LEFT OUTER JOIN
+		DIM_E_RAN_CFA_AAL2NCI_REJECT aal2nciReject
+	ON (cfa_raw.CELLO_AAL2NCI_REJECT_REASON = aal2nciReject.CELLO_AAL2NCI_REJECT)
+	LEFT OUTER JOIN
+		DIM_E_RAN_CFA_RRC_ESTABLISHMENT_CAUSE rrcEstCause
+	ON (cfa_raw.RRC_ESTABLISHMENT_CAUSE = rrcEstCause.RRC_ESTABLISHMENT_CAUSE)
+	LEFT OUTER JOIN
+		DIM_E_RAN_CFA_UTRAN_RANAP_CAUSE utranRanapCause
+	ON (cfa_raw.UTRAN_RANAP_CAUSE = utranRanapCause.UTRAN_RANAP_CAUSE)
+	LEFT OUTER JOIN
+		DIM_E_RAN_CFA_UTRAN_RANAP_CAUSE cnRanapCause
+	ON (cfa_raw.CN_RANAP_CAUSE = cnRanapCause.UTRAN_RANAP_CAUSE)
+	LEFT OUTER JOIN
+		DIM_E_RAN_CFA_TRIGGER_POINT triggerPoint
+	ON (cfa_raw.TRIGGER_POINT = triggerPoint.TRIGGER_POINT)
+	LEFT OUTER JOIN
+		DIM_E_RAN_RSCP_MAPPING rscpMapping1
+	ON (cfa_raw.RSCP_CELL_1 = rscpMapping1.RSCP)
+	LEFT OUTER JOIN
+		DIM_E_RAN_RSCP_MAPPING rscpMapping2
+	ON (cfa_raw.RSCP_CELL_2 = rscpMapping2.RSCP)
+	LEFT OUTER JOIN
+		DIM_E_RAN_RSCP_MAPPING rscpMapping3
+	ON (cfa_raw.RSCP_CELL_3 = rscpMapping3.RSCP)
+	LEFT OUTER JOIN
+		DIM_E_RAN_RSCP_MAPPING rscpMapping4
+	ON (cfa_raw.RSCP_CELL_4 = rscpMapping4.RSCP)
+	LEFT OUTER JOIN
+		DIM_E_RAN_RSCP_MAPPING rscpMapping5
+	ON (cfa_raw.RSCP_CELL_1_ADDED_CELL = rscpMapping5.RSCP)
+	LEFT OUTER JOIN
+		DIM_E_RAN_ECNO_MAPPING ecnoMapping1
+	ON (cfa_raw.CPICH_EC_NO_CELL_1 = ecnoMapping1.ECNO)
+	LEFT OUTER JOIN
+		DIM_E_RAN_ECNO_MAPPING ecnoMapping2
+	ON (cfa_raw.CPICH_EC_NO_CELL_2 = ecnoMapping2.ECNO)
+	LEFT OUTER JOIN
+		DIM_E_RAN_ECNO_MAPPING ecnoMapping3
+	ON (cfa_raw.CPICH_EC_NO_CELL_3 = ecnoMapping3.ECNO)
+	LEFT OUTER JOIN
+		DIM_E_RAN_ECNO_MAPPING ecnoMapping4
+	ON (cfa_raw.CPICH_EC_NO_CELL_4 = ecnoMapping4.ECNO)
+	LEFT OUTER JOIN
+		DIM_E_RAN_ECNO_MAPPING ecnoMapping5
+	ON (cfa_raw.CPICH_EC_NO_ADDED_CELL = ecnoMapping5.ECNO)
+	LEFT OUTER JOIN
+		DIM_E_RAN_ULINT_MAPPING ulintMapping1
+	ON (cfa_raw.UL_INT_CELL1 = ulintMapping1.ULINT)
+	LEFT OUTER JOIN
+		DIM_E_RAN_ULINT_MAPPING ulintMapping2
+	ON (cfa_raw.UL_INT_CELL2 = ulintMapping2.ULINT)
+	LEFT OUTER JOIN
+		DIM_E_RAN_ULINT_MAPPING ulintMapping3
+	ON (cfa_raw.UL_INT_CELL3 = ulintMapping3.ULINT)
+	LEFT OUTER JOIN
+		DIM_E_RAN_ULINT_MAPPING ulintMapping4
+	ON (cfa_raw.UL_INT_CELL4 = ulintMapping4.ULINT)
+	LEFT OUTER JOIN
+		DIM_E_RAN_RABTYPE sourceRab
+	ON (cfa_raw.SOURCE_CONF = sourceRab.RABTYPE)
+	LEFT OUTER JOIN
+		DIM_E_RAN_RABTYPE targetRab
+	ON (cfa_raw.TARGET_CONF = targetRab.RABTYPE)
+	LEFT OUTER JOIN
+		DIM_E_RAN_RABTYPE wantedRab
+	ON (cfa_raw.WANTED_CONF = wantedRab.RABTYPE)
+	LEFT OUTER JOIN
+		DIM_E_RAN_CFA_DISCONNECTION disconRef
+	ON (cfa_raw.RAN_DISCONNECTION_CODE = disconRef.DISCONNECTION_CODE)
+	where		
+		cfa_raw.EVENT_TIME >= :eventTimeFrom
+		AND cfa_raw.EVENT_TIME <= :eventTimeTo
+		and cfa_raw.EVENT_ID = :eventID	
+    order by
+        EVENT_TIME

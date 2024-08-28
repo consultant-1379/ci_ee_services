@@ -1,0 +1,24 @@
+{
+    "id":"GSM_ROAMING_CSF_DETAILED_ANALYSIS_BY_OPERATOR",
+    "gridDisplayID":"GSM_ROAMING_CSF_DETAILED_ANALYSIS_BY_OPERATOR",
+    "url":"NETWORK/GSM/CALL_FAILURE_ROAMING_ANALYSIS/OPERATOR/DRILL/DETAIL/CALL_SETUP",
+    "params":[{
+            "id":"1",
+            "queryParamName":"OPERATOR",
+            "isTitleParam": "TRUE"
+        },
+        {
+            "id":"6",
+            "queryParamName":"CATEGORY_ID"
+        },
+        {
+            "id":"7",
+            "queryParamName":"MCC"
+        },
+        {
+            "id":"8",
+            "queryParamName":"MNC"
+        }
+    ]
+}
+

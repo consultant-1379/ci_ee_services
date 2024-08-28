@@ -1,0 +1,45 @@
+
+		{
+		        "id" : "DRILL_GRID_CHART_ROAMING_BY_COUNTRY_EVENTS",
+		        "title" : "Inbound Roaming by Country",
+		        "ylabel" : "Number of Failures",
+		        "xlabel" : "Event ID",
+		        "secondYAxisID" : "3",
+		        "xaxisID" : "1",
+		        "items" : [
+		                {
+		                        "id" : "1",
+		                        "name" : "Event Description"
+		                },
+		                {
+								"id" :"2",
+								"name":"Event ID",
+								"queryParam": "eventID",
+								"displayInTooltip" : "TRUE"
+		                },
+		                {
+		                        "id" : "3",
+		                        "name" : "Number of Failures",
+		                        "drillDownWindowType" : "DRILL_CORE_ROAMING_BY_COUNTRY_EVENTS_SUBPIE",
+								"displayInTooltip" : "TRUE"
+		                },
+		                {
+		                        "id" : "4",
+		                        "name" : "Roaming Subscribers",
+								"displayInTooltip" : "TRUE"
+		                },
+		                {
+		                        "id" : "5",
+		                        "name" : "Country",
+								"displayInTooltip": "TRUE"
+		                }
+                        ,
+                        {
+                                "id" : "6",
+                                "name" : "MCC",
+                                "displayInTooltip" :"TRUE",
+                                "queryParam" : "MCC"
+
+                        }
+		        ]
+		}

@@ -1,0 +1,332 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CELL_CALL_DROPS_CONFIG",
+    "title": "Failed Event Analysis - WCDMA Call Failure",
+    "defaultSortCol": "1",
+    "defaultSortDir": "ASC",
+    "licenceTypes": "Subscriber Identity,Call Failure Details,Event Summary Details,Active Set Measurements",
+    "autoexpand": "2",
+    "columns": [
+        {
+            "header": "Event Time",
+            "width": "120",
+            "datatype": "date",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "IMSI",
+            "width": "100",
+            "datatype": "string",
+            "licence": "Subscriber Identity"
+        },
+        {
+            "header": "TAC",
+            "width": "100",
+            "datatype": "long",
+            "licence": "Subscriber Identity",
+            "drillDownWindowType": "NETWORK_EVENT_ANALYSIS_DRILL_ON_TAC_BY_BSC"
+        },
+        {
+            "header": "Terminal Make",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Subscriber Identity"
+        },
+        {
+            "header": "Terminal Model",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Subscriber Identity"
+        },
+        {
+            "header": "Controller",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Call Failure Details",
+            "drillDownWindowType": "NETWORK_DETAILED_EVENT_ANALYSIS_DRILL_ON_BSC_BY_CELL"
+        },
+        {
+            "header": "Access Area",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Call Failure Details"
+        },
+        {
+            "header": "Event Type",
+            "width": "130",
+            "datatype": "string",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "Procedure Indicator",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "Evaluation Case",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "Exception Class",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "Cause Value",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "Extended Cause Value",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "LAC",
+            "width": "50",
+            "datatype": "int",
+            "licence": "Call Failure Details"
+        },
+        {
+            "header": "RAC",
+            "width": "50",
+            "datatype": "int",
+            "licence": "Call Failure Details"
+        },
+        {
+            "header": "Severity Indicator",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "HIER3_ID",
+            "width": "200",
+            "datatype": "long",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "RAB Type",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "RAB Type Description",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "CPICH_EC_NO_CELL_1 (dB)",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "UL_INT_CELL1 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "RSCP_CELL_1 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "RAB Type (Attempted Reconfigure)",
+            "width": "200",
+            "datatype": "string",
+            "isHidden": "true",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "CRNC_ID_SERV_HSDSCH_CELL",
+            "width": "200",
+            "datatype": "string",
+            "isHidden": "true",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "C_ID_SERV_HSDSCH_CELL",
+            "width": "200",
+            "datatype": "string",
+            "isHidden": "true",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "RSCP_CELL_2 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "isHidden": "true",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "RSCP_CELL_3 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "isHidden": "true",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "RSCP_CELL_4 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "isHidden": "true",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "CPICH_EC_NO_CELL_2 (dB)",
+            "width": "200",
+            "datatype": "float",
+            "isHidden": "true",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "CPICH_EC_NO_CELL_3 (dB)",
+            "width": "200",
+            "datatype": "float",
+            "isHidden": "true",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "CPICH_EC_NO_CELL_4 (dB)",
+            "width": "200",
+            "datatype": "float",
+            "isHidden": "true",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "UL_INT_CELL2 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "isHidden": "true",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "UL_INT_CELL3 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "isHidden": "true",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "UL_INT_CELL4 (dBm)",
+            "width": "200",
+            "datatype": "float",
+            "isHidden": "true",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "SCRAMBLING_CODE_CELL_1",
+            "width": "200",
+            "datatype": "int",
+            "isHidden": "true",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "SCRAMBLING_CODE_CELL_2",
+            "width": "200",
+            "datatype": "int",
+            "isHidden": "true",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "SCRAMBLING_CODE_CELL_3",
+            "width": "200",
+            "datatype": "int",
+            "isHidden": "true",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "SCRAMBLING_CODE_CELL_4",
+            "width": "200",
+            "datatype": "int",
+            "isHidden": "true",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "GBR_UL",
+            "width": "200",
+            "datatype": "int",
+            "isHidden": "true",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "GBR_DL",
+            "width": "200",
+            "datatype": "int",
+            "isHidden": "true",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "UTRAN_RANAP_CAUSE",
+            "width": "200",
+            "datatype": "string",
+            "isHidden": "true",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "DATA_IN_DL_RLC_BUFFERS",
+            "width": "200",
+            "datatype": "int",
+            "isHidden": "true",
+            "licence": "Event Summary Details"
+        },
+        {
+            "header": "DISCONNECTION_CODE",
+            "width": "200",
+            "datatype": "int",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "DISCONNECTION_SUBCODE",
+            "width": "200",
+            "datatype": "int",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "DISCONNECTION_DESC",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "TRIGGER_POINT",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "RRC_ESTABLISHMENT_CAUSE",
+            "width": "200",
+            "datatype": "string",
+            "licence": "Active Set Measurements"
+        },
+        {
+            "header": "EVENT_ID",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "CATEGORY_ID",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "DRILL_CAT",
+            "width": "100",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        }
+    ]
+}

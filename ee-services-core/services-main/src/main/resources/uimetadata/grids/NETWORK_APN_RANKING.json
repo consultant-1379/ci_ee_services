@@ -1,0 +1,25 @@
+{
+  "id" : "NETWORK_APN_RANKING",
+  "title" : "APN Ranking (Events)",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "APN",
+    "width" : "100",
+    "datatype" : "string",
+    "launchWindowType" : "NETWORK_EVENT_ANALYSIS_APN"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

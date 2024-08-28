@@ -1,0 +1,30 @@
+{
+  "toolBarType" : "TOOLBAR_WIZARD_GRID_SAC",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    }, {
+      "id" : "btnSac",
+      "name" : "",
+      "style" : "toolbar_sacbtn",
+      "tip" : "Click to show cell information",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "SAC"
+    } ]
+  } ]
+}

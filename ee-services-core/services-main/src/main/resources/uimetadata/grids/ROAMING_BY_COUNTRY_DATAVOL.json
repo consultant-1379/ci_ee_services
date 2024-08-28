@@ -1,0 +1,25 @@
+{
+  "id" : "ROAMING_BY_COUNTRY_DATAVOL",
+  "isChartData" : "TRUE",
+  "title" : "Inbound Roaming by Country (Data Volume)",
+  "autoexpand" : "1",
+  "defaultSortCol" : "2",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Country",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Downlink (MB)",
+    "width" : "100",
+    "datatype" : "float"
+  }, {
+    "header" : "Uplink (MB)",
+    "width" : "100",
+    "datatype" : "float"
+  }, {
+    "header" : "Number of Bearers",
+    "width" : "120",
+    "datatype" : "float"
+  } ]
+}

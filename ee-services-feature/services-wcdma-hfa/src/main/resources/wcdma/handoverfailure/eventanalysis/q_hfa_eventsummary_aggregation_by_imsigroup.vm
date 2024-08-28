@@ -1,0 +1,40 @@
+#set($columnsToIncludeInNewView=["IMSI","CATEGORY_ID","NO_OF_ERRORS"])
+SELECT
+	aggView.GROUP_NAME AS 'IMSI GROUP',
+	categoryDesc.CATEGORY_DESC AS 'Handover Type',
+	aggView.CATEGORY_ID AS 'Category ID',
+	NO_OF_ERRORS as Failures,
+	subscribers.IMPACTED_SUBSCRIBERS as 'Impacted Subscribers'
+FROM 	
+	(select
+		CATEGORY_ID, GROUP_NAME, SUM(NO_OF_ERRORS)
+	from 
+		#UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS($aggregationViewList "tempAgg" $columnsToIncludeInNewView),
+		GROUP_TYPE_E_IMSI groupDef
+	where
+		tempAgg.IMSI = groupDef.IMSI
+		AND
+		groupDef.GROUP_NAME = :groupname
+	group by
+		CATEGORY_ID,
+		GROUP_NAME
+	) as aggView(CATEGORY_ID, GROUP_NAME, NO_OF_ERRORS)
+	inner join (
+		select count(distinct rawview.IMSI),GROUP_NAME, CATEGORY_ID from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" ["CATEGORY_ID", "IMSI"]),
+			GROUP_TYPE_E_IMSI groupDef
+		where groupDef.GROUP_NAME = :groupname AND rawview.IMSI = groupDef.IMSI
+		group by
+			CATEGORY_ID,
+			GROUP_NAME
+		) as subscribers(IMPACTED_SUBSCRIBERS,GROUP_NAME,CATEGORY_ID)
+	on (		
+		aggView.CATEGORY_ID = subscribers.CATEGORY_ID
+		and
+		aggView.GROUP_NAME = subscribers.GROUP_NAME
+		)
+	left outer join
+		dc.DIM_E_RAN_HFA_CATEGORY categoryDesc
+		on(
+			categoryDesc.CATEGORY_ID = aggView.CATEGORY_ID
+		)

@@ -1,0 +1,39 @@
+{
+    "id": "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_BSC_CALL_SETUP_CONFIG",
+    "gridDisplayID": "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_BSC_CALL_SETUP_CONFIG",
+    "name": "Controller Raw Data (Call Setup Failures)",
+    "url": "NETWORK/WCDMA_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/NODE",
+    "params": [
+        {
+            "id": "6",
+            "queryParamName": "HIER3_ID"
+        },
+        {
+            "id": "7",
+            "queryParamName": "eventID"
+        },
+        {
+            "id": "BSC",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        },
+        {
+            "id": "true",
+            "queryParamName": "dataTieredDelay",
+            "isFixedVal": "TRUE"
+        },
+        {
+            "id": "9",
+            "queryParamName": "categoryId"
+        },
+        {
+            "id": "10",
+            "queryParamName": "drillCat"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

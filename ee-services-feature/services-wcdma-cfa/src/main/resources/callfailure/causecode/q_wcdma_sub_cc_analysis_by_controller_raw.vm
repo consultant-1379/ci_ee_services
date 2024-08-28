@@ -1,0 +1,57 @@
+##
+## WCDMA Call Failure Sub-Cause Code Analysis by Controller Hash ID (using raw tables)
+## Note cannot use the useful REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS
+## macro here due to the automatic conversion of the causeCode URL paremter to the CAUSE_CODE SQL parameter
+## which doesn't exist in these tables
+##
+## Velocity Parameter:
+##
+##		$display	Type of data display (usually chart or grid)
+##
+## Named PreparedStatement Parameter:
+##
+##	   :HIER3_ID:   The controller hash id
+##
+#DEFINE_CONSTANTS()
+#set($columnsToFilterOn=["HIER3_ID","CAUSE_VALUE"])
+#set($columnsToIncludeInNewView=["EXTENDED_CAUSE_VALUE","IMSI"])
+
+
+select
+
+	err.EXTENDED_CAUSE_VALUE,
+	subCauseCodeRef.EXTENDED_CAUSE_VALUE_DESC,
+	count(*) as NO_OF_ERRORS,
+	isnull(count(distinct(IMSI)),0) as TOTAL_NO_OF_SUBSCRIBERS,
+	$causeCode
+from
+(
+	#foreach ($errtable in $TECH_PACK_LIST.getAllRawTables())
+		(
+        select
+			CAUSE_VALUE,
+			EXTENDED_CAUSE_VALUE,
+        	IMSI
+        from
+
+        	dc.${errtable} errRef
+        where
+			#GET_DATETIME_RANGE()
+        	AND HIER3_ID = :HIER3_ID
+        	AND CAUSE_VALUE = :CAUSE_CODE
+        	AND #GET_TAC_EXCLUSION()
+
+		)
+		#if($velocityCount < $TECH_PACK_LIST.getAllRawTables().size())
+			union all
+		#end
+	#end
+) AS err (CAUSE_VALUE, EXTENDED_CAUSE_VALUE, IMSI)
+left outer join DIM_E_RAN_CFA_EXTENDED_CAUSE_VALUE subCauseCodeRef
+	on (err.EXTENDED_CAUSE_VALUE =  subCauseCodeRef.EXTENDED_CAUSE_VALUE)
+group by
+
+	err.EXTENDED_CAUSE_VALUE,
+	EXTENDED_CAUSE_VALUE_DESC
+order by
+	NO_OF_ERRORS desc

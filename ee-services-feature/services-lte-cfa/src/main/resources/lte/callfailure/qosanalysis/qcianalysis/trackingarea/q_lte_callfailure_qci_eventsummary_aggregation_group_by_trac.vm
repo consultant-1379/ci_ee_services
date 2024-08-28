@@ -1,0 +1,49 @@
+##
+## Author : ECHIMMA
+## LTE Call Failure QOS QCI Tracking Area Event Summary Analysis (using aggregation tables)
+##
+## Velocity Parameter: 
+##		
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+
+
+#set($conditionColumns=["QCI_ID", "CATEGORY_ID"])
+#set($columnsToSelect=["IMSI", "EVENT_ID"])
+#set($columnsToIncludeInNewView=["EVENT_ID"])
+
+#set($groupTable="dc.GROUP_TYPE_E_LTE_TRAC")
+#set($groupnameColumn="GROUP_NAME")
+#set($joinKeys=["TRAC"])
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	'${groupname}' as 'Group Name',
+	:QCI_ID as QCI_ID,
+	aggView.EVENT_ID as EVENT_ID,
+	dc.DIM_E_LTE_CFA_EVENTTYPE.EVENT_ID_DESC as 'Event Type',
+	aggView.NO_OF_ERRORS as Failures,
+	subscribers.IMPACTED_SUBSCRIBERS as 'Impacted Subscribers'
+FROM
+	#UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS_POST_AGGREGATE_WITH_CONDITION_GROUP($aggregationViewList "aggView" $columnsToIncludeInNewView "NO_OF_ERRORS" $conditionColumns)
+left outer join
+	(
+		select
+			count(distinct rawview.IMSI) as IMPACTED_SUBSCRIBERS,
+			EVENT_ID
+		from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_CONDITION_COLUMNS_GROUPS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" $conditionColumns $columnsToSelect)
+		group by
+			EVENT_ID
+	) as subscribers
+on
+	(aggView.EVENT_ID = subscribers.EVENT_ID)
+inner join
+	DIM_E_LTE_CFA_EVENTTYPE
+on
+	DIM_E_LTE_CFA_EVENTTYPE.EVENT_ID = aggView.EVENT_ID

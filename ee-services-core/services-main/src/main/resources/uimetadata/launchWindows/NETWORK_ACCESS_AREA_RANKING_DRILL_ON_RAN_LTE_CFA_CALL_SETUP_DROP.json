@@ -1,0 +1,14 @@
+{
+  "launchWindowTypeId" : "NETWORK_ACCESS_AREA_RANKING_DRILL_ON_RAN_LTE_CFA_CALL_SETUP_DROP",
+  "menuItem" : "NETWORK_RAN_LTE_CFA_SUMMARY",
+  "searchValFromCol" : "5,6,4,8",
+  "type" : "CELL",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

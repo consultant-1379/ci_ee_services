@@ -1,0 +1,61 @@
+##
+## Author : ECHIMMA
+## LTE Call Failure Analysis IMSI Ranking (using raw tables)
+##
+## Velocity Parameter: 
+##		
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+#set($columnsToSelect=["IMSI", "HIER321_ID", "EVENT_ID"])
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	rank() over (order by FAILURES desc) as 'Rank',
+	IMSI as 'IMSI',
+	ERR_TABLE.EVENT_ID as 'EVENT_ID',
+	ERR_TABLE.HIER321_ID as 'HIER321_ID',
+	HIERARCHY_3 as 'Access Area',
+	HIERARCHY_1 as 'eNodeB',
+	VENDOR as 'Vendor',
+	EVENT_ID_DESC as 'Event Type',
+	FAILURES as 'Failures'
+FROM
+	(
+		SELECT
+			IMSI,
+			HIER321_ID,
+			EVENT_ID,
+			count(*) as FAILURES
+		FROM
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION($TECH_PACK_LIST.getAllRawTables() "rawview" $columnsToSelect)
+		GROUP BY
+			IMSI,
+			HIER321_ID,
+			EVENT_ID
+	) AS ERR_TABLE
+LEFT OUTER JOIN
+	(
+		SELECT
+			HIER321_ID,
+			HIERARCHY_3,
+			VENDOR,
+			HIERARCHY_1
+		FROM
+			DIM_E_LTE_HIER321
+		GROUP BY
+			HIER321_ID,
+			HIERARCHY_3,
+			VENDOR,
+			HIERARCHY_1
+	) AS TOPO_TABLE
+ON
+	ERR_TABLE.HIER321_ID = TOPO_TABLE.HIER321_ID
+INNER JOIN
+	DIM_E_LTE_CFA_EVENTTYPE
+ON
+	ERR_TABLE.EVENT_ID = DIM_E_LTE_CFA_EVENTTYPE.EVENT_ID

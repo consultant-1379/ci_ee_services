@@ -1,0 +1,26 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_RNC_IFHO_GROUP",
+    "gridDisplayID": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_RNC_IFHO_GROUP",
+    "name": "Failed Event Analysis",
+    "url": "NETWORK/WCDMA_HANDOVER_FAILURE_DETAILED_EVENT_ANALYSIS/NODE",
+    "params": [
+        {
+            "id": "1",
+            "queryParamName": "groupname"
+        },
+        {
+            "id": "3",
+            "queryParamName": "categoryId"
+        },
+        {
+		    "id" : "BSC",
+		    "queryParamName" : "type",
+		    "isFixedVal" : "TRUE"
+    	}
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

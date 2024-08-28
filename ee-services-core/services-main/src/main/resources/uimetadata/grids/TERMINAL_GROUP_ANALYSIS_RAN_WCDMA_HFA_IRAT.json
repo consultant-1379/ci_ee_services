@@ -1,0 +1,30 @@
+{
+  "id" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_HFA_IRAT",
+  "isChartData" : "TRUE",
+  "title": "Terminal Group Analysis - Most IRAT Handover Failures Summary",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "Group Name",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "160",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "160",
+    "datatype" : "int"
+  }, {
+    "header" : "Category Id",
+    "width" : "30",
+    "datatype" : "int",
+    "isSystem" : "true"
+  } ]
+}

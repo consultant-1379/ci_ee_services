@@ -1,0 +1,19 @@
+{
+  "id": "NETWORK_RAN_LTE_CFA_BSC_DET_DRILL_ON_INTERNAL_PROC_UE_CTXT_RELEASE",
+  "name": "LTE CFA - Controller Event Analysis",
+  "url": "NETWORK/LTE_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/ENODEB",
+  "gridDisplayID": "RAN_LTE_CFA_CELL_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_UE_CTXT_RELEASE",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "HIER3_ID"
+  }, {
+    "id": "5",
+    "queryParamName": "eventID"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

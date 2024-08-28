@@ -1,0 +1,8 @@
+{
+      "id" : "GSM_NETWORK_CAUSE_CODE_ANALYSIS_FROM_SUBPIE",
+      "nameForTaskBar" : "Extended Cause Code Details (GSM)",
+      "url" : "NETWORK/GSM/CALL_FAILURE_CAUSE_CODE_ANALYSIS/DETAIL_CC_SUB_CAUSE_CODE_GRID",
+      "drillTargetDisplayId" : "GSM_NETWORK_CC_SCC_DETAILED_ANALYSIS",
+      "drillToolBarType" : "TOOLBAR1",
+      "drillType" : "launchGrid"
+}

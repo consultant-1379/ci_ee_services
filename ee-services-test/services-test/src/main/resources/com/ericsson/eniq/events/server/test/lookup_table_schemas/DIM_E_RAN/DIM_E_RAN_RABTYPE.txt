@@ -1,0 +1,12 @@
+DIM_E_RAN_RABTYPE
+RABTYPE,RABTYPE_DESC,CATEGORY_ID_VALUE
+0,Idle,0
+1,SRB (13.6/13.6),0
+2,Conv. CS speech 12.2,0
+3,Conv. CS unkn (64/64),0
+4,Interact. PS (RACH/FACH),1
+5,Interact. PS (64/64),1
+6,Interact. PS (64/128),1
+7,Interact. PS (64/384),1
+8,Stream. CS unkn. (57.6/57.6),0
+9,Conv. CS speech 12.2 + Interact. PS (0/0),2

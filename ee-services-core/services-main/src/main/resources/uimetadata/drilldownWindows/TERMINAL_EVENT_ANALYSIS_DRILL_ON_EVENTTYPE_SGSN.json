@@ -1,0 +1,25 @@
+{
+  "id" : "TERMINAL_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_SGSN",
+  "name" : "Event Analysis",
+  "url" : "TERMINAL/EVENT_ANALYSIS",
+  "searchValFromCol" : "3",
+  "type" : "SGSN",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "SGSN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "10",
+    "queryParamName" : "sgsn",
+    "isTitleParam" : "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

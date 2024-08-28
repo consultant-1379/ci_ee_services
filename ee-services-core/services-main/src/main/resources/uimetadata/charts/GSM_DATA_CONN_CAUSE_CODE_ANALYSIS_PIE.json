@@ -1,0 +1,34 @@
+{
+  "id" : "GSM_DATA_CONN_CAUSE_CODE_ANALYSIS_PIE",
+  "title" : "Cause Code Analysis",
+  "ylabel" : "Number of Events",
+  "xlabel" : "Group Name",
+  "secondYAxisID" : "3",
+  "xaxisID" : "2",
+  "items" : [ {
+    "id" : "1",
+    "name" : "Cause Code Id",
+    "color" : "5494c5",
+    "queryParam" : "causeCode",
+    "isLegendPrefix" : "TRUE",
+    "displayInTooltip" : "TRUE",
+    "tooltipExcludedDataPoints" : "1=succ"
+  }, {
+    "id" : "2",
+    "name" : "Cause Code Desc",
+    "color" : "5494c5"
+  }, {
+    "id" : "3",
+    "name" : "Occurrences",
+    "color" : "cb5853",
+    "displayInTooltip" : "TRUE",
+    "drillDownWindowType" : "GSM_DATA_CONN_CAUSE_CODE_ANALYSIS_PIE_FAILURES_DRILL_KEY",
+    "drillDownSeriesId":"1"
+  }, {
+    "id" : "4",
+    "name" : "Impacted Subscribers",
+    "color" : "333986",
+    "displayInTooltip" : "TRUE",
+    "tooltipExcludedDataPoints" : "1=succ"
+  } ]
+}

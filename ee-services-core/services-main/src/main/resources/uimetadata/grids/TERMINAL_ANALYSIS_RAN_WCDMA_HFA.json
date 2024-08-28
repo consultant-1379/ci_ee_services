@@ -1,0 +1,45 @@
+{
+    "id": "TERMINAL_ANALYSIS_RAN_WCDMA_HFA",
+    "title": "Terminal Analysis - Handover Failure",
+    "autoexpand": "3",
+    "defaultSortCol": "6",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "TAC",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Manufacturer",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "header": "Model",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Handover Type",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "header": "CATEGORY ID",
+            "width": "10",
+            "datatype": "int",
+            "isSystem" : "TRUE"
+        },
+        {
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int"
+        },
+        {
+            "header": "Impacted Subscribers",
+            "width": "140",
+            "datatype": "string"
+        }
+    ]
+}

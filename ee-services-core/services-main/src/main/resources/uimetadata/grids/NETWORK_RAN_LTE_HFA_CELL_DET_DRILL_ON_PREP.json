@@ -1,0 +1,46 @@
+{
+  "id" : "NETWORK_RAN_LTE_HFA_CELL_DET_DRILL_ON_PREP",
+  "title" : "Access Area LTE Handover Failure : Event Analysis",
+  "autoexpand" : "5",
+  "defaultSortCol" : "7",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "HIER321_ID",
+    "width" : "20",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "90",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Controller",
+    "width" : "210",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Access Area",
+    "width" : "160",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "220",
+    "datatype" : "string"
+  }, {
+    "header" : "EventId",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Failures",
+    "width" : "80",
+    "datatype" : "int",
+    "drillDownWindowType": "INTERNAL_PROC_HO_PREP_S1_IN,NETWORK_RAN_LTE_HFA_CELL_DET_DRILL_ON_INTERNAL_PROC_HO_PREP_S1_IN,INTERNAL_PROC_HO_PREP_S1_OUT,NETWORK_RAN_LTE_HFA_CELL_DET_DRILL_ON_INTERNAL_PROC_HO_PREP_S1_OUT,INTERNAL_PROC_HO_PREP_X2_IN,NETWORK_RAN_LTE_HFA_CELL_DET_DRILL_ON_INTERNAL_PROC_HO_PREP_X2_IN,INTERNAL_PROC_HO_PREP_X2_OUT,NETWORK_RAN_LTE_HFA_CELL_DET_DRILL_ON_INTERNAL_PROC_HO_PREP_X2_OUT"  
+  },{
+    "header" : "Impacted Subscribers",
+    "width" : "180",
+    "datatype" : "string"
+  } ]
+}

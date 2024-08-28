@@ -1,0 +1,22 @@
+{
+    "id": "TERMINAL_EVENT_ANALYSIS_LTE_HFA_DRILL_ON_TAC_GROUP",
+    "gridDisplayID": "TERMINAL_EVENT_ANALYSIS_LTE_HFA_SUMMARY_TAC_GROUP",
+    "name": "Failed Event Analysis",
+    "url": "TERMINAL/LTE_HFA_EVENT_SUMMARY/TAC",
+    "params": [
+        {
+            "id": "1",
+            "queryParamName": "groupname"
+        },
+        {
+		    "id" : "TAC",
+		    "queryParamName" : "type",
+		    "isFixedVal" : "TRUE"
+    	} 
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

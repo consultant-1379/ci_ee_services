@@ -1,0 +1,64 @@
+##SESSION_BROWSER SUMMARY VM (RAB_ONLY)
+#DEFINE_CONSTANTS()
+#set($viscolumnsToSelect=["RRC_SAMPLES_GC_BS","RRC_SAMPLES_GC_GS","RRC_SAMPLES_BC_BS","RRC_SAMPLES_BC_GS"])
+#set($rawcolumnsToSelect=["ECNO_AVG","RSCP_AVG"])
+#set($tableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_RAN_SESSION_TPNAME).getRawTablesWithMeasurementTypes())
+#set($rawTable=[])
+#set($visitedCellTable=[])
+
+#*
+   If a double underscore is encountered in a Table name,
+   replace it with a single underscore.
+   This happens because of an empty string being used as a measurement type in
+   SBrowserRabSumService.
+   The empty string allows us to use EVENT_E_RAN_SESSION_RAW.
+   This will be refactored in future.
+*#
+
+#foreach ($table in $tableList)
+    #if($table.contains("CELL_VISITED"))
+        #set($isAdded=$visitedCellTable.add($table))
+	#else
+		#set($isAdded=$rawTable.add($table))
+    #end
+#end
+#if($subType==$TYPE_IMSI)
+	#set($filterColumn = ["IMSI"])
+#elseif($subType==$TYPE_MSISDN)
+	#set($filterColumn = ["MSISDN"])
+#end
+SELECT
+    TOTAL_GC_BS,
+    TOTAL_GC_GS,
+    TOTAL_BC_BS,
+    TOTAL_BC_GS,
+    CAST ((TOTAL_GC_BS/TOTAL_SAMPLES)*100 AS NUMERIC(16,4)) AS
+    PERCENTAGE_GC_BS,
+    CAST ((TOTAL_GC_GS/TOTAL_SAMPLES)*100 AS NUMERIC(16,4)) AS
+    PERCENTAGE_GC_GS,
+    CAST ((TOTAL_BC_BS/TOTAL_SAMPLES)*100 AS NUMERIC(16,4)) AS
+    PERCENTAGE_BC_BS,
+    CAST ((TOTAL_BC_GS/TOTAL_SAMPLES)*100 AS NUMERIC(16,4)) AS
+    PERCENTAGE_BC_GS,
+    ECNO_AVG,
+    RSCP_AVG,
+    TOTAL_SAMPLES
+
+FROM
+
+(SELECT
+    CAST(SUM(RRC_SAMPLES_GC_BS) AS FLOAT)                       AS TOTAL_GC_BS,
+    CAST(SUM(RRC_SAMPLES_GC_GS) AS FLOAT)                       AS TOTAL_GC_GS,
+    CAST(SUM(RRC_SAMPLES_BC_BS) AS FLOAT)                       AS TOTAL_BC_BS,
+    CAST(SUM(RRC_SAMPLES_BC_GS) AS FLOAT)                       AS TOTAL_BC_GS,
+    TOTAL_GC_BS+TOTAL_GC_GS+TOTAL_BC_BS+TOTAL_BC_GS             AS TOTAL_SAMPLES
+FROM
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($visitedCellTable "visview" $filterColumn $viscolumnsToSelect)
+    ) AS visitedCellsTable
+,
+    (SELECT
+        CAST(MEDIAN(ECNO_AVG) AS NUMERIC(16,1))                     AS  ECNO_AVG,
+        CAST(MEDIAN(RSCP_AVG) AS NUMERIC(16,1))                     AS  RSCP_AVG
+    FROM
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($rawTable "rawview" $filterColumn $rawcolumnsToSelect)
+    ) AS rawTable

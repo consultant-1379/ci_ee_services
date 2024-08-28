@@ -1,0 +1,38 @@
+{
+  "id" : "DRILL_CHART_TERMINAL_GA_HIGHEST_DATAVOLUME_GRID",
+  "title" : "Terminal Group Analysis - Highest Data Volume",
+  "autoexpand" : "2",
+  "defaultSortCol" : "6",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Model",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Downlink Data Vol (KB)",
+    "width" : "150",
+    "datatype" : "float",
+    "drillDownWindowType" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_TAC_DL_GROUP_ANALYSIS"
+  }, {
+    "header" : "Uplink Data Vol (KB)",
+    "width" : "150",
+    "datatype" : "float",
+    "drillDownWindowType" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_TAC_UL_GROUP_ANALYSIS"
+  }, {
+    "header" : "Total Data Vol (KB)",
+    "width" : "100",
+    "datatype" : "float"
+  }, {
+    "header" : "Total Bearer Count",
+    "width" : "100",
+    "datatype" : "float"
+  } ]
+}

@@ -1,0 +1,25 @@
+{
+  "id" : "QOS_STATISTICS",
+  "title" : "QOS Statistics",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "QCI ID",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QOS",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

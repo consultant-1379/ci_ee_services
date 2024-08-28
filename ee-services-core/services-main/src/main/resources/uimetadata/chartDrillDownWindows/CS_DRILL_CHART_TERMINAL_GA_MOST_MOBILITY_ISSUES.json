@@ -1,0 +1,6 @@
+{
+  "id" : "CS_DRILL_CHART_TERMINAL_GA_MOST_MOBILITY_ISSUES",
+  "drillTargetDisplayId" : "CS_DRILL_CHART_TERMINAL_GA_MOST_MOBILITY_ISSUES",
+  "chartClickedURLParam" : "groupname",
+  "drillToolBarType" : "CS_TERMINAL_GROUP_ANALYSIS_DRILL_GRIDS_TOOLBAR"
+}

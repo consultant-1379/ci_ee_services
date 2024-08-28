@@ -1,0 +1,32 @@
+{
+    "id": "DASHBOARD_TOP_TERMINALS",
+    "title": "Top 5 Impacted Terminals",
+    "ylabel": "Failure Attempts",
+    "xlabel": "",
+    "secondYAxisID": "5",
+    "xaxisID": "2",
+    "items": [
+        {
+            "id": "2",
+            "isSystem": "true",
+            "queryParam": "vendor"
+        },
+        {
+            "id": "3",
+            "isSystem": "true",
+            "queryParam": "marketingname"
+        },
+        {
+            "id": "4",
+            "name": "Failure Attempts",
+            "color": "cb5853",
+            "drillDownWindowType": "TERMINAL_EVENT_ANALYSIS_GRID_FROM_DASHBOARD"
+        },
+        {
+            "id": "5",
+            "name": "Impacted Subscribers",
+            "color": "333986",
+            "drillDownWindowType": "TERMINAL_EVENT_ANALYSIS_GRID_FROM_DASHBOARD"
+        }
+    ]
+}

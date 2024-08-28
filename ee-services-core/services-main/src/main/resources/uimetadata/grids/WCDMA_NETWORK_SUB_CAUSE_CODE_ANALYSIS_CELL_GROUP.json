@@ -1,0 +1,35 @@
+{
+  "id" : "WCDMA_NETWORK_SUB_CAUSE_CODE_ANALYSIS_CELL_GROUP",
+  "title" : "Access Area Group Sub Cause Code Analysis",
+  "autoexpand" : "2",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Sub Cause Code Id",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "Sub Cause Code",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int",
+    "drillDownWindowType" : "WCDMA_NETWORK_SCC_DEA_CELL_GROUP_DRILL"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "150",
+    "datatype" : "int"
+  }, {
+    "header" : "groupname",
+    "width" : "150",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }, {
+    "header" : "causeCode",
+    "width" : "150",
+    "datatype" : "string",
+    "isSystem" : "true"
+  } ]
+}

@@ -1,0 +1,9 @@
+{
+  "id" : "GSM_PS_SUBSCRIBER_DETAILED_EVENT_ANALYSIS_BY_IMSI_GROUP",
+  "gridDisplayID" : "GSM_PS_SUBSCRIBER_DETAILED_EVENT_ANALYSIS_BY_IMSI_GROUP",
+  "url" : "SUBSCRIBER/GSM/DATA_CONNECTION_DETAILED_EVENT_ANALYSIS",
+  "params" : [  {
+  	"id" : "4",
+  	"queryParamName" : "searchParam"
+  }]
+}

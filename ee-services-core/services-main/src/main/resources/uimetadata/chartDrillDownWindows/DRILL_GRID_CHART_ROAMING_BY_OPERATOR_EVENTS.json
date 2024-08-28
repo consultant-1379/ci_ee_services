@@ -1,0 +1,13 @@
+{
+	"drillWindowName" : "Roaming by Operator (Event Volume)",
+	"nameForTaskBar" : "Roaming by Operator",
+	"id": "DRILL_GRID_CHART_ROAMING_BY_OPERATOR_EVENTS",
+	"drillType" : "launchChart",
+	"drillToolBarType": "ROAMING_EVENTS_ANALYSIS_PIE_DRILL",
+	"url" : "NETWORK/ROAMING_ANALYSIS/OPERATOR/DRILL",
+	"params" : [ {
+    "id" : "true",
+    "queryParamName" : "dataTieredDelay",
+    "isFixedVal" : "TRUE"
+    } ]
+}

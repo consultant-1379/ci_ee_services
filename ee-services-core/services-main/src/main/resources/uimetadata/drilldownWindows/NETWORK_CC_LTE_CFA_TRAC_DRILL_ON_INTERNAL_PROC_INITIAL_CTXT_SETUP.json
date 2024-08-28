@@ -1,0 +1,22 @@
+{
+  "id": "NETWORK_CC_LTE_CFA_TRAC_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP",
+  "name": "Tracking Area LTE Call Failure Cause Code : Event Analysis",
+  "url": "NETWORK/LTE_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/CAUSE_CODE_TRACKING_AREA",
+  "gridDisplayID": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP_TRAC_DRILL",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "TRAC"
+  }, {
+    "id": "2",
+    "queryParamName": "eventID"
+  }, {
+    "id" : "4",
+    "queryParamName" : "causeCode"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

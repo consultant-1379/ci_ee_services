@@ -1,0 +1,19 @@
+{
+  "id": "RAN_LTE_CFA_IMSI_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP",
+  "name": "IMSI Event Analysis",
+  "url": "SUBSCRIBER/LTE_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/IMSI",
+  "gridDisplayID": "RAN_LTE_CFA_IMSI_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_INITIAL_CTXT_SETUP",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "imsi"
+  }, {
+    "id": "2",
+    "queryParamName": "eventID"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

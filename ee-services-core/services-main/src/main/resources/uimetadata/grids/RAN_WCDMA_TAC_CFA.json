@@ -1,0 +1,29 @@
+{
+  "id" : "RAN_WCDMA_TAC_CFA",
+  "title" : "Terminal WCDMA Call Failure : Event Ranking",
+  "autoexpand" : "3",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Model",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "launchWindowType" : "WCDMA_RAN_CFA_TAC_DRILL_BY"
+  } ]
+}

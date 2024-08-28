@@ -1,0 +1,27 @@
+{
+  "id" : "CS_KPI_BY_BSC_FROM_BSC_GROUP",
+  "name" : "KPI Breakdown by Controller Voice",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_BSC",
+  "url" : "MSS/NETWORK/EVENT_ANALYSIS",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "groupname",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

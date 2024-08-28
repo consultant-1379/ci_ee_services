@@ -1,0 +1,20 @@
+{
+  "id" : "NETWORK_EVENT_ANALYSIS_DRILL_ON_TAC_BY_BSC",
+  "gridDisplayID" : "TERMINAL_EVENT_ANALYSIS_WCDMA_CFA_SUMMARY_TAC",
+  "name" : "Terminal Event Analysis",
+  "url" : "TERMINAL/WCDMA/CALL_FAILURE_EVENT_ANALYSIS/TERMINAL/SUMMARY",
+  "params" : [ {
+    "id" : "3",
+    "queryParamName" : "tac",
+    "isTitleParam" : "TRUE"
+  }, {
+  	"id" : "TAC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

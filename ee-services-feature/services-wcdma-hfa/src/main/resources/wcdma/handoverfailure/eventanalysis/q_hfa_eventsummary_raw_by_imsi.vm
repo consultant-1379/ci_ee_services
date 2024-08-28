@@ -1,0 +1,23 @@
+SELECT
+	data.IMSI AS IMSI,
+	categoryDesc.CATEGORY_DESC AS 'Handover Type',
+	data.CATEGORY_ID AS 'Category ID',
+	FAILURES
+FROM 	
+	(	select 
+			count (*) as failures,
+			IMSI,
+			CATEGORY_ID
+		from 
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" ["CATEGORY_ID", "IMSI"])
+		where 
+			IMSI = :IMSI
+		group by
+			IMSI,
+			CATEGORY_ID
+	) as data(FAILURES, IMSI, CATEGORY_ID) 	
+	left outer join
+		dc.DIM_E_RAN_HFA_CATEGORY categoryDesc
+		on(
+			categoryDesc.CATEGORY_ID = data.CATEGORY_ID
+		)

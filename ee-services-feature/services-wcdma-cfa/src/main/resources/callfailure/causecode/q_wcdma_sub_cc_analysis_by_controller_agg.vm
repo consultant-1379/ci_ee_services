@@ -1,0 +1,84 @@
+##
+## WCDMA Call Failure Sub-Cause Code Analysis by Controller Hash ID (using raw tables)
+##
+## Velocity Parameter:
+##
+##		$display	Type of data display (usually chart or grid)
+##
+## Named PreparedStatement Parameter:
+##
+##	   :HIER3_ID:   The controller hash id
+##
+#DEFINE_CONSTANTS()
+
+SELECT
+	events.SUB_CAUSE_CODE,
+	events.SUB_CAUSE_CODE_DESC,
+	events.NO_OF_ERRORS,
+	isnull(subscribers.NO_OF_SUBSCRIBERS,0),
+	'$causeCode' as causeCode
+FROM
+    (
+	SELECT
+            err.SUB_CAUSE_CODE AS SUB_CAUSE_CODE,
+            err.SUB_CAUSE_CODE_DESC AS SUB_CAUSE_CODE_DESC,
+            SUM(isnull(err.NO_OF_ERRORS, 0)) AS NO_OF_ERRORS
+	FROM
+    	(
+            SELECT
+            	sccref.EXTENDED_CAUSE_VALUE,
+            	EXTENDED_CAUSE_VALUE_DESC,
+            	sum(NO_OF_ERRORS)
+            FROM
+            	dc.${aggregationView} errRef,
+				DIM_E_RAN_CFA_EXTENDED_CAUSE_VALUE sccref
+            WHERE
+				#GET_DATETIME_RANGE()
+            	AND HIER3_ID = :HIER3_ID
+				AND CAUSE_VALUE = :CAUSE_CODE
+            	AND sccref.EXTENDED_CAUSE_VALUE = errRef.EXTENDED_CAUSE_VALUE
+            GROUP BY
+            	sccref.EXTENDED_CAUSE_VALUE,
+            	EXTENDED_CAUSE_VALUE_DESC
+    	)AS err (SUB_CAUSE_CODE, SUB_CAUSE_CODE_DESC, NO_OF_ERRORS)
+GROUP BY
+    	err.SUB_CAUSE_CODE,
+    	err.SUB_CAUSE_CODE_DESC
+	)
+events,
+	(
+	SELECT
+    	sub.SUB_CAUSE_CODE  as SUB_CAUSE_CODE,
+    	isnull(count(distinct(IMSI)),0) as NO_OF_SUBSCRIBERS
+    FROM
+    	(
+		#foreach ($errtable in $TECH_PACK_LIST.getAllRawTables())
+    		(
+                SELECT
+                	sccref.EXTENDED_CAUSE_VALUE,
+                	IMSI
+                FROM
+                	dc.${errtable} errRef,
+                	DIM_E_RAN_CFA_EXTENDED_CAUSE_VALUE sccref
+                WHERE
+					#GET_DATETIME_RANGE()
+                	AND #GET_TAC_EXCLUSION()
+                	AND HIER3_ID = :HIER3_ID
+					AND CAUSE_VALUE = :CAUSE_CODE
+                	AND sccref.EXTENDED_CAUSE_VALUE = errRef.EXTENDED_CAUSE_VALUE
+                GROUP BY
+                	sccref.EXTENDED_CAUSE_VALUE,
+                	IMSI
+			)
+    		#if($velocityCount < $TECH_PACK_LIST.getAllRawTables().size())
+    			union all
+    		#end
+    	#end
+    	) AS sub (SUB_CAUSE_CODE, IMSI)
+    	GROUP BY
+    	sub.SUB_CAUSE_CODE
+    ) subscribers
+WHERE
+	events.SUB_CAUSE_CODE *= subscribers.SUB_CAUSE_CODE
+order by
+	NO_OF_ERRORS desc

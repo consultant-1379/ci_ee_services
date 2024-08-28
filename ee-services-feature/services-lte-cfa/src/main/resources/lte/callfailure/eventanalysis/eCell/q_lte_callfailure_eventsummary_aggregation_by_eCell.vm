@@ -1,0 +1,76 @@
+##
+## LTE Call Failure Analysis eCell Event Analysis (using aggregation tables)
+##
+## Velocity Parameter:
+##	
+##		$aggregationView the aggregation view to query against	
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time#
+
+#set($conditionColumns=["HIER321_ID","CATEGORY_ID"])
+#set($columnsToSelect=["EVENT_ID", "IMSI"])
+
+SELECT
+	:HIER321_ID as 'HIER321_ID',
+	topology.VENDOR as 'Vendor',
+	topology.HIERARCHY_3 as 'Controller',
+	topology.HIERARCHY_1 as 'Access Area',		
+	eventDesc.EVENT_ID_DESC as 'Event Type',
+	aggView.EVENT_ID AS 'Event ID',
+	Failures as 'Failures', 
+	subscribers.IMPACTED_SUBSCRIBERS as 'Impacted Subscribers'
+FROM 	
+	(select 
+		EVENT_ID,
+		sum(NO_OF_ERRORS),
+		:HIER321_ID as HIER321_ID
+	from 
+		$aggregationView as tempAgg
+	where	
+		#GET_DATETIME_RANGE()
+		and tempAgg.HIER321_ID = :HIER321_ID
+		and tempAgg.CATEGORY_ID = :CATEGORY_ID
+	group by
+		EVENT_ID
+	) as aggView(EVENT_ID, Failures, HIER321_ID)	
+	left outer join
+	(
+		select 
+			count(distinct rawview.IMSI),
+			:HIER321_ID as HIER321_ID,
+			EVENT_ID
+		from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTables() "rawview" $conditionColumns $columnsToSelect)
+		group by
+			EVENT_ID
+		) as subscribers(IMPACTED_SUBSCRIBERS, HIER321_ID, EVENT_ID)
+	on (		
+		aggView.EVENT_ID = subscribers.EVENT_ID
+		)
+	left outer join 
+    (	
+		select 
+			HIERARCHY_1,
+			HIERARCHY_3,
+			VENDOR,
+			HIER321_ID
+		from 
+			dc.DIM_E_LTE_HIER321
+		where 
+			HIER321_ID = :HIER321_ID	
+		group by
+			HIER321_ID,
+        	HIERARCHY_1,
+        	HIERARCHY_3,
+			VENDOR
+	) as topology
+	on 
+		( topology.HIER321_ID = isnull(aggView.HIER321_ID,subscribers.HIER321_ID) )	
+	inner join
+		dc.DIM_E_LTE_CFA_EVENTTYPE eventDesc
+	on 
+		( eventDesc.EVENT_ID = isnull(aggView.EVENT_ID,subscribers.EVENT_ID) )

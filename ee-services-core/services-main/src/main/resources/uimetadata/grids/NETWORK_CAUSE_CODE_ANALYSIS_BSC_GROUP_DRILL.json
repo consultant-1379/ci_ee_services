@@ -1,0 +1,327 @@
+{
+    "id": "NETWORK_CAUSE_CODE_ANALYSIS_BSC_GROUP_DRILL",
+    "title": "Controller Sub Cause Code Analysis",
+    "autoexpand": "10",
+    "categoryId": "NETWORK_CAUSE_CODE_ANALYSIS_DRILL",
+    "defaultSortCol": "1",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "type": "eventTime",
+            "header": "Event Time",
+            "width": "120",
+            "datatype": "date"
+        },
+        {
+            "type": "imsi",
+            "header": "IMSI",
+            "width": "120",
+            "datatype": "int"
+        },
+        {
+            "type": "tac",
+            "header": "TAC",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "type": "terminalMake",
+            "header": "Terminal Make",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type": "terminalModel",
+            "header": "Terminal Model",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type": "eventType",
+            "header": "Event Type",
+            "width": "130",
+            "datatype": "string"
+        },
+        {
+            "type": "eventResult",
+            "header": "Event Result",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type": "causeCodeProtocolType",
+            "header": "Cause Protocol Type",
+            "width": "165",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "causeCodeId",
+            "header": "Cause Code ID",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "causeCode",
+            "header": "Cause Code",
+            "width": "130",
+            "datatype": "string"
+        },
+        {
+            "type": "subCauseCodeId",
+            "header": "Sub Cause Code ID",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "subCauseCode",
+            "header": "Sub Cause Code",
+            "width": "220",
+            "datatype": "string"
+        },
+        {
+            "type": "sgsnMme",
+            "header": "SGSN-MME",
+            "width": "70",
+            "datatype": "string"
+        },
+        {
+            "type": "rat",
+            "header": "RAT",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "controller",
+            "header": "Controller",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type": "radioNode",
+            "header": "Radio Node",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "accessArea",
+            "header": "Access Area",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type": "vendor",
+            "header": "RAN Vendor",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type": "linkedNSAPI",
+            "header": "Linked NSAPI",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "pdpNSAPI1",
+            "header": "PDP NSAPI 1",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "ggsn",
+            "header": "GGSN",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "msIPAddr1",
+            "header": "MS IP Address 1",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "pdpNSAPI2",
+            "header": "PDP NSAPI 2",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "pdpGGSNName2",
+            "header": "PDP GGSN Name 2",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "msIPAddr2",
+            "header": "MS IP Address 2",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "pagingAttempts",
+            "header": "Paging Attempts",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "serviceRequestTrigger",
+            "header": "Service Request Trigger",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "requestRetries",
+            "header": "Request Retries",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "apn",
+            "header": "APN",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type": "networkMCC",
+            "header": "Network MCC",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "networkMNC",
+            "header": "Network MNC",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "rac",
+            "header": "RAC",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "lac",
+            "header": "LAC",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "updateType",
+            "header": "Update Type",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "oldSgsnMmeIp",
+            "header": "Old SGSN-MME IPAddress",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type": "oldMCC",
+            "header": "Old MCC",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "oldMNC",
+            "header": "Old MNC",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "oldRAC",
+            "header": "Old RAC",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "oldLAC",
+            "header": "Old LAC",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "transferredPDP",
+            "header": "Transferred PDP",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "droppedPDP",
+            "header": "Dropped PDP",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "hlr",
+            "header": "HLR",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "deactivationTrigger",
+            "header": "Deactivation Trigger",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Cause Code Value",
+            "width": "100",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Sub Cause Code Value",
+            "width": "100",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Event Result Value",
+            "width": "100",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Cause Protocol Type ID",
+            "width": "165",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "type": "ratId",
+            "header": "RAT ID",
+            "width": "50",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        }
+    ]
+}

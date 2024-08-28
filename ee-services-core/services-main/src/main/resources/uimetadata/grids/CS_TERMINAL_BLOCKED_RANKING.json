@@ -1,0 +1,35 @@
+{
+  "id" : "CS_TERMINAL_BLOCKED_RANKING",
+  "title" : "Terminal Ranking - Blocked Voice Calls",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Terminal Make",
+    "width" : "130",
+    "datatype" : "string",
+    "launchWindowType" : "CS_TERMINAL_EVENT_ANALYSIS_MAKE"
+  }, {
+    "header" : "Terminal Model",
+    "width" : "100",
+    "datatype" : "string",
+    "launchWindowType" : "CS_TERMINAL_EVENT_ANALYSIS_MODEL"
+  }, {
+    "header" : "TAC",
+    "width" : "80",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "CS_TERMINAL_RANKINGS_DRILL_ON_FAILURES"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

@@ -1,0 +1,31 @@
+{
+  "id" : "NETWORK_CAUSE_CODE_ANALYSIS_CELL_GROUP_DRILL",
+  "name" : "Access Area Sub Cause Code Analysis",
+  "url" : "NETWORK/CAUSE_CODE_ANALYSIS",
+  "params" : [ {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "groupname"
+  }, {
+    "id" : "2",
+    "queryParamName" : "causeProtType"
+  }, {
+    "id" : "4",
+    "queryParamName" : "causeCode"
+  }, {
+    "id" : "6",
+    "queryParamName" : "subCauseCode"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

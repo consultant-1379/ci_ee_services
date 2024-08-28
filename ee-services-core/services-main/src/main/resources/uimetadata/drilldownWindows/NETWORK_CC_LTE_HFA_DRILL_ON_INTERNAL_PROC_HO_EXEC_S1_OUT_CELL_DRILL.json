@@ -1,0 +1,25 @@
+{
+  "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_OUT_CELL_DRILL",
+  "name": "Access Area LTE Handover Failure Cause Code : Event Analysis",
+  "url": "NETWORK/LTE_HFA_CAUSE_CODE_ANALYSIS/DETAIL_CAUSE_CODE_GRID",
+  "params": [ {
+    "id": "7",
+    "queryParamName": "node",
+    "isTitleParam": "TRUE"
+  }, {
+    "id": "5",
+    "queryParamName": "eventID"
+  }, {
+    "id" : "1",
+    "queryParamName" : "causeCode"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

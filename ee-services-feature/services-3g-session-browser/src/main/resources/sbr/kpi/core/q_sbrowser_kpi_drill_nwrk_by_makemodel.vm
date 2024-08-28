@@ -1,0 +1,57 @@
+#DEFINE_CONSTANTS()
+
+#set($columns =[])
+#set($err_sucTableColumns=[$TAC,"EVENT_ID","count(*)","SUM(CASE WHEN (DEACTIVATION_TRIGGER != 1) THEN 1 ELSE 0 END)"," SUM(PAGING_ATTEMPTS)"])
+#set($err_sucTableGroupbyColumns=[$TAC,"EVENT_ID"])
+
+
+SELECT
+	#if($count > 0)
+		top $count
+	#end
+	#GET_DRILLDOWN_CP_DRILLMAKE_BY_TYPE($KPI $drilltype "tacRef"),
+	#GET_DRILLDOWN_CP_KPI_BY_TYPE($KPI)
+FROM
+(
+select
+	#GET_NOT_NULL_COLUMN (["suc","err"] $err_sucTableGroupbyColumns)
+	SUM(NO_OF_ERRORS)                   AS NO_OF_ERRORS,
+    SUM(NO_OF_SUCCESSES)                AS NO_OF_SUCCESSES,
+    SUM(err.NO_OF_NET_INIT_DEACTIVATES) AS NO_OF_NET_INIT_DEACTIVATES_ERR,
+    SUM(suc.NO_OF_NET_INIT_DEACTIVATES) AS NO_OF_NET_INIT_DEACTIVATES_SUC,
+    SUM(err.NO_OF_PAGING_ATTEMPTS)      AS NO_OF_PAGING_ATTEMPTS_ERR,
+    SUM(suc.NO_OF_PAGING_ATTEMPTS)      AS NO_OF_PAGING_ATTEMPTS_SUC  
+from
+    #CP_DRILL_KPI_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_PLUS_GROUPBY($kpiStartTime $kpiEndTime $TECH_PACK_LIST.getAllRawErrTables() "err"  $columns $err_sucTableColumns true $err_sucTableGroupbyColumns)
+    (
+        #GET_COLUMNS($err_sucTableGroupbyColumns)                       
+        NO_OF_ERRORS,
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    )
+    FULL OUTER JOIN        
+    #CP_DRILL_KPI_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_PLUS_GROUPBY($kpiStartTime $kpiEndTime $TECH_PACK_LIST.getAllRawSucTables() "suc"  $columns $err_sucTableColumns true $err_sucTableGroupbyColumns)
+    (
+        #GET_COLUMNS($err_sucTableGroupbyColumns)                       
+        NO_OF_SUCCESSES,        
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    )
+    on (
+        #GET_JOIN("err" "suc" $err_sucTableGroupbyColumns)
+    )
+	GROUP BY
+		#GET_COLUMNS_NO_COMMA_TRAILING($err_sucTableGroupbyColumns)
+)AS total
+INNER JOIN
+	(SELECT DISTINCT TAC,MARKETING_NAME,VENDOR_NAME FROM dc.DIM_E_SGEH_TAC) AS tacRef
+ON  (total.TAC = tacRef.TAC)
+WHERE drillBy IS NOT NULL
+GROUP BY 
+	drillBy
+ORDER BY
+	#if($KPI == "Attach Success Rate" || $KPI == "PDP Context Activation Success Rate"||$KPI == "RAU Success Rate"||$KPI == "ISRAU Success Rate"||$KPI == "Detach Success Rate")
+	value ASC
+	#else
+	value DESC
+	#end

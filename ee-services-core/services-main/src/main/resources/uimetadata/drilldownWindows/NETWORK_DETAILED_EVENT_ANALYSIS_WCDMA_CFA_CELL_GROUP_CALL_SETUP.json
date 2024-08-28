@@ -1,0 +1,30 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CELL_GROUP_CALL_SETUP",
+    "gridDisplayID": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_CFA_CELL_GROUP_CALL_SETUP",
+    "url": "NETWORK/WCDMA_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/NODE",
+    "params": [
+        {
+            "id": "5",
+            "queryParamName": "eventID"
+        },
+        {
+            "id": "1",
+            "queryParamName": "groupname"
+        },
+        {
+		    "id" : "CELL",
+		    "queryParamName" : "type",
+		    "isFixedVal" : "TRUE"
+    	},
+    	{
+            "id": "2",
+            "queryParamName": "Event_Type",
+			"isTitleParam": "TRUE"
+    	}
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

@@ -1,0 +1,48 @@
+#set($columnsToIncludeInSourceView=["HIER3_ID","CATEGORY_ID"])
+#set($sourceConditions=["HIER3_ID"])
+#set($counterColumn="NO_OF_ERRORS")
+#set($imsiColumn="IMSI")
+#set($impactedSubscribers="NO_OF_TOTAL_ERR_SUBSCRIBERS")
+#set($useExclusiveTACs="no")
+
+SELECT
+    1                                    AS 'RAT ID',
+    topology.VENDOR                      AS 'RAN Vendor',
+    topology.HIERARCHY_3                 AS 'Controller',
+    sourceRawView.CATEGORY_ID            AS 'Category ID',
+    categoryDesc.CATEGORY_DESC           AS 'Handover Type',
+    sourceRawView.${counterColumn}       AS 'Failures',
+    sourceRawView.${impactedSubscribers} AS 'Impacted Subscribers'
+FROM
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_AGGREGATE_CONDITIONED_IMPACTED_SUBSCRIBERS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "sourceRawView" $columnsToIncludeInSourceView $counterColumn $sourceConditions $imsiColumn $impactedSubscribers $useExclusiveTACs)
+LEFT OUTER JOIN
+    (
+        SELECT DISTINCT
+            HIER3_ID,
+            VENDOR,
+            HIERARCHY_3
+        FROM
+            DIM_E_SGEH_HIER321_CELL
+        WHERE
+            HIER3_ID = :HIER3_ID
+        UNION
+        SELECT DISTINCT
+            HIER3_ID,
+            VENDOR,
+            HIERARCHY_3
+        FROM
+            DIM_Z_SGEH_HIER321_CELL
+        WHERE
+            HIER3_ID = :HIER3_ID
+    ) AS topology(HIER3_ID, VENDOR, HIERARCHY_3)
+ON
+    (
+        sourceRawView.HIER3_ID = topology.HIER3_ID
+    )
+INNER JOIN dc.DIM_E_RAN_HFA_CATEGORY categoryDesc
+ON
+    (
+        categoryDesc.CATEGORY_ID = sourceRawView.CATEGORY_ID
+    )
+ORDER BY
+    Failures DESC

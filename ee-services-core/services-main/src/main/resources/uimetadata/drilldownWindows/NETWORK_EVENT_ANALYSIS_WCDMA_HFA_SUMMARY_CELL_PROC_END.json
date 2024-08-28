@@ -1,0 +1,34 @@
+{
+    "id": "NETWORK_EVENT_ANALYSIS_WCDMA_HFA_SUMMARY_CELL_PROC_END",
+    "gridDisplayID": "NETWORK_EVENT_ANALYSIS_WCDMA_HFA_SUMMARY_CELL_END",
+    "name": "Failed Event Analysis",
+    "url": "NETWORK/WCDMA_HANDOVER_FAILURE_EVENT_SUMMARY/NODE",
+    "params": [
+        {
+            "id": "10",
+            "queryParamName": "RAT"
+        },
+        {
+            "id": "11",
+            "queryParamName": "RAN_VENDOR"
+        },
+        {
+            "id": "12",
+            "queryParamName": "RNC_FDN"
+        },
+        {
+            "id": "9",
+            "queryParamName": "cellId"
+        },
+        {
+            "id": "CELL",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

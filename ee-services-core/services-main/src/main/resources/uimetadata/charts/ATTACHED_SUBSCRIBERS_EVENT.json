@@ -1,0 +1,16 @@
+{
+    "id": "ATTACHED_SUBSCRIBERS_EVENT",
+    "title": "",
+    "ylabel": "",
+    "xlabel": "",
+    "xaxisID": "",
+    "items": [
+        {
+            "id": "2",
+            "name": "Attached Subscribers",
+            "color": "88A44D",
+            "queryParam": "eventID",
+            "queryParamValue": "0"
+        }
+    ]
+}

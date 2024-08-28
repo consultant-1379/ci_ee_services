@@ -1,0 +1,14 @@
+{
+  "id" : "DRILL_GRID_CHART_SUB_BI",
+  "name" : "Failure Event Analysis for Subscriber",
+  "url" : "SUBSCRIBER/SUBBI/TERMINAL",
+  "needSearchParam" : "TRUE",
+  "params" : [ {
+    "id" : "4",
+    "queryParamName" : "tac"
+  } ],
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

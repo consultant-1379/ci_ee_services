@@ -1,0 +1,28 @@
+SELECT
+	data.GROUP_NAME AS 'IMSI GROUP',
+	categoryDesc.CATEGORY_DESC AS 'Handover Type',
+	data.CATEGORY_ID AS 'Category ID',
+	FAILURES,
+	IMPACTED_SUBSCRIBERS AS 'Impacted Subscribers'
+FROM 	
+	(	select 
+			count (*) as failures,
+			GROUP_NAME,
+			CATEGORY_ID,
+			count (distinct rawview.IMSI)
+		from 
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" ["CATEGORY_ID", "IMSI"]),
+			dc.GROUP_TYPE_E_IMSI groupDef
+		where 
+			groupDef.GROUP_NAME = :groupname
+			AND
+			groupDef.IMSI = rawview.IMSI
+		group by
+			GROUP_NAME,
+			CATEGORY_ID
+	) as data(FAILURES, GROUP_NAME, CATEGORY_ID,IMPACTED_SUBSCRIBERS) 	
+	left outer join
+		dc.DIM_E_RAN_HFA_CATEGORY categoryDesc
+		on(
+			categoryDesc.CATEGORY_ID = data.CATEGORY_ID
+		)

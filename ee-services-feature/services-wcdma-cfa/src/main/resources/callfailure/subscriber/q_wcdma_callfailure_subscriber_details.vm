@@ -1,0 +1,95 @@
+##=============================================================================
+##
+## Subscriber details for given subscriber
+## There are no date/time restrictions or parameters for this query - this query traverse all events for a given
+## subscriber
+## Note this query selects the EVENT_TIME rather than the DATETIME_ID column to ensure that the first and last events
+## for an IMSI are correctly identified
+## Velocity Parameter:
+##	
+##		None	
+##
+##
+## Named PreparedStatement Parameter:
+##	   :IMSI	   imsi to search for
+##   
+##
+##-----------------------------------------------------------------------------
+
+
+BEGIN
+
+DECLARE local temporary table subscriber_details
+(     
+    IMSI unsigned bigint, min_eventtime timestamp NULL, max_eventtime timestamp NULL
+);
+
+insert into subscriber_details (
+	  select IMSI, min(EVENT_TIME), max(EVENT_TIME) from EVENT_E_RAN_CFA_ERR_RAW where IMSI = :IMSI group by IMSI
+);
+
+select 
+	TOP 1
+		isnull(convert(varchar(255),imsiMap.MSISDN),'UNKNOWN') AS MSISDN,
+		isnull(mccmncref.COUNTRY, IMSI_MCC) as Home_Country, 
+		isnull(mccmncref.OPERATOR, IMSI_MNC) as Mobile_Network_Operator, 
+		(case when (last_event_for_subscriber.ROAMING = 1 ) then 'Roaming' else 'Home' end) as Roaming_Status,		
+		topology.CELL_ID || ','  || topology.HIERARCHY_3 || ','  || topology.VENDOR + ','  || rat.RAT_DESC as Last_Cell, 
+		topology.HIERARCHY_3 || ','  || topology.VENDOR + ','  || rat.RAT_DESC as Last_RNC,
+		#if($csv == true)
+		
+		 DATEADD(minute,$tzOffset,subscriber_details.MIN_EVENTTIME)      AS First_Event_Date,
+		 DATEADD(minute,$tzOffset,subscriber_details.MAX_EVENTTIME)      AS Last_Event_Date
+		#else
+		 subscriber_details.MIN_EVENTTIME      AS First_Event_Date,
+		 subscriber_details.MAX_EVENTTIME      AS Last_Event_Date
+		#end
+	 
+from 
+	(	select
+		    EVENT_E_RAN_CFA_ERR_RAW.IMSI,
+		    HIER3_CELL_ID,
+			IMSI_MCC,
+			IMSI_MNC,
+			ROAMING
+		from
+			EVENT_E_RAN_CFA_ERR_RAW,
+			subscriber_details			
+		where
+			EVENT_E_RAN_CFA_ERR_RAW.IMSI = :IMSI
+			and EVENT_TIME = subscriber_details.max_eventtime  ##want to get the last event for this IMSI
+	) as last_event_for_subscriber (IMSI, HIER3_CELL_ID, IMSI_MCC, IMSI_MNC, ROAMING)
+	left outer join
+		SUBSCRIBER_DETAILS subscriber_details
+	on (
+		last_event_for_subscriber.IMSI = subscriber_details.IMSI
+		)
+	left outer join
+		DIM_E_IMSI_MSISDN imsiMap
+	on (
+		last_event_for_subscriber.IMSI = imsiMap.IMSI
+		)
+	left outer join
+	    dc.DIM_E_SGEH_MCCMNC mccmncref
+	on (		
+		IMSI_MCC = mccmncref.MCC 
+		and IMSI_MNC = mccmncref.MNC 
+	)
+	left outer join
+		DIM_E_SGEH_HIER321_CELL topology
+	on (			           
+	 topology.HIER3_CELL_ID = last_event_for_subscriber.HIER3_CELL_ID
+	)
+	left outer join 
+		DIM_E_SGEH_RAT rat
+	on (
+	  topology.RAT = rat.RAT
+	)
+	;
+
+	
+drop table subscriber_details;	
+
+end
+
+

@@ -1,0 +1,42 @@
+##
+## Author : ECHIMMA
+## LTE Call Failure QOS QCI ECell Group Event Summary Analysis (using raw tables)
+##
+## Velocity Parameter: 
+##		
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+#set($conditionColumns=["QCI_ID", "CATEGORY_ID"])
+#set($columnsToSelect=["HIER321_ID", "IMSI", "EVENT_ID"])
+#set($groupTable="dc.GROUP_TYPE_E_RAT_VEND_HIER321")
+#set($groupnameColumn="GROUP_NAME")
+#set($joinKeys=["HIER321_ID"])
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	'${groupname}' as 'Group Name',
+	:QCI_ID as QCI_ID,
+	data_table.EVENT_ID as EVENT_ID,
+	dc.DIM_E_LTE_CFA_EVENTTYPE.EVENT_ID_DESC as 'Event Type',
+	data_table.FAILURES as Failures,
+	data_table.IMPACTED_SUBSCRIBERS as 'Impacted Subscribers'
+FROM
+	(	
+		select 
+			count (*) as FAILURES,
+			EVENT_ID,
+			count (distinct rawview.IMSI) as IMPACTED_SUBSCRIBERS
+		from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_CONDITION_COLUMNS_GROUPS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawview" $conditionColumns $columnsToSelect)
+		group by
+			EVENT_ID
+	) as data_table
+inner join
+	dc.DIM_E_LTE_CFA_EVENTTYPE
+on
+	dc.DIM_E_LTE_CFA_EVENTTYPE.EVENT_ID = data_table.EVENT_ID

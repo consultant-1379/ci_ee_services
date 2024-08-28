@@ -1,0 +1,70 @@
+{
+    "id":"NETWORK_CELL_RANKING_RAN_WCDMA_CFA",
+    "title":"3G Ranking - Call Failure by Access Area",
+    "defaultSortCol":"1",
+    "defaultSortDir":"ASC",
+    "autoexpand":"3",
+    "columns":[
+        {
+            "header":"Rank",
+            "width":"50",
+            "datatype":"int"
+        },
+        {
+            "header":"Failure Trend",
+            "width":"80",
+            "datatype":"string"
+        },
+        {
+            "header":"Access Area",
+            "width" : "100",
+            "datatype":"string",
+            "launchWindowType":"NETWORK_EVENT_ANALYSIS_WCDMA_CFA_CELL_RANKING"
+        },
+        {
+            "header":"Controller",
+            "width":"250",
+            "datatype":"string"
+        },
+        {
+            "header":"Vendor",
+            "width":"60",
+            "datatype":"string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Event Type",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header":"Failures",
+            "width":"150",
+            "datatype":"int"
+        },
+        {
+            "header": "HIER3_ID",
+            "width": "100",
+            "datatype": "long",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "EVENT_ID",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "CATEGORY_ID",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "DRILL_CAT",
+            "width": "100",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        }
+    ]
+}

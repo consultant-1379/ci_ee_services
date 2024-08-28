@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ENIQ Events Services Continuous Integration Build" default="ci.build">
+	<description>
+		Ant Build File for ENIQ Events - Services
+	</description>
+	
+	<!-- seem to need to import these here, even though its imported in the build.xml file below -->
+	<property name="base.continuous.integration.build.files" value="../../../build/continuous_integration_build/" />
+	<property file="${base.continuous.integration.build.files}/project_root.properties" />
+	<property file="${base.continuous.integration.build.files}/build.properties" />
+	<property file="${base.continuous.integration.build.files}/preferences.properties"/>
+
+	<condition property="eniq.3pp" value="${project.root}/eniq_3pp">
+		<os family="windows"/>
+	</condition>
+	<condition property="eniq.3pp" value="${project.root}/eniq/3pp">
+		<os family="unix"/>
+	</condition>
+	
+	<import file="${base.continuous.integration.build.files}/base_continuous_integration_build.xml" />
+
+	<property name="module.name" value="eniq_events_services" />
+	<property name="module.root" value="${project.root}/eniq_events/${module.name}" />
+	<property name="resources.dir" value="${module.root}/src/main/resources" />
+	<property name="test.dir" value="${module.root}/src/test/java" />
+	<property name="test.resources.dir" value="${module.root}/src/main/resources" />
+	
+	<!--bit of a hack below, this is also defined in the base ant continuous integration build file, but need to use it here-->
+	<property name="build.output.for.services" value="${module.root}/build/continuous_integration/buildOutput/" />
+
+	<property name="eniq.events.3pp.jars.root" value="${project.root}/eniq_events/jars/" />
+	<property name="3pp.dbunit.dir" value="${module_3pp}/dbUnit" />
+
+	<property name="temp.glassfish.modules" value="${module_3pp}/glassfish/modules" />
+	<property name="commons.lang" value="${module_3pp}/jakarta_commons_lang/commons-lang-2.5/" />
+	<property name="apache.root" value="${eniq.3pp}/apache" />
+	<property name="jconn" value="${eniq.events.3pp.jars.root}/jconn/" />
+	<property name="eniq.licensing" value="${eniq.design.vobs.root}/licensing/build/licensing" />
+	<property name="eniq.engine"    value="${eniq.design.vobs.root}/etl_controller/build/engine"/>
+	<property name="eniq.repository" value="${eniq.design.vobs.root}/installer/build/repository" />
+	<property name="jersey.test.libs" value="${eniq.events.3pp.jars.root}/jersey_test"/>
+
+
+	<path id="json.libs">
+		<fileset dir="${module_3pp}/json">
+			<include name="json-lib-2.3-jdk15.jar" />
+			<include name="ezmorph-1.0.6.jar"/>
+		</fileset>
+	</path>
+
+
+	<path id="apache.libs">
+		<fileset dir="${commons.lang}" includes="*.jar" />
+		<fileset dir="${apache.root}/beanutils/v1_7_0/prod" includes="*.jar" />
+		<fileset dir="${apache.root}/collections/v3_1/prod" includes="*.jar" />
+		<fileset dir="${apache.root}/comm_logging/v1_1/prod" includes="*.jar" />
+		<fileset dir="${apache.root}/jakarta_velocity/v1_5/prod" includes="*.jar" />
+	</path>
+
+
+	<path id="glassfish.modules.libs">
+		<fileset dir="${temp.glassfish.modules}">			
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<path id="module.specific.classpath">
+		<path refid="apache.libs" />
+		<path refid="glassfish.modules.libs" />
+		<path refid="spring.libs" />
+		<path refid="json.libs" />		
+		<fileset dir="${3pp.dbunit.dir}" includes="*.jar" />
+		<fileset dir="${jconn}" includes="*.jar" />
+		<fileset dir="${eniq.licensing}" includes="*.jar" />
+		<fileset dir="${eniq.engine}" includes="*.jar" />				
+		<fileset dir="${eniq.repository}" includes="*.jar" />
+		<fileset dir="${jersey.test.libs}" includes="*.jar" />
+	</path>
+
+
+	<property name="module.specific.test.code.folder.name" value="java" />
+
+	<target name="ci.build" depends="clean.all, copy.files">
+		<antcall target="ci.build.for.module" />
+	</target>
+	
+	<target name="junit.report.only" depends="set.up.properties">
+		<antcall target="junit.module.report.only"/>
+	</target>
+
+	<target name="coverage.report.only">
+		<antcall target="coverage.report.only.for.module" />
+	</target>
+
+	<target name="run.pmd.for.module" depends="set.up.properties">
+		<antcall target="run.pmd"/>
+	</target>
+		
+	<target name="pmd.html">
+		<antcall target="pmd.html.for.module" />
+	</target>
+	
+	
+	<target name="clean.classes.for.module" depends="set.up.properties">
+		<antcall target="clean.classes"/>
+	</target>
+
+
+	<!-- estepdu 09/04/2010
+		 Delete existing copies of the files and copy new files from the correct location
+	     these files are required to run the JUnit test
+	  -->
+	<target name="copy.files">
+		<copy todir="${build.output.for.services}/classes/source">
+			<fileset dir="${resources.dir}"/>
+			<fileset dir="${test.dir}">
+				<include name="com/ericsson/eniq/events/server/resources/DataServiceBaseTestCase-context.xml" />
+				<include name="com/ericsson/eniq/events/server/resources/TestsWithTemporaryTablesBaseTestCase-context.xml" />
+				<include name="com/ericsson/eniq/events/server/test/*.properties" />				
+			</fileset>
+		</copy>
+		<copy todir="${build.output.for.services}/classes/instrumented">
+					<fileset dir="${resources.dir}">
+						<include name="**/*.vm" />
+						<include name="**/*.csv" />
+						<include name="**UIMetaData.json" />
+					</fileset>
+					<fileset dir="${test.dir}">
+						<include name="com/ericsson/eniq/events/server/test/DataServiceBaseTestCase-context.xml" />
+						<include name="com/ericsson/eniq/events/server/resources/TestsWithTemporaryTablesBaseTestCase-context.xml" />
+						<include name="com/ericsson/eniq/events/server/test/*.properties" />				
+					</fileset>
+				</copy>
+		<copy todir="${build.output.for.services}/junit">
+					<fileset dir="${resources.dir}">
+						<include name="**/*.vm" />
+						<include name="**UIMetaData.json" />
+					</fileset>
+					<fileset dir="${test.dir}">
+						<include name="com/ericsson/eniq/events/server/test/DataServiceBaseTestCase-context.xml" />
+						<include name="com/ericsson/eniq/events/server/resources/TestsWithTemporaryTablesBaseTestCase-context.xml" />
+						<include name="com/ericsson/eniq/events/server/test/*.properties" />				
+					</fileset>
+				</copy>
+	</target>
+</project>

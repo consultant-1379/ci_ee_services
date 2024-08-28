@@ -1,0 +1,60 @@
+{
+  "id" : "CS_TERMINAL_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_CELL",
+  "title" : "Access Area Event Analysis",
+  "autoexpand" : "4",
+  "defaultSortCol" : "6",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "RAT ID",
+    "width" : "50",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Controller",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Access Area",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "EventID",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "RAT",
+    "width" : "130",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "*,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_CELL,locationServices,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_CELL_locationServices,mSOriginatingSMSinMSC,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_CELL_SMS,mSTerminatingSMSinMSC,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_CELL_SMS"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Success Ratio",
+    "width" : "100",
+    "datatype" : "float"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "string"
+  } ]
+}

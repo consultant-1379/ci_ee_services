@@ -1,0 +1,43 @@
+{
+  "id" : "CS_NETWORK_CAUSE_CODE_ANALYSIS_MSC_GROUP",
+  "title" : "MSC Group Internal Cause Code Analysis Voice",
+  "autoexpand" : "5",
+  "defaultSortCol" : "7",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "MSCGroup",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Internal Cause Code ID",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "Internal Cause Code",
+    "width" : "165",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Fault Code ID",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Fault Code",
+    "width" : "220",
+    "datatype" : "string",
+    "drillDownWindowType" : "CS_NETWORK_CAUSE_CODE_ANALYSIS_MSC_GROUP_DRILL"
+  }, {
+    "header" : "Recommended Action",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Occurrences",
+    "width" : "80",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "string"
+  } ]
+}

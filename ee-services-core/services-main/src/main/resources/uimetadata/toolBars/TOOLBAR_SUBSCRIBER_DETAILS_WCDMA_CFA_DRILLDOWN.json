@@ -1,0 +1,61 @@
+{
+  "toolBarType" : "TOOLBAR_SUBSCRIBER_DETAILS_WCDMA_CFA_DRILLDOWN",
+  "panels" : [ {
+     "toolBarButtons" : [ {
+     "id" : "btnView",
+      "name" : "View",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to change display options",
+      "isEnabled" : "TRUE",
+      "items" : [ {
+        "eventID" : "SUB_BI_FAILED_EVENTS_CFA",
+        "id": "menuGTA_Pop_Summary",
+        "name": "Call Failure Analysis",
+        "nameForTaskBar": "Subscriber Overview (WCDMA Call Failure)",
+        "url": "SUBSCRIBER/CALLFAILURE_SUBSESSION_BI/FAILURE",
+        "needSearchParam": "TRUE",
+        "style": "subscriberOverView",
+        "windowType": "CHART",
+        "display": "bar",
+        "isEnabled": "TRUE",
+        "toolBarType": "TOOLBAR_SUBSCRIBER_DETAILS_WCDMA_CFA"
+      } ]
+    }, {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnNav",
+      "name" : "History",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to navigate visited windows",
+      "isEnabled" : "FALSE",
+      "isVisible" : "FALSE",
+      "eventID" : "NAVIGATION",
+      "items" : [ {
+        "id" : "DUMMY_VALUE",
+        "name" : "DUMMY_VALUE"
+      } ]
+    }, {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    }, {
+      "id" : "btnExport",
+      "name" : "",
+      "style" : "toolbar_exportbtn",
+      "tip" : "Click to export the data to CSV",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "EXPORT"
+    } ]
+  } ]
+}

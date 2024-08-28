@@ -1,0 +1,73 @@
+##
+## WCDMA Call Failure RAB description Analysis by Controller Hash ID (using raw tables)
+##
+## Velocity Parameter:
+##
+## Named PreparedStatement Parameter:
+##
+##	   :HIER3_CELL_ID:   The cell hash id
+##	   :rabType The RAB Type
+##
+#DEFINE_CONSTANTS()
+#set($whereClause = "AND HIER3_CELL_ID = :HIER3_CELL_ID AND EVENT_ID = :eventID")
+#set($useExclusiveTACs="no")
+#set($distinct ="")
+
+
+#if($categoryId == "0")
+	#set($columnsToIncludeInNewView = ["HIER3_CELL_ID", "EVENT_ID", "FAILED_RAB_TYPE","IMSI","CS_RAB_FAIL_CNT","CS_ERR_CNT"])
+#elseif($categoryId == "1")
+	#set($columnsToIncludeInNewView = ["HIER3_CELL_ID", "EVENT_ID", "FAILED_RAB_TYPE","IMSI","PS_RAB_FAIL_CNT","PS_ERR_CNT"])
+#elseif($categoryId == "2")
+	#set($columnsToIncludeInNewView = ["HIER3_CELL_ID", "EVENT_ID", "FAILED_RAB_TYPE","IMSI","MULTI_RAB_FAIL_CNT","MULTI_ERR_CNT"])
+#end
+
+SELECT
+	err.FAILED_RAB_TYPE AS FAILED_RAB_TYPE,
+	isnull(rabtyperef.RABTYPE_DESC,'Unknown') as RABTYPE_DESC,
+	SUM(err.NO_OF_ERRORS) AS NO_OF_ERRORS,
+	SUM(err.IMPACTED_SUBSCRIBERS) AS IMPACTED_SUBSCRIBERS,
+	err.HIER3_CELL_ID,
+	'rabType' AS filterType,
+	##CATEGORY_ID value is got from UI and return to UI since it needs for drilling.
+	:categoryId AS CATEGORY_ID
+	##
+FROM
+	(
+		SELECT 
+			#if($categoryId == "0")
+				SUM(CS_ERR_CNT) AS NO_OF_ERRORS,
+			#elseif($categoryId == "1")
+				SUM(PS_ERR_CNT) AS NO_OF_ERRORS,
+			#elseif($categoryId == "2")
+				SUM(MULTI_ERR_CNT) AS NO_OF_ERRORS,
+			#end
+			HIER3_CELL_ID,
+			FAILED_RAB_TYPE,
+			count (distinct rawview.IMSI) AS IMPACTED_SUBSCRIBERS
+		FROM
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToIncludeInNewView $whereClause $useExclusiveTACs $distinct)
+		WHERE
+			#if($categoryId == "0")
+				CS_RAB_FAIL_CNT > 0
+			#elseif($categoryId == "1")
+				PS_RAB_FAIL_CNT > 0 
+			#elseif($categoryId == "2")
+			    MULTI_RAB_FAIL_CNT > 0 
+			#end
+		GROUP BY
+			HIER3_CELL_ID,
+			FAILED_RAB_TYPE
+	) as err
+LEFT OUTER JOIN
+	(
+		SELECT DISTINCT RABTYPE, RABTYPE_DESC FROM DIM_E_RAN_RABTYPE
+	) rabtyperef
+	on 
+	(
+		err.FAILED_RAB_TYPE = rabtyperef.RABTYPE
+	)
+GROUP BY
+	FAILED_RAB_TYPE,
+	HIER3_CELL_ID,
+	RABTYPE_DESC

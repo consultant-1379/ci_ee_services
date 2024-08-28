@@ -1,0 +1,100 @@
+{
+  "id": "RAN_LTE_CFA_CELL_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_RRC_CONN_SETUP",
+  "title": "LTE Call Failure : Event Analysis",
+  "autoexpand": "11",
+  "defaultSortCol": "3",
+  "defaultSortDir": "DESC",
+  "columns": [ {
+    "header": "HIER3_ID",
+    "width": "10",
+    "datatype": "string",
+    "isSystem": "TRUE"
+  }, {
+    "header": "HIER321_ID",
+    "width": "10",
+    "datatype": "string",
+    "isSystem": "TRUE"
+  }, {
+    "header": "Event Time",
+    "width": "120",
+    "datatype": "date"
+  }, {
+    "header": "Event Time(ms)",
+    "width": "120",
+    "datatype": "String",
+    "isSystem": "TRUE"
+  }, {
+    "header": "IMSI",
+    "width": "120",
+    "datatype": "string"
+  }, {
+    "header": "TAC",
+    "width": "70",
+    "datatype": "string"
+  }, {
+    "header": "Terminal Make",
+    "width": "180",
+    "datatype": "string"
+  }, {
+    "header": "Terminal Model",
+    "width": "120",
+    "datatype": "string"
+  }, {
+    "header": "EventID",
+    "width": "10",
+    "datatype": "int",
+    "isSystem": "TRUE"   
+  }, {
+    "header": "Event Type",
+    "width": "200",
+    "datatype": "string"
+  }, {
+    "header": "Cause Code",
+    "width": "200",
+    "datatype": "string"
+  }, {
+    "header": "Controller",
+    "width": "200",
+    "datatype": "string"
+  }, {
+    "header": "Access Area",
+    "width": "140",
+    "datatype": "string"
+  }, {
+    "header": "RAN Vendor",
+    "width": "90",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "RAT",
+    "width": "90",
+    "datatype": "string",
+    "isSystem": "TRUE"
+  }, {
+    "header": "MCC",
+    "width": "70",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "MNC",
+    "width": "70",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "DURATION",
+    "width": "80",
+    "datatype": "int",
+    "isHidden": "TRUE"
+  }, {
+    "header": "Connection Establishment Cause",
+    "width": "180",
+    "datatype": "string"
+  }, {
+     "header": "GUMMEI Type Description",
+     "width": "200",
+     "datatype": "string",
+     "isHidden": "TRUE"
+     }
+
+  ]
+}

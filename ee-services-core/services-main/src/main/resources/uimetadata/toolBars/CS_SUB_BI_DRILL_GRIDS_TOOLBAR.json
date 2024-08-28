@@ -1,0 +1,89 @@
+{
+  "toolBarType" : "CS_SUB_BI_DRILL_GRIDS_TOOLBAR",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnView",
+      "name" : "View",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to change display options",
+      "isEnabled" : "TRUE",
+      "items" : [ {
+        "eventID" : "CS_SUB_BI_FAILED_EVENTS",
+        "id" : "menuBIFailed Events",
+        "name" : "Failures",
+        "style" : "",
+        "url" : "MSS/SUBSCRIBER/SUBBI/FAILURE",
+        "windowType" : "CHART",
+        "display" : "bar"
+      }, {
+        "eventID" : "CS_SUB_BI_BUSY_HOUR",
+        "id" : "menuBI_BusyHour",
+        "name" : "BusyHour",
+        "style" : "",
+        "url" : "MSS/SUBSCRIBER/SUBBI/BUSY_HOUR",
+        "windowType" : "CHART",
+        "display" : "bar"
+      }, {
+        "eventID" : "CS_SUB_BI_BUSY_DAY",
+        "id" : "menuBI_BusyDay",
+        "name" : "BusyDay",
+        "style" : "",
+        "url" : "MSS/SUBSCRIBER/SUBBI/BUSY_DAY",
+        "windowType" : "CHART",
+        "display" : "bar"
+      }, {
+        "eventID" : "CS_SUB_BI_BUSY_CELL",
+        "id" : "menuBI_Cell",
+        "name" : "Access Area",
+        "style" : "",
+        "url" : "MSS/SUBSCRIBER/SUBBI/CELL",
+        "windowType" : "CHART",
+        "display" : "bar"
+      }, {
+        "eventID" : "CS_SUB_BI_BUSY_TERMINALS",
+        "id" : "menuBI_Terminals",
+        "name" : "Terminals",
+        "style" : "",
+        "url" : "MSS/SUBSCRIBER/SUBBI/TERMINAL",
+        "windowType" : "GRID",
+        "display" : "grid",
+        "needSearchParam" : "TRUE",
+        "hasMultiGridResults" : "FALSE",
+        "toolBarType" : "CS_SUB_BI_DRILL_GRIDS_TOOLBAR"
+      } ]
+    }, {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    }, {
+      "id" : "btnExport",
+      "name" : "",
+      "style" : "toolbar_exportbtn",
+      "tip" : "Click to export the data to CSV",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "EXPORT"
+    }, {
+      "id" : "btnSubscriberDetails_CS",
+      "name" : "",
+      "style" : "imsiIcon",
+      "visibleWhen" : "IMSI",
+      "tip" : "Click to view subscriber details (Voice)",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "SUBSCRIBER_DETAILS_TABLE_CS"
+    } ]
+  } ]
+}

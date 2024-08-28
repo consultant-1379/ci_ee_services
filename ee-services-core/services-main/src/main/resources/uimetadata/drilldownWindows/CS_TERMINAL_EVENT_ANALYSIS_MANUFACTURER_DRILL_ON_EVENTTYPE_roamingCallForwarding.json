@@ -1,0 +1,27 @@
+{
+  "id" : "CS_TERMINAL_EVENT_ANALYSIS_MANUFACTURER_DRILL_ON_EVENTTYPE_roamingCallForwarding",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_ELEMENT_roamingCallForwarding",
+  "name" : "Event Analysis",
+  "url" : "MSS/TERMINAL/EVENT_ANALYSIS",
+  "needSearchParam" : "FALSE",
+  "params" : [ {
+    "id" : "MANUFACTURER",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "manufacturer"
+  }, {
+    "id" : "2",
+    "queryParamName" : "eventID"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

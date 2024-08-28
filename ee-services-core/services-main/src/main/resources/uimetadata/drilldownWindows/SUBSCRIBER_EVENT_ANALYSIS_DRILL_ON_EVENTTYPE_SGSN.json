@@ -1,0 +1,24 @@
+{
+  "id" : "SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_SGSN",
+  "name" : "Event Analysis",
+  "url" : "SUBSCRIBER/EVENT_ANALYSIS",
+  "searchValFromCol" : "11",
+  "params" : [ {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "SGSN",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "13",
+    "queryParamName" : "sgsn",
+    "isTitleParam" : "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

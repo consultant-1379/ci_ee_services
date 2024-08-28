@@ -1,0 +1,88 @@
+{
+    "id": "NETWORK_CAUSE_CODE_ANALYSIS_BSC",
+    "title": "Controller Cause Code Analysis",
+    "autoexpand": "9",
+    "categoryId": "NETWORK_CAUSE_CODE_ANALYSIS",
+    "defaultSortCol": "11",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "type": "ratId",
+            "header": "RAT ID",
+            "width": "50",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Cause Code Vendor",
+            "width": "100",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Cause Code Controller",
+            "width": "100",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Cause Protocol Type ID",
+            "width": "165",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "type": "causeCodeProtocolType",
+            "header": "Cause Protocol Type",
+            "width": "165",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "causeCodeId",
+            "header": "Cause Code ID",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "causeCode",
+            "header": "Cause Code",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "subCauseCodeId",
+            "header": "Sub Cause Code ID",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "type": "subCauseCode",
+            "header": "Sub Cause Code",
+            "width": "100",
+            "datatype": "string",
+            "drillDownWindowType": "NETWORK_CAUSE_CODE_ANALYSIS_BSC_DRILL"
+        },
+        {
+            "type": "recommendedAction",
+            "header": "Recommended action",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type": "occurences",
+            "header": "Occurrences",
+            "width": "80",
+            "datatype": "int"
+        },
+        {
+            "type": "impactedSubscribers",
+            "header": "Impacted Subscribers",
+            "width": "120",
+            "datatype": "int"
+        }
+    ]
+}

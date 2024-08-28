@@ -1,0 +1,313 @@
+{
+    "searchFields": [
+        {
+            "tabOwner": "DASHBOARD_TAB",
+            "searchType": "PAIRED",
+            "tip": "Click to submit node selection for dashboard",
+            "isUsingMenuForType": "TRUE",
+            "typeEmptyText": "Enter node type",
+            "type": [
+                {
+                    "id": "SUMMARY_WCDMA",
+                    "name": "3G Radio Network",
+                    "winMetaSupport": "CS,PS",
+                    "style": "network_node_wcdma"
+                },
+                {
+                    "id": "SUMMARY_LTE",
+                    "name": "4G Radio Network",
+                    "winMetaSupport": "CS,PS",
+                    "style": "network_node_lte",
+                    "licenseCXC": "CXC4011279,CXC4011280"
+                },
+                {
+                    "id": "SUMMARY_CORE",
+                    "name": "Core (PS) Network",
+                    "winMetaSupport": "CS,PS",
+                    "style": "network_node"
+                },
+                {
+                    "id": "SEPARATOR"
+                },
+                {
+                    "id": "APN",
+                    "name": "APN",
+                    "urlParam": "node",
+                    "liveLoadURL": "LIVELOAD/APN",
+                    "style": "APN_node",
+                    "winMetaSupport": "PS",
+                    "emptyText": "Enter APN"
+                },
+                {
+                    "id": "BSC",
+                    "name": "Controller",
+                    "winMetaSupport": "CS,PS",
+                    "urlParam": "node",
+                    "liveLoadURL": "LIVELOAD/BSC",
+                    "style": "BSC_node",
+                    "emptyText": "Enter Controller"
+                },
+                {
+                    "id": "CELL",
+                    "name": "Access Area",
+                    "winMetaSupport": "CS,PS",
+                    "urlParam": "node",
+                    "liveLoadURL": "LIVELOAD/CELL",
+                    "style": "CELL_node",
+                    "emptyText": "Enter Access Area"
+                },
+                {
+                    "id": "SGSN",
+                    "name": "SGSN-MME",
+                    "winMetaSupport": "PS",
+                    "urlParam": "node",
+                    "liveLoadURL": "LIVELOAD/SGSN",
+                    "style": "SGSN_node",
+                    "emptyText": "Enter SGSN-MME"
+                },
+                {
+                    "id": "MSC",
+                    "name": "MSC",
+                    "winMetaSupport": "CS",
+                    "urlParam": "node",
+                    "liveLoadURL": "LIVELOAD/MSC",
+                    "style": "MSC_node",
+                    "emptyText": "Enter MSC"
+                },
+                {
+                    "id": "SEPARATOR"
+                },
+                {
+                    "id": "APNGroup",
+                    "winMetaSupport": "PS",
+                    "urlParam": "node",
+                    "groupType": "APN",
+                    "name": "APN Group",
+                    "style": "group_apn"
+                },
+                {
+                    "id": "BSCGroup",
+                    "winMetaSupport": "CS,PS",
+                    "urlParam": "node",
+                    "groupType": "BSC",
+                    "name": "Controller Group",
+                    "style": "group_bsc"
+                },
+                {
+                    "id": "CELLGroup",
+                    "winMetaSupport": "CS,PS",
+                    "urlParam": "node",
+                    "groupType": "CELL",
+                    "name": "Access Area Group",
+                    "style": "group_cell"
+                },
+                {
+                    "id": "SGSNGroup",
+                    "winMetaSupport": "PS",
+                    "urlParam": "node",
+                    "groupType": "SGSN",
+                    "name": "SGSN-MME Group",
+                    "style": "group_sgsn"
+                },
+                {
+                    "id": "MSCGroup",
+                    "winMetaSupport": "CS",
+                    "urlParam": "node",
+                    "groupType": "MSC",
+                    "name": "MSC Group",
+                    "style": "group_msc"
+                }
+            ],
+            "index": "0"
+        },
+        {
+            "tabOwner": "NETWORK_TAB",
+            "searchType": "PAIRED",
+            "tip": "Click to submit node selection",
+            "isUsingMenuForType": "TRUE",
+            "typeEmptyText": "Enter node type",
+            "defaultMenuItemId": "NETWORK_EVENT_ANALYSIS",
+            "type": [
+                {
+                    "id": "INPUT",
+                    "name": "- select input -",
+                    "winMetaSupport": "CS,PS",
+                    "style": "input"
+                },
+                {
+                    "id": "APN",
+                    "name": "APN",
+                    "winMetaSupport": "PS",
+                    "urlParam": "node",
+                    "liveLoadURL": "LIVELOAD/APN",
+                    "style": "APN_node",
+                    "emptyText": "Enter APN"
+                },
+                {
+                    "id": "BSC",
+                    "name": "Controller",
+                    "winMetaSupport": "CS,PS",
+                    "urlParam": "node",
+                    "liveLoadURL": "LIVELOAD/BSC",
+                    "style": "BSC_node",
+                    "emptyText": "Enter Controller"
+                },
+                {
+                    "id": "CELL",
+                    "name": "Access Area",
+                    "winMetaSupport": "CS,PS",
+                    "urlParam": "node",
+                    "liveLoadURL": "LIVELOAD/CELL",
+                    "style": "CELL_node",
+                    "emptyText": "Enter Access Area"
+                },
+                {
+                    "id": "SGSN",
+                    "name": "SGSN-MME",
+                    "winMetaSupport": "PS",
+                    "urlParam": "node",
+                    "liveLoadURL": "LIVELOAD/SGSN",
+                    "style": "SGSN_node",
+                    "emptyText": "Enter SGSN-MME"
+                },
+                {
+                    "id": "TRAC",
+                    "name": "Tracking Area",
+                    "winMetaSupport": "PS",
+                    "urlParam": "node",
+                    "liveLoadURL": "LIVELOAD/TRAC",
+                    "style": "TRAC_node",
+                    "emptyText": "Enter Tracking Area"
+                },
+                {
+                    "id": "MSC",
+                    "name": "MSC",
+                    "winMetaSupport": "CS",
+                    "urlParam": "node",
+                    "liveLoadURL": "LIVELOAD/MSC",
+                    "style": "MSC_node",
+                    "emptyText": "Enter MSC"
+                },
+                {
+                    "id": "SEPARATOR"
+                },
+                {
+                    "id": "APNGroup",
+                    "urlParam": "node",
+                    "groupType": "APN",
+                    "name": "APN Group",
+                    "winMetaSupport": "PS",
+                    "style": "group_apn"
+                },
+                {
+                    "id": "BSCGroup",
+                    "urlParam": "node",
+                    "groupType": "BSC",
+                    "name": "Controller Group",
+                    "winMetaSupport": "CS,PS",
+                    "style": "group_bsc"
+                },
+                {
+                    "id": "CELLGroup",
+                    "urlParam": "node",
+                    "groupType": "CELL",
+                    "name": "Access Area Group",
+                    "winMetaSupport": "CS,PS",
+                    "style": "group_cell"
+                },
+                {
+                    "id": "SGSNGroup",
+                    "urlParam": "node",
+                    "groupType": "SGSN",
+                    "name": "SGSN-MME Group",
+                    "winMetaSupport": "PS",
+                    "style": "group_sgsn"
+                },
+                {
+                    "id": "TRACGroup",
+                    "urlParam": "node",
+                    "groupType": "TRAC",
+                    "name": "Tracking Area Group",
+                    "winMetaSupport": "PS",
+                    "style": "group_trac"
+                },
+                {
+                    "id": "MSCGroup",
+                    "urlParam": "node",
+                    "groupType": "MSC",
+                    "name": "MSC Group",
+                    "winMetaSupport": "CS",
+                    "style": "group_msc"
+                }
+            ],
+            "index": "0"
+        },
+        {
+            "tabOwner": "TERMINAL_TAB",
+            "searchType": "PAIRED_LIVE_TYPE",
+            "tip": "Click to submit terminal selection",
+            "urlParam": "node",
+            "winMetaSupport": "CS,PS",
+            "isUsingMenuForType": "FALSE",
+            "typeEmptyText": "Enter Terminal make",
+            "defaultMenuItemId": "TERMINAL_EVENT_ANALYSIS",
+            "perminentType": "TAC",
+            "emptyText": "Enter Terminal",
+            "style": "mobile_phone",
+            "liveTypeURL": "LIVELOAD/HANDSET_MAKES"
+        },
+        {
+            "tabOwner": "SUBSCRIBER_TAB",
+            "searchType": "PAIRED",
+            "tip": "Click to submit selection",
+            "isUsingMenuForType": "TRUE",
+            "isNumberSearchType": "TRUE",
+            "typeEmptyText": "Enter type",
+            "defaultMenuItemId": "SUBSCRIBER_EVENT_ANALYSIS",
+            "type": [
+                {
+                    "id": "INPUT",
+                    "name": "- select input -",
+                    "winMetaSupport": "CS,PS",
+                    "style": "input"
+                },
+                {
+                    "id": "IMSI",
+                    "name": "IMSI",
+                    "winMetaSupport": "CS,PS",
+                    "urlParam": "imsi",
+                    "style": "imsiIcon",
+                    "emptyText": "Enter IMSI"
+                },
+                {
+                    "id": "PTMSI",
+                    "name": "PTMSI",
+                    "winMetaSupport": "PS",
+                    "urlParam": "ptmsi",
+                    "style": "ptIMSI",
+                    "emptyText": "Enter PTMSI"
+                },
+                {
+                    "id": "MSISDN",
+                    "urlParam": "msisdn",
+                    "name": "MSISDN",
+                    "winMetaSupport": "CS,PS",
+                    "style": "msisdnIcon",
+                    "emptyText": "Enter MSISDN"
+                },
+                {
+                    "id": "SEPARATOR"
+                },
+                {
+                    "id": "IMSIGroup",
+                    "groupType": "IMSI",
+                    "urlParam": "imsi",
+                    "name": "IMSI Group",
+                    "winMetaSupport": "CS,PS",
+                    "style": "group_imsi"
+                }
+            ],
+            "index": "0"
+        }
+    ]
+}

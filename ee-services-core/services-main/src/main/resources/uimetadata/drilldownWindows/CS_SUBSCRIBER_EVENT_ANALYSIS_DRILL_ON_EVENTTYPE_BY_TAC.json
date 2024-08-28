@@ -1,0 +1,27 @@
+{
+  "id" : "CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_TAC",
+  "gridDisplayID" : "CS_SUBSCRIBER_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_ELEMENT",
+  "name" : "TAC Event Analysis",
+  "url" : "SUBSCRIBER/EVENT_ANALYSIS",
+  "params" : [ {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "TAC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "tac",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "eventID"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

@@ -1,0 +1,39 @@
+{
+    "id": "RAN_LTE_HFA_IMSI_ERABS_DRILL_ON_INTERNAL_PROC_HO_EXEC",
+    "name": "IMSI Event Analysis",
+    "url": "SUBSCRIBER/LTE_HANDOVER_FAILURE_SUBSCRIBER_ERAB_DRILLDOWN/IMSI",
+    "gridDisplayID": "RAN_LTE_HFA_IMSI_ERABS_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_HO_EXEC",
+    "needSearchParam": "FALSE",
+    "disableTime":"TRUE",
+    "params": [
+        {
+            "id": "1",
+            "queryParamName": "HIER3_ID"
+        },
+        {
+            "id": "2",
+            "queryParamName": "HIER321_ID"
+        },
+        {
+            "id": "6",
+            "queryParamName": "EVENT_TIME"
+        },
+        {
+            "id": "7",
+            "queryParamName": "imsi"
+        },
+        {
+            "id": "8",
+            "queryParamName": "TAC"
+        },
+        {
+            "id": "11",
+            "queryParamName": "eventID"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

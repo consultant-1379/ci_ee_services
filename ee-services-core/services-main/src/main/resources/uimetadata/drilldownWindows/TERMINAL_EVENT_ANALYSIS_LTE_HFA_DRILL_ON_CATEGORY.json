@@ -1,0 +1,20 @@
+{
+  "id" : "TERMINAL_EVENT_ANALYSIS_LTE_HFA_DRILL_ON_CATEGORY",
+  "name" : "Terminal LTE Handover Failure : Event Analysis",
+  "gridDisplayID" : "TERMINAL_EVENT_ANALYSIS_LTE_HFA_DRILL_ON_CATEGORY",
+  "url" : "TERMINAL/LTE_HFA_EVENT_SUMMARY/CATEGORISED_TERMINAL",
+  "needSearchParam": "FALSE",
+  "params" : [ 
+  	{
+    "id" : "1",
+    "queryParamName" : "CATEGORY_ID_2"
+  	},{
+  	"id" : "2",
+  	"queryParamName" : "tac"
+  	}],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

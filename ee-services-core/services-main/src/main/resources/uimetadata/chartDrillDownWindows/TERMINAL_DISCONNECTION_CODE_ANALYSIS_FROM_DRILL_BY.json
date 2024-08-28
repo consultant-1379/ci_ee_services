@@ -1,0 +1,14 @@
+{
+	"id": "TERMINAL_DISCONNECTION_CODE_ANALYSIS_FROM_DRILL_BY",
+	"drillWindowName" : "Failure details",
+	"nameForTaskBar" : "Failure details",
+	"style": "analysisEvent",
+	"isEnabled": "TRUE",
+	"drillTargetDisplayId": "TERMINAL_DISCONNECTION_CODE_ANALYSIS_FROM_DRILL_BY",
+	"drillType" : "launchGrid",
+	"drillToolBarType" : "TOOLBAR_PLAIN_GRID_NO_DRILLDOWNS_NO_TIME_BUTTON",
+	"url" : "TERMINAL/WCDMA_TERMINAL_CALL_FAILURE_FILTER_ANALYSIS/TERMINAL_BY_FILTER",
+	"toolBarType": "TOOLBAR1",
+	"windowType": "GRID",
+	"display": "grid"
+}

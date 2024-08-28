@@ -1,0 +1,50 @@
+{
+  "id": "SUBSCRIBER_RANKING_LTE_RECUR_FAILURES",
+  "title": "Subscriber LTE Call Failure : Failure Recurrence Analysis",
+  "autoexpand": "2",
+  "defaultSortCol": "1",
+  "defaultSortDir": "ASC",
+  "columns": [ {
+    "header": "Rank",
+    "width": "70",
+    "datatype": "int"
+  }, {
+    "header": "IMSI",
+    "width": "100",
+    "datatype": "string",
+    "drillDownLicenseCXC" : "CXC4010925",
+    "launchWindowType": "RAN_LTE_CFA_ANALYSIS"
+  }, {
+    "header": "EventID",
+    "width": "10",
+    "datatype": "int",
+    "isSystem": "TRUE"
+  }, {
+    "header": "HIER321_ID",
+    "width": "10",
+    "datatype": "string",
+    "isSystem": "TRUE"
+  }, {
+    "header": "Controller",
+    "width": "100",
+    "datatype": "string"
+  }, {
+    "header" : "Access Area",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header": "Event Type",
+    "width": "150",
+    "datatype": "string"
+  }, {
+    "header": "Failures",
+    "width": "90",
+    "datatype": "int",
+    "drillDownLicenseCXC" : "CXC4010925",
+    "drillDownWindowType": "*,RAN_LTE_CFA_IMSI_RECUR_DRILL_ON_INTERNAL_ERAB_CTXT_SETUP,INTERNAL_PROC_RRC_CONN_SETUP,RAN_LTE_CFA_IMSI_RECUR_DRILL_ON_INTERNAL_PROC_RRC_CONN_SETUP,INTERNAL_PROC_S1_SIG_CONN_SETUP,RAN_LTE_CFA_IMSI_RECUR_DRILL_ON_INTERNAL_PROC_S1_SIG_CONN_SETUP,INTERNAL_PROC_UE_CTXT_RELEASE,RAN_LTE_CFA_IMSI_RECUR_DRILL_ON_INTERNAL_PROC_UE_CTXT_RELEASE"
+  } ]
+}

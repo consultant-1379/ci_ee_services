@@ -1,0 +1,25 @@
+{
+  "id" : "TERMINAL_GA_MOST_PDP_SESSION_SETUP_FAILURES",
+  "isChartData" : "TRUE",
+  "title" : "Group Analysis - Most PDP Session Setup Failures",
+  "autoexpand" : "2",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "Group Name",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "int"
+  } ]
+}

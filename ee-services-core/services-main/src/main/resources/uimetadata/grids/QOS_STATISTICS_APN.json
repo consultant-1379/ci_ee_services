@@ -1,0 +1,30 @@
+{
+  "id" : "QOS_STATISTICS_APN",
+  "title" : "QOS Statistics",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "QCI ID",
+    "width" : "100",
+    "datatype" : "int",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "QOS",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int",
+    "drillDownWindowType" : "NETWORK_EVENT_ANALYSIS_APN_DRILL_ON_QOS"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "int"
+  } ]
+}

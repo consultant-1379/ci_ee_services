@@ -1,0 +1,40 @@
+{
+  "id" : "GSM_NETWORK_CAUSE_CODE_ANALYSIS_BSC_GROUP_DRILL",
+  "title" : "Controller Sub Cause Code Analysis",
+  "autoexpand" : "2",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Extended Cause ID",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Extended Cause Value",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int",
+    "drillDownWindowType" : "NETWORK_BSC_CC_SCC_DETAILED_EVENT_ANALYSIS"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "node",
+    "width" : "150",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }, {
+    "header" : "causeCodeDescription",
+    "width" : "150",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }, {
+    "header" : "causeCode",
+    "width" : "150",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }]
+}

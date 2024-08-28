@@ -1,0 +1,30 @@
+{
+  "id" : "CS_KPI_EVENTS_FROM_CELL",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_ELEMENTS",
+  "name" : "KPI Events Breakdown",
+  "url" : "MSS/NETWORK/KPI_RATIO",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "2",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "3",
+    "queryParamName" : "internalCauseCode",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "5",
+    "queryParamName" : "faultCode",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

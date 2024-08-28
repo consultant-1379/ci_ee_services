@@ -1,0 +1,14 @@
+{
+  "launchWindowTypeId" : "NETWORK_ENODEB_RANKING_DRILL_ON_RAN_LTE_HFA_EXEC_FAILURE",
+  "menuItem" : "NETWORK_RAN_LTE_HFA",
+  "searchValFromCol" : "5,4,7",
+  "type" : "BSC",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "HIER3_ID"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

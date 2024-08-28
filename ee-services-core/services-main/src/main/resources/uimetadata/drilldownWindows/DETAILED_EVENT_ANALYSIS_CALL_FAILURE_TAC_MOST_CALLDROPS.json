@@ -1,0 +1,24 @@
+{
+  "id" : "DETAILED_EVENT_ANALYSIS_CALL_FAILURE_TAC_CALLDROPS",
+  "gridDisplayID" : "NETWORK_DETAILED_EVENT_ANALYSIS_CALL_FAILURE_TAC",
+  "name" : "Failed Event Analysis - Most Call Drops",
+  "url" : "NETWORK/CALL_FAILURE_DETAILED_EVENT_ANALYSIS/TAC",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "tacId",
+    "isTitleParam" : "TRUE"
+  }, {
+  	"id" : "Most Call Drops ",
+  	"isFixedVal" : "TRUE",
+    "isTitleParam" : "TRUE"
+  },{
+      "id":"6",
+      "queryParamName": "eventID"
+     }
+  ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

@@ -1,0 +1,83 @@
+{
+  "toolBarType" : "TOOLBAR_TERMINAL_ANALYSIS_CFA",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnView",
+      "name" : "View",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to change display options",
+      "isEnabled" : "TRUE",
+      "items" : [ {
+        "eventID" : "TERMINAL_ANALYSIS_RAN_WCDMA_CALLFAILURE_MOST_DROPS",
+        "id" : "menuGTA_Most_Call_Drops_Summary",
+        "name" : "Most Call Drops",
+        "style" : "",
+        "url" : "TERMINAL/CALL_FAILURE_TERMINAL_ANALYSIS/MOST_CALL_DROPS",
+        "windowType" : "GRID",
+        "maxRowsParam" : "ENIQ_EVENTS_TERMINAL_ANALYSIS_COUNT",
+        "display" : "grid"
+      }, {
+      	"eventID" : "TERMINAL_ANALYSIS_RAN_WCDMA_CALLFAILURE_MOST_SETUP_FAILURES",
+        "id" : "menuGTA_Most_Call_Setup_Failures_Summary",
+        "name" : "Most Call Setup Failures",
+        "style" : "",
+        "url" : "TERMINAL/CALL_FAILURE_TERMINAL_ANALYSIS/MOST_CALL_SETUP_FAILURES",
+        "windowType" : "GRID",
+        "maxRowsParam" : "ENIQ_EVENTS_TERMINAL_ANALYSIS_COUNT",
+        "display" : "grid"
+      } ]
+    }, {
+      "id" : "btnBack",
+      "name" : "",
+      "style" : "toolbar_back",
+      "isEnabled" : "FALSE",
+      "tip" : "Backward Navigation",
+      "isToggle" : "False",
+      "eventID" : "BACK"
+    }, {
+      "id" : "btnForward",
+      "name" : "",
+      "style" : "toolbar_forward",
+      "isEnabled" : "FALSE",
+      "tip" : "Forward Navigation",
+      "isToggle" : "FALSE",
+      "eventID" : "FORWARD"
+    }, {
+      "id" : "btnNav",
+      "name" : "History",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to navigate visited windows",
+      "isEnabled" : "FALSE",
+      "isVisible" : "FALSE",
+      "eventID" : "NAVIGATION",
+      "items" : [ {
+        "id" : "DUMMY_VALUE",
+        "name" : "DUMMY_VALUE"
+      } ]
+    }, {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnProperties",
+      "name" : "",
+      "style" : "toolbar_propertiesbtn",
+      "tip" : "Click to open selected row in properties window",
+      "isEnabled" : "FALSE",
+      "isToggle" : "FALSE",
+      "eventID" : "PROPERTIES"
+    }, {
+      "id" : "btnExport",
+      "name" : "",
+      "style" : "toolbar_exportbtn",
+      "tip" : "Click to export the data to CSV",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "EXPORT"
+    } ]
+  } ]
+}

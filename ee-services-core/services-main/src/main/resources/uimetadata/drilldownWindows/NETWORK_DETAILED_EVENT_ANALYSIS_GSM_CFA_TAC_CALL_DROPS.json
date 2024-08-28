@@ -1,0 +1,43 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_GSM_CFA_TAC_CALL_DROPS",
+    "gridDisplayID": "NETWORK_DETAILED_EVENT_ANALYSIS_GSM_CFA_TAC_CALL_DROPS",
+    "url": "NETWORK/GSM/CALL_FAILURE_DETAILED_EVENT_ANALYSIS/TAC",
+    "params": [
+        {
+            "id": "1",
+            "queryParamName": "titleManufacturer",
+            "isTitleParam": "TRUE"
+        },
+        {
+            "id": "2",
+            "queryParamName": "titleModel",
+            "isTitleParam": "TRUE"
+        },
+        {
+            "id": "3",
+            "queryParamName": "EVENT_TYPE",
+            "isTitleParam": "TRUE"
+        },
+        {
+            "id": "4",
+            "queryParamName": "EXTENDED_CAUSE"
+        },
+        {
+             "id": "9",
+            "queryParamName": "CAUSE_GROUP"
+        },
+        {
+            "id": "10",
+            "queryParamName": "CATEGORY_ID"
+        },
+        {
+            "id": "11",
+            "queryParamName": "TAC"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

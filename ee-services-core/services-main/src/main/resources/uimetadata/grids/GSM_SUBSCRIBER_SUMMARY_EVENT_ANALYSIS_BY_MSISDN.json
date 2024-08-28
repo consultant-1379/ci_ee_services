@@ -1,0 +1,39 @@
+{
+  "id" : "GSM_SUBSCRIBER_SUMMARY_EVENT_ANALYSIS_BY_MSISDN",
+  "title" : "Subscriber GSM Call Failure : Event Analysis Summary",
+  "autoexpand" : "2",
+  "columns" : [{
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "Call\u0020Setup\u0020Failures,GSM_CSF_SUBSCRIBER_DETAILED_EVENT_ANALYSIS_BY_MSISDN, Call\u0020Drops,GSM_SUBSCRIBER_DETAILED_EVENT_ANALYSIS_BY_MSISDN"
+  }, {
+    "header" : "Failure Ratio",
+    "width" : "150",
+    "datatype" : "double"
+  }, {
+    "header" : "CATEGORY_ID",
+    "width" : "0",
+    "datatype" : "int",
+    "isSystem": "TRUE"
+  }, {
+    "header" : "IMSI",
+    "width" : "100",
+    "datatype" : "string",
+	"isHidden": "TRUE"
+  },
+  {
+    "header" : "MSISDN",
+    "width" : "100",
+    "datatype" : "string",
+	"isSystem": "TRUE"
+  }
+  
+  
+  
+  ]
+}

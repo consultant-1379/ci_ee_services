@@ -1,0 +1,78 @@
+{
+    "id": "WCDMA_HFA_SUB_CC_ANALYSIS_PIE",
+    "title": "Sub Cause Code Analysis (WCDMA Handover Failure)",
+    "ylabel": "Number of Events",
+    "xlabel": "Group Name",
+    "secondYAxisID": "3",
+    "xaxisID": "2",
+    "items": [
+        {
+            "id": "1",
+            "name": "Label",
+            "color": "5494c5",
+            "isLegendPrefix": "TRUE",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "2",
+            "name": "Sub Cause Code",
+            "color": "5494c5"
+        },
+        {
+            "id": "3",
+            "name": "Failures",
+            "color": "cb5853",
+            "displayInTooltip": "TRUE",
+            "drillDownWindowType": "WCDMA_HFA_SUB_CC_ANALYSIS_PIE_FAILURES_DRILL_KEY",
+			"drillDownSeriesId": "10",
+            "groupSeriesId": "11"
+        },
+        {
+            "id": "4",
+            "name": "Source Impacted Subscribers",
+            "color": "333986",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "5",
+            "name": "Target Impacted Subscribers",
+            "color": "333986",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "6",
+            "name": "Cause Code Id",
+            "queryParam": "causeCode"
+        },
+        {
+            "id": "7",
+            "name": "Sub Cause Code Id",
+            "queryParam": "subCauseCode"
+        },
+        {
+            "id": "8",
+            "name": "Event Id",
+            "queryParam": "eventID"
+        },
+        {
+            "id": "9",
+            "name": "Category Id",
+            "queryParam": "categoryId"
+        },
+        {
+            "id": "10",
+            "name": "Handover Type",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "11",
+            "name": "State",
+            "queryParam": "state"
+        },
+        {
+            "id": "12",
+            "name": "Group Name",
+            "displayInTooltip": "TRUE"
+        }
+    ]
+}

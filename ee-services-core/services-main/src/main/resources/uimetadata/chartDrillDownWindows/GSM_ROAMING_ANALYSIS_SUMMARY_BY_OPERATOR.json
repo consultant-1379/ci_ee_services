@@ -1,0 +1,9 @@
+{
+			"id": "GSM_ROAMING_ANALYSIS_SUMMARY_BY_OPERATOR",
+			"drillWindowName" : "Roaming by Operator (Event Volume)",
+			"nameForTaskBar" : "Roaming by Operator",
+			"drillTargetDisplayId": "GSM_ROAMING_ANALYSIS_SUMMARY_BY_OPERATOR",
+			"drillType" : "launchGrid",
+			"drillToolBarType" : "TOOLBAR1",
+			"url" : "NETWORK/GSM/CALL_FAILURE_ROAMING_ANALYSIS/OPERATOR/DRILL"
+}

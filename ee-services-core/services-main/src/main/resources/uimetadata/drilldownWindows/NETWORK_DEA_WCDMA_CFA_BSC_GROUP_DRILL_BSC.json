@@ -1,0 +1,29 @@
+{
+    "id": "NETWORK_DEA_WCDMA_CFA_BSC_GROUP_DRILL_BSC",
+    "gridDisplayID": "NETWORK_EVENT_ANALYSIS_WCDMA_CFA_BSC",
+    "url": "NETWORK/WCDMA_CFA_NETWORK_EVENT_ANALYSIS/NODE",
+    "params": [
+        {
+            "id": "17",
+            "queryParamName": "HIER3_ID"
+        },
+        {
+            "id": "18",
+            "queryParamName": "EVENT_ID"
+        },
+        {
+		    "id" : "BSC",
+		    "queryParamName" : "type",
+		    "isFixedVal" : "TRUE"
+    	},
+    	{
+		    "id" : "6",
+		    "isTitleParam" : "TRUE"
+    	}
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

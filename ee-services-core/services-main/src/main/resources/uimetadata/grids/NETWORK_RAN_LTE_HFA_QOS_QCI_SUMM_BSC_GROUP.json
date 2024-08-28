@@ -1,0 +1,39 @@
+{
+  "id" : "NETWORK_RAN_LTE_HFA_QOS_QCI_SUMM_BSC_GROUP",
+  "title" : "Controller Group LTE Handover Failure : QOS Statistics Summary",
+  "autoexpand" : "3",
+  "defaultSortCol" : "2",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "eNodeB Group Name",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "QCI ID",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "QCI Description",
+    "width" : "110",
+    "datatype" : "string"
+  }, {
+    "header" : "CATEGORY_ID_2",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Handover Stage",
+    "width" : "150",
+    "datatype" : "string",
+    "drillDownWindowType" : "NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_SUMM_BSC_GROUP"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "140",
+    "datatype" : "string"
+  } ]
+}

@@ -1,0 +1,92 @@
+{
+    "sessionBrowser": {
+        "sessionBrowserData": [
+            {
+                "id": "DETAIL_RADIO_CELL_LOAD_RAB",
+                "url": "SESSION_BROWSER/SESSION_DETAIL/RAB,SESSION_BROWSER/SESSION_DETAIL/RRC_MEAS",
+                "tabId": "details"
+            },
+            {
+                "id": "DETAIL_TCP_PERFORMANCE",
+                "url": "SESSION_BROWSER/USER_PLANE/TCP_PERFORMANCE_DETAILS",
+                "tabId": "details"
+            },
+            {
+                "id": "DETAIL_APPLICATION_LAYER_PERFORMANCE",
+                "url": "SESSION_BROWSER/USER_PLANE/APPLICATION_LAYER_DETAILS",
+                "tabId": "details"
+            },
+            {
+                "id": "RADIO_CELL_LOAD_SUMMARY",
+                "url": "SESSION_BROWSER/SESSION_SUMMARY/RAB",
+                "tabId": "summary"
+            },
+            {
+                "id": "RADIO_CELL_LOAD_SUMMARY_GRID",
+                "url": "SESSION_BROWSER/SESSION_SUMMARY/VISITED_CELLS",
+                "tabId": "summary"
+            },  
+            {
+                "id": "RADIO_CELL_LOAD_SUMMARY_THRESHOLDS",
+                "url": "SESSION_BROWSER/SESSION_SUMMARY/THRESHOLD",
+                "tabId": "summary"
+            },                        
+            {
+                "id": "APPLICATION_LAYER_TCP_SUMMARY",
+                "url": "SESSION_BROWSER/USER_PLANE/APPLICATION_LAYER_SUMMARY",
+                "tabId": "summary"
+            },
+            {
+                "id": "TCP_PERFORMANCE_SUMMARY",
+                "url": "SESSION_BROWSER/USER_PLANE/TCP_PERFORMANCE_SUMMARY",
+                "tabId": "summary"
+            }
+        ],
+        "detailsView": {
+            "charts": [
+                {
+                    "id": "DETAIL_RADIO_CELL_LOAD_RAB",
+                    "name": "Radio and Cell Load Conditions"
+                },
+                {
+                    "id": "DETAIL_TCP_PERFORMANCE",
+                    "name": "TCP Performance"
+                },
+                {
+                    "id": "DETAIL_APPLICATION_LAYER_PERFORMANCE",
+                    "name": "Application Layer Performance"
+                }
+            ],
+            "webServerDistribution": {
+                "id": "WEB_SERVER_DISTRIBUTION",
+                "name": "Web Server Distribution",
+                "url": "SESSION_BROWSER/POPUP_DETAIL/WEB_SERVER_DISTRIBUTION"
+            },
+            "reports": {
+                "url": "SESSION_BROWSER/SESSION_REPORTS/REPORTS"  
+            }
+        },
+        "summaryView": {
+            "radioCellLoadSummaryChart": {
+                "id": "RADIO_CELL_LOAD_SUMMARY",
+                "name": "Radio and Cell Load Conditions"
+            },
+            "radioCellLoadSummaryGrid": {
+                "id": "RADIO_CELL_LOAD_SUMMARY_GRID",
+                "name": ""
+            },
+            "radioCellLoadSummaryThresholds": {
+                "id": "RADIO_CELL_LOAD_SUMMARY_THRESHOLDS",
+                "name": ""
+            },            
+            "applicationLayerSummaryChart": {
+                "id": "APPLICATION_LAYER_TCP_SUMMARY",
+                "name": "Application Layer Summary"
+            },
+            "tcpPerformanceSummaryConfig": {
+                "id": "TCP_PERFORMANCE_SUMMARY",
+                "name": "TCP Performance"
+            }
+        }
+    }
+}

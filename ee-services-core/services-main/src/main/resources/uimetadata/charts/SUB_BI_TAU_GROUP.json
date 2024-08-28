@@ -1,0 +1,17 @@
+{
+  "id" : "SUB_BI_TAU_GROUP",
+  "title" : "TAU Event Analysis for Subscriber",
+  "xlabel" : "Event",
+  "ylabel" : "Number of Events",
+  "xaxisID" : "3",
+  "items" : [ {
+    "id" : "1",
+    "name" : "Event Failures",
+    "color" : "cb5853",
+    "drillDownWindowType" : "DRILL_GRID_CHART_SUB_BI_TAU"
+  }, {
+    "id" : "2",
+    "name" : "Event Successes",
+    "color" : "9ec057"
+  } ]
+}

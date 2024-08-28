@@ -1,0 +1,8 @@
+{
+      "id" : "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP_FROM_SUBPIE",
+      "nameForTaskBar" : "LTE Call Failure Cause Code : Event Analysis (INTERNAL_PROC_INITIAL_CTXT_SETUP)",
+      "url" : "NETWORK/LTE_CFA_CAUSE_CODE_ANALYSIS/PIE_CHART_CAUSE_CODE_ANALYSIS_DRILLDOWN",
+      "drillTargetDisplayId" : "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP",
+      "drillToolBarType" : "TOOLBAR1",
+      "drillType" : "launchGrid"
+}

@@ -1,0 +1,19 @@
+{
+  "groupSingleToggles" : [ {
+    "tabOwner" : "TERMINAL_TAB",
+    "items" : [ {
+      "id" : "INPUT",
+      "name" : "- select input -",
+      "style" : "input"
+    }, {
+      "id" : "Terminal",
+      "name" : "Terminal",
+      "style" : "mobile_phone"
+    }, {
+      "id" : "TerminalGroup",
+      "name" : "Terminal Group",
+      "isGroup" : "TRUE",
+      "style" : "group_terminal"
+    } ]
+  } ]
+}

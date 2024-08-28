@@ -1,0 +1,60 @@
+#set($columnsToIncludeInSourceView=["HIER3_CELL_ID","CATEGORY_ID"])
+#set($counterColumn="NO_OF_ERRORS")
+#set($imsiColumn="IMSI")
+#set($impactedSubscribers="NO_OF_TOTAL_ERR_SUBSCRIBERS")
+#set($useExclusiveTACs="no")
+
+SELECT
+    groupDef.GROUP_NAME                       AS 'Group Name',
+    categoryDesc.CATEGORY_DESC                AS 'Handover Type',
+    sourceAggView.CATEGORY_ID                 AS 'Category ID',
+    sum(sourceAggView.${counterColumn})       AS 'Failures',
+    sum(sourceAggView.${impactedSubscribers}) AS 'Impacted Subscribers'
+FROM
+    #UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS_POST_AGGREGATE_IMPACTED_SUBSCRIBERS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() $aggregationViewList "sourceAggView" $columnsToIncludeInSourceView $counterColumn $imsiColumn $impactedSubscribers $useExclusiveTACs)
+LEFT OUTER JOIN
+    (
+        SELECT DISTINCT
+            RAT,
+            HIER3_CELL_ID,
+            VENDOR,
+            HIERARCHY_3,
+            CELL_ID
+        FROM
+            DIM_E_SGEH_HIER321_CELL
+        WHERE
+            HIER3_CELL_ID = :HIER3_CELL_ID
+        UNION
+        SELECT DISTINCT
+            RAT,
+            HIER3_CELL_ID,
+            VENDOR,
+            HIERARCHY_3,
+            CELL_ID
+        FROM
+            DIM_Z_SGEH_HIER321_CELL
+        WHERE
+            HIER3_CELL_ID = :HIER3_CELL_ID
+    ) AS topology(RAT, HIER3_CELL_ID, VENDOR, HIERARCHY_3, CELL_ID)
+ON
+    (
+        sourceAggView.HIER3_CELL_ID = topology.HIER3_CELL_ID
+    )
+INNER JOIN GROUP_TYPE_E_RAT_VEND_HIER321_CELL groupDef
+ON
+    (
+        rawview.HIER3_CELL_ID = groupDef.HIER3_CELL_ID
+    )
+INNER JOIN dc.DIM_E_RAN_HFA_CATEGORY categoryDesc
+ON
+    (
+        categoryDesc.CATEGORY_ID = sourceAggView.CATEGORY_ID
+    )
+WHERE
+    groupDef.GROUP_NAME = :groupname
+GROUP BY
+    groupDef.GROUP_NAME,
+    sourceAggView.CATEGORY_ID,
+    categoryDesc.CATEGORY_DESC
+ORDER BY
+    Failures DESC

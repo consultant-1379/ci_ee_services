@@ -1,0 +1,61 @@
+{
+    "id": "NETWORK_CAUSE_CODE_ANALYSIS_LTE_CFA_CELL",
+    "title": "Access Area LTE Call Failure Cause Code : Event Analysis",
+    "autoexpand": "5",
+    "categoryId": "NETWORK_CAUSE_CODE_ANALYSIS_LTE",
+    "defaultSortCol": "6",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "HIER321_ID",
+            "width": "50",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "EventID",
+            "width": "50",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "type": "eventType",
+            "header": "Event Type",
+            "width": "250",
+            "datatype": "string"
+        },
+        {
+            "type": "causeCodeId",
+            "header": "Cause Code ID",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "type": "causeCode",
+            "header": "Cause Code Description",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type": "occurences",
+            "header": "Occurrences",
+            "width": "150",
+            "datatype": "int",
+            "drillDownWindowType": "INTERNAL_PROC_INITIAL_CTXT_SETUP,NETWORK_CC_LTE_CFA_CELL_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP,INTERNAL_PROC_ERAB_SETUP,NETWORK_CC_LTE_CFA_CELL_DRILL_ON_INTERNAL_ERAB_CTXT_SETUP,INTERNAL_PROC_RRC_CONN_SETUP,NETWORK_CC_LTE_CFA_CELL_DRILL_ON_INTERNAL_PROC_RRC_CONN_SETUP,INTERNAL_PROC_S1_SIG_CONN_SETUP,NETWORK_CC_LTE_CFA_CELL_DRILL_ON_INTERNAL_PROC_S1_SIG_CONN_SETUP,INTERNAL_PROC_UE_CTXT_RELEASE,NETWORK_CC_LTE_CFA_CELL_DRILL_ON_INTERNAL_PROC_UE_CTXT_RELEASE"
+        },
+        {
+            "type": "impactedSubscribers",
+            "header": "Impacted Subscribers",
+            "width": "180",
+            "datatype": "string"
+        },
+        {
+            "type": "node",
+            "header": "Node",
+            "datatype": "string",
+            "width": "50",
+            "isSystem": "TRUE"
+        }
+    ]
+}

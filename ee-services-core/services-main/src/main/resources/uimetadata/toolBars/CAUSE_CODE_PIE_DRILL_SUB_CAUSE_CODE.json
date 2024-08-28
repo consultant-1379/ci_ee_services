@@ -1,0 +1,14 @@
+{
+  "toolBarType" : "CAUSE_CODE_PIE_DRILL_SUB_CAUSE_CODE",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnHideShowLegend",
+      "name" : "",
+      "style" : "toolbar_hideShowLegendBtn",
+      "tip" : "Click to hide or show the legend on the chart",
+      "isEnabled" : "TRUE",
+      "isToggle" : "TRUE",
+      "eventID" : "SHOW_HIDE_CHART_LEGEND"
+    } ]
+  } ]
+}

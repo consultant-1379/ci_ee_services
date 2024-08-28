@@ -1,0 +1,46 @@
+##
+## WCDMA Call Failure Analysis  - Terminal Group Analysis
+##
+## Velocity Parameter:
+##
+##		$TECH_PACK_LIST the list of tech packs, see TechPackList's javadoc
+##		$EVENT_ID the event id to query for
+##
+##
+## Named PreparedStatement Parameter:
+##     :dateFrom   starting time
+##     :dateTo     ending time
+BEGIN
+select
+	#if($count > 0)
+	  top $count
+	#end
+	RANK() over (ORDER BY Failures DESC) AS Rank,
+	data.GROUP_NAME as 'Group',
+	data.FAILURES as 'Failures',
+	data.IMPACTED_SUBSCRIBERS as 'Impacted Subscribers'
+from
+	(
+		##### fetching the subscriber data for the exclusive tacs in the exclusive tac group
+		select
+			count(*) as 'Failures',
+			tacGroup.GROUP_NAME,
+			EVENT_ID,
+			count(distinct(IMSI))
+		from
+	        #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" ["IMSI", "EVENT_ID", "TAC"])
+			,GROUP_TYPE_E_TAC tacGroup
+		where
+			tacGroup.TAC = rawview.TAC
+        	and EVENT_ID = $EVENT_ID
+		group by
+			GROUP_NAME,
+			EVENT_ID
+			) as data(FAILURES, GROUP_NAME, EVENT_ID, IMPACTED_SUBSCRIBERS)
+	,
+	DIM_E_RAN_CFA_EVENTTYPE
+where
+	data.EVENT_ID = DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID
+order by
+	FAILURES desc
+END

@@ -1,0 +1,55 @@
+#DEFINE_CONSTANTS()
+
+#set($columnsToIncludeInNewView=["HIER3_ID"])
+#set($groupbyColumns=["DOWNLINK","HIER3_ID"])
+#set($notNullColumns=["HIER3_ID"])
+#set($userPlaneTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_USER_PLANE_TPNAME).getRawTablesWithMeasurementTypes())
+
+SELECT
+    hier321Ref.RAT,
+    hier321Ref.VENDOR,
+    hier321Ref.HIERARCHY_3,
+    DL_TP_SAMPLE,
+    UL_TP_SAMPLE,
+    RTT_TERM_SAMPLE,
+    RTT_NET_SAMPLE,
+    PACKET_LOSS_TERM_SAMPLE,
+    PACKET_LOSS_NET_SAMPLE,
+    "Downlink Throughput",
+    "Uplink Throughput",
+    "RTT Terminal",
+    "RTT Network",
+    "Packet Loss Terminal",
+    "Packet Loss Network"
+FROM
+    (
+        SELECT
+            HIER3_ID,
+            #GET_UKPI_SAMPLES_AND_VALUES()
+        FROM
+	        #USERPLANE_KPI_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_PLUS_GROUPBY($userPlaneTableList "rawview" $columns $columnsToIncludeInNewView $notNullColumns $groupbyColumns)
+        GROUP BY
+            HIER3_ID
+    )AS outraw
+INNER JOIN
+		dc.DIM_E_SGEH_HIER321 hier321Ref
+	    ON
+	    (
+        outraw.HIER3_ID =  hier321Ref.HIER3_ID
+	    )
+GROUP BY
+    hier321Ref.RAT,
+    hier321Ref.VENDOR,
+    hier321Ref.HIERARCHY_3,
+    DL_TP_SAMPLE,
+    UL_TP_SAMPLE,
+    RTT_TERM_SAMPLE,
+    RTT_NET_SAMPLE,
+    PACKET_LOSS_TERM_SAMPLE,
+    PACKET_LOSS_NET_SAMPLE,
+    "Downlink Throughput",
+    "Uplink Throughput",
+    "RTT Terminal",
+    "RTT Network",
+    "Packet Loss Terminal",
+    "Packet Loss Network"

@@ -1,0 +1,46 @@
+##=============================================================================
+##
+## Network analysis : Roaming information by country from the raw tables
+##
+##       @author ezhelao
+## Description:
+## 
+##     Get the roaming statistics for each event type by country name
+##
+## Template Parameters:
+##		TECH_PACK_LIST - RAN_CFA_ERR_RAW
+##	
+## Query Parameters:
+## 		:dateFrom
+##      :dateTo
+##=============================================================================
+
+
+
+#DEFINE_CONSTANTS()
+#set($columnsToIncludeInNewView=["EVENT_ID","IMSI", "IMSI_MCC"])
+select
+    EVENT_ID_ALTERNATE_DESC,
+    grouped_result.EVENT_ID ,
+    NO_OF_ERRORS,
+    IMPACTED_SUBSCRIBERS,
+    COUNTRY,
+    '${MCC}'
+
+from
+(select EVENT_ID,
+       count(*) as NO_OF_ERRORS ,
+       count (distinct(IMSI)) as IMPACTED_SUBSCRIBERS
+
+from
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_AND_ROAMING_MCC($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToIncludeInNewView)
+group by
+EVENT_ID
+) as grouped_result
+,
+DIM_E_RAN_CFA_EVENTTYPE
+,
+(select distinct COUNTRY from DIM_E_SGEH_MCCMNC
+    where MCC = '${MCC}'  ) as mccmnc
+
+where grouped_result.EVENT_ID *= DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID

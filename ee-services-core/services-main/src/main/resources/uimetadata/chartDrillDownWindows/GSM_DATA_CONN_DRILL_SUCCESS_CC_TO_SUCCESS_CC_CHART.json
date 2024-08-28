@@ -1,0 +1,7 @@
+{
+  "id" : "GSM_DATA_CONN_DRILL_SUCCESS_CC_TO_SUCCESS_CC_CHART",
+  "drillWindowName" : "Success Cause Code Analysis (GSM)",
+  "url" : "SUBSCRIBER/GSM/DATA_CONNECTION_CAUSE_CODE_ANALYSIS/SUCCESS_CAUSE_CODE_PIE_CHART_IMSI",
+  "drillToolBarType" : "GSM_TOOLBAR_WIZARD_CHART_CAUSE_CODE",
+  "drillType" : "launchChart"
+}

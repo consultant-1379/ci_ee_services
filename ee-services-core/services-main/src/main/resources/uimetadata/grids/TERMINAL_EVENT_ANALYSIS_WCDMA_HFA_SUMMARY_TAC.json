@@ -1,0 +1,54 @@
+{
+    "id": "TERMINAL_EVENT_ANALYSIS_WCDMA_HFA_SUMMARY_TAC",
+    "title": "Terminal Event Analysis - Handover Failure Analysis - WCDMA",
+    "autoexpand": "2",
+    "defaultSortCol": "6",
+    "defaultSortDir": "DESC",
+    "categoryId" : "TERMINAL_EVENT_ANALYSIS_WCDMA_HFA_SUMMARY_TAC",
+    "columns": [
+        {
+            "type" : "tac",
+            "header": "TAC",
+            "width": "100",
+            "datatype": "string",
+            "isHidden" : "TRUE"
+        },
+        {
+            "type" : "manufacturer",
+            "header": "Manufacturer",
+            "width": "130",
+            "datatype": "string"
+        },
+        {
+            "type" : "model",
+            "header": "Model",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "type" : "handoverType",
+            "header": "Handover Type",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "header": "CATEGORY ID",
+            "width": "10",
+            "datatype": "int",
+            "isSystem" : "TRUE"
+        },
+        {
+            "type" : "failures",
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int",
+            "drillDownWindowType": "*,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_TAC_SOHO,Soft\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_TAC_SOHO,Interfrequency\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_TAC_IFHO,IRAT\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_TAC_IRAT,HSDSCH\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_TAC_HSDSCH"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header": "Impacted Subscribers",
+            "width": "140",
+            "datatype": "string"
+        }
+    ]
+}

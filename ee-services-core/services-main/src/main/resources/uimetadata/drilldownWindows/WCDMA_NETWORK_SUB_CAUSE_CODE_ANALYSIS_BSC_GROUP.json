@@ -1,0 +1,26 @@
+{
+  "id" : "WCDMA_NETWORK_SUB_CAUSE_CODE_ANALYSIS_BSC_GROUP",
+  "name" : "Controller Sub-Cause Code Analysis",
+  "url" : "NETWORK/WCDMA_CAUSE_CODE_ANALYSIS/SUB_CAUSE_CODE",
+  "params" : [ {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "causeCode"
+  }, {
+    "id" : "2",
+    "queryParamName" : "causeCodeDescription"
+  }, {
+    "id" : "5",
+    "queryParamName" : "groupname",
+	"isTitleParam": "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR_GROUPING_GRID_WCDMA",
+  "display" : "grid"
+}
+

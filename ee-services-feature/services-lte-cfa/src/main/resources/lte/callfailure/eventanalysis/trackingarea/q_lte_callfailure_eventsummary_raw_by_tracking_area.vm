@@ -1,0 +1,37 @@
+##
+## Author : ECHIMMA
+## LTE Call Failure Tracking Area Event Summary Analysis (Raw)
+##
+## Velocity Parameter: 
+##		
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+
+#set($conditionColumns=["TRAC","CATEGORY_ID"])
+#set($columnsToSelect=["EVENT_ID", "IMSI"])
+
+SELECT 
+	:TRAC as 'Tracking Area',
+	eventDesc.EVENT_ID_DESC as 'Event Type',
+	data.EVENT_ID AS 'Event ID', 
+	FAILURES as 'Failures', 
+	IMPACTED_SUBSCRIBERS as 'Impacted Subscribers'
+FROM 	
+	(	
+		select 
+			count (*),
+			EVENT_ID,
+			count (distinct rawview.IMSI)
+		from 
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTables() "rawview" $conditionColumns $columnsToSelect)
+		group by
+			EVENT_ID
+	) as data(FAILURES, EVENT_ID, IMPACTED_SUBSCRIBERS) 
+	inner join	
+		DIM_E_LTE_CFA_EVENTTYPE eventDesc
+	on(
+		eventDesc.EVENT_ID = data.EVENT_ID
+	)

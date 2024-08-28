@@ -1,0 +1,7 @@
+{
+  "id" : "DRILL_GRID_CHART_SUB_BI_BUSY_HOUR",
+  "drillTargetDisplayId" : "DRILL_GRID_CHART_SUB_BI",
+  "chartClickedURLParam" : "HOUR",
+  "drillToolBarType" : "SUB_BI_DRILL_GRIDS_TOOLBAR",
+  "maxRowsParam" : "ENIQ_EVENTS_SUBBI_COUNT"
+}

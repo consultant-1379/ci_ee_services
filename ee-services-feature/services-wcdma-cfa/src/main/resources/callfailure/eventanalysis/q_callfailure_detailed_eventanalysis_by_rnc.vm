@@ -1,0 +1,59 @@
+##
+## WCDMA Call Failure Analysis RNC Detailed Event Analysis
+##
+## Velocity Parameter:
+##	
+##		$aggregationView the aggregation view to query against	
+##
+##
+## Named PreparedStatement Parameter:
+##
+##	   :TECH_PACK_LIST		tables that should be used in query, see TechPackList javadoc
+##	   :count 	   max number of rows
+##     :dateFrom   starting time
+##     :dateTo     ending time
+BEGIN
+select 
+	#if($count > 0)
+		top $count
+	#end
+	#if($csv == true)
+   	 DATEADD(minute,$tzOffset,rawview.EVENT_TIME)AS 'Event Time',
+   	#else
+   	rawview.EVENT_TIME AS 'Event Time',
+   	#end 
+	rawview.IMSI as IMSI, 
+	rawview.TAC as TAC, 
+	DIM_E_SGEH_TAC.MANUFACTURER as 'Terminal Make', 
+	DIM_E_SGEH_TAC.MARKETING_NAME as 'Terminal Model', 
+	DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC as 'Event Type', 
+	DIM_E_RAN_CFA_PROCEDURE_INDICATOR.PROCEDURE_INDICATOR_DESC as 'Procedure Indicator', 
+	DIM_E_RAN_CFA_EVALUATION_CASE.EVALUATION_CASE_DESC as 'Evaluation Case', 
+	DIM_E_RAN_CFA_EXCEPTION_CLASS.EXCEPTION_CLASS_DESC as 'Exception Class', 
+	DIM_E_RAN_CFA_CAUSE_VALUE.CAUSE_VALUE_DESC as 'Cause Value', 
+	DIM_E_RAN_CFA_EXTENDED_CAUSE_VALUE.EXTENDED_CAUSE_VALUE_DESC as 'Extended Cause Value', 
+	DIM_E_RAN_CFA_SEVERITY_INDICATOR.SEVERITY_INDICATOR_DESC as 'Severity Indicator' 
+from 
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" ["EVENT_TIME", "TAC", "PROCEDURE_INDICATOR", "EVALUATION_CASE", "EXCEPTION_CLASS", "CAUSE_VALUE", "EXTENDED_CAUSE_VALUE", "SEVERITY_INDICATOR", "HIER3_ID", "EVENT_ID", "IMSI"]) 
+	,DIM_E_SGEH_TAC,
+	DIM_E_RAN_CFA_EVENTTYPE,
+	DIM_E_RAN_CFA_PROCEDURE_INDICATOR, 
+	DIM_E_RAN_CFA_EVALUATION_CASE,
+	DIM_E_RAN_CFA_EXCEPTION_CLASS,
+	DIM_E_RAN_CFA_CAUSE_VALUE,
+	DIM_E_RAN_CFA_EXTENDED_CAUSE_VALUE,
+	DIM_E_RAN_CFA_SEVERITY_INDICATOR 
+where 
+	rawview.TAC *= DIM_E_SGEH_TAC.TAC 
+	and rawview.HIER3_ID = :HIER3_ID
+	and rawview.EVENT_ID = :eventID 
+	and rawview.PROCEDURE_INDICATOR *= DIM_E_RAN_CFA_PROCEDURE_INDICATOR.PROCEDURE_INDICATOR 
+	and rawview.EVALUATION_CASE *= DIM_E_RAN_CFA_EVALUATION_CASE.EVALUATION_CASE 
+	and rawview.EXCEPTION_CLASS *= DIM_E_RAN_CFA_EXCEPTION_CLASS.EXCEPTION_CLASS 
+	and rawview.CAUSE_VALUE *= DIM_E_RAN_CFA_CAUSE_VALUE.CAUSE_VALUE 
+	and rawview.EXTENDED_CAUSE_VALUE *= DIM_E_RAN_CFA_EXTENDED_CAUSE_VALUE.EXTENDED_CAUSE_VALUE 
+	and rawview.EVENT_ID *= DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID 
+	and rawview.SEVERITY_INDICATOR *= DIM_E_RAN_CFA_SEVERITY_INDICATOR.SEVERITY_INDICATOR_ID 
+order by 
+	rawview.EVENT_TIME DESC
+END

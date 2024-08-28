@@ -1,0 +1,7 @@
+{
+  "id" : "CS_DRILL_GRID_CHART_SUB_BI_BUSY_DAY",
+  "drillTargetDisplayId" : "CS_DRILL_GRID_CHART_SUB_BI_BUSY_DAY_SUMMARY",
+  "chartClickedURLParam" : "DAY",
+  "drillToolBarType" : "CS_SUB_BI_DRILL_GRIDS_TOOLBAR",
+  "maxRowsParam" : "ENIQ_EVENTS_SUBBI_COUNT"
+}

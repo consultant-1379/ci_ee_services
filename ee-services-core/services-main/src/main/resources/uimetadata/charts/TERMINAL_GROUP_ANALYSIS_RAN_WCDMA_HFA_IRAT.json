@@ -1,0 +1,19 @@
+{
+  "id" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_HFA_IRAT",
+  "title" : "Most IRAT Handover Failures",
+  "ylabel" : "Number of Events",
+  "xlabel" : "Group Name",
+  "secondYAxisID" : "4",
+  "xaxisID" : "2",
+  "items" : [ {
+    "id" : "3",
+    "name" : "IRAT Handover Failures",
+    "color" : "cb5853",
+    "drillDownWindowType": "DRILL_CHART_TERMINAL_GROUP_ANALYSIS_WCDMA_HFA_IRAT"
+  	},
+  	{
+    "id" : "4",
+    "name" : "Impacted Subscribers",
+    "color" : "333986"
+    } ]
+}

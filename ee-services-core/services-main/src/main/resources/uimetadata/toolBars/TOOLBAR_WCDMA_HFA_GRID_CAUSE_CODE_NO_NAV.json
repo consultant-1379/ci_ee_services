@@ -1,0 +1,67 @@
+{
+    "toolBarType": "TOOLBAR_WCDMA_HFA_GRID_CAUSE_CODE_NO_NAV",
+    "panels": [
+        {
+            "toolBarButtons": [
+                {
+                    "id": "btnTime",
+                    "name": "",
+                    "style": "toolbar_timebtn",
+                    "tip": "Click to change Time Constraints",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "TIME"
+                },
+                {
+                    "id": "btnProperties",
+                    "name": "",
+                    "style": "toolbar_propertiesbtn",
+                    "tip": "Click to open selected row in properties window",
+                    "isEnabled": "FALSE",
+                    "isToggle": "FALSE",
+                    "eventID": "PROPERTIES"
+                },
+                {
+                    "id": "btnExport",
+                    "name": "",
+                    "style": "toolbar_exportbtn",
+                    "tip": "Click to export the data to CSV",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "EXPORT"
+                },
+                {
+                    "id": "btnCC",
+                    "name": "",
+                    "style": "ccButton",
+                    "tip": "Click to view a list of all possible WCDMA Handover Failure Cause Codes",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "CAUSE_CODE_TABLE_CC_WCDMA_HFA"
+                },
+                {
+                    "id": "btnSCC",
+                    "name": "",
+                    "style": "sccButton",
+                    "tip": "Click to view a list of all possible WCDMA Handover Failure Sub Cause Codes",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "CAUSE_CODE_TABLE_SCC_WCDMA_HFA"
+                },
+                {
+                    "id" : "btnNav",
+                    "name" : "History",
+                    "style" : "toolbar_viewbtn",
+                    "tip" : "Click to navigate visited windows",
+                    "isEnabled" : "FALSE",
+                    "isVisible" : "FALSE",
+                    "eventID" : "NAVIGATION",
+                    "items" : [ {
+                    "id" : "DUMMY_VALUE",
+                    "name" : "DUMMY_VALUE"
+                    } ]
+                 }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "id": "NETWORK_RAN_LTE_HFA_CELL_PREP_DRILL",
+    "name": "Access Area LTE Handover Failure : Event Analysis",
+    "url": "NETWORK/LTE_HANDOVER_FAILURE_SUBSCRIBER_EVENT_SUMMARY_ANALYSIS/EVENT_ID",
+    "gridDisplayID": "NETWORK_RAN_LTE_HFA_CELL_DET_DRILL_ON_PREP",
+    "needSearchParam": "FALSE",
+    "params": [
+        {
+            "id": "1",
+            "queryParamName": "HIER321_ID"
+        },
+        {
+            "id": "6",
+            "queryParamName": "CATEGORY_ID_2"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

@@ -1,0 +1,20 @@
+{
+  "id" : "SUBSCRIBER_WCDMA_CFA_FAILURE_ANALYSIS_BY_GROUP",
+  "gridDisplayID" : "SUBSCRIBER_WCDMA_CFA_FAILURE_ANALYSIS_BY_GROUP",
+  "url" : "SUBSCRIBER/WCDMA/CALL_FAILURE_EVENT_ANALYSIS/DRILL_DOWN",
+  "params" : [ {
+  	"id" : "4",
+  	"queryParamName" : "eventID"
+  	},
+    {
+    "id" : "5",
+    "queryParamName" : "groupname",
+    "isTitleParam": "TRUE"
+    }
+     ],
+  "style" : "rankingSubscribe",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

@@ -1,0 +1,152 @@
+#DEFINE_CONSTANTS()
+
+#macro(SELECT_FROM_HARD_HANDOVER_TABLES)
+#set($columnsToSelectInHardHandoverTable=["PROCEDURE_INDICATOR","HIER3_CELL_ID_1","THIER3_CELL_ID","THIER321_ID","EVENT_TIME","EVENT_ID", "C_ID_1", "HHO_TARGET_ID_3", "RNC_ID_1", "HHO_TARGET_ID_4"])
+#set($hardHandoverTables=$TECH_PACK_LIST.getSpecificRawTablesWithMeasurementType(["INTER_OUT_HHO"]))
+	select
+		dateformat(EVENT_TIME,'yyyy-MM-dd HH:mm:ss.SSS') AS EVENT_TIME,
+		hfaEventRef.EVENT_ID,
+        hfaEventRef.EVENT_ID_DESC,
+        source_cellRef.CELL_ID AS SOURCE_CELL_ID,
+        (CASE
+			WHEN (data.PROCEDURE_INDICATOR != 7 AND data.PROCEDURE_INDICATOR != 12)
+			THEN target_cellRef_3G.CELL_ID
+			ELSE target_cellRef_2G.HIERARCHY_1
+		END)AS TARGET_CELL_ID,
+		RNC_ID_1 as SOURCE_RNC_ID,
+		HHO_TARGET_ID_4 as TARGET_RNC_ID,
+		'-' as TAC
+	from				
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($hardHandoverTables "data" ["IMSI"] $columnsToSelectInHardHandoverTable)
+	left outer join
+		DIM_E_RAN_HFA_EVENTTYPE hfaEventRef
+	on
+		(data.EVENT_ID = hfaEventRef.EVENT_ID)
+	left outer join
+	(select
+		DISTINCT CID,
+		HIER3_CELL_ID,
+		CELL_ID,
+		HIERARCHY_3
+	from
+		DIM_E_SGEH_HIER321_CELL) as source_cellRef
+	on
+		(data.HIER3_CELL_ID_1 = source_cellRef.HIER3_CELL_ID)
+	left outer join
+  	(select
+   		DISTINCT CID,
+   		HIER3_CELL_ID as CELL_HASH_ID,
+		CELL_ID,
+		HIERARCHY_3
+    from
+    	DIM_E_SGEH_HIER321_CELL
+		)AS target_cellRef_3G
+	on
+		(data.THIER3_CELL_ID = target_cellRef_3G.CELL_HASH_ID)
+	left outer join
+  	(select
+   		DISTINCT ACCESS_AREA_ID,
+   		HIER321_ID as CELL_HASH_ID,
+		HIERARCHY_1,
+		HIERARCHY_3
+    from
+    	DIM_E_SGEH_HIER321
+		)AS target_cellRef_2G
+	on
+		(data.THIER321_ID = target_cellRef_2G.CELL_HASH_ID)
+#end	
+
+#macro(SELECT_FROM_HSCSCH_CELL_CHANGE_TABLES)
+#set($columnsToSelectInCellChangeTable=["EVENT_TIME","EVENT_ID", "C_ID_SOURCE", "C_ID_TARGET", "RNC_ID_SOURCE", "RNC_ID_TARGET"])
+#set($cellChangeTables=$TECH_PACK_LIST.getSpecificRawTablesWithMeasurementType(["SUC_HSDSCH_CELL_CHANGE"]))
+	select
+		dateformat(EVENT_TIME,'yyyy-MM-dd HH:mm:ss.SSS') AS EVENT_TIME,
+		ranSessionEventRef.EVENT_ID,
+        ranSessionEventRef.EVENT_ID_DESC,
+        source_cellRef.CELL_ID AS SOURCE_CELL_ID,
+        target_cellRef.CELL_ID AS TARGET_CELL_ID,
+		RNC_ID_SOURCE as SOURCE_RNC_ID,
+		RNC_ID_TARGET as TARGET_RNC_ID,
+		'-' as TAC
+	from				
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($cellChangeTables "data" ["IMSI"] $columnsToSelectInCellChangeTable)
+	LEFT OUTER JOIN
+            DIM_E_RAN_SESSION_EVENTTYPE ranSessionEventRef
+        ON
+            (
+                data.EVENT_ID = ranSessionEventRef.EVENT_ID)
+        LEFT OUTER JOIN
+            (
+                SELECT DISTINCT
+                    RNC_ID,
+                    rncId
+                FROM
+                    DIM_E_RAN_RNCFUNCTION) AS sourceRnc
+        ON
+            (
+                data.RNC_ID_SOURCE = sourceRnc.rncId)
+        LEFT OUTER JOIN
+            (
+                SELECT DISTINCT
+                    ALTERNATIVE_FDN,
+                    RNC_ID
+                FROM
+                    DIM_E_RAN_RNC) AS source_rncRef
+        ON
+            (
+                source_rncRef.RNC_ID = sourceRnc.RNC_ID )
+        LEFT OUTER JOIN
+            (
+                SELECT DISTINCT
+                    CID,
+                    HIERARCHY_3,
+                    CELL_ID
+                FROM
+                    DIM_E_SGEH_HIER321_CELL) AS source_cellRef
+        ON
+            (
+                data.C_ID_SOURCE = source_cellRef.CID
+            AND source_rncRef.ALTERNATIVE_FDN = source_cellRef.HIERARCHY_3 )
+        LEFT OUTER JOIN
+            (
+                SELECT DISTINCT
+                    RNC_ID,
+                    rncId
+                FROM
+                    DIM_E_RAN_RNCFUNCTION) AS targetRnc
+        ON
+            (
+                data.RNC_ID_SOURCE = targetRnc.rncId)
+        LEFT OUTER JOIN
+            (
+                SELECT DISTINCT
+                    ALTERNATIVE_FDN,
+                    RNC_ID
+                FROM
+                    DIM_E_RAN_RNC) AS target_rncRef
+        ON
+            (
+                targetRnc.RNC_ID = target_rncRef.RNC_ID )
+        LEFT OUTER JOIN
+            (
+                SELECT DISTINCT
+                    CID,
+                    HIERARCHY_3,
+                    CELL_ID
+                FROM
+                    DIM_E_SGEH_HIER321_CELL )AS target_cellRef
+        ON
+            (
+                data.C_ID_TARGET = target_cellRef.CID
+            AND target_rncRef.ALTERNATIVE_FDN = target_cellRef.HIERARCHY_3)
+#end	
+
+
+	select * from (
+		#SELECT_FROM_HARD_HANDOVER_TABLES()
+		union all
+		#SELECT_FROM_HSCSCH_CELL_CHANGE_TABLES()
+	) as raw_data(EVENT_TIME, EVENT_ID, EVENT_ID_DESC, SOURCE_CELL_ID, TARGET_CELL_ID, SOURCE_RNC_ID, TARGET_RNC_ID, TAC)				
+    ORDER BY
+        raw_data.EVENT_TIME DESC
+		

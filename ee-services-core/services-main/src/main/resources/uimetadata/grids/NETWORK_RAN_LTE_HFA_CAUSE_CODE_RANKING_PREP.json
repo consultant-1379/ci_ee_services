@@ -1,0 +1,30 @@
+{
+  "id" : "NETWORK_RAN_LTE_HFA_CAUSE_CODE_RANKING_PREP",
+  "title" : "Cause Code LTE HFA Preparation : Failure Event Ranking",
+  "autoexpand" : "3",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Event Type",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "Cause Code Description",
+    "width" : "400",
+    "datatype" : "string"
+  }, {
+    "header" : "Cause Code ID",
+    "width" : "100",
+    "datatype" : "int",
+    "isSystem": "TRUE"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  } ]
+}
+

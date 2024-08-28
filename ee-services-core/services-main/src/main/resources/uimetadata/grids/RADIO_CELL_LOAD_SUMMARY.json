@@ -1,0 +1,27 @@
+{
+    "id": "RADIO_CELL_LOAD_SUMMARY",
+    "title": "",
+    "autoexpand": "1",
+    "defaultSortCol": "2",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "type": "experience",
+            "header": "Experience",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "type": "samples",
+            "header": "Samples",
+            "width": "60",
+            "datatype": "int"
+        },
+        {
+            "type": "top",
+            "header": "Top 3 Cells",
+            "width": "160",
+            "datatype": "string"
+        }
+    ]
+}

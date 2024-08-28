@@ -1,0 +1,19 @@
+{
+  "id": "NETWORK_RAN_LTE_CFA_BSC_GRP_DRILL_ON_INTERNAL_PROC_UE_CTXT_RELEASE",
+  "name": "Failed Event Analysis",
+  "url": "NETWORK/LTE_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/ENODEB",
+  "gridDisplayID": "RAN_LTE_CFA_IMSI_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_UE_CTXT_RELEASE",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "groupname"
+  }, {
+    "id": "3",
+    "queryParamName": "eventID"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

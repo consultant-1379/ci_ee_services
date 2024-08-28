@@ -1,0 +1,41 @@
+{
+    "id": "DETAIL_TCP_PERFORMANCE",
+    "title": "",
+    "ylabel": "TPut(bps),RTT(ms),Loss(%)",
+    "xlabel": "",
+    "xaxisID": "eventTime",
+    "firstYAxisID": "0,2",
+    "secondYAxisID": "1",
+    "items": [
+        {
+            "id": "throughput",
+            "name": "TCP TPut",
+            "color": "#87888a",
+            "yAxisIndex": "0"
+        },
+        {
+            "id": "setupTimeNetwork",
+            "name": "RTT Net (Gn <-> Server)",
+            "color": "#ef8962",
+            "yAxisIndex": "1"
+        },
+        {
+            "id": "setupTimeTerminal",
+            "name": "RTT Term (Gn <-> Ue)",
+            "color": "#d3ad59",
+            "yAxisIndex": "1"
+        },
+        {
+            "id": "packetLossNetwork",
+            "name": "Loss Net (Server <-> Gn)",
+            "color": "#49acc1",
+            "yAxisIndex": "2"
+        },
+        {
+            "id": "packetLossTerminal",
+            "name": "Loss Term (Gn <-> Ue)",
+            "color": "#a66c99",
+            "yAxisIndex": "2"
+        }
+    ]
+}

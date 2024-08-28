@@ -1,0 +1,25 @@
+{
+  "id" : "ROAMING_BY_OPERATOR_EVENTS",
+  "isChartData" : "TRUE",
+  "title" : "Inbound Roaming by Operator (Event Volume)",
+  "autoexpand" : "1",
+  "defaultSortCol" : "4",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Operator",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Failures",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Event Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Roaming Subscribers",
+    "width" : "120",
+    "datatype" : "int"
+  } ]
+}

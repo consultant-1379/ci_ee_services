@@ -1,0 +1,20 @@
+{
+  "id" : "LTE_CALL_FAILURE_CAUSE_CODE_TABLE_CC",
+  "title" : "LTE Call Failure Cause Codes Table",
+  "noSearchFieldInTitle" : "TRUE",
+  "autoexpand" : "3",
+  "defaultSortCol" : "2",
+  "columns" : [ {
+    "header" : "Event Type",
+    "width" : "220",
+    "datatype" : "string"
+  }, {
+    "header" : "Cause Code",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Cause Code description",
+    "width" : "300",
+    "datatype" : "string"
+  } ]
+}

@@ -1,0 +1,5 @@
+###Query the repdb database to fetch the threshold levels for signalling and coverage
+SELECT 
+Name, 
+CAST(THRESHOLD AS NUMERIC(16,1)) AS Threshold
+FROM THRESHOLDS

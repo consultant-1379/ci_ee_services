@@ -1,0 +1,17 @@
+{
+    "id": "LTE_INITIAL_ERAB_EST_SUCCESS_RATE",
+    "title": "ERAB Establishment Success Rate",
+    "ylabel": "",
+    "xlabel": "",
+    "xaxisID": "",
+    "items": [
+        {
+            "id": "1",
+            "name": "Initial ERAB Est Success Rate",
+            "color": "88A44D",
+            "drillDownWindowType": "NETWORK_EVENT_ANALYSIS_PORTLET",
+            "queryParam": "eventID",
+            "queryParamValue": "0"
+        }
+    ]
+}

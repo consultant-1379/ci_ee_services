@@ -1,0 +1,74 @@
+##
+## WCDMA Call Failure Analysis  - Terminal Analysis
+##
+## Velocity Parameter:
+##	
+##		$TECH_PACK_LIST the list of tech packs, see TechPackList's javadoc	
+##
+##
+## Named PreparedStatement Parameter:
+##     :dateFrom   starting time
+##     :dateTo     ending time
+
+#set ($REESTABLISH_PROCEDURE_INDICATOR = 18)
+#set ($columnsToIncludeInView=["EVENT_ID", "TAC", "PROCEDURE_INDICATOR"])
+
+BEGIN
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	RANK() over (ORDER BY Failures DESC) AS Rank, 
+	raw_data.TAC AS TAC,
+	DIM_E_SGEH_TAC.MANUFACTURER AS Manufacturer, 
+	DIM_E_SGEH_TAC.MARKETING_NAME AS Model, 
+	raw_data.FAILURES AS FAILURES,
+	$EVENT_ID,
+	raw_data.REESTABLISHMENT_FAILURES as 'Re-establishment Failures'
+
+FROM
+    (
+	SELECT 
+		data.TAC,
+		FAILURES,
+		REESTABLISHMENT_FAILURES
+	FROM
+		(	
+			SELECT 
+				TAC,
+				sum(NO_OF_ERRORS) AS FAILURES
+			FROM		
+				$aggregationView aggView
+			WHERE			
+				EVENT_ID = $EVENT_ID
+				and
+				#GET_DATETIME_RANGE()
+			GROUP BY 
+				TAC
+		) AS data(TAC, FAILURES)
+
+		LEFT OUTER JOIN
+		(
+			SELECT 
+				rawview.TAC,
+				COUNT(*) as REESTABLISHMENT_FAILURES
+			FROM 
+				(	SELECT 
+						EVENT_ID,
+						TAC,
+						PROCEDURE_INDICATOR 
+					FROM #REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToIncludeInView)
+				) rawview 
+			WHERE 
+				EVENT_ID = $EVENT_ID AND 
+				PROCEDURE_INDICATOR = $REESTABLISH_PROCEDURE_INDICATOR 
+			GROUP BY 
+				rawview.TAC
+		)AS reestablish_data
+				ON reestablish_data.tac=data.tac
+
+		) raw_data				
+
+LEFT OUTER JOIN DIM_E_SGEH_TAC on (raw_data.TAC = DIM_E_SGEH_TAC.TAC)
+
+END    

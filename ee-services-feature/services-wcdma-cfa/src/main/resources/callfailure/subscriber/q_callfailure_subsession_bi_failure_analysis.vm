@@ -1,0 +1,25 @@
+##
+## WCDMA Call Failure Analysis  - Subscriber Overview, Failed Events Analysis
+##
+## Velocity Parameter:
+##	
+##		$TECH_PACK_LIST the list of tech packs, see TechPackList's javadoc	
+##
+##
+## Named PreparedStatement Parameter:
+##	   :IMSI	   imsi to search for
+##     :dateFrom   starting time
+##     :dateTo     ending time
+select 
+	count(*) as FAILURES,	
+	DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC
+from 	
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" ["EVENT_ID", "IMSI"])
+	,DIM_E_RAN_CFA_EVENTTYPE 
+where 
+	IMSI = :IMSI
+	and rawview.EVENT_ID = DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID
+group by
+	DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC
+order by
+	DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC

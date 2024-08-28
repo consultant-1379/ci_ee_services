@@ -1,0 +1,12 @@
+(
+	select
+		#CONVERT_TO_IS_NULL_FUNC_STRING($listOfErrTableAlias $joinColumns)
+		#CONVERT_TO_IS_NULL_FUNC_STRING($listOfErrTableAlias $commonColumns)
+		#GET_COLUMNS_NO_COMMA_TRAILING($listOfErrorColumns)
+	from
+		$combinedErrorTable
+)as $errView(
+	#GET_COLUMNS($joinColumns)
+	#GET_COLUMNS($commonColumns)
+	#GET_COLUMNS_NO_COMMA_TRAILING($listOfErrorColumns)
+)

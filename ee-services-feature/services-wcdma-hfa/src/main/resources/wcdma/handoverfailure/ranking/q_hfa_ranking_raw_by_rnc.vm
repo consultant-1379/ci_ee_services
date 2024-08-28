@@ -1,0 +1,40 @@
+#set($columnsToIncludeInSourceView=["HIER3_ID"])
+#set($counterColumn="NO_OF_ERRORS")
+#set($useExclusiveTACs="no")
+
+SELECT
+    #if($count > 0) top $count #end RANK() over (ORDER BY Failures DESC) AS rank,
+    DIM_E_SGEH_RAT.RAT_DESC                                              AS 'RAT',
+    topology.RAT                                                         AS 'RAT ID',
+    topology.VENDOR                                                      AS 'RAN Vendor',
+    topology.HIERARCHY_3                                                 AS 'Controller',
+    sourceRawView.NO_OF_ERRORS                                           AS 'Failures'
+FROM
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_AGGREGATE($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "sourceRawView" $columnsToIncludeInSourceView $counterColumn $useExclusiveTACs)
+LEFT OUTER JOIN
+    (
+        SELECT DISTINCT
+            RAT,
+            HIER3_ID,
+            VENDOR,
+            HIERARCHY_3
+        FROM
+            DIM_E_SGEH_HIER321_CELL
+        UNION
+        SELECT DISTINCT
+            RAT,
+            HIER3_ID,
+            VENDOR,
+            HIERARCHY_3
+        FROM
+            DIM_Z_SGEH_HIER321_CELL
+    ) AS topology(RAT, HIER3_ID, VENDOR, HIERARCHY_3)
+ON
+    (
+        sourceRawView.HIER3_ID = topology.HIER3_ID
+    )
+INNER JOIN DIM_E_SGEH_RAT
+ON
+    (
+        topology.RAT = DIM_E_SGEH_RAT.RAT
+    )

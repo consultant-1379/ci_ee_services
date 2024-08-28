@@ -1,0 +1,25 @@
+{
+  "id": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_S1_SIG_CONN_SETUP_BSC_GROUP_DRILL",
+  "name": "Controller Group LTE Call Failure Cause Code : Event Analysis",
+  "url": "NETWORK/LTE_CFA_CAUSE_CODE_ANALYSIS/PIE_CHART_CAUSE_CODE_ANALYSIS_DRILLDOWN",
+  "params": [ {
+    "id": "7",
+    "queryParamName": "groupname",
+    "isTitleParam": "TRUE"
+  }, {
+    "id": "5",
+    "queryParamName": "eventID"
+  }, {
+    "id" : "1",
+    "queryParamName" : "causeCode"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

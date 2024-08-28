@@ -1,0 +1,99 @@
+##
+## WCDMA Handover Failure Analysis RNC Detailed Event Analysis
+##
+## Velocity Parameter:
+##
+##		$aggregationView the aggregation view to query against
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom			starting time
+##     :dateTo				ending time
+##	   :TECH_PACK_LIST		tables that should be used in query, see TechPackList javadoc
+##	   :THIER3_CELL_ID		target cell hash id
+##     :CATEGORY_ID			handover category id
+##	   :count				max number of rows
+
+#set($columnsToSelect=["DATETIME_ID","EVENT_TIME","IMSI","CATEGORY_ID","TAC","EVENT_ID","HIER3_CELL_ID","HIER3_ID","LAC","RAC","EVENT_TRIGGER","THIER3_ID","THIER3_CELL_ID","CAUSE_VALUE","SUB_CAUSE_VALUE","HANDOVER_TYPE","SOURCE_CONNECTION_PROP","SOURCE_CONF","CPICH_EC_NO_EVAL_CELL","RSCP_EVAL_CELL","SRC_C_ID_1_SS_HSDSCH_CELL","UE_CONTEXT","RNC_MODULE_ID","IMSI_MCC","IMSI_MNC","IMEISV","SCANNER_ID","NE_VERSION"])
+#set($conditionColumns=["THIER3_CELL_ID"])
+#set($useExclusiveTACs="no")
+BEGIN
+select
+	#if($count > 0)
+		top $count
+	#end
+	#if($csv == true)
+   	      DATEADD(minute,$tzOffset,rawview.EVENT_TIME)AS 'Event Time',
+   	    #else
+   	      rawview.EVENT_TIME AS 'Event Time',
+   	    #end 
+
+	rawView.IMSI,
+	rawView.TAC,                                              ## hidden
+	DIM_E_SGEH_TAC.MANUFACTURER as 'Terminal Make',
+	DIM_E_SGEH_TAC.MARKETING_NAME as 'Terminal Model',
+	DIM_E_RAN_HFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC as 'Event Type',
+	DIM_E_RAN_HFA_EVENT_TRIGGER.EVENT_TRIGGER_DESC as 'Event Trigger',
+	hier321_e_cell_source.CELL_ID as 'Source Cell',
+	hier321_e_cell_source.RAT as 'Source RAT ID',         					 ## hidden
+	hier321_e_cell_source.VENDOR as 'Source RAN Vendor',  					 ## hidden
+	hier321_e_cell_source.HIERARCHY_3 as 'Source RNC',
+	rawView.LAC as 'Source LAC',
+	rawView.RAC as 'Source RAC',
+	isnull(hier321_e_cell_target.CELL_ID, hier321_z_cell_target.CELL_ID) AS 'Target Cell',
+    isnull(hier321_e_cell_target.RAT, hier321_z_cell_target.RAT) as 'Target RAT ID',             			  ## hidden
+	isnull(hier321_e_cell_target.VENDOR, hier321_z_cell_target.VENDOR) as 'Target RAN Vendor',   			  ## hidden
+	isnull(hier321_e_cell_target.HIERARCHY_3, hier321_z_cell_target.HIERARCHY_3) AS 'Target RNC', ## hidden for target cell
+	DIM_E_RAN_HFA_CAUSE_CODE_VALUE.CAUSE_VALUE_DESC as 'Cause Value',
+	DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE.SUB_CAUSE_VALUE_DESC as 'Sub Cause Value',
+	DIM_E_RAN_HFA_HANDOVER_TYPE.HANDOVER_TYPE_DESC as 'Handover Type',
+	rawView.SOURCE_CONNECTION_PROP as 'Source Connection Prop',
+	rawView.SOURCE_CONF as 'Source Conf',
+	ecno_source.ECNO_DBM AS 'CPICH_EC_NO_EVAL_CELL',
+    rscp_source.RSCP_DBM AS 'RSCP_EVAL_CELL',
+	rawView.SRC_C_ID_1_SS_HSDSCH_CELL,
+	rawView.UE_CONTEXT,                ## hidden
+	rawView.RNC_MODULE_ID,             ## hidden
+	rawView.IMSI_MCC,                  ## hidden
+	rawView.IMSI_MNC,                  ## hidden
+	rawView.IMEISV,                    ## hidden
+	rawView.SCANNER_ID,                ## hidden
+	rawView.NE_VERSION                 ## hidden
+from
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_CONDITIONED($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "rawView" $columnsToSelect $conditionColumns $useExclusiveTACs)
+## left outer joins
+LEFT OUTER JOIN
+    dc.DIM_E_RAN_RSCP_MAPPING rscp_source
+ON
+    ( rawview.RSCP_EVAL_CELL = rscp_source.RSCP )
+LEFT OUTER JOIN
+    dc.DIM_E_RAN_ECNO_MAPPING ecno_source
+ON
+    ( rawview.CPICH_EC_NO_EVAL_CELL = ecno_source.ECNO )
+left outer join DIM_E_SGEH_TAC
+    on rawView.TAC = DIM_E_SGEH_TAC.TAC
+left outer join DIM_E_SGEH_HIER321_CELL hier321_e_cell_source
+    on rawView.HIER3_CELL_ID = hier321_e_cell_source.HIER3_CELL_ID
+left outer join DIM_E_SGEH_HIER321_CELL hier321_e_cell_target
+    on rawView.THIER3_CELL_ID = hier321_e_cell_target.HIER3_CELL_ID
+left outer join DIM_Z_SGEH_HIER321_CELL hier321_z_cell_target
+    on rawView.THIER3_CELL_ID = hier321_z_cell_target.HIER3_CELL_ID
+left outer join DIM_E_RAN_HFA_EVENTTYPE
+    on rawView.EVENT_ID = DIM_E_RAN_HFA_EVENTTYPE.EVENT_ID
+left outer join DIM_E_RAN_HFA_EVENT_TRIGGER
+    on rawView.EVENT_TRIGGER = DIM_E_RAN_HFA_EVENT_TRIGGER.EVENT_TRIGGER
+left outer join DIM_E_RAN_HFA_CAUSE_CODE_VALUE
+    on (rawView.CAUSE_VALUE = DIM_E_RAN_HFA_CAUSE_CODE_VALUE.CAUSE_VALUE
+    and rawView.EVENT_ID = DIM_E_RAN_HFA_CAUSE_CODE_VALUE.EVENT_ID)
+left outer join DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE
+    on (rawView.SUB_CAUSE_VALUE = DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE.SUB_CAUSE_VALUE
+    and rawView.EVENT_ID = DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE.EVENT_ID)
+left outer join DIM_E_RAN_HFA_HANDOVER_TYPE
+    on (rawView.HANDOVER_TYPE = DIM_E_RAN_HFA_HANDOVER_TYPE.HANDOVER_TYPE)
+## conditions based on parameters
+where
+	rawView.CATEGORY_ID = :categoryId
+order by
+	rawView.EVENT_TIME
+END

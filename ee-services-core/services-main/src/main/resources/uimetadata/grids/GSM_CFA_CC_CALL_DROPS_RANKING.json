@@ -1,0 +1,25 @@
+{
+  "id" : "GSM_CFA_CC_CALL_DROPS_RANKING",
+  "title" : "Cause Code GSM Call Drops : Failure Event Ranking",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "autoexpand" : "2",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Cause Value",
+    "width" : "280",
+    "datatype" : "string",
+    "drillDownWindowType" : "GSM_CFA_SCC_SUMMARY_EVENT_ANALYSIS"
+  }, {
+    "header" : "Cause Code ID",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "70",
+    "datatype" : "int"   
+  }]
+}

@@ -1,0 +1,8 @@
+{
+  "id" : "WCDMA_DRILL_CHART_CAUSE_CODE_FROM_PIE_SLICE",
+  "nameForTaskBar" : "Sub Cause Code Analysis (WCDMA Call Failure)",
+  "drillWindowName" : "Sub Cause Code Analysis (WCDMA Call Failure)",
+  "url": "NETWORK/WCDMA_CAUSE_CODE_ANALYSIS/SUB_CAUSE_CODE",
+  "drillToolBarType" : "CAUSE_CODE_PIE_DRILL_SUB_CAUSE_CODE",
+  "drillType" : "launchChart"
+}

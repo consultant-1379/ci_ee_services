@@ -1,0 +1,44 @@
+{
+  "id" : "CS_BSC_BLOCKED_RANKING",
+  "title" : "BSC Ranking - Blocked Voice Calls",
+  "autoexpand" : "6",
+  "defaultSortCol" : "2",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "HIER3_ID",
+    "width" : "70",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "RAT",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "RAT ID",
+    "width" : "50",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "BSC",
+    "width" : "100",
+    "datatype" : "string",
+    "launchWindowType" : "CS_NETWORK_EVENT_ANALYSIS_BSC"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

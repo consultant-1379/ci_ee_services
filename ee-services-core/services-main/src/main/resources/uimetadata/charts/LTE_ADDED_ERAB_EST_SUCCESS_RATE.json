@@ -1,0 +1,17 @@
+{
+    "id": "LTE_ADDED_ERAB_EST_SUCCESS_RATE",
+    "title": "",
+    "ylabel": "",
+    "xlabel": "",
+    "xaxisID": "",
+    "items": [
+        {
+            "id": "2",
+            "name": "Added ERAB Est Success Rate",
+            "color": "88A44D",
+            "drillDownWindowType": "NETWORK_EVENT_ANALYSIS_PORTLET",
+            "queryParam": "eventID",
+            "queryParamValue": "1"
+        }
+    ]
+}

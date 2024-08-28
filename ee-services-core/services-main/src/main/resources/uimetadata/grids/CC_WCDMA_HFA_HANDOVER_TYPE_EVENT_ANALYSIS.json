@@ -1,0 +1,28 @@
+{
+    "id": "CC_WCDMA_HFA_HANDOVER_TYPE_EVENT_ANALYSIS",
+    "title": "Sub Cause Code Analysis for WCDMA Handover Failure",
+    "autoexpand": "1",
+    "defaultSortCol": "3",
+    "defaultSortDir": "ASC",
+    "columns": [{
+            "header": "Sub Cause Code Id",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "Sub Cause Code",
+            "width": "280",
+            "datatype": "string"
+        },
+        {
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int"
+        },
+        {
+            "header": "Impacted Subscribers",
+            "width": "140",
+            "datatype": "string"
+        }
+    ]
+}

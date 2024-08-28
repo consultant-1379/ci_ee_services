@@ -1,0 +1,56 @@
+{
+    "toolBarType": "CS_TOOLBAR_WIZARD_CHART_CAUSE_CODE",
+    "panels": [
+        {
+            "toolBarButtons": [
+                {
+                    "id": "btnTime",
+                    "name": "",
+                    "style": "toolbar_timebtn",
+                    "tip": "Click to change Time Constraints",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "TIME"
+                },
+                {
+                    "id": "btnRefresh",
+                    "name": "",
+                    "style": "toolbar_refreshbtn",
+                    "tip": "Refresh",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "REFRESH"
+                },
+                {
+                    "id": "btnHideShowLegend",
+                    "name": "",
+                    "style": "toolbar_hideShowLegendBtn",
+                    "tip": "Click to hide or show the legend on the chart",
+                    "isEnabled": "TRUE",
+                    "isToggle": "TRUE",
+                    "eventID": "SHOW_HIDE_CHART_LEGEND"
+                },
+                {
+                    "id": "btnCC_CS",
+                    "name": "",
+                    "style": "ccButton",
+                    "tip": "Click to view a list of all possible cause codes",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "CS_CAUSE_CODE_TABLE_CC"
+                },
+                {
+                    "id": "btnSCC_CS",
+                    "name": "",
+                    "style": "sccButton",
+                    "tip": "Click to view a list of all possible sub cause codes",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "CS_CAUSE_CODE_TABLE_SCC"
+                }
+            ]
+        }
+    ]
+}
+
+

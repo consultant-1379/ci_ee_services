@@ -1,0 +1,69 @@
+#DEFINE_CONSTANTS()
+#set($columnsToSelect=[$RAT,$VENDOR,$BSC,$CELL])
+#set($columnsToDisplay=[$RAT,$VENDOR,$BSC,$CELL])
+#if(${type}==$TYPE_BSC)
+#set($conditionColumns=[$RAT,$VENDOR,$BSC])
+#elseif(${type}==$TYPE_CELL)
+#set($conditionColumns=[$RAT,$VENDOR,$BSC,$CELL])
+#end
+
+
+#set($err_sucTableColumns=[$RAT,$VENDOR,$BSC,$CELL,"EVENT_ID","count(*)","SUM(CASE WHEN (DEACTIVATION_TRIGGER != 1) THEN 1 ELSE 0 END)"," SUM(PAGING_ATTEMPTS)"])
+#set($err_sucTableGroupbyColumns=[$RAT,$VENDOR,$BSC,$CELL,"EVENT_ID"])
+
+
+SELECT
+	cellRef.CELL_ID AS CELL_ID,
+	total.RAT AS RAT,
+    total.VENDOR AS VENDOR,
+    total.HIERARCHY_3 AS HIERARCHY_3,
+    total.HIERARCHY_1 AS HIERARCHY_1,
+	#GET_DRILLDOWN_KPI_VALUES()
+FROM
+(
+SELECT
+	#GET_NOT_NULL_COLUMN (["suc","err"] $columnsToDisplay)
+	isnull( suc.EVENT_ID, err.EVENT_ID) AS EVENT_ID,
+	SUM(NO_OF_ERRORS)                   AS NO_OF_ERRORS,
+    SUM(NO_OF_SUCCESSES)                AS NO_OF_SUCCESSES,
+    SUM(err.NO_OF_NET_INIT_DEACTIVATES) AS NO_OF_NET_INIT_DEACTIVATES_ERR,
+    SUM(suc.NO_OF_NET_INIT_DEACTIVATES) AS NO_OF_NET_INIT_DEACTIVATES_SUC,
+    SUM(err.NO_OF_PAGING_ATTEMPTS)      AS NO_OF_PAGING_ATTEMPTS_ERR,
+    SUM(suc.NO_OF_PAGING_ATTEMPTS)      AS NO_OF_PAGING_ATTEMPTS_SUC
+from    
+    #CP_KPI_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_PLUS_GROUPBY($TECH_PACK_LIST.getAllRawErrTables() "err" $conditionColumns $err_sucTableColumns false $err_sucTableGroupbyColumns)  	
+    (
+        
+        #GET_COLUMNS($columnsToSelect)
+        EVENT_ID,                        
+        NO_OF_ERRORS,
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    )
+    full outer join        
+    #CP_KPI_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS_PLUS_GROUPBY($TECH_PACK_LIST.getAllRawSucTables() "suc" $conditionColumns $err_sucTableColumns false $err_sucTableGroupbyColumns)
+    (
+        
+        #GET_COLUMNS($columnsToSelect)
+        EVENT_ID,                        
+        NO_OF_SUCCESSES,        
+        NO_OF_NET_INIT_DEACTIVATES,
+        NO_OF_PAGING_ATTEMPTS
+    )
+    on (
+        #GET_JOIN("err" "suc" ["EVENT_ID"])
+        and #GET_JOIN("err" "suc" $columnsToSelect)
+    )
+	GROUP BY
+		#GET_COLUMNS($columnsToDisplay)
+		EVENT_ID
+)AS total
+INNER JOIN
+	 dc.DIM_E_SGEH_HIER321_CELL cellRef
+	  ON
+	  (
+		#GET_JOIN("total" "cellRef" $columnsToDisplay)
+	  )
+group by
+    #GET_COLUMNS($columnsToDisplay)
+    CELL_ID

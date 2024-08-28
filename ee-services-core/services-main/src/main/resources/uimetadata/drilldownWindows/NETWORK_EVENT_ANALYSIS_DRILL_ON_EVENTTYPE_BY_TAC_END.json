@@ -1,0 +1,31 @@
+{
+  "id" : "NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_TAC_END",
+  "gridDisplayID" : "NETWORK_EVENT_ANALYSIS_ELEMENTS",
+  "name" : "TAC Event Analysis",
+  "url" : "NETWORK/EVENT_ANALYSIS",
+  "needSearchParam" : "FALSE",
+  "params" : [ {
+    "id" : "ERR",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "TAC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {	
+  	"id" : "true",
+	"queryParamName" : "dataTieredDelay",
+	"isFixedVal" : "TRUE"
+  }, {
+    "id" : "3",
+    "queryParamName" : "tac"
+  }, {
+    "id" : "4",
+    "queryParamName" : "eventID"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

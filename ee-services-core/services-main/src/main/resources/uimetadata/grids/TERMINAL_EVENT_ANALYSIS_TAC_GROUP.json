@@ -1,0 +1,87 @@
+{
+  "id" : "TERMINAL_EVENT_ANALYSIS_TAC_GROUP",
+  "title" : "Terminal Event Analysis",
+  "autoexpand" : "3",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Terminal Group",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "EventID",
+    "width" : "50",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "130",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int",
+    "drillDownWindowType" : "TERMINAL_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Success Ratio",
+    "width" : "100",
+    "datatype" : "float",
+    "drillDownWindowType" : "TERMINAL_EVENT_ANALYSIS_GROUP_DRILL_ON_EVENTTYPE"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "int"
+  }, {
+    "header" : "Bearer Count",
+    "width" : "100",
+    "datatype" : "float",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Downlink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float",
+    "drillDownWindowType" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_TERMINAL_GROUP_DL_TERMINAL_TAB",
+    "isHidden" : "TRUE",
+	"licenseCXC" : "CXC4011159"
+  }, {
+    "header" : "Downlink Throughput (Mb/s)",
+    "width" : "150",
+    "datatype" : "float",
+    "isHidden" : "TRUE",
+	"licenseCXC" : "CXC4011159"
+  }, {
+    "header" : "Downlink Avg Bearer Volume (KB)",
+    "width" : "200",
+    "datatype" : "float",
+    "isHidden" : "TRUE",
+	"licenseCXC" : "CXC4011159"
+  }, {
+    "header" : "Uplink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float",
+    "drillDownWindowType" : "EVENT_ANALYSIS_DRILL_ON_DATAVOLUME_BY_TERMINAL_GROUP_UL_TERMINAL_TAB",
+    "isHidden" : "TRUE",
+	"licenseCXC" : "CXC4011159"
+  }, {
+    "header" : "Uplink Throughput (Mb/s)",
+    "width" : "150",
+    "datatype" : "float",
+    "isHidden" : "TRUE",
+	"licenseCXC" : "CXC4011159"
+  }, {
+    "header" : "Uplink Avg Bearer Volume (KB)",
+    "width" : "200",
+    "datatype" : "float",
+    "isHidden" : "TRUE",
+	"licenseCXC" : "CXC4011159"
+  } ]
+}

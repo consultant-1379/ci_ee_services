@@ -1,0 +1,33 @@
+{
+  "id" : "TERMINAL_GA_HIGHEST_DATAVOLUME_SUMMARY",
+  "isChartData" : "TRUE",
+  "title" : "Group Analysis - Highest Data Volume",
+  "autoexpand" : "2",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "Groupname",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Total DownLink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Total UpLink Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Total Data Vol (MB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Total Bearer Count",
+    "width" : "100",
+    "datatype" : "float"
+  } ]
+}

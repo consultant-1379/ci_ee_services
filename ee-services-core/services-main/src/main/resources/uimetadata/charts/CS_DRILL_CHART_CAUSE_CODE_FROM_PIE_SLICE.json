@@ -1,0 +1,41 @@
+{
+  "id" : "CS_DRILL_CHART_CAUSE_CODE_FROM_PIE_SLICE",
+  "title" : "Fault Code Analysis Voice",
+  "ylabel" : "Number of Events",
+  "xlabel" : "Group Name",
+  "secondYAxisID" : "5",
+  "xaxisID" : "3",
+  "items" : [ {
+    "id" : "1",
+    "name" : "Internal Cause Code ID",
+    "color" : "333986",
+    "queryParam" : "internalCauseCode",
+    "displayInTooltip" : "TRUE"
+  }, {
+    "id" : "2",
+    "name" : "Fault Code ID",
+    "color" : "34fff4",
+    "queryParam" : "faultCode",
+    "isLegendPrefix" : "TRUE",
+    "displayInTooltip" : "TRUE"
+  }, {
+    "id" : "3",
+    "name" : "Fault Code Desc",
+    "color" : "2200FF"
+  }, {
+    "id" : "4",
+    "name" : "What Next Text",
+    "color" : "3da5a4"
+  }, {
+    "id" : "5",
+    "name" : "Number of Failures",
+    "color" : "1100FF",
+    "displayInTooltip" : "TRUE",
+    "drillDownWindowType" : "CS_NETWORK_CAUSE_CODE_ANALYSIS_FROM_SUBPIE"
+  }, {
+    "id" : "6",
+    "name" : "Impacted Subscribers",
+    "color" : "5400FF",
+    "displayInTooltip" : "TRUE"
+  } ]
+}

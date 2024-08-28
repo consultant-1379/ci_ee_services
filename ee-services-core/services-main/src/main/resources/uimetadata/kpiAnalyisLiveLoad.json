@@ -1,0 +1,10 @@
+{
+    "KpiAnalysisLaunchLiveLoad": [
+        {
+            "rncRoot": "BSC",
+            "cellsRoot": "SBR_CELL",
+            "rncLiveLoadUrl": "LIVELOAD/BSC",
+            "cellLiveLoadUrl": "LIVELOAD/SBR_CELL"
+        }
+    ]
+}

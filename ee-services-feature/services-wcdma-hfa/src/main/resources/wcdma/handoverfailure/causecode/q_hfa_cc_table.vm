@@ -1,0 +1,27 @@
+##=============================================================================
+##
+## Cause code query returning all cause code/event id pairs (and descriptions)
+## for the wcdma hfa cause code table.
+##
+##=============================================================================
+SELECT
+    CAUSE_VALUE,
+    DIM_E_RAN_HFA_CAUSE_CODE_VALUE.EVENT_ID,
+    EVENT_ID_DESC,
+    CAUSE_VALUE_DESC
+FROM
+    DIM_E_RAN_HFA_CAUSE_CODE_VALUE
+LEFT OUTER JOIN
+    (
+        SELECT
+            EVENT_ID,
+            EVENT_ID_DESC
+        FROM
+            DIM_E_RAN_HFA_EVENTTYPE
+    ) AS eventType
+ON
+    (
+        DIM_E_RAN_HFA_CAUSE_CODE_VALUE.EVENT_ID = eventType.EVENT_ID
+    )
+ORDER BY
+    CAUSE_VALUE

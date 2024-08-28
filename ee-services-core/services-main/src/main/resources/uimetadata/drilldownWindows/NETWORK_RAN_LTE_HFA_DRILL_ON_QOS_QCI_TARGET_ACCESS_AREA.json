@@ -1,0 +1,21 @@
+{
+  "id": "NETWORK_RAN_LTE_HFA_DRILL_ON_QOS_QCI_TARGET_ACCESS_AREA",
+  "name": "LTE Handover Failure : QOS Statistics Analysis",
+  "url": "NETWORK/LTE_HFA_QOS_SUMMARY_ANALYSIS/ECELL",
+  "gridDisplayID": "NETWORK_RAN_LTE_HFA_QOS_QCI_SUMM_CELL_DRILL",
+  "needSearchParam": "FALSE",
+   "searchValFromCol" : "19",
+  "params": [ {
+    "id": "19",
+    "queryParamName": "node"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

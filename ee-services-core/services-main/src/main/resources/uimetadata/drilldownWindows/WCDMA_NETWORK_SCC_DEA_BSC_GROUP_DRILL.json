@@ -1,0 +1,36 @@
+{
+  "id" : "WCDMA_NETWORK_SCC_DEA_BSC_GROUP_DRILL",
+  "name" : "Controller SCC analysis",
+  "url" : "NETWORK/WCDMA_CAUSE_CODE_ANALYSIS/DETAIL_SUB_CAUSE_CODE_GRID",
+  "params" : [ {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "Cause Code ",
+    "isFixedVal" : "TRUE",
+    "queryParamName" : "causeCodeTitleString",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "5",
+    "queryParamName" : "causeCode",
+    "isTitleParam" : "TRUE"
+  }, {
+  	"id" : "Sub Cause Code ",
+  	"queryParamName" : "subcauseCodeTitleString",
+    "isFixedVal" : "TRUE",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "subCauseCode",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "6",
+    "queryParamName" : "groupname"
+  }],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR_GROUPING_GRID_WCDMA",
+  "display" : "grid"
+}

@@ -1,0 +1,21 @@
+{
+    "id": "NETWORK_DATAVOL_ANALYSIS_UPLINK",
+    "title": "Network Data Volume Uplink",
+    "xlabel": "Timestamp",
+    "ylabel": "Data Volume (MB)",
+    "secondYAxisID": "4",
+    "xaxisID": "1",
+    "zoomableXAxis": "TRUE",
+    "items": [
+        {
+            "id": "3",
+            "name": "Uplink (MB)",
+            "color": "00625f"
+        },
+        {
+            "id": "4",
+            "name": "Number of Bearers",
+            "color": "f08a00"
+        }
+    ]
+}

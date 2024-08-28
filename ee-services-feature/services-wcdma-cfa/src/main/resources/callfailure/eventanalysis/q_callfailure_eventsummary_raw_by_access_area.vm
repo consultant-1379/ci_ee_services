@@ -1,0 +1,61 @@
+##
+## WCDMA Call Failure Analysis Access Area Event Summary
+##
+## Velocity Parameter: 
+##		rncId:   rncId
+##		cell id:   cell id
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+#set($columnsToSelect=["HIER3_CELL_ID, EVENT_ID, IMSI"])
+
+SELECT 
+	#if($count > 0)
+	  top $count
+	#end
+	VENDOR AS 'RAN Vendor', 
+	HIERARCHY_3 AS 'Controller', 
+	EVENT_ID_ALTERNATE_DESC As 'Event Type', 
+	Failures, 
+	IMPACTED_SUBSCRIBERS AS 'Impacted Subscriber',
+	CELL_ID,
+	data.HIER3_CELL_ID AS HIER3_CELL_ID,
+	data.EVENT_ID AS 'Event ID'
+	,NULL as 'Failure Ratio (%)'
+
+FROM
+
+	
+		(	
+			select 
+				count (*) as failures,
+				HIER3_CELL_ID,
+				EVENT_ID,
+				count (distinct rawview.IMSI)
+			from 
+				#REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToSelect)
+			where 
+				HIER3_CELL_ID = :HIER3_CELL_ID
+			group by
+				HIER3_CELL_ID,
+				EVENT_ID
+		) as data(FAILURES, HIER3_CELL_ID, EVENT_ID, IMPACTED_SUBSCRIBERS)
+
+left outer join
+(
+	select distinct VENDOR, HIERARCHY_3, HIER3_CELL_ID, CELL_ID from DIM_E_SGEH_HIER321_CELL
+	where RAT=1
+) 
+as topology(VENDOR, HIERARCHY_3, HIER3_CELL_ID, CELL_ID) 
+on 
+(
+	topology.HIER3_CELL_ID=data.HIER3_CELL_ID
+) 
+left outer join DIM_E_RAN_CFA_EVENTTYPE EVENT_ID_ALTERNATE_DESC 
+on (
+	EVENT_ID_ALTERNATE_DESC.EVENT_ID=data.EVENT_ID
+)
+	

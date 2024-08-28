@@ -1,0 +1,61 @@
+{
+    "id": "NETWORK_RAN_LTE_HFA_SOURCE_CELL_RANKING_PREP",
+    "title": "Source Access Area LTE Handover Failure Preparation: Failure Event Ranking",
+    "defaultSortCol": "3",
+    "defaultSortDir": "ASC",
+    "autoexpand": "6",
+	"categoryId" : "NETWORK_RAN_LTE_HFA_SOURCE_CELL_RANKING",
+    "columns": [
+        {
+            "header": "HIER321_ID",
+            "width": "50",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Category ID",
+            "width": "50",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "type" : "rank",
+            "header": "Rank",
+            "width": "50",
+            "datatype": "int"
+        },
+        {
+            "type" : "ranVendor",
+            "header": "RAN Vendor",
+            "width": "100",
+            "datatype": "string",
+    		"isHidden" : "TRUE"
+        },
+        {
+            "type" : "controller",
+            "header": "Controller",
+            "width": "300",
+            "datatype": "string"
+        },
+        {
+            "type" : "srcAccessArea",
+            "header": "Source Access Area",
+            "width": "150",
+            "datatype": "string",
+            "drillDownLicenseCXC" : "CXC4010927",
+            "launchWindowType": "NETWORK_SOURCE_CELL_RANKING_DRILL_ON_RAN_LTE_HFA_FAILURE"
+        },
+        {
+            "type" : "failures",
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int"
+        },
+        {
+            "header": "RAT Description",
+            "width": "50",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        }
+    ]
+}

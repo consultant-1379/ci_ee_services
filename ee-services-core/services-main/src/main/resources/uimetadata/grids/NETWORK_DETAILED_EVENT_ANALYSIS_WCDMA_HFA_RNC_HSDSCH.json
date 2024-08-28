@@ -1,0 +1,247 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_RNC_HSDSCH",
+    "title": "Failed Event Analysis",
+    "autoexpand": "3",
+    "defaultSortCol": "2",
+    "defaultSortDir": "ASC",
+    "categoryId" : "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_IMSI_HSDSCH",
+    "columns": [
+        {
+            "type" : "eventTime",
+            "header": "Event Time",
+            "width": "120",
+            "datatype": "date"
+        },
+        {
+            "type" : "imsi",
+            "header": "IMSI",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "type" : "tac",
+            "header": "TAC",
+            "width": "70",
+            "datatype": "int",
+            "drillDownWindowType": "TERMINAL_EVENT_ANALYSIS_WCDMA_HFA_SUMMARY_TAC_END"
+        },
+        {
+            "type" : "terminalMake",
+            "header": "Terminal Make",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type" : "terminalModel",
+            "header": "Terminal Model",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type" : "eventType",
+            "header": "Event Type",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "type" : "eventTrigger",
+            "header": "Event Trigger",
+            "width": "280",
+            "datatype": "string"
+        },
+        {
+            "type" : "sourceCell",
+            "header": "Source Cell",
+            "width": "100",
+            "datatype": "string",
+            "drillDownWindowType": "NETWORK_EVENT_ANALYSIS_WCDMA_HFA_SUMMARY_CELL_END"
+        },
+        {
+            "type" : "sourceRatId",
+            "header": "Source RAT ID",
+            "width": "100",
+            "datatype": "int",
+            "isHidden" : "TRUE"
+        },
+        {
+            "type" : "sourceRanVendor",
+            "header": "Source RAN Vendor",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type" : "sourceRnc",
+            "header": "Source RNC",
+            "width": "200",
+            "datatype": "string",
+            "drillDownWindowType": "NETWORK_EVENT_ANALYSIS_WCDMA_HFA_BSC_END"
+        },
+        {
+            "type" : "sourceLac",
+            "header": "Source LAC",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "type" : "sourceRac",
+            "header": "Source RAC",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "type" : "targetCell",
+            "header": "Target Cell",
+            "width": "100",
+            "datatype": "string",
+            "drillDownWindowType": "NETWORK_EVENT_ANALYSIS_WCDMA_HFA_SUMMARY_CELL_TARGET_END"
+        },
+        {
+            "type" : "targetRatId",
+            "header": "Target RAT ID",
+            "width": "100",
+            "datatype": "int",
+            "isHidden" : "TRUE"
+        },
+        {
+            "type" : "targetRanVendor",
+            "header": "Target RAN Vendor",
+            "width": "150",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type" : "targetRnc",
+            "header": "Target RNC",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "type" : "causeValue",
+            "header": "Cause Value",
+            "width": "350",
+            "datatype": "string"
+        },
+        {
+            "type" : "pathLoss",
+            "header": "PATHLOSS",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "type" : "sourceCone",
+            "header": "SOURCE_CONF",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "type" : "cpichEcNoSourceCell",
+            "header": "CPICH_EC_NO Source Cell (dB)",
+            "width": "180",
+            "datatype": "float"
+        },
+        {
+            "type" : "rscpSourceCell",
+            "header": "RSCP Source Cell (dBm)",
+            "width": "150",
+            "datatype": "float"
+        },
+        {
+            "type" : "cpichEcNoTargetCell",
+            "header": "CPICH_EC_NO Target Cell (dB)",
+            "width": "180",
+            "datatype": "float"
+        },
+        {
+            "type" : "rscpTargetCell",
+            "header": "RSCP Target Cell (dBm)",
+            "width": "150",
+            "datatype": "float"
+        },
+        {
+            "type" : "sourceConnectionProp",
+            "header": "SOURCE_CONNECTION_PROP",
+            "width": "180",
+            "datatype": "int"
+        },
+        {
+            "type" : "uarfcnSource",
+            "header": "UARFCN_SOURCE",
+            "width": "120",
+            "datatype": "int"
+        },
+        {
+            "type" : "uarfcnTarget",
+            "header": "UARFCN_TARGET",
+            "width": "120",
+            "datatype": "int"
+        },
+        {
+            "type" : "ulSyncStatusRLS1",
+            "header": "UL_SYNC_STATUS_RLS1",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "type" : "gbrUL",
+            "header": "GBR_UL",
+            "width": "70",
+            "datatype": "int"
+        },
+        {
+            "type" : "gbrDL",
+            "header": "GBR_DL",
+            "width": "70",
+            "datatype": "int"
+        },
+        {
+            "type" : "ueContext",
+            "header": "UE_CONTEXT",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type" : "rncModuleId",
+            "header": "RNC_MODULE_ID",
+            "width": "120",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type" : "imsiMcc",
+            "header": "IMSI_MCC",
+            "width": "70",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type" : "imsiMnc",
+            "header": "IMSI_MNC",
+            "width": "70",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type" : "imsiSv",
+            "header": "IMEISV",
+            "width": "70",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type" : "scannerId",
+            "header": "SCANNER_ID",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "type" : "neVersion",
+            "header": "NE_VERSION",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        }
+    ]
+}

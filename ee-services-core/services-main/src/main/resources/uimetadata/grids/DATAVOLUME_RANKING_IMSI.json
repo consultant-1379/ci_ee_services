@@ -1,0 +1,28 @@
+{
+  "id" : "DATAVOLUME_RANKING_IMSI",
+  "title" : "Subscriber Ranking (Data Volume)",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "IMSI",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Downlink Data Vol (KB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Uplink Data Vol (KB)",
+    "width" : "150",
+    "datatype" : "float"
+  }, {
+    "header" : "Total Data Vol (KB)",
+    "width" : "150",
+    "datatype" : "float"
+  } ]
+}

@@ -1,0 +1,72 @@
+## 
+## WCDMA CALL Failure Analysis Terminal Event Analysis (USING raw tables) 
+## 
+## Velocity Parameter: 
+## 
+## 
+## NAMED PreparedStatement Parameter: 
+## 
+## :marketingname provided BY service AFTER parsing node parameter 
+## :tac provided BY service AFTER parsing node parameter 
+## :TECH_PACK_LIST tables that should be used IN query, see TechPackList javadoc 
+## :count MAX NUMBER OF rows 
+## :dateFrom starting TIME 
+## :dateTo ending TIME 
+## 
+
+#set($columnsToSelect=["EVENT_ID", "IMSI", "HIER3_CELL_ID"])
+BEGIN
+SELECT
+    :groupname                                     		AS 'Group Name',
+    eventDesc.EVENT_ID_ALTERNATE_DESC              		AS 'Event Type',
+    aggview.failures                					AS 'Failures',
+    subscribers.Impacted_Subscribers 					AS 'Impacted Subscribers',
+    aggview.event_id                					AS 'Event_ID'
+FROM
+    (
+        SELECT
+            aggtable.event_id                               AS 'Event ID',
+            SUM(no_of_errors) 'Failures'
+        FROM
+            $aggregationView aggtable,
+            DIM_E_RAN_CFA_EVENTTYPE
+        WHERE
+            aggtable.HIER3_CELL_ID IN
+            (
+                SELECT
+                    GROUP_TYPE_E_RAT_VEND_HIER321_CELL.HIER3_CELL_ID
+                FROM
+                    GROUP_TYPE_E_RAT_VEND_HIER321_CELL
+                WHERE
+                    GROUP_TYPE_E_RAT_VEND_HIER321_CELL.GROUP_NAME = :groupname
+            )
+        AND aggtable.EVENT_ID = DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID
+        AND #GET_DATETIME_RANGE()
+        GROUP BY
+            DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC,
+            aggtable.EVENT_ID
+    ) AS aggview(event_id, failures) 
+    inner join (
+		select count(distinct rawview.IMSI), EVENT_ID from
+		#REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToSelect)
+		where rawview.HIER3_CELL_ID IN
+            (
+                SELECT
+                    GROUP_TYPE_E_RAT_VEND_HIER321_CELL.HIER3_CELL_ID
+                FROM
+                    GROUP_TYPE_E_RAT_VEND_HIER321_CELL
+                WHERE
+                    GROUP_TYPE_E_RAT_VEND_HIER321_CELL.GROUP_NAME = :groupname
+            )
+        GROUP BY
+            rawview.EVENT_ID
+		) as subscribers(IMPACTED_SUBSCRIBERS,EVENT_ID)
+	on (aggView.EVENT_ID = subscribers.EVENT_ID)
+	left outer join
+		dc.DIM_E_RAN_CFA_EVENTTYPE eventDesc
+		on(eventDesc.EVENT_ID = aggView.EVENT_ID)
+ORDER BY 
+	eventDesc.EVENT_ID_ALTERNATE_DESC
+
+
+END

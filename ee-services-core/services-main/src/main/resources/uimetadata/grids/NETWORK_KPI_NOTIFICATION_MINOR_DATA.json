@@ -1,0 +1,50 @@
+{
+	"id": "NETWORK_KPI_NOTIFICATION_MINOR_DATA",
+	"title": "Minor Alarms : KPI Threshold Notification",
+	"autoexpand": "8",
+	"defaultSortCol": "1",
+	"defaultSortDir": "DESC",
+	"columns": [
+			{
+				"header": "ROP Date",
+				"width": "200",
+				"datatype": "timestamp"
+			},
+			{
+				"header": "Managed Object Name",
+				"width": "150",
+				"datatype": "string"
+			},
+			{
+				"header": "Defined KPI Type",
+				"width": "100",
+				"datatype": "string"
+			},
+			{
+				"header": "Computed KPI Value",
+				"width": "120",
+				"datatype": "float"
+			},
+			{
+				"header": "Defined Threshold",
+				"width": "100",
+				"datatype": "string"
+			},
+			{
+				"header": "Computed KPI Name",
+				"width": "250",
+				"datatype": "string"
+			},
+			{
+				"header": "Managed Object Type",
+				"width": "120",
+				"datatype": "string"
+			},
+			{
+				"header": "Defined KPI Formula",
+				"width": "250",
+				"datatype": "string"
+			}
+	]
+
+}

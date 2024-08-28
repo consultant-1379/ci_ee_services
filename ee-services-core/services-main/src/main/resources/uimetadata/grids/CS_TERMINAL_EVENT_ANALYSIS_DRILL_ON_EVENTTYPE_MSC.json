@@ -1,0 +1,48 @@
+{
+  "id" : "CS_TERMINAL_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_MSC",
+  "title" : "MSC Event Analysis",
+  "autoexpand" : "1",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "MSC",
+    "width" : "70",
+    "datatype" : "string"
+  }, {
+    "header" : "EVNTSRC_ID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "EventID",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "RAT",
+    "width" : "130",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "*,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_MSC,callForwarding,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_MSC_callForwarding,roamingCallForwarding,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_MSC_roamingCallForwarding,locationServices,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_MSC_locationServices,mSOriginatingSMSinMSC,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_MSC_SMS,mSTerminatingSMSinMSC,CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_MSC_SMS"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Total Events",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Success Ratio",
+    "width" : "100",
+    "datatype" : "float"
+  } ]
+}

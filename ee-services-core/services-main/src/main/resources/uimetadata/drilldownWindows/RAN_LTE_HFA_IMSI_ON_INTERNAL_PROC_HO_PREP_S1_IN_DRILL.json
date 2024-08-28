@@ -1,0 +1,30 @@
+{
+    "id": "RAN_LTE_HFA_IMSI_ON_INTERNAL_PROC_HO_PREP_S1_IN_DRILL",
+    "name": "IMSI Event Analysis",
+    "url": "SUBSCRIBER/LTE_HANDOVER_FAILURE_SUBSCRIBER_DETAILED_EVENT_ANALYSIS/IMSI",
+    "gridDisplayID": "RAN_LTE_HFA_TERMINAL_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_HO_PREP_S1_IN",
+    "needSearchParam": "FALSE",
+    "params": [
+        {
+            "id": "1",
+            "queryParamName": "imsi"
+        },
+        {
+            "id": "2",
+            "queryParamName": "eventID"
+        },
+        {
+            "id": "3",
+            "queryParamName": "MCC"
+        },
+        {
+            "id": "4",
+            "queryParamName": "MNC"
+        }
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

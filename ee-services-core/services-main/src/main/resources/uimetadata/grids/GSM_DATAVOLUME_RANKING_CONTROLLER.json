@@ -1,0 +1,37 @@
+{
+  "id" : "GSM_DATAVOLUME_RANKING_CONTROLLER", 
+  "title" : "BSC GSM Data Connection : Total Data Volume Ranking",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Controller",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "Downlink Data Volume(MB)",
+    "width" : "150",
+    "datatype" : "double"
+  }, {
+    "header" : "Uplink Data Volume(MB)",
+    "width" : "150",
+    "datatype" : "double"
+  }, {
+    "header" : "Total Data Volume(MB)",
+    "width" : "150",
+    "datatype" : "double"
+  }, {
+    "header" : "HIER3_ID",
+    "width" : "70",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  } ]
+}

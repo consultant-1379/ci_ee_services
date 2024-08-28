@@ -1,0 +1,32 @@
+{
+      "id": "RAN_LTE_CFA_IMSI",
+      "title": "IMSI LTE Call Failure : Event Analysis",
+      "autoexpand": "3",
+      "defaultSortCol": "1",
+      "defaultSortDir": "ASC",
+      "columns": [
+        {
+          "header": "IMSI",
+          "width": "50",
+          "datatype": "string",
+          "isSystem": "TRUE"
+        },
+        {
+          "header": "EventID",
+          "width": "50",
+          "datatype": "string",
+          "isSystem": "TRUE"
+        },
+        {
+          "header": "Event Type",
+          "width": "130",
+          "datatype": "string"
+        },
+        {
+          "header": "Failures",
+          "width": "120",
+          "datatype": "int",
+          "drillDownWindowType": "INTERNAL_PROC_INITIAL_CTXT_SETUP,RAN_LTE_CFA_IMSI_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP,INTERNAL_PROC_ERAB_SETUP,RAN_LTE_CFA_IMSI_DRILL_ON_INTERNAL_ERAB_CTXT_SETUP,INTERNAL_PROC_RRC_CONN_SETUP,RAN_LTE_CFA_IMSI_DRILL_ON_INTERNAL_PROC_RRC_CONN_SETUP,INTERNAL_PROC_S1_SIG_CONN_SETUP,RAN_LTE_CFA_IMSI_DRILL_ON_INTERNAL_PROC_S1_SIG_CONN_SETUP,INTERNAL_PROC_UE_CTXT_RELEASE,RAN_LTE_CFA_IMSI_DRILL_ON_INTERNAL_PROC_UE_CTXT_RELEASE"
+        }
+      ]
+    }

@@ -1,0 +1,26 @@
+##
+## Author : ECHIMMA
+## LTE Call Failure Analysis IMSI Ranking (using raw tables)
+##
+## Velocity Parameter: 
+##		
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+#set($columnsToSelect=["IMSI", "CATEGORY_ID"])
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	rank() over (order by Failures desc) as 'Rank',
+	rawview.IMSI AS 'IMSI',
+	count (*) AS 'Failures'
+FROM
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION_IMSI0_EXCLUSION($TECH_PACK_LIST.getAllRawTables() "rawview" $columnsToSelect)
+WHERE
+	CATEGORY_ID = $CATEGORY_ID
+GROUP BY
+	rawview.IMSI

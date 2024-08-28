@@ -1,0 +1,16 @@
+{
+    "id":"GSM_ROAMING_ANALYSIS_SUMMARY_BY_COUNTRY",
+    "gridDisplayID":"GSM_ROAMING_ANALYSIS_SUMMARY_BY_COUNTRY",
+    "url":"NETWORK/GSM/CALL_FAILURE_ROAMING_ANALYSIS/COUNTRY/DRILL",
+    "drilltoolBarType":"TOOLBAR1",
+    "params":[{
+            "id":"4",
+            "queryParamName":"COUNTRY",
+            "isTitleParam":"TRUE"
+        },
+        {
+            "id":"5",
+            "queryParamName":"MCC"
+        }
+    ]
+}

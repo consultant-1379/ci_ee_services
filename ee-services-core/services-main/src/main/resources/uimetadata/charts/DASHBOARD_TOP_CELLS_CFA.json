@@ -1,0 +1,23 @@
+{
+    "id": "DASHBOARD_TOP_CELLS_CFA",
+    "title": "Top 5 Impacted Access Areas By Call Failures",
+    "ylabel": "Failures",
+    "xlabel": "",
+    "xaxisID": "3",
+    "items": [
+        {
+            "id": "2",
+            "isSystem": "true",
+            "queryParam": "HIER321_ID"
+        },
+        {
+            "id": "3",
+            "queryParam": "HIERARCHY_1"
+        },
+        {
+            "id": "4",
+            "name": "Failures",
+            "color": "cb5853"
+        }
+    ]
+}

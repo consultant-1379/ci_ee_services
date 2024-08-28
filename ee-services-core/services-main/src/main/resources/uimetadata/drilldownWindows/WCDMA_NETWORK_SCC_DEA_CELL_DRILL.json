@@ -1,0 +1,30 @@
+{
+  "id" : "WCDMA_NETWORK_SCC_DEA_CELL_DRILL",
+  "name" : "Access Area Sub Cause Code Detailed Event Analysis (WCDMA Call Failure)",
+  "url" : "NETWORK/WCDMA_CAUSE_CODE_ANALYSIS/DETAIL_SUB_CAUSE_CODE_GRID",
+  "needSearchParam": "TRUE",
+"params" : [ {
+    "id" : "Cause Code ",    
+    "isFixedVal" : "TRUE",
+    "queryParamName" : "causeCodeTitleString",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "5",
+    "queryParamName" : "causeCode",
+    "isTitleParam" : "TRUE"
+  }, {
+  	"id" : "Sub-Cause Code ",
+  	"queryParamName" : "subcauseCodeTitleString",    
+  	"isFixedVal" : "TRUE",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "subCauseCode",
+    "isTitleParam" : "TRUE"
+  }],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR_GROUPING_GRID_WCDMA",
+  "display" : "grid"
+}

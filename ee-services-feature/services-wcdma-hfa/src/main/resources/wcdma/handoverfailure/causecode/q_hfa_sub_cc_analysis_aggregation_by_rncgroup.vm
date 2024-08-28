@@ -1,0 +1,46 @@
+##
+## WCDMA Handover Failure Sub-Cause Code Analysis by Controller Group (using aggregation tables)
+##
+## Velocity Parameter:
+##
+##		:CAUSE_CODE		Cause code parameter
+##		:groupname		Access area group name
+##      :eventID        Cause code event ID
+##      :categoryId     Hanover type ID
+##
+
+#set($columnsToSelect=["SUB_CAUSE_VALUE"])
+#set($groupTables=["dc.GROUP_TYPE_E_RAT_VEND_HIER3"])
+#set($groupCondition="dc.GROUP_TYPE_E_RAT_VEND_HIER3.GROUP_NAME = :groupname and tmpTable.HIER3_ID = dc.GROUP_TYPE_E_RAT_VEND_HIER3.HIER3_ID and")
+#set($condition="and tmpTable.CAUSE_VALUE = :CAUSE_CODE and tmpTable.EVENT_ID = :eventID and tmpTable.CATEGORY_ID = :categoryId")
+#set($counterColumn="NO_OF_ERRORS")
+#set($imsiColumn="IMSI")
+#set($impactedSubscribers="TOTAL_NO_OF_SUBSCRIBERS")
+#set($useExclusiveTACs="no")
+
+SELECT
+    'SCC'||subCauseCode.SUB_CAUSE_VALUE||'-'||category.CATEGORY_TABLE_NAME||eventType.EVENT_ID_LABEL AS Label,
+    subCauseCode.SUB_CAUSE_VALUE_DESC                                                                AS 'Cause Code Description',
+    aggView.NO_OF_ERRORS                                                                             AS 'Failures',
+    aggView.TOTAL_NO_OF_SUBSCRIBERS                                                                  AS 'Source Impacted Subscribers',
+    NULL                                                                                             AS 'Target Impacted Subscribers',
+    :CAUSE_CODE                                                                                      AS 'Cause Code Id',
+    subCauseCode.SUB_CAUSE_VALUE                                                                     AS 'Sub Cause Code Id',
+    :eventID                                                                                         AS 'Event Id',
+    :categoryId                                                                                      AS 'Category Id',
+    category.CATEGORY_DESC                                                                           AS 'Handover Type',
+    :groupname                                                                                       AS 'Group Name',
+    'WCDMA_HFA_SOURCE'                                                                               AS 'State'
+FROM
+    #UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS_CONDITIONED_IMPACTED_SUBSCRIBERS_GROUPS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() $aggregationViewList "aggView" $columnsToSelect $columnsToSelect $groupTables $groupCondition $condition $counterColumn $imsiColumn $impactedSubscribers $useExclusiveTACs) ,
+    dc.DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE AS subCauseCode,
+    dc.DIM_E_RAN_HFA_CATEGORY             AS category,
+    dc.DIM_E_RAN_HFA_EVENTTYPE            AS eventType
+WHERE
+    aggView.SUB_CAUSE_VALUE = subCauseCode.SUB_CAUSE_VALUE
+AND subCauseCode.EVENT_ID = :eventID
+AND eventType.EVENT_ID = :eventID
+AND category.CATEGORY_ID = :categoryId
+AND State = 'WCDMA_HFA_SOURCE'
+ORDER BY
+    Failures DESC

@@ -1,0 +1,34 @@
+{
+    "id":"GSM_CONTROLLER_GROUP_BREAKDOWN",
+    "gridDisplayID":"GSM_CONTROLLER_GROUP_BREAKDOWN",
+    "url":"NETWORK/GSM/CALL_FAILURE_CAUSE_CODE_ANALYSIS/BSC_GROUP/BREAKDOWN",
+    "params":[{
+            "id":"BSC",
+            "queryParamName":"type",
+            "isFixedVal":"TRUE"
+        },
+        {
+            "id":"1",
+            "queryParamName":"subCauseCode"
+        },
+        {
+            "id":"5",
+            "queryParamName":"groupname",
+            "isTitleParam":"TRUE"
+        },
+        {
+            "id":"6",
+            "queryParamName":"causeCodeDescription",
+            "isTitleParam" : "TRUE"
+        },
+        {
+            "id":"2",
+            "queryParamName":"subCauseCodeDescription",
+            "isTitleParam" : "TRUE"
+        },
+        {
+            "id":"7",
+            "queryParamName":"causeCode"
+        }
+    ]
+}

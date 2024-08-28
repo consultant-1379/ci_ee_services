@@ -1,0 +1,20 @@
+{
+  "id" : "CS_CAUSE_CODE_TABLE_CC",
+  "title" : "Cause Codes Table Voice",
+  "noSearchFieldInTitle" : "TRUE",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "columns" : [ {
+    "header" : "Cause Code",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Cause Code description",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Cause Code help",
+    "width" : "100",
+    "datatype" : "string"
+  } ]
+}

@@ -1,0 +1,29 @@
+{
+    "id": "RADIO_CELL_LOAD_SUMMARY",
+    "title": "RF Conditions experienced by UE (Samples)",
+    "ylabel": "",
+    "xlabel": "",
+    "xaxisID": "",
+    "items": [
+        {
+            "id": "badCoverageBadSignal",
+            "name": "Poor Coverage,Poor Signal Quality",
+            "color": "#cb5853"
+        },
+        {
+            "id": "badCoverageGoodSignal",
+            "name": "Poor Coverage,Good Signal Quality",
+            "color": "#f5a241"
+        },
+        {
+            "id": "goodCoverageBadSignal",
+            "name": "Good Coverage,Poor Signal Quality",
+            "color": "#fdc844"
+        },
+        {
+            "id": "goodCoverageGoodSignal",
+            "name": "Good Coverage,Good Signal Quality",
+            "color": "#9ec057"
+        }
+    ]
+}

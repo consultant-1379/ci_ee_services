@@ -1,0 +1,18 @@
+{
+  "id" : "NETWORK_EVENT_ANALYSIS_CALL_FALURE_RNC",
+  "gridDisplayID" : "NETWORK_EVENT_ANALYSIS_CALL_FALURE_RNC",
+  "name" : "Failed Event Analysis",
+  "url" : "NETWORK/CALL_FAILURE_EVENT_SUMMARY/RNC",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "RAN_VENDOR"
+  }, {
+    "id" : "3",
+    "queryParamName" : "RNC_FDN"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

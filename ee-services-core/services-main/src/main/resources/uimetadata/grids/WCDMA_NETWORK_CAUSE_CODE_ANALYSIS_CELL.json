@@ -1,0 +1,25 @@
+{
+  "id" : "WCDMA_NETWORK_CAUSE_CODE_ANALYSIS_CELL",
+  "title" : "Access Area Cause Code Analysis (WCDMA Call Failure)",
+  "autoexpand" : "2",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Cause Code Id",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Cause Code",
+    "width" : "200",
+    "datatype" : "string",
+    "drillDownWindowType" : "WCDMA_NETWORK_SUB_CAUSE_CODE_ANALYSIS_CELL"
+  }, {
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "150",
+    "datatype" : "int"
+  }]
+}

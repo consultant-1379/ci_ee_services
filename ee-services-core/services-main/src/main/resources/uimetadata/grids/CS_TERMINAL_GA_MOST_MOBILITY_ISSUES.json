@@ -1,0 +1,25 @@
+{
+  "id" : "CS_TERMINAL_GA_MOST_MOBILITY_ISSUES",
+  "isChartData" : "TRUE",
+  "title" : "Group Analysis - Most Mobility Failures",
+  "autoexpand" : "2",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "50",
+    "datatype" : "int"
+  }, {
+    "header" : "GroupName",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "string"
+  } ]
+}

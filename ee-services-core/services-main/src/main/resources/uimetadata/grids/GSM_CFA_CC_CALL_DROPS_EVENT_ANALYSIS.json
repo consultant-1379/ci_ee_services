@@ -1,0 +1,54 @@
+{
+  "id" : "GSM_CFA_CC_CALL_DROPS_EVENT_ANALYSIS",
+  "title" : "Extended Cause Code GSM Call Drops : Failure Event Detail",
+  "autoexpand" : "1",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Event Time",
+    "width" : "150",
+    "datatype" : "date"
+  }, {
+    "header" : "IMSI",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Terminal Make",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Terminal Model",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Controller",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "Access Area",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Type",
+    "width" : "130",
+    "datatype" : "string"
+  }, {
+    "header" : "Release Type",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Cause Value",
+    "width" : "280",
+    "datatype" : "string",
+    "isHidden": "true"
+  }, {
+    "header" : "Extended Cause Value",
+    "width" : "280",
+    "datatype" : "string",
+    "isHidden": "true"
+  } ]
+}

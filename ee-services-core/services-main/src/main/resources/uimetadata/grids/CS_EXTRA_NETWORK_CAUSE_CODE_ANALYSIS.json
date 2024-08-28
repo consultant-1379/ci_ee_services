@@ -1,0 +1,38 @@
+{
+  "id" : "CS_EXTRA_NETWORK_CAUSE_CODE_ANALYSIS",
+  "title" : "Internal Network Cause Code Analysis Voice",
+  "autoexpand" : "5",
+  "defaultSortCol" : "6",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "Internal Cause Code ID",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "Internal Cause Code",
+    "width" : "165",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Fault Code ID",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Fault Code Description",
+    "width" : "220",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Recommended Actions",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Occurrences",
+    "width" : "80",
+    "datatype" : "int"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "string"
+  } ]
+}

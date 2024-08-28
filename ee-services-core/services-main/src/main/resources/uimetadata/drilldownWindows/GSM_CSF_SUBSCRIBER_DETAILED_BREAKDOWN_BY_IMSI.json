@@ -1,0 +1,25 @@
+{
+  "id" : "GSM_CSF_SUBSCRIBER_DETAILED_BREAKDOWN_BY_IMSI",
+  "gridDisplayID" : "GSM_CSF_SUBSCRIBER_DETAILED_EVENT_ANALYSIS_BREAKDOWN_BY_IMSI",
+  "url" : "NETWORK/GSM/CALL_FAILURE_DETAILED_EVENT_ANALYSIS/SUBSCRIBER/CALL_SETUP",
+  "params" : [ {
+  	"id" : "5",
+  	"queryParamName" : "groupname",
+  	"isTitleParam" : "TRUE"
+  }, {
+  	"id" : "1",
+  	"queryParamName" : "IMSI",
+  	"isTitleParam" : "TRUE"
+  }, {
+  	"id" : "2",
+  	"queryParamName" : "event_type",
+  	"isTitleParam" : "TRUE"
+  }, {
+  	"id" : "6",
+  	"queryParamName" : "CATEGORY_ID"
+  }, {
+    "id" : "IMSI",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

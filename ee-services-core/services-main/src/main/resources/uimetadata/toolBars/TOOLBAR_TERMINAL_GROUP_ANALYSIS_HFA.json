@@ -1,0 +1,79 @@
+{
+  "toolBarType" : "TOOLBAR_TERMINAL_GROUP_ANALYSIS_HFA",
+  "panels" : [ {
+    "toolBarButtons" : [ {
+      "id" : "btnView",
+      "name" : "View",
+      "style" : "toolbar_viewbtn",
+      "tip" : "Click to change display options",
+      "isEnabled" : "TRUE",
+      "items" : [ {
+        "eventID" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_HFA_SOHO",
+        "id" : "menuGTA_HFA_SOHO",
+        "name" : "Most Soft Handover Failures",
+        "style" : "analysisTerminalGroup",
+        "url" : "TERMINAL/WCDMA_HANDOVER_FAILURE_TERMINAL_GROUP_ANALYSIS/MOST_SOHO_FAILURES",
+        "windowType" : "CHART",
+        "display" : "barOneline"
+      }, {
+        "eventID" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_HFA_HSDSCH",
+        "id" : "menuGTA_HFA_HSDSCH",
+        "name" : "Most HSDSCH Handover Failures",
+        "style" : "analysisTerminalGroup",
+        "url" : "TERMINAL/WCDMA_HANDOVER_FAILURE_TERMINAL_GROUP_ANALYSIS/MOST_HSDSCH_FAILURES",
+        "windowType" : "CHART",
+        "display" : "barOneline"
+      }, {
+        "eventID" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_HFA_IFHO",
+        "id" : "menuGTA_HFA_IFHO",
+        "name" : "Most Inter Frequency Handover Failures",
+        "style" : "analysisTerminalGroup",
+        "url" : "TERMINAL/WCDMA_HANDOVER_FAILURE_TERMINAL_GROUP_ANALYSIS/MOST_IFHO_FAILURES",
+        "windowType" : "CHART",
+        "display" : "barOneline"
+      }, {
+        "eventID" : "TERMINAL_GROUP_ANALYSIS_RAN_WCDMA_HFA_IRAT",
+        "id" : "menuGTA_HFA_IRAT",
+        "name" : "Most IRAT Handover Failures",
+        "style" : "analysisTerminalGroup",
+        "url" : "TERMINAL/WCDMA_HANDOVER_FAILURE_TERMINAL_GROUP_ANALYSIS/MOST_IRAT_FAILURES",
+        "windowType" : "CHART",
+        "display" : "barOneline"
+      } 
+      ]
+    }, {
+      "id" : "btnTime",
+      "name" : "",
+      "style" : "toolbar_timebtn",
+      "tip" : "Click to change Time Constraints",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "TIME"
+    }, {
+      "id" : "btnRefresh",
+      "name" : "",
+      "style" : "toolbar_refreshbtn",
+      "tip" : "Refresh",
+      "isEnabled" : "TRUE",
+      "isToggle" : "FALSE",
+      "eventID" : "REFRESH"
+    }, {
+      "id" : "btnToggleToGrid",
+      "name" : "",
+      "style" : "toolbar_toggleToGridbtn",
+      "tip" : "Click to toggle the display from a graph to a table",
+      "isEnabled" : "TRUE",
+      "isToggle" : "TRUE",
+      "eventID" : "TOGGLE_TO_GRID"
+    }, {
+      "id" : "btnHideShowLegend",
+      "name" : "",
+      "style" : "toolbar_hideShowLegendBtn",
+      "tip" : "Click to hide or show the legend on the chart",
+      "isEnabled" : "TRUE",
+      "isToggle" : "TRUE",
+      "eventID" : "SHOW_HIDE_CHART_LEGEND"
+    }
+     ]
+  } ]
+}

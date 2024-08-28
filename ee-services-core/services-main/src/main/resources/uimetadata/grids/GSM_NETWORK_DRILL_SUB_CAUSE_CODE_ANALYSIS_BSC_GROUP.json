@@ -1,0 +1,52 @@
+{
+  "id" : "GSM_NETWORK_DRILL_SUB_CAUSE_CODE_ANALYSIS_BSC_GROUP",
+  "title" : "Controller Group GSM Call Failure : Extended Cause Code Analysis Summary",
+  "autoexpand" : "2",
+  "defaultSortCol" : "3",
+  "defaultSortDir" : "DESC",
+  "categoryId": "GSM_NETWORK_DRILL_SUB_CAUSE_CODE_ANALYSIS_BSC_GROUP",
+  "columns" : [ {
+  	"type" : "SubCauseGroupID",
+    "header" : "Extended Cause ID",
+    "width" : "150",
+    "datatype" : "int"
+  }, {
+  	"type" : "SubCauseGroup",
+    "header" : "Extended Cause Value",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+  	"type" : "failures",
+    "header" : "Failures",
+    "width" : "100",
+    "datatype" : "int",
+    "drillDownWindowType" : "GSM_CONTROLLER_GROUP_BREAKDOWN"
+  },{
+  	"type" : "impactedSubs",
+    "header" : "Impacted Subscribers",
+    "width" : "150",
+    "datatype" : "string"
+  },{
+    "type" : "groupName",
+    "header" : "Group Name",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "true"
+  },{
+    "header" : "Cause Group",
+    "width" : "150",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }, {
+    "header" : "Cause Group ID",
+    "width" : "150",
+    "datatype" : "string",
+    "isSystem" : "true"
+  }, {
+    "header" : "HIER3_ID",
+    "width" : "0",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "id" : "GSM_PS_SUBSCRIBER_SUMMARY_EVENT_ANALYSIS_BY_IMSI_GROUP",
+    "title" : " Connection Failure Analysis Summary",
+    "defaultSortCol" : "1",
+    "defaultSortDir" : "ASC",
+    "autoexpand" : "2",
+    "categoryId" : "NETWORK_EVENT_ANALYSIS_WCDMA_CFA_GROUP",
+    "columns" : [
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "failures",
+            "header" : "Failures",
+            "width" : "70",
+            "datatype" : "int",
+            "drillDownWindowType" : "GSM_PS_SUBSCRIBER_DETAILED_EVENT_ANALYSIS_BY_IMSI_GROUP"
+        },
+        {
+            "type" : "impactedSubscribers",
+            "header" : "Impacted Subscribers",
+            "width" : "130",
+            "datatype" : "int"
+        },
+        {
+            "header" : "searchParam",
+            "width" : "10",
+            "datatype" : "string",
+            "isSystem" : "TRUE"
+        }
+    ]
+}

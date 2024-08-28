@@ -1,0 +1,24 @@
+{
+  "id" : "WCDMA_NETWORK_SCC_DEA_CELL_GROUP_DRILL",
+  "name" : "Access Area Group SCC analysis",
+  "url" : "NETWORK/WCDMA_CAUSE_CODE_ANALYSIS/DETAIL_SUB_CAUSE_CODE_GRID",
+"params" : [ {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "subCauseCode"
+  }, {
+    "id" : "5",
+    "queryParamName" : "causeCode"
+  }, {
+    "id" : "6",
+    "queryParamName" : "groupname"
+  }],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR_GROUPING_GRID_WCDMA",
+  "display" : "grid"
+}

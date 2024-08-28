@@ -1,0 +1,76 @@
+{
+    "id": "WCDMA_HFA_NETWORK_SUB_CAUSE_CODE_ANALYSIS_BSC_GROUP",
+    "title": "Controller Group Sub Cause Code Analysis (WCDMA Handover Failure)",
+    "autoexpand": "1",
+    "defaultSortCol": "3",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "Label",
+            "width": "280",
+            "datatype": "string"
+        },
+        {
+            "header": "Sub Cause Code",
+            "width": "200",
+            "datatype": "string",
+            "drillDownWindowType": "*,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_SOHO_BSC_GROUP_DRILL,Soft\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_SOHO_BSC_GROUP_DRILL,Interfrequency\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_IFHO_BSC_GROUP_DRILL,IRAT\u0020Handover,NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_IRAT_BSC_GROUP_DRILL"
+        },
+        {
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int"
+        },
+        {
+            "header": "Source Impacted Subscribers",
+            "width": "200",
+            "datatype": "int"
+        },
+        {
+            "header": "Target Impacted Subscribers",
+            "width": "200",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Cause Code Id",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Sub Cause Code Id",
+            "width": "120",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Event Id",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Category Id",
+            "width": "100",
+            "datatype": "int",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Handover Type",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "header": "Group Name",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "State",
+            "width": "70",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        }
+    ]
+}

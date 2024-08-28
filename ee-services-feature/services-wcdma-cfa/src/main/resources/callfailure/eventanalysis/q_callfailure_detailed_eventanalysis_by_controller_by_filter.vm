@@ -1,0 +1,185 @@
+## Author: Adrian Hynes eadrhyn
+##
+## WCDMA Call Failure Detailed Event Analysis Filter on controller and another element
+##
+## Velocity Parameter:
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##	   :HIER3_ID cell id
+##	   :filterValue column to filter the call fails from the controller on
+##
+#set($columnsToSelect=["CS_RAB_FAIL_CNT","PS_RAB_FAIL_CNT " ,"MULTI_RAB_FAIL_CNT","FAILED_RAB_TYPE","TRIGGER_POINT","RRC_ESTABLISHMENT_CAUSE","RAN_DISCONNECTION_CODE","RAN_DISCONNECTION_SUBCODE","EVENT_TIME, IMSI, TAC, EVENT_ID, SEVERITY_INDICATOR, PROCEDURE_INDICATOR, EVALUATION_CASE, EXCEPTION_CLASS, CAUSE_VALUE, EXTENDED_CAUSE_VALUE, HIER3_ID, HIER3_CELL_ID, lac, rac,SOURCE_CONF,CPICH_EC_NO_CELL_1,UL_INT_CELL1,RSCP_CELL_1,TARGET_CONF,C_ID_SERV_HSDSCH_CELL,CRNC_ID_SERV_HSDSCH_CELL,RSCP_CELL_2,RSCP_CELL_3,RSCP_CELL_4,CPICH_EC_NO_CELL_2,CPICH_EC_NO_CELL_3,CPICH_EC_NO_CELL_4,UL_INT_CELL2,UL_INT_CELL3,UL_INT_CELL4,SCRAMBLING_CODE_CELL_1,SCRAMBLING_CODE_CELL_2,SCRAMBLING_CODE_CELL_3,SCRAMBLING_CODE_CELL_4,GBR_UL,GBR_DL,UTRAN_RANAP_CAUSE,DATA_IN_DL_RLC_BUFFERS"])
+
+##Local macro ONLY SHALL BE USED BY DISCONNECTION CODE DRILL
+#macro (FILTER_BY_DISCONNECTION_CODES $filter)
+    #set ( $filterTypeString = ${filterType} )
+    #if ($filterTypeString == $filter)
+	AND	rawview.RAN_DISCONNECTION_CODE = :disConCode
+	AND	rawview.RAN_DISCONNECTION_SUBCODE = :disconnectionSubCode
+    #end
+
+#end
+BEGIN
+SELECT
+	DISTINCT
+
+	#if($count > 0)
+  		top $count
+	#end
+	#if($csv == true)
+   	 DATEADD(minute,$tzOffset,rawview.EVENT_TIME)AS 'Event Time',
+   	#else
+   	rawview.EVENT_TIME AS 'Event Time',
+   	#end
+	rawview.IMSI AS IMSI,
+	rawview.TAC AS TAC,
+	DIM_E_SGEH_TAC.MANUFACTURER AS 'Terminal Make',
+	DIM_E_SGEH_TAC.MARKETING_NAME AS 'Terminal Model',
+	rawData.HIERARCHY_3 as "Controller",
+	rawData.CELL_ID as "Access Area",
+	DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC as 'Event Type',
+	DIM_E_RAN_CFA_PROCEDURE_INDICATOR.PROCEDURE_INDICATOR_DESC AS 'Procedure Indicator',
+	DIM_E_RAN_CFA_EVALUATION_CASE.EVALUATION_CASE_DESC AS 'Evaluation Case',
+	DIM_E_RAN_CFA_EXCEPTION_CLASS.EXCEPTION_CLASS_DESC AS 'Exception Class',
+	DIM_E_RAN_CFA_CAUSE_VALUE.CAUSE_VALUE_DESC AS 'Cause Value',
+	DIM_E_RAN_CFA_EXTENDED_CAUSE_VALUE.EXTENDED_CAUSE_VALUE_DESC AS 'Extended Cause Value',
+	rawview.lac as 'LAC',
+	rawview.rac as 'RAC',
+	DIM_E_RAN_CFA_SEVERITY_INDICATOR.SEVERITY_INDICATOR_DESC AS 'Severity Indicator',
+
+	rawData.HIER3_CELL_ID AS "Hidden input for drilldown on access area - cell_id_title",
+	rawData.VENDOR AS "Hidden input for drilldown on access area - vendor_title",
+
+	source.RABTYPE_DESC,
+	ecno_1.ECNO_DBM,
+	ulint_1.ULINT_DBM,
+	rscp_1.RSCP_DBM,
+
+	target.RABTYPE_DESC,
+	targetData.HIERARCHY_3,
+	targetData.CELL_ID,
+
+	rscp_2.RSCP_DBM,
+	rscp_3.RSCP_DBM,
+	rscp_4.RSCP_DBM,
+    ecno_2.ECNO_DBM,
+    ecno_3.ECNO_DBM,
+    ecno_4.ECNO_DBM,
+    ulint_2.ULINT_DBM,
+    ulint_3.ULINT_DBM,
+    ulint_4.ULINT_DBM,
+
+	rawview.SCRAMBLING_CODE_CELL_1,
+	rawview.SCRAMBLING_CODE_CELL_2,
+	rawview.SCRAMBLING_CODE_CELL_3,
+	rawview.SCRAMBLING_CODE_CELL_4,
+	rawview.GBR_UL,
+	rawview.GBR_DL,
+	ranap_cause.UTRAN_RANAP_CAUSE_DESC,
+	rawview.DATA_IN_DL_RLC_BUFFERS,
+	
+	rawview.RAN_DISCONNECTION_CODE AS DISCONNECTION_CODE,
+	rawview.RAN_DISCONNECTION_SUBCODE AS DISCONNECTION_SUBCODE,
+	#if($NULL_DICCONECTION_CODE == "true")
+	'' AS DISCONNECTION_DESC,
+	#else
+	disconRef.DISCONNECTION_DESC AS DISCONNECTION_DESC,
+	#end
+	triggerPoint.TRIGGER_POINT_DESC AS TRIGGER_POINT,
+	rrcEstCause.RRC_ESTABLISHMENT_CAUSE_DESC as RRC_ESTABLISHMENT_CAUSE,
+	
+	
+	##EVENT_ID, DRILL_CAT and CATEGORY_ID value is got from UI and return to UI since it needs for drilling.
+	:eventID AS EVENT_ID,
+	:categoryId AS CATEGORY_ID,
+	'$drillCat' AS DRILL_CAT
+	##
+
+FROM
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToSelect)
+	,DIM_E_SGEH_TAC,
+	DIM_E_RAN_CFA_EVENTTYPE,
+	DIM_E_RAN_CFA_PROCEDURE_INDICATOR,
+	DIM_E_RAN_CFA_EVALUATION_CASE,
+	DIM_E_RAN_CFA_EXCEPTION_CLASS,
+	DIM_E_RAN_CFA_CAUSE_VALUE,
+	DIM_E_RAN_CFA_EXTENDED_CAUSE_VALUE,
+	DIM_E_SGEH_HIER321_CELL rawData,
+	DIM_E_SGEH_HIER321_CELL targetData,
+	DIM_E_RAN_CFA_SEVERITY_INDICATOR,
+	DIM_E_RAN_RABTYPE source,
+    DIM_E_RAN_RABTYPE target,
+    DIM_E_RAN_CFA_UTRAN_RANAP_CAUSE ranap_cause,
+    DIM_E_RAN_ECNO_MAPPING ecno_1,
+    DIM_E_RAN_ECNO_MAPPING ecno_2,
+    DIM_E_RAN_ECNO_MAPPING ecno_3,
+    DIM_E_RAN_ECNO_MAPPING ecno_4,
+    DIM_E_RAN_RSCP_MAPPING rscp_1,
+    DIM_E_RAN_RSCP_MAPPING rscp_2,
+    DIM_E_RAN_RSCP_MAPPING rscp_3,
+    DIM_E_RAN_RSCP_MAPPING rscp_4,
+    DIM_E_RAN_ULINT_MAPPING ulint_1,
+    DIM_E_RAN_ULINT_MAPPING ulint_2,
+    DIM_E_RAN_ULINT_MAPPING ulint_3,
+    DIM_E_RAN_ULINT_MAPPING ulint_4,
+	#if($NULL_DICCONECTION_CODE == "true")
+	#else
+	DIM_E_RAN_CFA_DISCONNECTION disconRef,
+	#end
+	DIM_E_RAN_CFA_RRC_ESTABLISHMENT_CAUSE rrcEstCause,
+	DIM_E_RAN_CFA_TRIGGER_POINT triggerPoint
+WHERE
+    rawview.TAC *= DIM_E_SGEH_TAC.TAC
+    AND rawview.HIER3_ID = :HIER3_ID
+	AND rawview.EVENT_ID = :eventID
+	#FILTER_BY("rabType" "rawview.FAILED_RAB_TYPE")
+    #if($NULL_DICCONECTION_CODE == "true")
+	AND rawview.RAN_DISCONNECTION_CODE is null
+	AND rawview.RAN_DISCONNECTION_SUBCODE is null
+	#else
+    #FILTER_BY_DISCONNECTION_CODES("disConCode")
+    AND rawview.RAN_DISCONNECTION_CODE *= disconRef.DISCONNECTION_CODE
+	AND rawview.RAN_DISCONNECTION_SUBCODE *= disconRef.DISCONNECTION_SUB_CODE
+	#end
+	#if($categoryId == "0")
+		AND CS_RAB_FAIL_CNT > 0
+	#elseif($categoryId == "1")
+		AND PS_RAB_FAIL_CNT > 0 
+	#elseif($categoryId == "2")
+		AND MULTI_RAB_FAIL_CNT > 0 
+	#elseif($categoryId == "3")
+		AND (CS_RAB_FAIL_CNT > 0 OR PS_RAB_FAIL_CNT > 0 OR MULTI_RAB_FAIL_CNT > 0)
+	#end
+	AND rawview.PROCEDURE_INDICATOR *= DIM_E_RAN_CFA_PROCEDURE_INDICATOR.PROCEDURE_INDICATOR
+    AND rawview.EVALUATION_CASE *= DIM_E_RAN_CFA_EVALUATION_CASE.EVALUATION_CASE
+    AND rawview.EXCEPTION_CLASS *= DIM_E_RAN_CFA_EXCEPTION_CLASS.EXCEPTION_CLASS
+	AND rawview.EVENT_ID = DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID
+    AND rawview.CAUSE_VALUE *= DIM_E_RAN_CFA_CAUSE_VALUE.CAUSE_VALUE
+    AND rawview.EXTENDED_CAUSE_VALUE *= DIM_E_RAN_CFA_EXTENDED_CAUSE_VALUE.EXTENDED_CAUSE_VALUE
+    AND rawview.HIER3_CELL_ID = rawData.HIER3_CELL_ID
+    AND rawview.SEVERITY_INDICATOR *= DIM_E_RAN_CFA_SEVERITY_INDICATOR.SEVERITY_INDICATOR_ID
+	AND rawview.source_conf *= source.rabtype	
+	AND rawview.target_conf *= target.rabtype
+	AND rawview.UTRAN_RANAP_CAUSE *= ranap_cause.UTRAN_RANAP_CAUSE
+	AND rawview.RSCP_CELL_1 *= rscp_1.RSCP
+    AND rawview.RSCP_CELL_2 *= rscp_2.RSCP
+   	AND rawview.RSCP_CELL_3 *= rscp_3.RSCP
+   	AND rawview.RSCP_CELL_4 *= rscp_4.RSCP
+   	AND rawview.UL_INT_CELL1 *= ulint_1.ULINT
+   	AND rawview.UL_INT_CELL2 *= ulint_2.ULINT
+   	AND rawview.UL_INT_CELL3 *= ulint_3.ULINT
+   	AND rawview.UL_INT_CELL4 *= ulint_4.ULINT
+   	AND rawview.CPICH_EC_NO_CELL_1 *= ecno_1.ECNO
+   	AND rawview.CPICH_EC_NO_CELL_2 *= ecno_2.ECNO
+   	AND rawview.CPICH_EC_NO_CELL_3 *= ecno_3.ECNO
+   	AND rawview.CPICH_EC_NO_CELL_4 *= ecno_4.ECNO
+	AND rawview.C_ID_SERV_HSDSCH_CELL *= targetData.CID
+	AND rawview.HIER3_ID *= targetData.HIER3_ID
+	AND rawview.TRIGGER_POINT *= triggerPoint.TRIGGER_POINT
+	AND rawview.RRC_ESTABLISHMENT_CAUSE *= rrcEstCause.RRC_ESTABLISHMENT_CAUSE
+ORDER BY
+    rawview.EVENT_TIME desc
+END

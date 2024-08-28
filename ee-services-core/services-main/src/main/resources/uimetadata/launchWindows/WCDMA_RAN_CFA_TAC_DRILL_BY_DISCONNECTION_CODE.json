@@ -1,0 +1,20 @@
+{
+    "launchWindowTypeId": "WCDMA_RAN_CFA_TAC_DRILL_BY_DISCONNECTION_CODE",
+    "menuItem": "DRILL_CHART_TAC_DISCONNECTION_CODE_FROM_DRILL_BY",
+    "nameForTaskBar" : "Terminal Disconnection Code",
+    "searchValFromCol": "4",
+    "type": "TAC",
+    "drillTargetType": "CHART",
+    "needSearchParam": "FALSE",
+    "params": [
+        {
+            "id": "4",
+            "queryParamName": "tac"
+        },
+        {
+            "id": "TAC",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        }
+    ]
+}

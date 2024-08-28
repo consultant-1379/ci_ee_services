@@ -1,0 +1,34 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_SOURCE_CELL_SOHO",
+    "gridDisplayID": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_SOURCE_CELL_SOHO",
+    "menuItem": "NETWORK_CELL_RANKING_RAN_WCDMA",
+    "url": "NETWORK/WCDMA_HANDOVER_FAILURE_DETAILED_EVENT_ANALYSIS/NODE",
+    "params": [
+        {
+            "id": "2",
+            "queryParamName": "RAN_VENDOR"
+        },
+        {
+            "id": "3",
+            "queryParamName": "RNC_FDN"
+        },
+        {
+            "id": "4",
+            "queryParamName": "cellId"
+        },
+        {
+            "id": "5",
+            "queryParamName": "categoryId"
+        },
+        {
+		    "id" : "CELL",
+		    "queryParamName" : "type",
+		    "isFixedVal" : "TRUE"
+    	}
+    ],
+    "style": "analysisCausecode",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR1",
+    "display": "grid"
+}

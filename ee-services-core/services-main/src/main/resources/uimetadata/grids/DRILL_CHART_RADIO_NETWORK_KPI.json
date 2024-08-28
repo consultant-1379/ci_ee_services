@@ -1,0 +1,34 @@
+{
+    "id": "DRILL_CHART_RADIO_NETWORK_KPI",
+    "title": "Radio Network KPI",
+    "autoexpand": "1",
+    "defaultSortCol": "5",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "header": "Cell Name",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "RNC Name",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Successful Requests",
+            "width": "130",
+            "datatype": "int"
+        },
+        {
+            "header": "Total Requests",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "Success Ratio",
+            "width": "130",
+            "datatype": "float"
+        }
+    ]
+}

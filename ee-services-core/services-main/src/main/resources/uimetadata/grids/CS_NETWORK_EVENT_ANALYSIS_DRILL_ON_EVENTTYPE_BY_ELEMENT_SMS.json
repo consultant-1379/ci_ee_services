@@ -1,0 +1,208 @@
+{
+  "id" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BY_ELEMENT_SMS",
+  "title" : "Failed Event Analysis SMS",
+  "autoexpand" : "12",
+  "defaultSortCol" : "4",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "EVNTSRC_ID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "HIER3_ID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "HIER321_ID",
+    "width" : "10",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Time",
+    "width" : "120",
+    "datatype" : "date"
+  }, {
+    "header" : "MSISDN",
+    "width" : "120",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "IMSI",
+    "width" : "120",
+    "datatype" : "string"
+  }, {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "string",
+    "drillDownWindowType" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_TAC_SMS"
+  }, {
+    "header" : "Terminal Make",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Terminal Model",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Type",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Event Result",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "SMS Result",
+    "width" : "300",
+    "datatype" : "string"
+  }, {
+    "header" : "Message Type Indicator",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "SMS Result ID",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Message Type Indicator ID",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Bearer Service Code",
+    "width" : "130",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Tele Service Code",
+    "width" : "130",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "RAT",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "MSC",
+    "width" : "70",
+    "datatype" : "string",
+    "drillDownWindowType" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_MSC_SMS"
+  }, {
+    "header" : "Controller",
+    "width" : "100",
+    "datatype" : "string",
+    "drillDownWindowType" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_BSC_SMS"
+  }, {
+    "header" : "Access Area",
+    "width" : "100",
+    "datatype" : "string",
+    "drillDownWindowType" : "CS_NETWORK_EVENT_ANALYSIS_DRILL_ON_EVENTTYPE_CELL_SMS"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Call ID Number",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Type of Calling Subscriber",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Calling Party Number",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Called Party Number",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Calling Subs IMSI",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Called Subs IMSI",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Calling Subs IMEI",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Called Subs IMEI",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Calling Subs IMEISV",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Called Subs IMEISV",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Originating Number",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Destination Number",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Service Center",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Originating Time",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Delivery Time",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "Record Sequence Number",
+    "width" : "150",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "MCC",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "MNC",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "RAC",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "LAC",
+    "width" : "100",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  } ]
+}

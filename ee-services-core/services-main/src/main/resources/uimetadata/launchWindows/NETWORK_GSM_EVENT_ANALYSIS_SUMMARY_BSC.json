@@ -1,0 +1,18 @@
+{
+  "launchWindowTypeId" : "NETWORK_GSM_EVENT_ANALYSIS_SUMMARY_BSC",
+  "menuItem" : "NETWORK_GSM_EVENT_ANALYSIS_SUMMARY",
+  "searchValFromCol" : "3",
+  "type" : "BSC",
+  "params" : [  {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+  	"id" : "3",
+  	"queryParamName" : "Controller",
+  	"isTitleParam" : "TRUE"
+  }, {
+  	"id" : "5",
+  	"queryParamName" : "HIER3_ID"
+  } ]
+}

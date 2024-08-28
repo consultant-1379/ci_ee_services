@@ -1,0 +1,22 @@
+{
+  "id": "NETWORK_RAN_LTE_CFA_DRILL_ON_QOS_QCI_SUMM_BSC_GROUP",
+  "name": "Controller Group LTE Call Failure QCI : QOS Statistics",
+  "url": "NETWORK/LTE_CFA_QOS_SUMMARY_ANALYSIS/QCI_EVENT_SUMMARY/ENODEB",
+  "gridDisplayID": "NETWORK_RAN_LTE_CFA_QOS_QCI_BSC_GROUP_ANALYSIS",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "groupname"
+  }, {
+    "id": "2",
+    "queryParamName": "QCI_ID"
+  }, {
+    "id": "4",
+    "queryParamName": "CATEGORY_ID"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "NETWORK_RAN_LTE_CFA_DRILL_ON_QOS_QCI_TRAC_ANALYSIS",
+  "name": "LTE CFA - Controller Event Analysis per QCI",
+  "url": "NETWORK/LTE_CFA_QOS_DETAILED_EVENT_ANALYSIS/QCI/TRAC",
+  "gridDisplayID": "NETWORK_RAN_LTE_CFA_QOS_QCI_DETAILED_EVENT_ANALYSIS",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "TRAC"
+  }, {
+    "id": "2",
+    "queryParamName": "QCI_ID"
+  }, {
+    "id": "3",
+    "queryParamName": "eventID"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

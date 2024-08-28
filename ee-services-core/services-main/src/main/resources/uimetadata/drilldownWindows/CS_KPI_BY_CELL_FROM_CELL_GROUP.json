@@ -1,0 +1,27 @@
+{
+  "id" : "CS_KPI_BY_CELL_FROM_CELL_GROUP",
+  "name" : "KPI Breakdown by Access Area Voice",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_CELL",
+  "url" : "MSS/NETWORK/EVENT_ANALYSIS",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "groupname",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "SUM",
+    "queryParamName" : "key",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

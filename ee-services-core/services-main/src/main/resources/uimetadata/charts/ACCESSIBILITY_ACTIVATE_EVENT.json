@@ -1,0 +1,17 @@
+{
+    "id": "ACCESSIBILITY_ACTIVATE_EVENT",
+    "title": "",
+    "ylabel": "",
+    "xlabel": "",
+    "xaxisID": "",
+    "items": [
+        {
+            "id": "3",
+            "name": "PDP Success Rate",
+            "color": "88A44D",
+            "drillDownWindowType": "NETWORK_EVENT_ANALYSIS_PORTLET",
+            "queryParam": "eventID",
+            "queryParamValue": "1"
+        }
+    ]
+}

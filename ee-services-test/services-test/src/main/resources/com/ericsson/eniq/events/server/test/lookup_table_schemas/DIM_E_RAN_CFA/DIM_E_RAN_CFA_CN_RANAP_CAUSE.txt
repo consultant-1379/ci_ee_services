@@ -1,0 +1,12 @@
+DIM_E_RAN_CFA_CN_RANAP_CAUSE
+CN_RANAP_CAUSE,CN_RANAP_CAUSE_DESC
+1,RAB pre-empted
+2,Trelocoverall Expiry 
+3,Trelocprep Expiry
+4,Treloccomplete Expiry 
+5,Tqueing Expiry
+6,Relocation Triggered 
+7,TRELLOCalloc Expiry
+8,Unable to Establish During Relocation 
+9,Unknown Target RNC
+10,Relocation Cancelled

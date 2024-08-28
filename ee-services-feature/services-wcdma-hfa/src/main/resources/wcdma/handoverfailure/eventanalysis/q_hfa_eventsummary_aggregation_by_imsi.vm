@@ -1,0 +1,22 @@
+#set($columnsToIncludeInNewView=["IMSI","CATEGORY_ID","NO_OF_ERRORS"])
+SELECT
+	aggView.IMSI as IMSI,
+	categoryDesc.CATEGORY_DESC AS 'Handover Type',
+	aggView.CATEGORY_ID AS 'Category ID',
+	NO_OF_ERRORS as Failures
+FROM 	
+	(select
+		CATEGORY_ID, IMSI, sum(NO_OF_ERRORS)
+	from 
+		#UNION_ALL_AGGREGATION_VIEWS_WITH_SPECIFIC_COLUMNS($aggregationViewList "tempAgg" $columnsToIncludeInNewView)
+	where	
+		tempAgg.IMSI = :IMSI
+	group by
+		CATEGORY_ID,
+		IMSI
+	) as aggView(CATEGORY_ID, IMSI, NO_OF_ERRORS)	
+	left outer join
+		dc.DIM_E_RAN_HFA_CATEGORY categoryDesc
+		on(
+			categoryDesc.CATEGORY_ID = aggView.CATEGORY_ID
+		)

@@ -1,0 +1,77 @@
+{
+    "id":"GSM_CFA_CC_CELL_SUMMARY_DISTRIBUTION",
+    "title":"Access Area GSM Call Failure : Cause Group Analysis Summary",
+    "defaultSortCol":"1",
+    "defaultSortDir":"DESC",
+    "autoexpand":"3",
+    "columns":[{
+            "type":"vendor",
+            "header":"RAN Vendor",
+            "width":"100",
+            "datatype":"string"
+        },
+        {
+            "type":"accessArea",
+            "header":"Access Area",
+            "width":"100",
+            "datatype":"string"
+        },
+        {
+            "type":"failures",
+            "header":"Failures",
+            "width":"100",
+            "datatype":"int",
+            "drillDownWindowType":"GSM_CAUSE_CODE_ANALYSIS_BY_CELL_DETAIL"
+        },
+        {
+            "type":"impactedSubscribers",
+            "header":"Impacted Subscribers",
+            "width":"150",
+            "datatype":"int"
+        },
+        {
+            "type":"failureRatio",
+            "header":"Failure Ratio",
+            "width":"150",
+            "datatype":"double"
+        },
+        {
+            "header":"Controller",
+            "width":"100",
+            "datatype":"string",
+            "isHidden":"TRUE"
+        },
+        {
+        	"type":"causeGroup",
+		    "header" : "Cause Group",
+		    "width" : "150",
+		    "datatype" : "string",
+		    "isHidden" : "TRUE"
+		},
+		{
+		    "header" : "Cause Group ID",
+		    "width" : "0",
+		    "datatype" : "string",
+		    "isSystem" : "TRUE"
+		},
+		{
+		    "header" : "Extended Cause ID",
+		    "width" : "0",
+		    "datatype" : "string",
+		    "isSystem" : "TRUE"
+		},
+		{
+		  	"type" : "SubCauseGroup",
+		    "header" : "Extended Cause Value",
+		    "width" : "200",
+		    "datatype" : "string",
+		    "isHidden" : "TRUE"
+		},
+		{
+            "header":"HIER321_ID",
+            "width":"0",
+            "datatype":"string",
+            "isSystem":"TRUE"
+        }
+    ]
+}

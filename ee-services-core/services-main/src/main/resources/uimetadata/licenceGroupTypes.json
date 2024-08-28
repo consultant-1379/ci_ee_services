@@ -1,0 +1,24 @@
+{
+    "licenceGroupTypes": [
+        {
+            "id": "2G3G",
+            "name": "2G/3G Core Network KPIs"
+        },
+        {
+            "id": "4G",
+            "name": "4G Core Network KPIs"
+        },
+        {
+            "id": "VOICE_SMS",
+            "name": "Voice and SMS Network KPIs"
+        },
+        {
+            "id": "SGEH",
+            "name": "SGEH Data"
+        },
+        {
+            "id": "UPD",
+            "name": "User Plane Data"
+        }
+    ]
+}

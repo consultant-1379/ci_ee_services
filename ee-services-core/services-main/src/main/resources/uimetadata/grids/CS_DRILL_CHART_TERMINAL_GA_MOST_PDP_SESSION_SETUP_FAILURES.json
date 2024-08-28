@@ -1,0 +1,24 @@
+{
+  "id" : "DRILL_CHART_TERMINAL_GA_MOST_PDP_SESSION_SETUP_FAILURES",
+  "title" : "Group Analysis - Most PDP Session Setup Failures",
+  "autoexpand" : "2",
+  "defaultSortCol" : "4",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "TAC",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Manufacturer",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Model",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  } ]
+}

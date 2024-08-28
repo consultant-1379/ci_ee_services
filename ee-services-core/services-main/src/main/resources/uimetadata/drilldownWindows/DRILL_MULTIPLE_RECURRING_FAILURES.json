@@ -1,0 +1,44 @@
+{
+	"id":"DRILL_MULTIPLE_RECURRING_FAILURES",
+	"gridDisplayID": "DRILL_MULTIPLE_RECURRING_FAILURES",
+	"name": "Drill down on IMSI",
+	"url": "SUBSCRIBER/CALLFAILURE_MULTIPLE_RECURRING/DRILLDOWN",
+	"params":[
+		{
+			"id":"2", 
+			"queryParamName": "imsi",
+			"isTitleParam": "TRUE"
+		},
+		{
+			"id":"4", 
+			"queryParamName": "RAN_VENDOR"
+		},
+		{
+			"id":"5", 
+			"queryParamName": "CELL_ID"
+		},
+		{
+			"id":"6", 
+			"queryParamName": "CAUSE_VALUE"
+		},
+		{
+			"id":"7", 
+			"queryParamName": "EXTENDED_CAUSE_VALUE"
+		},
+		{
+			"id":"9", 
+			"queryParamName": "ACCESS_AREA",
+			"isTitleParam": "TRUE"
+		},
+		{
+			"id":"8", 
+			"queryParamName": "RNC_FDN",
+			"isTitleParam": "TRUE"
+		}        		
+	],
+    "style": "rankingSubscriber",
+    "windowType": "GRID",
+    "isEnabled": "TRUE",
+    "toolBarType": "TOOLBAR_RANKING_MULTIPLE_RECURRING_FAILURES",
+    "display": "grid"
+}

@@ -1,0 +1,45 @@
+{
+    "toolBarType": "TOOLBAR_WIZARD_WCDMA_HFA_CAUSE_CODE",
+    "panels": [
+        {
+            "toolBarButtons": [
+                {
+                    "id": "btnTime",
+                    "name": "",
+                    "style": "toolbar_timebtn",
+                    "tip": "Click to change Time Constraints",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "TIME"
+                },
+                {
+                    "id": "btnRefresh",
+                    "name": "",
+                    "style": "toolbar_refreshbtn",
+                    "tip": "Refresh",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "REFRESH"
+                },
+                {
+                    "id": "btnCC",
+                    "name": "",
+                    "style": "ccButton",
+                    "tip": "Click to view a list of all possible WCDMA Handover Failure CauseCodes",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "CAUSE_CODE_TABLE_CC_WCDMA_HFA"
+                },
+                {
+                    "id": "btnSCC",
+                    "name": "",
+                    "style": "sccButton",
+                    "tip": "Click to view a list of all possible WCDMA Handover Failure Sub CauseCodes",
+                    "isEnabled": "TRUE",
+                    "isToggle": "FALSE",
+                    "eventID": "CAUSE_CODE_TABLE_SCC_WCDMA_HFA"
+                }
+            ]
+        }
+    ]
+}

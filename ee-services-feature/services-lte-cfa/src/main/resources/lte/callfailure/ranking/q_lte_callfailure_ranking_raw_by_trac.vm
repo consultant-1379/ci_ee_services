@@ -1,0 +1,34 @@
+##
+## LTE Call Failure Analysis TRAC Ranking (using raw tables)
+##
+## Velocity Parameter: 
+##		$count   max number of rows
+##		$aggregationView the aggregation view to query against	
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	rank() over (order by Failures desc) as 'Rank',
+	RAW_VIEW.TRAC as 'TRAC',
+	FAILURES as 'Failures'
+FROM
+	(
+		SELECT
+			TRAC,
+			COUNT (*) AS FAILURES
+		FROM
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION($TECH_PACK_LIST.getAllRawTables() "rawview" ["TRAC", "CATEGORY_ID"])
+		WHERE
+			CATEGORY_ID = $CATEGORY_ID AND
+			TRAC is not null
+		GROUP BY
+			TRAC
+	) RAW_VIEW

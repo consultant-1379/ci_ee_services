@@ -1,0 +1,25 @@
+{
+  "id" : "SUBSCRIBER_RANKING_CORE",
+  "title" : "Subscriber Ranking (Events)",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "IMSI",
+    "width" : "100",
+    "datatype" : "int",
+    "launchWindowType" : "SUBSCRIBER_EVENT_ANALYSIS_IMSI"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

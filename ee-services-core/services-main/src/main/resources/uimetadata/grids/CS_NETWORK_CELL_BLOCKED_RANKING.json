@@ -1,0 +1,47 @@
+{
+  "id" : "CS_NETWORK_CELL_BLOCKED_RANKING",
+  "title" : "Access Area Ranking - Blocked Voice Calls",
+  "autoexpand" : "7",
+  "defaultSortCol" : "2",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "HIER321_ID",
+    "width" : "70",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "RAT",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "RAT ID",
+    "width" : "50",
+    "datatype" : "string",
+    "isHidden" : "TRUE"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Controller",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Access Area",
+    "width" : "100",
+    "datatype" : "string",
+    "launchWindowType" : "CS_NETWORK_EVENT_ANALYSIS_CELL"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

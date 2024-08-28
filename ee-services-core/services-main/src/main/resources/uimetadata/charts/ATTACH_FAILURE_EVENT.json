@@ -1,0 +1,16 @@
+{
+    "id": "ATTACH_FAILURE_EVENT",
+    "title": "",
+    "ylabel": "",
+    "xlabel": "",
+    "xaxisID": "",
+    "items": [
+        {
+            "id": "3",
+            "name": "Attach Failure Rate",
+            "color": "88A44D",
+            "queryParam": "eventID",
+            "queryParamValue": "0"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+  "id" : "RAN_LTE_CFA_TAC_DET_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP",
+  "name" : "Terminal LTE Call Failure : Detail Failed Event Analysis",
+  "gridDisplayID" : "RAN_LTE_CFA_CELL_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_INITIAL_CTXT_SETUP",
+  "url" : "TERMINAL/LTE_CALL_FAILURE_DETAILED_EVENT_ANALYSIS/TERMINAL",
+  "needSearchParam": "FALSE",
+  "params" : [ 
+  	{
+    "id" : "1",
+    "queryParamName" : "tac"
+  	},{
+  	"id" : "5",
+  	"queryParamName" : "eventID"
+  	}],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

@@ -1,0 +1,50 @@
+ {
+    "id" : "GSM_DRILL_CHART_CAUSE_CODE_FROM_PIE_SLICE",
+    "title" : "Extended Cause Code Analysis",
+    "ylabel" : "Number of Events",
+    "xlabel" : "Group Name",
+    "secondYAxisID" : "3",
+    "xaxisID" : "2",
+    "items" : [ {
+      "id" : "1",
+      "name" : "Extended Cause ID",
+      "color" : "34fff4",
+      "queryParam" : "subCauseCode",
+      "isLegendPrefix" : "TRUE",
+      "displayInTooltip" : "TRUE"
+    }, {
+      "id" : "2",
+      "name" : "Extended Cause Value",
+      "color" : "2200FF",
+      "queryParam" : "subCauseCodeDescription"
+    }, {
+      "id" : "3",
+      "name" : "Failures",
+      "color" : "cb5853",
+      "displayInTooltip" : "TRUE",
+      "drillDownWindowType" : "GSM_NETWORK_CAUSE_CODE_ANALYSIS_FROM_SUBPIE"
+    }, {
+      "id" : "4",
+      "name" : "Impacted Subscribers",
+      "color" : "5400FF",
+      "displayInTooltip" : "TRUE"
+    }, {
+      "id" : "5",
+      "name" : "node",
+      "queryParam" : "node",
+      "datatype" : "string",
+      "isSystem" : "true"
+    }, {
+      "id" : "6",
+      "name" : "Cause Group",
+      "queryParam" : "causeCodeDescription",
+      "datatype" : "string",
+      "isSystem" : "true"
+    }, {
+      "id" : "7",
+      "name" : "Cause Group ID",
+      "queryParam" : "causeCode",
+      "datatype" : "string",
+      "isSystem" : "true"
+    } ]
+  }

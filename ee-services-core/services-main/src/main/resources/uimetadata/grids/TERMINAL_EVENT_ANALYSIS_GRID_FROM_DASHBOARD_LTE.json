@@ -1,0 +1,52 @@
+{
+    "id": "TERMINAL_EVENT_ANALYSIS_GRID_FROM_DASHBOARD_LTE",
+    "title": "LTE Call Failure Event Analysis From Top Terminals",
+    "autoexpand": "3",
+    "defaultSortCol": "5",
+    "defaultSortDir": "DESC",
+    "categoryId" : "TERMINAL_EVENT_ANALYSIS_GRID_FROM_DASHBOARD_LTE",
+    "columns": [
+         {
+            "type" : "CategoryId",
+            "header" : "Category ID",
+            "width" : "100",
+            "datatype" : "int",
+            "isSystem" : "TRUE",
+            "licenseCXC": "CXC4011279"
+        },
+        {
+            "type" : "tac",
+            "header" : "TAC",
+            "width" : "100",
+            "datatype" : "int",
+            "isHidden" : "TRUE",
+            "licenseCXC": "CXC4011279"
+        },
+        {
+            "type" : "manufacturer",
+            "header": "Manufacturer",
+            "width": "130",
+            "datatype": "string"
+        },
+        {
+            "type" : "model",
+            "header": "Model",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "type" : "failureType",
+            "header": "Failure Category",
+            "width": "120",
+            "datatype": "string",
+            "drillDownWindowType" : "TERMINAL_EVENT_ANALYSIS_LTE_CFA_DRILL_ON_CATEGORY",
+            "licenseCXC": "CXC4011279"
+        },
+        {
+            "type" : "failures",
+            "header": "Failures",
+            "width": "90",
+            "datatype": "int"
+        }
+    ]
+}

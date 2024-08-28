@@ -1,0 +1,17 @@
+{
+  "id" : "NETWORK_TAC_RANKING_RAN_GSM_EVENT_ANALYSIS_SUMMARY",
+  "gridDisplayID" : "NETWORK_TAC_RANKING_RAN_GSM_EVENT_ANALYSIS_SUMMARY",
+  "menuItem" : "GSM_CFA_TAC_RANKING",
+  "url" : "NETWORK/GSM/CALL_FAILURE_EVENT_SUMMARY/TAC",
+  "params" : [ {
+    "id" : "2",
+    "queryParamName" : "RAN_VENDOR"
+  }, {
+    "id" : "4",
+    "queryParamName" : "cellId",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "3",
+    "queryParamName" : "bscId"
+  }]
+}

@@ -1,0 +1,67 @@
+{
+    "id":"DRILL_MULTIPLE_RECURRING_FAILURES",
+    "title":"IMSI Event Analysis for Recurring Failures",
+    "autoexpand":"9",
+    "columns":[
+        {
+            "header":"Event Time",
+            "width":"120",
+            "datatype":"date"
+        },
+        {
+            "header":"IMSI",
+            "width":"200",
+            "datatype":"string",
+            "isHidden":"TRUE"
+        },{
+            "header":"TAC",
+            "width":"70",
+            "datatype":"string"
+        },
+        {
+            "header":"Terminal Make",
+            "width":"120",
+            "datatype":"String"
+        },
+        {
+            "header":"Terminal Model",
+            "width":"120",
+            "datatype":"String"
+        },
+        {
+            "header":"Event Type",
+            "width":"120",
+            "datatype":"String"
+        },
+        {
+            "header":"Procedure Indicator",
+            "width":"150",
+            "datatype":"String"
+        },
+        {
+            "header":"Evaluation Case",
+            "width":"110",
+            "datatype":"String"
+        },
+        {
+            "header":"Exception Class",
+            "width":"200",
+            "datatype":"String"
+        },
+        {
+            "header":"Cause Value",
+            "width":"200",
+            "datatype":"String"
+        },
+        {
+            "header":"Extended Cause Value",
+            "width":"250",
+            "datatype":"String"
+        },
+        {
+            "header":"Severity Indicator",
+            "width":"80",
+            "datatype":"String"
+        }
+    ]
+}

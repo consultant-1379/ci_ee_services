@@ -1,0 +1,88 @@
+{
+  "id" : "KPI_ANALYSIS",
+  "title" : "KPI Analysis",
+  "xlabel" : "Time",
+  "ylabel" : "KPI (%)",
+  "secondYAxisID" : "11,14,10",
+  "xaxisID" : "1",
+  "zoomableXAxis" : "TRUE",
+  "items" : [ {
+    "id" : "2",
+    "name" : "Attach Success Rate"
+  }, {
+    "id" : "3",
+    "name" : "PDP Context Act. SR"
+  }, {
+    "id" : "4",
+    "name" : "RA Update Success Rate"
+  }, {
+    "id" : "5",
+    "name" : "Inter SGSN-MME RA Update SR"
+  }, {
+    "id" : "6",
+    "name" : "PDP Context Cutoff Ratio"
+  }, {
+    "id" : "7",
+    "name" : "Detach Success Rate"
+  }, {
+    "id" : "8",
+    "name" : "Service Request Failure Ratio"
+  }, {
+    "id" : "9",
+    "name" : "Paging Failure Ratio"
+  }, {
+    "id" : "10",
+    "name" : "Paging attempts per Subs."
+  }, {
+    "id" : "11",
+    "name" : "Impacted Subscribers"
+  }, {
+    "id" : "12",
+    "name" : "Attach Success Rate (LTE)"
+  }, {
+    "id" : "13",
+    "name" : "PDN Connection Success Rate"
+  }, {
+    "id" : "14",
+    "name" : "Impacted Subscribers (LTE)"
+  }, {
+    "id" : "15",
+    "name" : "Bearer Activation Success Rate"
+  }, {
+    "id" : "16",
+    "name" : "UE Initiated Service Request Failure Ratio (LTE)"
+  }, {
+    "id" : "17",
+    "name" : "Paging Failure Ratio (LTE)"
+  }, {
+    "id" : "18",
+    "name" : "Tracking Area Update Success Rate"
+  }, {
+    "id" : "19",
+    "name" : "Inter-MME Tracking Area Update Success Rate"
+  }, {
+    "id" : "20",
+    "name" : "X2 based handover"
+  }, {
+    "id" : "21",
+    "name" : "X2 based HO without SGW relocation"
+  }, {
+    "id" : "22",
+    "name" : "X2 based HO with SGW relocation"
+  }, {
+    "id" : "23",
+    "name" : "S1 based handover"
+  }, {
+    "id" : "24",
+    "name" : "S1 based HO without SGW and with MME relocation"
+  }, {
+    "id" : "25",
+    "name" : "S1 based HO without SGW and MME relocation"
+  }, {
+    "id" : "26",
+    "name" : "S1 based HO with SGW and without MME relocation"
+  }, {
+    "id" : "27",
+    "name" : "S1 based HO with SGW and MME relocation"
+  } ]
+}

@@ -1,0 +1,43 @@
+##
+## WCDMA Call Failure Analysis Terminal Event Analysis (using raw tables)
+##
+## Velocity Parameter:
+##	   $groupname			The Group Name as selected in the Live Load.
+##     $TECH_PACK_LIST		tables that should be used in query, see TechPackList javadoc
+##		
+## Named PreparedStatement Parameter:
+##
+##     :count 	   max number of rows
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+
+#set($columnsToSelect=["EVENT_ID", "IMSI", "HIER3_CELL_ID"])
+BEGIN
+SELECT
+    #if($count > 0) top $count #end     
+    :groupname                                       AS 'Group Name',
+    DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC  AS 'Event Type',
+    COUNT (*)                                        AS 'Failures',
+    COUNT (DISTINCT(rawview.IMSI))                   AS 'Impacted Subscribers',    
+    rawview.EVENT_ID 								 AS 'Event ID'
+FROM
+    #REPLACE_RAW_VIEW_WITH_RAW_TABLES_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawErrTables() "rawview" $columnsToSelect),
+    DIM_E_RAN_CFA_EVENTTYPE
+WHERE
+    rawview.HIER3_CELL_ID IN
+    (
+        SELECT
+            GROUP_TYPE_E_RAT_VEND_HIER321_CELL.HIER3_CELL_ID
+        FROM
+            GROUP_TYPE_E_RAT_VEND_HIER321_CELL
+        WHERE
+            GROUP_TYPE_E_RAT_VEND_HIER321_CELL.GROUP_NAME = :groupname
+    )
+AND rawview.EVENT_ID = DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID
+GROUP BY
+    DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC,
+    rawview.EVENT_ID
+ORDER BY 
+	DIM_E_RAN_CFA_EVENTTYPE.EVENT_ID_ALTERNATE_DESC
+END

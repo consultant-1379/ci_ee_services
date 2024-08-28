@@ -1,0 +1,575 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>ee-services-core</artifactId>
+		<groupId>com.ericsson.eniq.events</groupId>
+		<version>14.0-A-2</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<name>${eniq.events.app.name} :: Services Main</name>
+
+	<artifactId>services-main</artifactId>
+	<packaging>war</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-common</artifactId>			
+			<version>${project.version}</version>
+			
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-kpi</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-datasource</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-logging</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-aspect</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-test</artifactId>
+			<version>${project.version}</version>
+			
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-templates</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-json</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-security</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-2g3g4g</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-base</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-config</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-dashboard</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-gsm-cfa</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-lte-cfa</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-lte-hfa</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-mss</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-legacy-base</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-wcdma-cfa</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-wcdma-hfa</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+        <dependency>
+        <groupId>${project.groupId}</groupId>
+            <artifactId>services-wcdma-uertt</artifactId>
+            <version>${project.version}</version>
+		</dependency>    
+		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-3g-session-browser</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-resources</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-soap</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-integration-test</artifactId>
+			<version>${project.version}</version>
+			
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-query</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>velocity</groupId>
+			<artifactId>velocity-dep</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ericsson.eniq</groupId>
+			<artifactId>licensing</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ericsson.eniq.common</groupId>
+			<artifactId>common</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.distocraft.dc5000.etl.importexport</groupId>
+			<artifactId>export</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.distocraft.dc5000.dwhm</groupId>
+			<artifactId>dwh_manager</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.distocraft.dc5000</groupId>
+			<artifactId>repository</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ericsson.eniq</groupId>
+			<artifactId>engine</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.servlet</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.transaction</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>jsr311-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>sun.jersey.glassfish.v3.osgi</groupId>
+			<artifactId>jersey-gf-bundle</artifactId>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>jackson-core-asl</artifactId>
+					<groupId>com.sun.jersey.glassfish.v3.osgi</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sybase</groupId>
+			<artifactId>jconn3</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jmock</groupId>
+			<artifactId>jmock</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>pl.pragmatists</groupId>
+			<artifactId>JUnitParams</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.ejb</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-dataservice</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-utils</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>services-kpi-notification</artifactId>
+			<version>${project.version}</version>
+			
+		</dependency>
+
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.6.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<version>2.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.11</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ericsson.eniq</groupId>
+			<artifactId>eniq_events_shared_model</artifactId>
+			<version>${eniq.shared.model}</version><!--$NO-MVN-MAN-VER$ -->
+			<scope>compile</scope>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<finalName>EniqEventsServices</finalName>
+		<plugins>
+
+
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+
+
+					<execution>
+						<id>copy-war-for-release</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/../install</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.build.directory}</directory>
+									<includes>
+										<include>${project.build.finalName}.war</include>
+									</includes>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<!-- Hack here for known war plugin issue of including web.xml twice 
+						- exclude it at this stage from being included in the package, when version 
+						2.2 is released this should probably be removed -->
+					<packagingExcludes>**/web.xml</packagingExcludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.ericsson.maven.plugins</groupId>
+				<artifactId>MetaDataCompiler</artifactId>
+				<version>1.2</version>
+
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>compile-meta-data</goal>
+						</goals>
+					</execution>
+				</executions>
+
+				<configuration>
+					<baseDirectory>
+						<baseDir>${basedir}/src/main/resources/uimetadata</baseDir>
+					</baseDirectory>
+
+					<outputFile>
+						<param>${basedir}/src/main/resources/UIMetaData.json</param>
+					</outputFile>
+					<fileInclusionExtension>.json</fileInclusionExtension>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+		<testResources>
+			<testResource>
+				<directory>${basedir}/src/test/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</testResource>
+			<testResource>
+				<directory>${basedir}/src/test/resources</directory>
+			</testResource>
+		</testResources>
+
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<excludes> <!-- exclude any clearcase specific files, primarily for local builds -->
+					<exclude>**/*.contrib</exclude>
+					<exclude>**/*.keep</exclude>
+					<exclude>**/*.mkelem</exclude>
+					<exclude>**/*.checkin</exclude>
+					<exclude>**/*.loading</exclude>
+					<exclude>**/*.merge</exclude>
+					<exclude>**/*.unloaded</exclude>
+					<exclude>**/*.hijacked</exclude>
+					<exclude>**/*.checkedout</exclude>
+					<exclude>q_named_parameter_test.vm</exclude>
+					<exclude>q_test.vm</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											com.ericsson.maven.plugins
+										</groupId>
+										<artifactId>
+											MetaDataCompiler
+										</artifactId>
+										<versionRange>
+											[1.2,)
+										</versionRange>
+										<goals>
+											<goal>
+												compile-meta-data
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>groovy</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<groovyTarget>compile</groovyTarget>
+				<coberturaTarget>instrument</coberturaTarget>
+				<aspectj.groovy>process-classes</aspectj.groovy>
+				<ant.groovy>process-test-classes</ant.groovy>
+				<site.groovy>verify</site.groovy>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>services-groovy</artifactId>
+					<version>${project.version}</version>
+					
+				</dependency>
+			</dependencies>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>aspectj-maven-plugin</artifactId>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+							<aspectLibraries>
+								<aspectLibrary>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>services-groovy</artifactId>
+								</aspectLibrary>
+							</aspectLibraries>
+							<weaveDependencies>
+								<weaveDependency>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>services-templates</artifactId>
+								</weaveDependency>
+							</weaveDependencies>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>compile</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

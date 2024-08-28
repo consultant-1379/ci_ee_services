@@ -1,0 +1,29 @@
+{
+  "id" : "CS_NETWORK_CAUSE_CODE_RANKING",
+  "title" : "Cause Code Ranking Voice",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Rank",
+    "width" : "70",
+    "datatype" : "int"
+  }, {
+    "header" : "Internal Cause Code description",
+    "width" : "200",
+    "datatype" : "string",
+    "launchWindowType" : "CS_NETWORK_CAUSE_CODE_ANALYSIS_ICC"
+  }, {
+    "header" : "Internal Cause Code ID",
+    "width" : "120",
+    "datatype" : "int"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  }, {
+    "header" : "Successes",
+    "width" : "100",
+    "datatype" : "int"
+  } ]
+}

@@ -1,0 +1,40 @@
+{
+  "id" : "ACCESS_AREA_EVENT_ANALYSIS_GRID_FROM_DASHBOARD_LTE_HFA",
+  "title" : "LTE Handover Failure Event Analysis From Top Access Areas",
+  "autoexpand" : "5",
+  "defaultSortCol" : "7",
+  "defaultSortDir" : "DESC",
+  "columns" : [ {
+    "header" : "HIER321_ID",
+    "width" : "20",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Category ID",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "RAN Vendor",
+    "width" : "100",
+    "datatype" : "string"
+  }, {
+    "header" : "Controller",
+    "width" : "200",
+    "datatype" : "string"
+  }, {
+    "header" : "Access Area",
+    "width" : "140",
+    "datatype" : "string"
+  }, {
+    "header" : "Handover Stage",
+    "width" : "100",
+    "datatype" : "string",
+    "drillDownLicenseCXC" : "CXC4010927",
+    "drillDownWindowType" : "Preparation,NETWORK_RAN_LTE_HFA_CELL_DRILL_ON_PREPARATION,Execution,NETWORK_RAN_LTE_HFA_CELL_DRILL_ON_EXECUTION"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int"
+  } ]
+}

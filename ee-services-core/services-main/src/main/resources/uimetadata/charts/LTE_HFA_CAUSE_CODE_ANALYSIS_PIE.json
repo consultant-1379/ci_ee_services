@@ -1,0 +1,62 @@
+{
+    "id": "LTE_HFA_CAUSE_CODE_ANALYSIS_PIE",
+    "title": "LTE Handover Failure Cause Code Analysis",
+    "ylabel": "Number of Events",
+    "xlabel": "Group Name",
+    "secondYAxisID": "3",
+    "xaxisID": "2",
+    "items": [
+        {
+            "id": "1",
+            "name": "Cause Code Id",
+            "color": "5494c5",
+            "queryParam": "causeCode",
+            "displayInTooltip": "TRUE",
+            "isLegendPrefix": "TRUE"
+        },
+        {
+            "id": "2",
+            "name": "Cause Code Desc",
+            "color": "5494c5"
+        },
+        {
+            "id": "3",
+            "name": "Number of Failures",
+            "color": "cb5853",
+            "displayInTooltip": "TRUE",
+            "drillDownWindowType": "LTE_HFA_CAUSE_CODE_ANALYSIS_PIE_FAILURES_DRILL_KEY",
+            "drillDownSeriesId": "6",
+            "groupSeriesId": "7"
+        },
+        {
+            "id": "4",
+            "name": "Impacted Subscribers",
+            "color": "333986",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "5",
+            "name": "Event ID",
+            "color": "333986",
+            "queryParam": "eventID",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "6",
+            "name": "Event Description",
+            "color": "333986",
+            "displayInTooltip": "TRUE"
+        },
+        {
+            "id": "7",
+            "name": "node",
+            "color": "333986"          
+        },
+        {
+            "id": "8",
+            "name": "groupname",
+            "color": "333986",
+            "isLegendPrefix": "TRUE"
+        }
+    ]
+}

@@ -1,0 +1,122 @@
+#set($columnsToSelect=["CPICH_EC_NO_CELL_1", "RSCP_CELL_1", "SCANNER_ID", "NE_VERSION", "RNC_MODULE_ID", "UE_CONTEXT", "C_ID_1_SS_HSDSCH_CELL", "C_ID_SERV_HSDSCH_CELL", "CRNC_ID_SERV_HSDSCH_CELL", "TARGET_CONF", "RSSI", "SOURCE_CONF", "SEVERITY_INDICATOR", "EXCEPTION_CLASS", "EVALUATION_CASE", "SUB_CAUSE_VALUE", "CAUSE_VALUE", "EVENT_TIME", "EVENT_ID", "IMSI", "MSISDN", "TAC", "IMSI_MCC", "IMSI_MNC", "ROAMING", "HIER3_CELL_ID", "THIER3_CELL_ID", "LAC", "RAC", "LAC_TARGET_ID", "PLMN_TARGET_ID", "PROCEDURE_INDICATOR", "EVENT_TRIGGER"])
+#if($subType=="IMSI")
+    #set($filterColumn = ["IMSI"])
+#elseif($subType=="MSISDN")
+    #set($filterColumn = ["MSISDN"])
+#end
+
+select
+	TOP 1
+	##Subscriber Identity
+	MSISDN,
+	IMSI,
+	#DISPLAY_TERMINAL("tacRef" "raw_tables"),
+	#DISPLAY_NETWORK("roamingRef"),
+	##Handover Details
+	source_cellRef.CID as SOURCE_CELL,
+	source_cellRef.RAT as SOURCE_RAT_ID,
+	source_cellRef.VENDOR as SOURCE_VENDOR,
+	source_cellRef.HIERARCHY_3 as SOURCE_CONTROLLER,
+	LAC as SOURCE_LAC,
+	RAC as SOURCE_RAC,
+	target_cellRef.CID as TARGET_CELL,
+	target_cellRef.RAT as TARGET_RAT_ID,
+	target_cellRef.VENDOR as TARGET_VENDOR,
+	target_cellRef.HIERARCHY_3 as TARGET_CONTROLLER,
+	LAC_TARGET_ID,
+	PLMN_TARGET_ID,
+	##Event Summary Details
+	EVENT_ID_DESC,
+	PROCEDURE_INDICATOR_DESC,
+	EVENT_TRIGGER_DESC,
+	CAUSE_VALUE_DESC,
+	SUB_CAUSE_VALUE_DESC,
+	EVALUATION_CASE_DESC,
+	EXCEPTION_CLASS_DESC,	
+	SEVERITY_INDICATOR,
+	SOURCE_CONF,
+	ecnoMapping.ECNO_DBM as CPICH_EC_NO_SOURCE_CELL,
+	rscpMapping.RSCP_DBM as RSCP_SOURCE_CELL,
+	RSSI,
+	TARGET_CONF,
+	CRNC_ID_SERV_HSDSCH_CELL,
+	C_ID_SERV_HSDSCH_CELL,
+	C_ID_1_SS_HSDSCH_CELL,
+	UE_CONTEXT,
+	RNC_MODULE_ID,
+	SCANNER_ID,
+	NE_VERSION,
+	dateformat(EVENT_TIME,'yyyy-MM-dd HH:mm:ss.SSS') AS EVENT_TIME
+from 
+	#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS_WITH_EVENT_TIME($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "raw_tables" $filterColumn $columnsToSelect)
+left outer join
+	DIM_E_RAN_HFA_EXCEPTION_CLASS exceptionClass
+	on (exceptionClass.EXCEPTION_CLASS = raw_tables.EXCEPTION_CLASS)	
+left outer join
+	DIM_E_SGEH_TAC tacRef
+	on (tacRef.TAC = raw_tables.TAC)
+left outer join
+	DIM_E_SGEH_MCCMNC roamingRef
+	on (roamingRef.MCC = raw_tables.IMSI_MCC
+		and roamingRef.MNC = raw_tables.IMSI_MNC)
+left outer join
+	(select
+		DISTINCT CID,
+		HIER3_CELL_ID,
+		RAT,
+		VENDOR,
+		HIERARCHY_3
+	from
+		DIM_E_SGEH_HIER321_CELL) as source_cellRef
+	on
+		(raw_tables.HIER3_CELL_ID = source_cellRef.HIER3_CELL_ID)
+left outer join
+  	(select
+   		DISTINCT CID,
+   		HIER3_CELL_ID as CELL_HASH_ID,
+		RAT,
+		VENDOR,
+		HIERARCHY_3
+    from
+    	DIM_E_SGEH_HIER321_CELL
+    union all
+    select
+    	DISTINCT CELL_ID,
+    	HIER321_ID AS CELL_HASH_ID,
+		RAT,
+		VENDOR,
+		HIERARCHY_3
+    from
+    	DIM_E_SGEH_HIER321    
+		)AS target_cellRef
+	on
+		(raw_tables.THIER3_CELL_ID = target_cellRef.CELL_HASH_ID)
+left outer join
+	DIM_E_RAN_HFA_EVENTTYPE eventType
+	on (eventType.EVENT_ID = raw_tables.EVENT_ID)
+left outer join
+	DIM_E_RAN_HFA_PROCEDURE_INDICATOR procedureIndicator
+	on (procedureIndicator.PROCEDURE_INDICATOR = raw_tables.PROCEDURE_INDICATOR)		
+left outer join
+	DIM_E_RAN_HFA_EVENT_TRIGGER eventTrigger
+	on (eventTrigger.EVENT_TRIGGER = raw_tables.EVENT_TRIGGER)
+left outer join
+		DIM_E_RAN_HFA_CAUSE_CODE_VALUE causeValue
+	on (causeValue.CAUSE_VALUE = raw_tables.CAUSE_VALUE
+		and causeValue.EVENT_ID = raw_tables.EVENT_ID)	
+left outer join
+		DIM_E_RAN_HFA_SUB_CAUSE_CODE_VALUE subCauseValue
+	on (subCauseValue.SUB_CAUSE_VALUE = raw_tables.SUB_CAUSE_VALUE
+		and subCauseValue.EVENT_ID = raw_tables.EVENT_ID)
+left outer join
+	DIM_E_RAN_HFA_EVALUATION_CASE evaluationCase
+	on ( evaluationCase.EVALUATION_CASE = raw_tables.EVALUATION_CASE)
+LEFT OUTER JOIN
+	DIM_E_RAN_RSCP_MAPPING rscpMapping
+ON (raw_tables.RSCP_CELL_1 = rscpMapping.RSCP )
+LEFT OUTER JOIN
+	DIM_E_RAN_ECNO_MAPPING ecnoMapping
+ON (raw_tables.CPICH_EC_NO_CELL_1 = ecnoMapping.ECNO)
+where 
+	raw_tables.EVENT_ID = :eventID
+order by EVENT_TIME

@@ -1,0 +1,47 @@
+{
+    "id" : "GSM_SUBSCRIBER_GROUP_BREAKDOWN",
+    "title" : "Subscriber Group GSM Call Failure : Event Analysis Summary",
+    "defaultSortCol" : "3",
+    "defaultSortDir" : "ASC",
+    "autoexpand" : "3",
+    "categoryId" : "GSM_SUBSCRIBER_GROUP_BREAKDOWN",
+    "columns" : [
+        {
+            "type" : "imsi",
+            "header" : "IMSI",
+            "width" : "150",
+            "datatype" : "string"
+        },
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "100",
+            "datatype" : "string",
+            "isHidden" : "TRUE"
+        },
+        {
+    		"header" : "Failures",
+    		"width" : "100",
+    		"datatype" : "int",
+    		"drillDownWindowType" : "Call\u0020Setup\u0020Failures,GSM_CSF_SUBSCRIBER_DETAILED_BREAKDOWN_BY_IMSI,Call\u0020Drops,GSM_SUBSCRIBER_DETAILED_BREAKDOWN_BY_IMSI"
+  		},
+  		{
+    		"header" : "Failure Ratio",
+    		"width" : "150",
+    		"datatype" : "double"
+  		}, 
+  		{
+   			"header" : "Group Name",
+    		"width" : "150",
+    		"datatype" : "string",
+    		"isHidden" : "TRUE" 
+  		},
+  		{
+    		"header" : "CATEGORY_ID",
+    		"width" : "0",
+    		"datatype" : "int",
+    		"isSystem": "TRUE",
+    		"queryParamName" : "categoryId"
+  		}
+    ]
+}

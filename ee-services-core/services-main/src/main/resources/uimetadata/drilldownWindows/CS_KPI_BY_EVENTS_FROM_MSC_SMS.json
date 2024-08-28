@@ -1,0 +1,29 @@
+{
+  "id" : "CS_KPI_BY_EVENTS_FROM_MSC_SMS",
+  "gridDisplayID" : "CS_NETWORK_EVENT_ANALYSIS_ELEMENTS_SMS",
+  "name" : "KPI Breakdown by Access Area SMS",
+  "url" : "MSS/NETWORK/KPI_RATIO",
+  "needSearchParam" : "FALSE",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "2",
+    "queryParamName" : "EVNTSRC_ID"
+  }, {
+    "id" : "3",
+    "queryParamName" : "HIER3_ID"
+  }, {
+    "id" : "4",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "MSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

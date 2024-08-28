@@ -1,0 +1,18 @@
+{
+    "launchWindowTypeId": "RAN_LTE_HFA_ANALYSIS",
+    "menuItem": "RAN_LTE_HFA",
+    "searchValFromCol": "2",
+    "type": "IMSI",
+    "needSearchParam": "FALSE",
+    "params": [
+        {
+            "id": "IMSI",
+            "queryParamName": "type",
+            "isFixedVal": "TRUE"
+        },
+        {
+            "id": "2",
+            "queryParamName": "imsi"
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+      "id": "RAN_LTE_CFA_SUMMARY_IMSI",
+      "title": "IMSI LTE Call Failure : Event Analysis Summary",
+      "autoexpand": "3",
+      "defaultSortCol": "1",
+      "defaultSortDir": "ASC",
+      "columns": [
+        {
+          "header": "Category ID",
+          "width": "60",
+          "datatype": "string",
+          "isSystem": "TRUE"
+        },
+		{
+          "header": "IMSI",
+          "width": "50",
+          "datatype": "string",
+          "isSystem": "TRUE"
+        },
+        {
+          "header": "Failure Category",
+          "width": "100",
+          "datatype": "string",
+		  "drillDownWindowType" : "RAN_LTE_CFA_SUMMARY_IMSI_DRILL_ON_CATEGORY"
+        },
+        {
+          "header": "Failures",
+          "width": "120",
+          "datatype": "int"
+        }
+      ]
+    }

@@ -1,0 +1,39 @@
+{
+  "id" : "GSM_NETWORK_CC_SCC_DETAILED_EVENT_ANALYSIS_CELL_DRILL",
+  "name" : "Access Area Sub Cause Code Analysis",
+  "url" : "NETWORK/GSM/CALL_FAILURE_CAUSE_CODE_ANALYSIS/DETAIL_SUB_CAUSE_CODE_GRID",
+  "params" : [ {
+    "id" : "5",
+    "queryParamName" : "node",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "6",
+    "queryParamName" : "causeCodeDescription",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "2",
+    "queryParamName" : "subCauseCodeDescription",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "CELL",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  }, {
+    "id" : "1",
+    "queryParamName" : "subCauseCode"
+  }, {
+    "id" : "8",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "7",
+    "queryParamName" : "causeCode"
+  }, {
+    "id" : "9",
+    "queryParamName" : "CATEGORY_ID"
+  } ],
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "display" : "grid"
+}

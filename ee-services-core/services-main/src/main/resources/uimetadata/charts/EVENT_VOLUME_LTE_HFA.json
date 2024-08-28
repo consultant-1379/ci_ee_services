@@ -1,0 +1,47 @@
+{
+    "id": "EVENT_VOLUME_LTE_HFA",
+    "title": "LTE Handover Failure - Event Volume Analysis",
+    "xlabel": "Time",
+    "ylabel": "Number of Events",
+    "secondYAxisID": "10",
+    "xaxisID": "1",
+    "zoomableXAxis": "TRUE",
+    "items": [
+        {
+            "id": "2",
+            "name": " INTERNAL_PROC_HO_PREP_X2_IN Fail Count"
+        },
+        {
+            "id": "3",
+            "name": "INTERNAL_PROC_HO_PREP_X2_OUT Fail Count"
+        },
+        {
+            "id": "4",
+            "name": " INTERNAL_PROC_HO_EXEC_X2_IN Fail Count"
+        },
+        {
+            "id": "5",
+            "name": "INTERNAL_PROC_HO_EXEC_X2_OUT Fail Count"
+        },
+        {
+            "id": "6",
+            "name": "INTERNAL_PROC_HO_PREP_S1_IN Fail Count"
+        },
+        {
+            "id": "7",
+            "name": " INTERNAL_PROC_HO_PREP_S1_OUT Fail Count"
+        },
+        {
+            "id": "8",
+            "name": "INTERNAL_PROC_HO_EXEC_S1_IN Fail Count"
+        },
+        {
+            "id": "9",
+            "name": " INTERNAL_PROC_HO_EXEC_S1_OUT Fail Count"
+        },
+        {
+            "id": "10",
+            "name": "Impacted Subscribers"
+        }
+    ]
+}

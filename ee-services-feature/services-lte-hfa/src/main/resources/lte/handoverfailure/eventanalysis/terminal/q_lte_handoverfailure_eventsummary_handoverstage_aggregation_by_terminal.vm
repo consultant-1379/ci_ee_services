@@ -1,0 +1,72 @@
+##
+## Author : EVARAKS
+## LTE Handover Failure Terminal Handover stage Summary Analysis (Aggregation)
+##
+## Velocity Parameter: 
+##		
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+#set($conditionColumns=["TAC"])
+#set($columnsToSelect=["CATEGORY_ID_2", "IMSI"])
+
+SELECT
+	aggView.CATEGORY_ID_2 AS 'Category ID',
+	:TAC as 'TAC',
+	topology.VENDOR_NAME as 'Terminal Make',
+	topology.MARKETING_NAME as 'Terminal Model',
+	eventDesc.CATEGORY_ID_2_DESC as 'Handover Stage',
+	Failures as 'Failures', 
+	subscribers.IMPACTED_SUBSCRIBERS as 'Impacted Subscribers'
+FROM 	
+	(select 
+		CATEGORY_ID_2,
+		:TAC,
+		sum(NO_OF_ERRORS)
+	from 
+		$aggregationView as tempAgg
+	where	
+		tempAgg.TAC = :TAC
+		and	#GET_DATETIME_RANGE()
+	group by
+		CATEGORY_ID_2
+	) as aggView(CATEGORY_ID_2, TAC, Failures)	
+	left outer join
+	(
+		select 
+			count(distinct rawview.IMSI),
+			:TAC,
+			CATEGORY_ID_2
+		from
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_WITH_TAC_EXCLUSION_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTables() "rawview" $conditionColumns $columnsToSelect)
+		group by
+			CATEGORY_ID_2
+		) as subscribers(IMPACTED_SUBSCRIBERS, TAC, CATEGORY_ID_2)
+	on (		
+		aggView.CATEGORY_ID_2 = subscribers.CATEGORY_ID_2
+	   )
+	left outer join	
+	(
+		 select
+			topo.TAC,
+			topo.VENDOR_NAME,
+			topo.MARKETING_NAME
+		from 
+			topo.dc.DIM_E_SGEH_TAC topo
+		where
+			topo.TAC = :TAC
+	)	as topology
+	on(
+		topology.TAC = isnull(aggView.TAC,subscribers.TAC)
+	)
+	inner join(
+	select distinct 
+		CATEGORY_ID_2,CATEGORY_ID_2_DESC 
+		from
+		DIM_E_LTE_HFA_EVENTTYPE) eventDesc 
+	on(
+		eventDesc.CATEGORY_ID_2 = aggView.CATEGORY_ID_2
+          )
+	

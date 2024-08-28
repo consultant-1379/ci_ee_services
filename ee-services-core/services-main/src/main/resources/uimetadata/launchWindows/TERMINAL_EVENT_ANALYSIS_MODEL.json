@@ -1,0 +1,15 @@
+{
+  "launchWindowTypeId" : "TERMINAL_EVENT_ANALYSIS_MODEL",
+  "menuItem" : "TERMINAL_EVENT_ANALYSIS",
+  "searchValFromCol" : "2,3,4",
+  "type" : "TAC",
+  "params" : [ {
+    "id" : "4",
+    "queryParamName" : "tac",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "TAC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

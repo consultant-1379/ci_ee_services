@@ -1,0 +1,183 @@
+{
+    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_HSDSCH_CELL_GROUP_DRILL",
+    "title": "Failed Event Analysis",
+    "autoexpand": "3",
+    "defaultSortCol": "2",
+    "defaultSortDir": "ASC",
+    "columns": [
+        {
+            "header": "Event Time",
+            "width": "120",
+            "datatype": "date"
+        },
+        {
+            "header": "IMSI",
+            "width": "120",
+            "datatype": "string"
+        },
+		{
+            "header": "TAC",
+            "width": "70",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "Terminal Make",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "Terminal Model",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "Event Type",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "header": "Event Trigger",
+            "width": "280",
+            "datatype": "string"
+        },
+        {
+            "header": "Source Cell",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Source RNC",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "Source LAC",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "Source RAC",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "Target Cell",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Target RNC",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "Cause Value",
+            "width": "350",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "PATHLOSS",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "SOURCE_CONF",
+            "width": "100",
+            "datatype": "int"
+        },
+        {
+            "header": "CPICH_EC_NO Source Cell (dB)",
+            "width": "180",
+            "datatype": "float"
+        },
+        {
+            "header": "RSCP Source Cell (dBm)",
+            "width": "150",
+            "datatype": "float"
+        },
+        {
+            "header": "CPICH_EC_NO Target Cell (dB)",
+            "width": "180",
+            "datatype": "float"
+        },
+        {
+            "header": "RSCP Target Cell (dBm)",
+            "width": "150",
+            "datatype": "float"
+        },
+        {
+            "header": "SOURCE_CONNECTION_PROP",
+            "width": "180",
+            "datatype": "int"
+        },
+        {
+            "header": "UARFCN_SOURCE",
+            "width": "120",
+            "datatype": "int"
+        },
+        {
+            "header": "UARFCN_TARGET",
+            "width": "120",
+            "datatype": "int"
+        },
+        {
+            "header": "UL_SYNC_STATUS_RLS1",
+            "width": "150",
+            "datatype": "string"
+        },
+        {
+            "header": "GBR_UL",
+            "width": "70",
+            "datatype": "int"
+        },
+        {
+            "header": "GBR_DL",
+            "width": "70",
+            "datatype": "int"
+        },
+        {
+            "header": "UE_CONTEXT",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "RNC_MODULE_ID",
+            "width": "120",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "IMSI_MCC",
+            "width": "70",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "IMSI_MNC",
+            "width": "70",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "IMEISV",
+            "width": "70",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "SCANNER_ID",
+            "width": "100",
+            "datatype": "int",
+            "isHidden": "TRUE"
+        },
+        {
+            "header": "NE_VERSION",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        }
+    ]
+}

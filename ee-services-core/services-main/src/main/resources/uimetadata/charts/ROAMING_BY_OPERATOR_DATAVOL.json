@@ -1,0 +1,21 @@
+{
+  "id" : "ROAMING_BY_OPERATOR_DATAVOL",
+  "title" : "Inbound Roaming by Operator (Data Volume)",
+  "xlabel" : "Operator",
+  "ylabel" : "Data Volume (MB)",
+  "secondYAxisID" : "4",
+  "xaxisID" : "1",
+  "items" : [ {
+    "id" : "2",
+    "name" : "Downlink (MB)",
+    "color" : "333986"
+  }, {
+    "id" : "3",
+    "name" : "Uplink (MB)",
+    "color" : "00625f"
+  }, {
+    "id" : "4",
+    "name" : "Number of Bearers",
+    "color" : "f08a00"
+  } ]
+}

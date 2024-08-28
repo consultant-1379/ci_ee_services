@@ -1,0 +1,26 @@
+{
+  "id" : "GSM_SUBSCRIBER_GROUP_BREAKDOWN",
+  "gridDisplayID" : "GSM_SUBSCRIBER_GROUP_BREAKDOWN",
+  "url" : "NETWORK/GSM/CALL_FAILURE_EVENT_SUMMARY/IMSI_GROUP/BREAKDOWN",
+  "params" : [  
+	  {
+		"id" : "IMSI",
+		"queryParamName" : "type",
+		"isFixedVal" : "TRUE"
+	  }, 
+	  {
+	  	"id" : "3",
+	  	"queryParamName" : "CATEGORY_ID"
+	  }, 
+	  {
+	  	"id" : "6",
+	  	"queryParamName" : "groupname",
+	  	"isTitleParam" : "TRUE"
+	  },
+	  {
+		"id" : "1",
+		"queryParamName" : "categoryIdDesc",
+		"isTitleParam" : "TRUE"
+  	  }
+  ]
+}

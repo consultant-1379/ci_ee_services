@@ -1,0 +1,29 @@
+{
+  "id" : "CS_KPI_BY_CC_FROM_BSC",
+  "name" : "KPI Breakdown by Cause Code Voice",
+  "url" : "MSS/NETWORK/KPI_RATIO",
+  "style" : "analysisCausecode",
+  "windowType" : "GRID",
+  "isEnabled" : "TRUE",
+  "toolBarType" : "TOOLBAR1",
+  "searchValFromCol" : "5",
+  "display" : "grid",
+  "params" : [ {
+    "id" : "1",
+    "queryParamName" : "eventID"
+  }, {
+    "id" : "2",
+    "queryParamName" : "HIER3_ID"
+  }, {
+    "id" : "3",
+    "queryParamName" : "HIER321_ID"
+  }, {
+    "id" : "5",
+    "queryParamName" : "cell",
+    "isTitleParam" : "TRUE"
+  }, {
+    "id" : "BSC",
+    "queryParamName" : "type",
+    "isFixedVal" : "TRUE"
+  } ]
+}

@@ -1,0 +1,16 @@
+{
+  "id" : "SUBSCRIBER_DETAILS_TABLE_PTMSI",
+  "title" : "PTMSI Subscriber Details",
+  "noSearchFieldInTitle" : "TRUE",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "columns" : [ {
+    "header" : "Key",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Value",
+    "width" : "150",
+    "datatype" : "string"
+  } ]
+}

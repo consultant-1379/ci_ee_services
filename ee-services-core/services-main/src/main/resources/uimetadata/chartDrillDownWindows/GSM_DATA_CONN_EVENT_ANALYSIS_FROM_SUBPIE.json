@@ -1,0 +1,8 @@
+{
+      "id" : "GSM_DATA_CONN_EVENT_ANALYSIS_FROM_SUBPIE",
+      "nameForTaskBar" : "Event Analysis Details by Sub Cause Code (GSM)",
+      "url" : "NETWORK/GSM/DATA_CONNECTION_DETAILED_EVENT_ANALYSIS/IMSI_SCC",
+      "drillTargetDisplayId" : "GSM_DATA_CONN_EVENT_ANALYSIS_FROM_SUBPIE",
+      "drillToolBarType" : "TOOLBAR1",
+      "drillType" : "launchGrid"
+}

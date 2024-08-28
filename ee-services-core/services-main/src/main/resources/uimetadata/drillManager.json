@@ -1,0 +1,930 @@
+{
+    "drillManager": [
+        {
+            "key": "WCDMA_RAN_CFA_BSC_DRILL_BY",
+            "categories": [
+                {
+                    "id": "WCDMA_RAN_CFA_BSC_DRILL_BY_DISCONNECTION_CODE",
+                    "name" : "Disconnection Code"
+                },
+                {
+                    "id": "WCDMA_RAN_CFA_RNC",
+                    "name" : "Event Analysis Summary"
+                }
+            ]
+        },
+        {
+            "key": "WCDMA_RAN_CFA_BSC_DRILL_BY_SETUP_FAILURE_CONFIG",
+            "categories": [
+                {
+                    "id": "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_BSC_CALL_SETUP_CONFIG",
+                    "name" : "Detailed Event Analysis"
+                }
+            ]
+        },
+        {
+            "key": "WCDMA_RAN_CFA_BSC_DRILL_BY_SETUP_FAILURE_CONFIG_ALL",
+            "categories": [
+                {
+                    "id": "WCDMA_RAN_CFA_BSC_DRILL_BY_RAB_TYPE_CONFIG",
+                    "name" : "RAB Type"
+                },
+                {
+                    "id": "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_BSC_CALL_SETUP_CONFIG",
+                    "name" : "Detailed Event Analysis"
+                }
+            ]
+        },
+
+        {
+            "key": "WCDMA_RAN_CFA_BSC_DRILL_BY_DROPS_CONFIG",
+            "categories": [
+                {
+                    "id": "WCDMA_RAN_CFA_BSC_DRILL_BY_DISCONNECTION_CODE_CONFIG",
+                    "name" : "Disconnection Code"
+                },
+                {
+                    "id": "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_BSC_CALL_DROPS_CONFIG",
+                    "name" : "Detailed Event Analysis"
+                }
+            ]
+        },
+        {
+            "key": "WCDMA_RAN_CFA_BSC_DRILL_BY_DROPS_CONFIG_ALL",
+            "categories": [
+                {
+                    "id": "WCDMA_RAN_CFA_BSC_DRILL_BY_DISCONNECTION_CODE_CONFIG",
+                    "name" : "Disconnection Code"
+                },
+                {
+                    "id": "WCDMA_RAN_CFA_BSC_DRILL_BY_RAB_TYPE_CONFIG",
+                    "name" : "RAB Type"
+                },
+                {
+                    "id": "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_BSC_CALL_DROPS_CONFIG",
+                    "name" : "Detailed Event Analysis"
+                }
+            ]
+        },
+
+        {
+          "key": "WCDMA_RAN_CFA_CELL_DRILL_BY",
+            "categories": [
+                {
+                    "id": "WCDMA_RAN_CFA_CELL_DRILL_BY_DISCONNECTION_CODE",
+                    "name" : "Disconnection Code" 
+                },
+                {
+                    "id": "WCDMA_RAN_CFA_CELL",
+                    "name" : "Event Analysis Summary"
+                }
+            ]
+        },
+
+        {
+            "key": "WCDMA_RAN_CFA_CELL_DRILL_BY_DROPS_CONFIG_ALL",
+            "categories": [
+                {
+                    "id": "WCDMA_RAN_CFA_CELL_DRILL_BY_DISCONNECTION_CODE_CONFIG",
+                    "name" : "Disconnection Code"
+                },
+                {
+                    "id": "WCDMA_RAN_CFA_CELL_DRILL_BY_RAB_TYPE_CONFIG",
+                    "name" : "RAB Type"
+                },
+                {
+                    "id": "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_CELL_CALL_DROPS_CONFIG",
+                    "name" : "Detailed Event Analysis"
+                }
+            ]
+        },
+
+        {
+            "key": "WCDMA_RAN_CFA_CELL_DRILL_BY_SETUP_FAILURE_CONFIG_ALL",
+            "categories": [
+                {
+                    "id": "WCDMA_RAN_CFA_CELL_DRILL_BY_RAB_TYPE_CONFIG",
+                    "name" : "RAB Type"
+                },
+                {
+                    "id": "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_CELL_CALL_SETUP_CONFIG",
+                    "name" : "Detailed Event Analysis"
+                }
+            ]
+        },
+
+        {
+            "key": "WCDMA_RAN_CFA_CELL_DRILL_BY_DROPS_CONFIG",
+            "categories": [
+                {
+                    "id": "WCDMA_RAN_CFA_CELL_DRILL_BY_DISCONNECTION_CODE_CONFIG",
+                    "name" : "Disconnection Code"
+                },
+                {
+                    "id": "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_CELL_CALL_DROPS_CONFIG",
+                    "name" : "Detailed Event Analysis"
+                }
+            ]
+        },
+
+        {
+            "key": "WCDMA_RAN_CFA_CELL_DRILL_BY_SETUP_FAILURE_CONFIG",
+            "categories": [
+                {
+                    "id": "NETWORK_EVENT_ANALYSIS_DRILL_ON_FAILURE_BY_CELL_CALL_SETUP_CONFIG",
+                    "name" : "Detailed Event Analysis"
+                }
+            ]
+        },
+
+        {
+          "key": "WCDMA_RAN_CFA_TAC_DRILL_BY",
+            "categories": [
+                {
+                    "id": "WCDMA_RAN_CFA_TAC_DRILL_BY_DISCONNECTION_CODE",
+                    "name" : "Disconnection Code" 
+                },
+                {
+                    "id": "WCDMA_RAN_CFA_TAC_DRILL_BY_RAB_TYPE",
+                    "name" : "RAB Type" 
+                }, 
+                {
+                    "id": "WCDMA_RAN_CFA_TAC",
+                    "name" : "Terminal Summary" 
+                }
+            ]
+        },
+        {
+            "key": "CS_SUB_BI_FAILED_EVENTS_FAILURES_DRILL_KEY",
+            "categories": [
+                {
+                    "id": "CS_DRILL_GRID_CHART_SUB_BI_IMSI_roamingCallForwarding",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "3",
+                                "seriesValue": [
+                                    "roamingCallForwarding,3"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "CS_DRILL_GRID_CHART_SUB_BI_IMSI_callForwarding",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "3",
+                                "seriesValue": [
+                                    "callForwarding,2"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "CS_DRILL_GRID_CHART_SUB_BI_IMSI_SMS",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "3",
+                                "seriesValue": [
+                                    "mSOriginatingSMSinMSC,4",
+                                    "mSTerminatingSMSinMSC,5"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "CS_DRILL_GRID_CHART_SUB_BI_IMSI_locationServices",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "3",
+                                "seriesValue": [
+                                    "locationServices,6"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "CS_DRILL_GRID_CHART_SUB_BI_IMSI",
+                    "criteria": {
+                        "type": "exclude",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "3",
+                                "seriesValue": [
+                                    "roamingCallForwarding,3",
+                                    "callForwarding,2",
+                                    "locationServices,6",
+                                    "mSTerminatingSMSinMSC,5",
+                                    "mSOriginatingSMSinMSC,4"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "key": "GSM_DATA_CONN_CAUSE_CODE_ANALYSIS_PIE_FAILURES_DRILL_KEY",
+            "categories": [
+                {
+                    "id": "GSM_DATA_CONN_DRILL_CC2_TO_SCC_CHART",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "1",
+                                "seriesValue": [
+                                    "2"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "GSM_DATA_CONN_DRILL_SUCCESS_CC_TO_SUCCESS_CC_CHART",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "1",
+                                "seriesValue": [
+                                    "succ"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "GSM_DATA_CONN_DRILL_ERROR_CC_TO_EA_GRID",
+                    "criteria": {
+                        "type": "exclude",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "1",
+                                "seriesValue": [
+                                    "succ",
+                                    "c2"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "key": "LTE_HFA_CAUSE_CODE_ANALYSIS_PIE_FAILURES_DRILL_KEY",
+            "categories": [
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_PREP_S1_OUT_FROM_PIE_SLICE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_PREP_S1_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_PREP_S1_OUT_FROM_PIE_SLICE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_PREP_S1_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_PREP_S1_IN_FROM_PIE_SLICE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_PREP_S1_IN"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_PREP_S1_IN_FROM_PIE_SLICE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_PREP_S1_IN"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_PREP_X2_OUT_FROM_PIE_SLICE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_PREP_X2_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_PREP_X2_OUT_FROM_PIE_SLICE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_PREP_X2_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_PREP_X2_IN_FROM_PIE_SLICE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_PREP_X2_IN"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_PREP_X2_IN_FROM_PIE_SLICE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_PREP_X2_IN"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_OUT_FROM_PIE_SLICE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_S1_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_OUT_FROM_PIE_SLICE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_S1_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_OUT_FROM_PIE_SLICE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_S1_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_OUT_FROM_PIE_SLICE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_S1_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_OUT_FROM_PIE_SLICE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_S1_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_OUT_FROM_PIE_SLICE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_S1_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_OUT_FROM_PIE_SLICE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_S1_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_OUT_FROM_PIE_SLICE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_S1_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_IN_FROM_PIE_SLICE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_S1_IN"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_S1_IN_FROM_PIE_SLICE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_S1_IN"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_X2_OUT_FROM_PIE_SLICE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_X2_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_X2_OUT_FROM_PIE_SLICE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_X2_OUT"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_X2_IN_FROM_PIE_SLICE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_X2_IN"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_HFA_DRILL_ON_INTERNAL_PROC_HO_EXEC_X2_IN_FROM_PIE_SLICE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_HO_EXEC_X2_IN"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "key": "LTE_CFA_CAUSE_CODE_ANALYSIS_PIE_FAILURES_DRILL_KEY",
+            "categories": [
+                {
+                    "id": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_ERAB_SETUP_FROM_SUBPIE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_ERAB_SETUP"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_ERAB_SETUP_FROM_SUBPIE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_ERAB_SETUP"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP_FROM_SUBPIE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_INITIAL_CTXT_SETUP"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_INITIAL_CTXT_SETUP_FROM_SUBPIE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_INITIAL_CTXT_SETUP"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_RRC_CONN_SETUP_FROM_SUBPIE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_RRC_CONN_SETUP"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_RRC_CONN_SETUP_FROM_SUBPIE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_RRC_CONN_SETUP"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_S1_SIG_CONN_SETUP_FROM_SUBPIE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_S1_SIG_CONN_SETUP"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_S1_SIG_CONN_SETUP_FROM_SUBPIE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_S1_SIG_CONN_SETUP"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_UE_CTXT_RELEASE_FROM_SUBPIE",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "6",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_UE_CTXT_RELEASE"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_CC_LTE_CFA_DRILL_ON_INTERNAL_PROC_UE_CTXT_RELEASE_FROM_SUBPIE_GROUP",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "7",
+                                "seriesValue": [
+                                    "INTERNAL_PROC_UE_CTXT_RELEASE"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "key": "WCDMA_HFA_SUB_CC_ANALYSIS_PIE_FAILURES_DRILL_KEY",
+            "categories": [
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_SOHO_BSC_DRILL",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "10",
+                                "seriesValue": [
+                                    "Soft Handover"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_SOHO_BSC_GROUP_DRILL",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "11",
+                                "seriesValue": [
+                                    "Soft Handover"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_IFHO_BSC_DRILL",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "10",
+                                "seriesValue": [
+                                    "Interfrequency Handover"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_IFHO_BSC_GROUP_DRILL",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "11",
+                                "seriesValue": [
+                                    "Interfrequency Handover"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_IRAT_BSC_DRILL",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "10",
+                                "seriesValue": [
+                                    "IRAT Handover"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_IRAT_BSC_GROUP_DRILL",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "11",
+                                "seriesValue": [
+                                    "IRAT Handover"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_SOHO_BSC_DRILL",
+                    "criteria": {
+                        "type": "exclude",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "10",
+                                "seriesValue": [
+                                    "Soft Handover",
+                                    "Interfrequency Handover",
+                                    "IRAT Handover"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_SOHO_BSC_GROUP_DRILL",
+                    "criteria": {
+                        "type": "exclude",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "11",
+                                "seriesValue": [
+                                    "Soft Handover",
+                                    "Interfrequency Handover",
+                                    "IRAT Handover"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "key": "WCDMA_HFA_CC_ANALYSIS_PIE_FAILURES_DRILL_KEY",
+            "categories": [
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_HSDSCH_BSC_DRILL",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "9",
+                                "seriesValue": [
+                                    "HSDSCH Handover"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "NETWORK_DETAILED_EVENT_ANALYSIS_WCDMA_HFA_CC_HSDSCH_BSC_GROUP_DRILL",
+                    "criteria": {
+                        "type": "include",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "10",
+                                "seriesValue": [
+                                    "HSDSCH Handover"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "WCDMA_HFA_SUB_CC_ANALYSIS_PIE",
+                    "criteria": {
+                        "type": "exclude",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "9",
+                                "seriesValue": [
+                                    "Soft Handover",
+                                    "Interfrequency Handover",
+                                    "IRAT Handover"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "WCDMA_HFA_SUB_CC_ANALYSIS_PIE",
+                    "criteria": {
+                        "type": "exclude",
+                        "seriesMatchers": [
+                            {
+                                "seriesId": "10",
+                                "seriesValue": [
+                                    "Soft Handover",
+                                    "Interfrequency Handover",
+                                    "IRAT Handover"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

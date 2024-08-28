@@ -1,0 +1,81 @@
+{
+    "id": "WEB_SERVER_DISTRIBUTION",
+    "title": "",
+    "autoexpand": "",
+    "defaultSortCol": "6",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "type": "host",
+            "header": "Host",
+            "width": "140",
+            "datatype": "string"
+        },
+        {
+            "type": "dataVolumeDownlink",
+            "header": "DV DL (MB)",
+            "columnHeaderTooltip": "Data Volume DL (MB)",
+            "width": "80",
+            "datatype": "float"
+        },
+        {
+            "type": "dataVolumeUplink",
+            "header": "DV UL (MB)",
+            "columnHeaderTooltip": "Data Volume UL (MB)",
+            "width": "80",
+            "datatype": "float"
+        },
+        {
+            "type": "samplesDownlink",
+            "header": "Samples DL",
+            "width": "80",
+            "datatype": "float"
+        },
+        {
+            "type": "samplesUplink",
+            "header": "Samples UL",
+            "width": "80",
+            "datatype": "float"
+        },
+        {
+            "type": "throughputDownlink",
+            "header": "TPut DL (kbps)",
+            "columnHeaderTooltip": "Throughput DL (kbps)",
+            "width": "90",
+            "datatype": "float"
+        },
+        {
+            "type": "throughputUplink",
+            "header": "TPut UL (kbps)",
+            "columnHeaderTooltip": "Throughput UL (kbps)",
+            "width": "90",
+            "datatype": "float"
+        },
+        {
+            "type": "setupTimeTerm",
+            "header": "UE Setup Time",
+            "width": "100",
+            "datatype": "float"
+        },
+        {
+            "type": "setupTimeNet",
+            "header": "Network Setup Time",
+            "width": "110",
+            "datatype": "float"
+        },
+        {
+            "type": "packetLossTerm",
+            "header": "PL Term",
+            "columnHeaderTooltip": "Packet Loss Term",
+            "width": "65",
+            "datatype": "float"
+        },
+        {
+            "type": "packetLossNet",
+            "header": "PL Net",
+            "columnHeaderTooltip": "Packet Loss Net",
+            "width": "65",
+            "datatype": "float"
+        }
+    ]
+}

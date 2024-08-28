@@ -1,0 +1,16 @@
+{
+    "id": "DATAVOL_ANALYSIS_PORTLET_UPLINK",
+    "title": "Uplink",
+    "xlabel": "Timestamp",
+    "ylabel": "Data Volume (MB)",
+    "xaxisID": "1",
+    "zoomableXAxis": "TRUE",
+    "items": [
+        {
+            "id": "3",
+            "name": "Uplink (MB)",
+            "color": "00625f",
+            "drillDownWindowType": "UPLINK"
+        }
+    ]
+}

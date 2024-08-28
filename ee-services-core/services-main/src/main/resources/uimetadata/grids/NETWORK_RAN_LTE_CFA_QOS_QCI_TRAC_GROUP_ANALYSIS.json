@@ -1,0 +1,36 @@
+{
+  "id" : "NETWORK_RAN_LTE_CFA_QOS_QCI_TRAC_GROUP_ANALYSIS",
+  "title" : "Tracking Area Group LTE Call Failure QCI : QOS Statistics",
+  "autoexpand" : "4",
+  "defaultSortCol" : "5",
+  "defaultSortDir" : "ASC",
+  "columns" : [ {
+    "header" : "Tracking Area Group Name",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "QCI ID",
+    "width" : "100",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event_ID",
+    "width" : "60",
+    "datatype" : "string",
+    "isSystem" : "TRUE"
+  }, {
+    "header" : "Event Type",
+    "width" : "130",
+    "datatype" : "string"
+  }, {
+    "header" : "Failures",
+    "width" : "90",
+    "datatype" : "int",
+    "drillDownWindowType" : "INTERNAL_PROC_INITIAL_CTXT_SETUP,NETWORK_RAN_LTE_CFA_DRILL_ON_QOS_QCI_TRAC_GROUP_INTERNAL_PROC_ERAB_SETUP,INTERNAL_PROC_ERAB_SETUP,NETWORK_RAN_LTE_CFA_DRILL_ON_QOS_QCI_TRAC_GROUP_INTERNAL_PROC_ERAB_SETUP,INTERNAL_PROC_UE_CTXT_RELEASE,NETWORK_RAN_LTE_CFA_DRILL_ON_QOS_QCI_TRAC_GROUP_INTERNAL_PROC_UE_CTXT_RELEASE"
+  }, {
+    "header" : "Impacted Subscribers",
+    "width" : "120",
+    "datatype" : "string"
+  } ]
+}

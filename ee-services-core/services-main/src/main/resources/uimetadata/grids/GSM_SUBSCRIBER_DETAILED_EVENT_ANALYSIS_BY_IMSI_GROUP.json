@@ -1,0 +1,127 @@
+{
+    "id" : "GSM_SUBSCRIBER_DETAILED_EVENT_ANALYSIS_BY_IMSI_GROUP",
+    "title" : "Subscriber Group GSM Call Failure : Event Analysis Detail",
+    "autoexpand" : "1",
+    "defaultSortCol" : "1",
+    "defaultSortDir" : "ASC",
+    "categoryId" : "GSM_SUBSCRIBER_DETAILED_EVENT_ANALYSIS_BY_IMSI_GROUP",
+    "columns" : [
+        {
+            "type" : "eventTime",
+            "header" : "Event Time",
+            "width" : "150",
+            "datatype" : "date"
+        },
+        {
+   			"type" : "imsi",
+   			"header" : "IMSI",
+    		"width" : "120",
+    		"datatype" : "string"
+  		},
+        {
+    		"type" : "msisdn", 
+    		"header" : "MSISDN",
+    		"width" : "120",
+    		"datatype" : "string"
+  		},
+        {
+            "type" : "tac",
+            "header" : "TAC",
+            "width" : "100",
+            "datatype" : "string",
+            "drillDownWindowType" : "GSM_EVENT_ANALYSIS_SUMMARY_BY_TAC"
+        },
+        {
+            "type" : "terminalMake",
+            "header" : "Terminal Make",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "terminalModel",
+            "header" : "Terminal Model",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "eventType",
+            "header" : "Event Type",
+            "width" : "130",
+            "datatype" : "string"
+        },
+        {
+            "type" : "releaseType",
+            "header" : "Release Type",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "causeGroup",
+            "header" : "Cause Group",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+            "type" : "extendedCauseValue",
+            "header" : "Extended Cause Value",
+            "width" : "200",
+            "datatype" : "string"
+        },
+        {
+    		"type" : "vamosPairAllocationByMS",
+    		"header" : "VAMOS Pair Allocation by MS",
+    		"width" : "200",
+    		"datatype" : "string"
+  		},
+  		{
+    		"type" : "rsai",
+    		"header" : "RSAI",
+    		"width" : "150",
+    		"datatype" : "string"
+  		},
+  		{
+    		"type" : "channelType",
+    		"header" : "Channel Type",
+    		"width" : "150",
+    		"datatype" : "string"
+  		},
+  		{
+  			"type" : "urgencyCondition",
+  			"header" : "Urgency Condition",
+    		"width" : "200",
+    		"datatype" : "string"
+  		},
+  		{
+  			"type" : "ranVendor",
+    		"header" : "RAN Vendor",
+    		"width" : "120",
+    		"datatype" : "string"
+  		},  
+        {
+            "type" : "controller",
+            "header" : "Controller",
+            "width" : "120",
+            "datatype" : "string",
+            "drillDownWindowType" : "GSM_EVENT_ANALYSIS_SUMMARY_BY_BSC"
+        },
+        {
+            "type" : "accessArea",
+            "header" : "Access Area",
+            "width" : "120",
+            "datatype" : "string",
+            "drillDownWindowType" : "GSM_EVENT_ANALYSIS_SUMMARY_BY_CELL"
+        },
+        {
+    		"header" : "HIER3_ID",
+   			 "width" : "0",
+    		"datatype" : "string",
+    		"isSystem" : "TRUE"
+  		},
+  		{
+    		"header" : "HIER321_ID",
+   			 "width" : "0",
+    		"datatype" : "string",
+    		"isSystem" : "TRUE"
+  		}
+    ]
+}

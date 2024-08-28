@@ -1,0 +1,26 @@
+{
+    "id": "DATAVOL_ANALYSIS_PDP",
+    "title": "Data Volume by Network Entity",
+    "xlabel": "Timestamp",
+    "ylabel": "Data Volume (MB)",
+    "secondYAxisID": "4",
+    "xaxisID": "1",
+    "zoomableXAxis": "TRUE",
+    "items": [
+        {
+            "id": "2",
+            "name": "Downlink (MB)",
+            "color": "333986"
+        },
+        {
+            "id": "3",
+            "name": "Uplink (MB)",
+            "color": "00625f"
+        },
+        {
+            "id": "4",
+            "name": "Number of Bearers",
+            "color": "f08a00"
+        }
+    ]
+}

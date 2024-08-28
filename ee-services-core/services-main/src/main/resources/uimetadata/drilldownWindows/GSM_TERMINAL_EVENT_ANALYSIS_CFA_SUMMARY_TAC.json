@@ -1,0 +1,11 @@
+{
+  "id" : "GSM_TERMINAL_EVENT_ANALYSIS_CFA_SUMMARY_TAC",
+  "gridDisplayID" : "GSM_TERMINAL_EVENT_ANALYSIS_CFA_SUMMARY_TAC",
+  "menuItem" : "GSM_CFA_TERMINAL_RANKING",
+  "url" : "TERMINAL/GSM/CALL_FAILURE_EVENT_SUMMARY/TERMINAL",
+  "params" : [ {
+  	"id" : "4",
+  	"queryParamName" : "TAC",
+  	"isTitleParam" : "TRUE"
+  } ]
+}

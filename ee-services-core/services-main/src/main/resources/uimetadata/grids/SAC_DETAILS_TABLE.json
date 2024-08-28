@@ -1,0 +1,16 @@
+{
+  "id" : "SAC_DETAILS_TABLE",
+  "title" : "Cells connected to a SAC",
+  "noSearchFieldInTitle" : "TRUE",
+  "autoexpand" : "2",
+  "defaultSortCol" : "1",
+  "columns" : [ {
+    "header" : "Key",
+    "width" : "150",
+    "datatype" : "string"
+  }, {
+    "header" : "Value",
+    "width" : "150",
+    "datatype" : "string"
+  } ]
+}

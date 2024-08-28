@@ -1,0 +1,47 @@
+{
+    "id": "NETWORK_TARGET_CELL_RANKING_RAN_WCDMA_HFA",
+    "title": "Access Area WCDMA Handover Failure by Target Cell : Event Ranking",
+    "defaultSortCol": "1",
+    "defaultSortDir": "ASC",
+    "autoexpand": "5",
+    "columns": [
+        {
+            "header": "Rank",
+            "width": "50",
+            "datatype": "int"
+        },
+        {
+            "header": "RAT",
+            "width": "50",
+            "datatype": "string",
+            "isHidden" : "TRUE"
+        },
+        {
+            "header": "RAT ID",
+            "width": "50",
+            "datatype": "int",
+            "isHidden" : "TRUE"
+        },
+        {
+            "header": "RAN Vendor",
+            "width": "100",
+            "datatype": "string"
+        },
+        {
+            "header": "Controller",
+            "width": "200",
+            "datatype": "string"
+        },
+        {
+            "header": "Target Cell",
+            "width": "70",
+            "datatype": "string"
+        },
+        {
+            "header": "Failures",
+            "width": "70",
+            "datatype": "int",
+            "drillDownWindowType": "NETWORK_EVENT_ANALYSIS_WCDMA_HFA_SUMMARY_CELL_TARGET"
+        }
+    ]
+}

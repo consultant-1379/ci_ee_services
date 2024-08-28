@@ -1,0 +1,33 @@
+{
+    "id": "RADIO_CELL_LOAD_SUMMARY_GRID",
+    "title": "",
+    "autoexpand": "1",
+    "defaultSortCol": "2",
+    "defaultSortDir": "DESC",
+    "columns": [
+        {
+            "type": "cellId",
+            "header": "Cell",
+            "width": "120",
+            "datatype": "string"
+        },
+        {
+            "type": "startTime",
+            "header": "First Visited",
+            "width": "120",
+            "datatype": "date"
+        },
+        {
+            "type": "durationInCell",
+            "header": "Duration (min)",
+            "width": "60",
+            "datatype": "int"
+        },
+        {
+            "type": "samples",
+            "header": "Samples per Radio Condition",
+            "width": "160",
+            "datatype": "samples"
+        }
+    ]
+}

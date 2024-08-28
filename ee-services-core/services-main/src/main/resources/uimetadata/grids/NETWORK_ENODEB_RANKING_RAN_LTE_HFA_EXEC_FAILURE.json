@@ -1,0 +1,55 @@
+{
+    "id": "NETWORK_ENODEB_RANKING_RAN_LTE_HFA_EXEC_FAILURE",
+    "title": "Controller LTE Handover Failure Execution: Failure Event Ranking",
+    "defaultSortCol": "2",
+    "defaultSortDir": "ASC",
+    "autoexpand": "5",
+	"categoryId" : "NETWORK_ENODEB_RANKING_RAN_LTE_HFA_FAILURE",
+    "columns": [
+        {
+            "header": "HIER3_ID",
+            "width": "50",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "header": "Category ID",
+            "width": "50",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        },
+        {
+            "type" : "rank",
+            "header": "Rank",
+            "width": "50",
+            "datatype": "int"
+        },
+        {
+            "type" : "ranVendor",
+            "header": "RAN Vendor",
+            "width": "100",
+            "datatype": "string",
+            "isHidden": "TRUE"
+        },
+        {
+            "type" : "controller",
+            "header": "Controller",
+            "width": "300",
+            "datatype": "string",
+            "drillDownLicenseCXC" : "CXC4010927",
+            "launchWindowType": "NETWORK_ENODEB_RANKING_DRILL_ON_RAN_LTE_HFA_EXEC_FAILURE"
+        },
+        {
+            "type" : "failures",
+            "header": "Failures",
+            "width": "150",
+            "datatype": "int"
+        },
+        {
+            "header": "RAT Description",
+            "width": "50",
+            "datatype": "string",
+            "isSystem": "TRUE"
+        }
+    ]
+}

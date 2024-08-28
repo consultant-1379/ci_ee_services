@@ -1,0 +1,62 @@
+##SESSION_BROWSER SUMMARY VM (RAN_CFA_ONLY)
+#DEFINE_CONSTANTS()
+#set($columnsToSelect=["EVENT_TIME","EVENT_ID","HIER3_CELL_ID","THIER3_CELL_ID","TAC"])
+#if($subType==$TYPE_IMSI)
+	#set($filterColumn = ["IMSI"])
+#elseif($subType==$TYPE_MSISDN)
+	#set($filterColumn = ["MSISDN"])
+#end
+
+	SELECT
+		dateformat(rawview.EVENT_TIME,'yyyy-MM-dd HH:mm:ss.SSS') AS EVENT_TIME,
+        hfaEventRef.EVENT_ID,
+        hfaEventRef.EVENT_ID_DESC,
+        CAST(rawview.SOURCE_CELL_ID AS VARCHAR) AS SOURCE_CELL_ID,
+        CAST(rawview.TARGET_CELL_ID AS VARCHAR) AS TARGET_CELL_ID,
+		CAST(rawview.TAC AS VARCHAR) AS TAC
+	FROM
+		(SELECT
+			hfa_raw.EVENT_TIME,
+			hfa_raw.EVENT_ID,
+			source_cellRef.CID,
+			source_cellRef.CELL_ID,
+			target_cellRef.CID,
+			target_cellRef.CELL_ID,
+			hfa_raw.TAC
+		FROM
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($TECH_PACK_LIST.getAllRawTablesWithMeasurementType() "hfa_raw" $filterColumn $columnsToSelect)
+			LEFT OUTER JOIN
+				(SELECT
+					DISTINCT CID,CELL_ID,
+					HIER3_CELL_ID
+				FROM
+					DIM_E_SGEH_HIER321_CELL)AS source_cellRef
+				ON
+				(hfa_raw.HIER3_CELL_ID = source_cellRef.HIER3_CELL_ID)
+			LEFT OUTER JOIN
+    				(SELECT
+    					DISTINCT CID AS CID,
+						CELL_ID,
+    					HIER3_CELL_ID AS CELL_HASH_ID
+    				FROM
+    					DIM_E_SGEH_HIER321_CELL
+					)AS target_cellRef
+			ON(hfa_raw.THIER3_CELL_ID = target_cellRef.CELL_HASH_ID)	
+		#if($subType==$TYPE_IMSI)
+			WHERE
+				hfa_raw.EVENT_ID <> 458 ##excluding events of type INTERNAL_OUT_HARD_HANDOVER_FAILURE, these are returned in a seperate query
+		#end
+		)AS rawview(EVENT_TIME,EVENT_ID,SOURCE_CID,SOURCE_CELL_ID,TARGET_CID,TARGET_CELL_ID,TAC)
+		LEFT OUTER JOIN
+			DIM_E_RAN_HFA_EVENTTYPE hfaEventRef
+		ON
+		(rawview.EVENT_ID = hfaEventRef.EVENT_ID)
+	GROUP BY
+		EVENT_TIME,
+        hfaEventRef.EVENT_ID,
+        hfaEventRef.EVENT_ID_DESC,
+		rawview.SOURCE_CELL_ID,
+		rawview.TARGET_CELL_ID,
+		rawview.TAC
+    ORDER BY
+        EVENT_TIME DESC

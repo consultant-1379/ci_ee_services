@@ -1,0 +1,7 @@
+DIM_E_LTE_SUBCAUSECODE
+SUBCAUSE_CODE,SUBCAUSE_CODE_DESC,SUBCAUSE_CODE_HELP
+0,No SubCauseCode available,text
+10,Auth failed,text
+11,Auth failed: unknown subscriber PLMN not allowed,text
+12,Auth failed: unknown subscriber operator determined barring,text
+13,Auth failed: unknown subscriber IMSI unknown,text

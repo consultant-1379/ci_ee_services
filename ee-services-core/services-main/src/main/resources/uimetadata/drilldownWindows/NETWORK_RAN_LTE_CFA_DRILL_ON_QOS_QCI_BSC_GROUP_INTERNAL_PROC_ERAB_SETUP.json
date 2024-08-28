@@ -1,0 +1,22 @@
+{
+  "id": "NETWORK_RAN_LTE_CFA_DRILL_ON_QOS_QCI_BSC_GROUP_INTERNAL_PROC_ERAB_SETUP",
+  "name": "LTE CFA - Controller Group Event Analysis per QCI",
+  "url": "NETWORK/LTE_CFA_QOS_DETAILED_EVENT_ANALYSIS/QCI/ENODEB",
+  "gridDisplayID": "NETWORK_RAN_LTE_CFA_QOS_QCI_DETAILED_EVENT_ANALYSIS_INTERNAL_PROC_ERAB_SETUP",
+  "needSearchParam": "FALSE",
+  "params": [ {
+    "id": "1",
+    "queryParamName": "groupname"
+  }, {
+    "id": "2",
+    "queryParamName": "QCI_ID"
+  }, {
+    "id": "3",
+    "queryParamName": "eventID"
+  } ],
+  "style": "analysisCausecode",
+  "windowType": "GRID",
+  "isEnabled": "TRUE",
+  "toolBarType": "TOOLBAR1",
+  "display": "grid"
+}

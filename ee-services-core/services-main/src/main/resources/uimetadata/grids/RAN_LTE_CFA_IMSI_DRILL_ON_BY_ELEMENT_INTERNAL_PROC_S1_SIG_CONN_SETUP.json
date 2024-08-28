@@ -1,0 +1,101 @@
+{
+  "id": "RAN_LTE_CFA_IMSI_DRILL_ON_BY_ELEMENT_INTERNAL_PROC_S1_SIG_CONN_SETUP",
+  "title": "LTE Call Failure : Event Analysis",
+  "autoexpand": "11",
+  "defaultSortCol": "3",
+  "defaultSortDir": "DESC",
+  "columns": [ {
+    "header": "HIER3_ID",
+    "width": "10",
+    "datatype": "string",
+    "isSystem": "TRUE"
+  }, {
+    "header": "HIER321_ID",
+    "width": "10",
+    "datatype": "string",
+    "isSystem": "TRUE"
+  }, {
+    "header": "Event Time",
+    "width": "120",
+    "datatype": "date"
+  }, {
+    "header": "Event Time(ms)",
+    "width": "120",
+    "datatype": "String",
+    "isSystem": "TRUE"
+  }, {
+    "header": "IMSI",
+    "width": "120",
+    "datatype": "string",
+    "drillDownLicenseCXC" : "CXC4010925",
+	"drillDownWindowType": "NETWORK_EVENT_ANALYSIS_LTE_CFA_DRILL_ON_IMSI"
+  }, {
+    "header": "TAC",
+    "width": "70",
+    "datatype": "string",
+	"drillDownLicenseCXC" : "CXC4010926",
+    "drillDownWindowType": "TERMINAL_EVENT_ANALYSIS_LTE_CFA_DRILL_ON_TAC"
+  }, {
+    "header": "Terminal Make",
+    "width": "180",
+    "datatype": "string"
+  }, {
+    "header": "Terminal Model",
+    "width": "120",
+    "datatype": "string"
+  }, {
+    "header": "EventID",
+    "width": "10",
+    "datatype": "int",
+    "isSystem": "TRUE"   
+  }, {
+    "header": "Event Type",
+    "width": "200",
+    "datatype": "string"
+  }, {
+    "header": "Cause Code",
+    "width": "200",
+    "datatype": "string"
+  }, {
+    "header": "Controller",
+    "width": "200",
+    "datatype": "string",
+    "drillDownLicenseCXC" : "CXC4010927",
+    "drillDownWindowType": "NETWORK_RAN_LTE_CFA_BSC_DRILL_ON_ENODEB"
+  }, {
+    "header": "Access Area",
+    "width": "140",
+    "datatype": "string",
+    "drillDownLicenseCXC" : "CXC4010927",
+    "drillDownWindowType": "NETWORK_RAN_LTE_CFA_BSC_DRILL_ON_ACCESS_AREA"
+  }, {
+    "header": "RAN Vendor",
+    "width": "90",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "RAT",
+    "width": "90",
+    "datatype": "string",
+    "isSystem": "TRUE"
+  }, {
+    "header": "MCC",
+    "width": "70",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "MNC",
+    "width": "70",
+    "datatype": "string",
+    "isHidden": "TRUE"
+  }, {
+    "header": "DURATION",
+    "width": "80",
+    "datatype": "int",
+    "isHidden": "TRUE"
+  }, {
+    "header": "Connection Establishment Cause",
+    "width": "180",
+    "datatype": "string"
+  } ]
+}

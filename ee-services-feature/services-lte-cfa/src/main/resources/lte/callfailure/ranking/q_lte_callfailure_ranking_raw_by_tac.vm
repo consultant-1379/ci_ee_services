@@ -1,0 +1,40 @@
+##
+## LTE Call Failure Analysis TAC Ranking (using raw tables)
+##
+## Velocity Parameter: 
+##		$count   max number of rows
+##		$aggregationView the aggregation view to query against	
+##
+##
+## Named PreparedStatement Parameter:
+##
+##     :dateFrom   starting time
+##     :dateTo     ending time
+##
+
+SELECT
+	#if($count > 0)
+	  top $count
+	#end
+	rank() over (order by Failures desc) as 'Rank',
+	DIM_E_SGEH_TAC.VENDOR_NAME AS 'Terminal Make',
+	DIM_E_SGEH_TAC.MARKETING_NAME AS 'Terminal Model',
+	RAW_VIEW.TAC,
+	FAILURES as 'Failures'
+FROM
+	(
+		SELECT
+			TAC,
+			COUNT (*) AS FAILURES
+		FROM
+			#REPLACE_RAW_VIEW_WITH_RAW_TABLES_FILTER_ON_TIME_AND_SPECIFY_COLUMNS_WITH_TAC_EXCLUSION($TECH_PACK_LIST.getAllRawTables() "rawview" ["TAC", "CATEGORY_ID"])
+		WHERE
+			CATEGORY_ID = $CATEGORY_ID AND
+			TAC is not null
+		GROUP BY
+			TAC
+	) RAW_VIEW
+LEFT OUTER JOIN
+	DIM_E_SGEH_TAC
+ON
+	RAW_VIEW.TAC = DIM_E_SGEH_TAC.TAC

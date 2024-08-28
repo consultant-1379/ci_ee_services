@@ -1,0 +1,6 @@
+{
+  "id" : "CS_DRILL_CHART_TERMINAL_GA_MOST_POPULAR",
+  "drillTargetDisplayId" : "CS_DRILL_CHART_TERMINAL_GA_MOST_POPULAR",
+  "chartClickedURLParam" : "groupname",
+  "drillToolBarType" : "CS_TERMINAL_GROUP_ANALYSIS_DRILL_GRIDS_TOOLBAR"
+}

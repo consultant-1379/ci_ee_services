@@ -1,0 +1,8 @@
+{
+	"drillWindowName" : "Roaming by Country (WCDMA Call Failure Event Volume)",
+	"nameForTaskBar" : "Roaming by Country",
+	"id": "DRILL_GRID_CHART_ROAMING_WCDMA_COUNTRY_EVENTS",
+	"drillType" : "launchChart",
+	"drillToolBarType": "ROAMING_EVENTS_ANALYSIS_PIE_DRILL",
+	"url" : "NETWORK/WCDMA/CALL_FAILURE_ROAMING_ANALYSIS/COUNTRY/DRILL"
+}

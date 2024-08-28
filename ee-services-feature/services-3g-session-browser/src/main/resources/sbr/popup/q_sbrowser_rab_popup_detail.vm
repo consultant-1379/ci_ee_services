@@ -1,0 +1,520 @@
+#DEFINE_CONSTANTS()
+#set($userPlaneTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_USER_PLANE_TPNAME).getRawTablesWithMeasurementTypes())
+#set($sessionTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_RAN_SESSION_TPNAME).getRawTables())
+#set($coreTableList=$TECH_PACK_LIST.getTechPack($ApplicationConstants.EVENT_E_CORE_SESSION_TPNAME).getRawTables())
+#set($tcpTableList=[])
+#set($appTableList=[])
+#foreach ($table in $userPlaneTableList)	
+			#if($table.contains("TCP"))
+				#set($isAdded=$tcpTableList.add($table))
+			#elseif($table.contains("CLASSIFICATION"))
+				#set($isAdded=$appTableList.add($table))
+			#end
+#end
+#set($sessionColumnsToSelect=["CM_CNT","CM_DURATION","CM_UL_CNT","CM_DL_CNT","CM_ULDL_CNT","CM_USER_CNT","EUL_UE_CATEGORY","HSDPA_UE_CATEGORY","EVENT_ID","START_RAB","END_RAB","RRC_CONN_START","PS_RAB_ACTIVITY_START_TIME","RRC_CONN_END","PS_RAB_ACTIVITY_END_TIME","DATETIME_ID","RRC_CONNECTION_CNT","PS_RAB_ESTABLISH_CNT","IMSI","IMSI_MCC","IMSI_MNC","START_HIER3_ID","END_HIER3_ID","START_CELL_ID","END_CELL_ID","START_C_ID","END_C_ID","RRC_MEAS_REP_SAMPLES","RRC_SAMPLES_GC_BS","RRC_SAMPLES_GC_GS","RRC_SAMPLES_BC_BS","RRC_SAMPLES_BC_GS","ECNO_AVG","RSCP_AVG","UL_INTERFERENCE_AVG","DL_NON_HS_TX_POWER_AVG","HSDSCH_AVG_USERS","DISTINCT_CELL_CNT","IFHO_EXEC_SUC_CNT","IFHO_EXEC_ERR_CNT","SOHO_EXEC_SUC_CNT","SOHO_EXEC_ERR_CNT","IRAT_EXEC_ERR_CNT","HS_CELL_CHANGE_SUC_CNT","HS_CELL_CHANGE_ERR_CNT","ACTIVITY","HS_RATIO","EUL_RATIO","CUS_SUCC_COUNT","CDS_SUCC_COUNT","CUS_ATT_CNT","CDS_ATT_CNT","CS_REASON_UE_ACTIVITY","CS_REASON_CAPACITY","CS_REASON_MOBILITY_COVERAGE","CS_REASON_QOS_DCH","CS_REASON_QUEUE","CS_REASON_OTHER"])
+#set($tcpColumnsToSelect_MIN_ACTTIVITY_TIME=["IMSI","MSISDN","START_APN","TAC","ACTIVITY_START_TIME","UE_IP_ADDRESS"])
+#set($tcpColumnsToSelect_MAX_ACTTIVITY_TIME=["IMSI","END_APN","ACTIVITY_START_TIME"])
+#set($tcpColumnsToSelect_RTT_PACKET_LOSS=["IMSI_MCC","IMSI_MNC","FIVE_MIN_AGG_TIME","IMSI","SETUP_TIME_TERM","SETUP_TIME_NET","PACKET_LOSS_TERM","PACKET_LOSS_NET"])
+#set($coreColumnsToSelect=["IMSI","DATETIME_ID","APN_ACTIVITY_LATEST_TIME","APN_ACTIVITY_START_TIME","START_APN","END_APN","RAU_ATT_CNT-RAU_SUC_CNT AS RAU_ERR_CNT","RAU_SUC_CNT"])
+#set($startSgsnColumnsToSelect=["IMSI","DATETIME_ID","EVENT_SOURCE_NAME AS START_SGSN","SGSN_ACTIVITY_START_TIME","MSISDN","TAC"])
+#set($endSgsnColumnsToSelect=["IMSI","DATETIME_ID","EVENT_SOURCE_NAME AS END_SGSN","SGSN_ACTIVITY_LATEST_TIME"])
+#set($appColumnsToSelect=["IMSI","MSISDN","TAC","FIVE_MIN_AGG_TIME","FUNCTION","BYTES_DOWNLINK","BYTES_UPLINK"])
+
+#if($subType==$TYPE_IMSI)
+    #set($filterColumn = ["IMSI"])
+#elseif($subType==$TYPE_MSISDN)
+    #set($filterColumn = ["MSISDN"])
+#end
+
+#macro (SESSION_BROWSER_GET_SESSION_TIME)
+DATETIME_ID = :eventTimeFrom
+#end
+
+#macro (USER_PLANE_GET_SESSION_TIME)
+FIVE_MIN_AGG_TIME = :eventTimeFrom
+#end
+
+#macro (SESSION_BROWSER_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS $rawtables $rawview $columns $columnsToIncludeInNewView $subType $isMsisdn $isUp $isEventID)
+	(	
+		#foreach ($rawtable in $rawtables)
+			select
+				#foreach ($columnToInclude in $columnsToIncludeInNewView)
+					$columnToInclude
+					#if($velocityCount < $columnsToIncludeInNewView.size())
+					,
+					#end
+				#end			
+			from dc.$rawtable 
+			where
+			#if($isUp)
+				#USER_PLANE_GET_SESSION_TIME()
+			#else
+				#SESSION_BROWSER_GET_SESSION_TIME()
+			#end
+			#if($subType==$TYPE_IMSI||($subType==$TYPE_MSISDN&&$isMsisdn))
+				and #GET_COLUMNS_WHERE($columns)
+			#end
+			#if($isEventID)
+				AND EVENT_ID = :eventID
+			#end
+			#if($velocityCount < $rawtables.size())
+					union all
+			#end
+		#end
+	) as $rawview
+#end
+
+BEGIN
+
+DECLARE
+    @START_APN VARCHAR(127),@END_APN VARCHAR(127),@MIN_ACTIVITY_TIME TIMESTAMP,
+    @MAX_ACTIVITY_TIME TIMESTAMP,@MSISDN unsigned bigint,@UE_IP_ADDRESS BINARY(16),
+    @IMSI_MCC VARCHAR(3),@IMSI_MNC VARCHAR(3),@TAC unsigned INT,@RTT_UE_GN DECIMAL(16,4) ,
+    @RTT_GN_SERVER DECIMAL(16,4),
+    @RTT_UE_SERVER DECIMAL(16,4),
+    @PACKET_LOSS_UE_GN DECIMAL(16,4),
+    @PACKET_LOSS_GN_SERVER DECIMAL(16,4),
+    @PACKET_LOSS_UE_SERVER DECIMAL(16,4),
+	@IMSI unsigned bigint,
+	@FIVE_MIN_AGG_TIME TIMESTAMP
+
+SELECT
+    top 1 
+	@START_APN=minActivityStartTimeView.START_APN,
+    @END_APN=maxActivityStartTimeView.END_APN,
+    @MIN_ACTIVITY_TIME=MIN(minActivityStartTimeView.min_start_time),
+    @MAX_ACTIVITY_TIME=MAX(maxActivityStartTimeView.max_start_time),
+    @MSISDN=minActivityStartTimeView.MSISDN,
+    @UE_IP_ADDRESS=minActivityStartTimeView.UE_IP_ADDRESS,
+    @IMSI_MCC=rttPacketLossView.IMSI_MCC ,
+    @IMSI_MNC=rttPacketLossView.IMSI_MNC ,
+    @TAC=minActivityStartTimeView.TAC ,
+    @RTT_UE_GN=rttPacketLossView.RTT_UE_GN,
+    @RTT_GN_SERVER=rttPacketLossView. RTT_GN_SERVER,
+    @RTT_UE_SERVER=rttPacketLossView.RTT_UE_SERVER,
+    @PACKET_LOSS_UE_GN=rttPacketLossView.PACKET_LOSS_UE_GN,
+    @PACKET_LOSS_GN_SERVER=rttPacketLossView.PACKET_LOSS_GN_SERVER,
+    @PACKET_LOSS_UE_SERVER=rttPacketLossView.PACKET_LOSS_UE_SERVER,
+	@IMSI=rttPacketLossView.IMSI,
+	@FIVE_MIN_AGG_TIME = rttPacketLossView.FIVE_MIN_AGG_TIME
+FROM
+    (
+        SELECT
+            START_APN,
+            MIN(ACTIVITY_START_TIME) AS min_start_time,
+            IMSI,
+            MSISDN,
+            UE_IP_ADDRESS,
+            TAC
+        FROM
+            #SESSION_BROWSER_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($tcpTableList "rawview" $filterColumn $tcpColumnsToSelect_MIN_ACTTIVITY_TIME $subType false true false)
+        GROUP BY
+            START_APN,
+            IMSI,
+            MSISDN,
+            UE_IP_ADDRESS,
+            TAC)AS minActivityStartTimeView
+	INNER JOIN
+    (
+        SELECT
+            END_APN,
+            MAX(ACTIVITY_START_TIME) AS max_start_time,
+            
+            IMSI
+        FROM
+            #SESSION_BROWSER_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($tcpTableList "rawview" $filterColumn $tcpColumnsToSelect_MAX_ACTTIVITY_TIME $subType false true false)
+        GROUP BY
+            END_APN,
+            IMSI) AS maxActivityStartTimeView
+	ON (minActivityStartTimeView.IMSI = maxActivityStartTimeView.IMSI)
+	INNER JOIN
+    (
+              SELECT
+                    IMSI,
+                    IMSI_MCC ,
+                    IMSI_MNC ,
+                    FIVE_MIN_AGG_TIME ,
+                    CAST(AVG(SETUP_TIME_TERM) AS NUMERIC(16,4)) AS RTT_UE_GN,
+                    CAST(AVG(SETUP_TIME_NET) AS NUMERIC(16,4))  AS RTT_GN_SERVER,
+                    (
+                        CASE
+                            WHEN RTT_UE_GN IS NULL
+                            AND RTT_GN_SERVER IS NULL
+                            THEN NULL
+                            ELSE ISNULL(RTT_UE_GN,0)+ISNULL(RTT_GN_SERVER,0)
+                        END)                                         AS RTT_UE_SERVER,
+                    CAST(AVG(PACKET_LOSS_TERM)*100 AS NUMERIC(16,4)) AS PACKET_LOSS_UE_GN,
+                    CAST(AVG(PACKET_LOSS_NET)*100 AS NUMERIC(16,4))  AS PACKET_LOSS_GN_SERVER,
+                    (
+                        CASE
+                            WHEN PACKET_LOSS_UE_GN IS NULL
+                            AND PACKET_LOSS_GN_SERVER IS NULL
+                            THEN NULL
+                            ELSE ISNULL(PACKET_LOSS_UE_GN,0)+ISNULL(PACKET_LOSS_GN_SERVER,0)
+                        END) AS PACKET_LOSS_UE_SERVER
+        FROM
+            #SESSION_BROWSER_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($tcpTableList "rawview" $filterColumn $tcpColumnsToSelect_RTT_PACKET_LOSS $subType false true false)
+        GROUP BY
+			IMSI,
+            IMSI_MCC,
+            IMSI_MNC,
+            FIVE_MIN_AGG_TIME ) AS rttPacketLossView
+	ON(minActivityStartTimeView.IMSI = rttPacketLossView.IMSI OR maxActivityStartTimeView.IMSI=rttPacketLossView.IMSI)
+GROUP BY
+    minActivityStartTimeView.START_APN,
+    maxActivityStartTimeView.END_APN,
+    minActivityStartTimeView.min_start_time,
+    maxActivityStartTimeView.max_start_time,
+    minActivityStartTimeView.MSISDN,
+    minActivityStartTimeView.UE_IP_ADDRESS,
+    rttPacketLossView.IMSI_MCC ,
+    rttPacketLossView.IMSI_MNC ,
+    minActivityStartTimeView.TAC ,
+    rttPacketLossView.RTT_UE_GN,
+    rttPacketLossView. RTT_GN_SERVER,
+    rttPacketLossView.RTT_UE_SERVER,
+    rttPacketLossView.PACKET_LOSS_UE_GN,
+    rttPacketLossView.PACKET_LOSS_GN_SERVER,
+    rttPacketLossView.PACKET_LOSS_UE_SERVER,
+	rttPacketLossView.IMSI,
+    rttPacketLossView.FIVE_MIN_AGG_TIME
+ORDER BY
+    minActivityStartTimeView.min_start_time ASC,
+    maxActivityStartTimeView.max_start_time DESC
+	
+
+SELECT
+	
+    ##Subscriber ID
+    ISNULL(tcpRaw.MSISDN,startSgsnRaw.MSISDN)    							AS MSISDN,
+    ISNULL(sessionRaw.IMSI,tcpRaw.IMSI,coreRaw.IMSI) 						AS IMSI,
+	(
+	CASE WHEN ISNULL(tcpRaw.TAC,startSgsnRaw.TAC) IS NULL THEN '-' ELSE 
+         (CASE WHEN (tacRef.VENDOR_NAME IS NULL OR tacRef.Marketing_Name IS NULL) THEN ''||ISNULL(tcpRaw.TAC,startSgsnRaw.TAC) ELSE
+			tacRef.VENDOR_NAME ||','|| tacRef.Marketing_Name END)END) as TERMINAL,
+    #DISPLAY_NETWORK("roamingRef"),
+    ##Network Location
+    startSgsnRaw.START_SGSN                                    AS START_SGSN,
+    endSgsnRaw.END_SGSN                                        AS END_SGSN,
+    startFdnRef.HIERARCHY_3                                	   AS START_RNC_ALTERNATIVE_FDN,
+    endFdnRef.HIERARCHY_3                                  	   AS END_RNC_ALTERNATIVE_FDN,
+    sessionRaw.START_CELL_ID                                   AS START_CELL_ID,
+    sessionRaw.END_CELL_ID                                     AS END_CELL_ID,
+    sessionRaw.START_C_ID                                      AS START_C_ID,
+    sessionRaw.END_C_ID                                        AS END_C_ID,
+    startRabRef.RABTYPE_DESC                                   AS START_RAB,
+    endRabRef.RABTYPE_DESC                                     AS END_RAB,
+    ##Session Properties
+    :dateFrom   												AS START_TIME,
+    :dateTo             										AS END_TIME,
+    ISNULL(tcpRaw.IP_ADDR,'-')                          	 	AS IP_ADDR,
+    ISNULL(tcpRaw.START_APN,coreRaw.START_APN)                  AS START_APN,
+    ISNULL(tcpRaw.END_APN,coreRaw.END_APN)                      AS END_APN,
+    MIN(startSgsnRaw.SGSN_ACTIVITY_START_TIME)                 	AS MIN_SGSN_ACTIVITY_START_TIME,
+    MIN(coreRaw.APN_ACTIVITY_START_TIME)                       	AS MIN_APN_ACTIVITY_START_TIME,
+    MAX(coreRaw.APN_ACTIVITY_LATEST_TIME)                      	AS MAX_APN_ACTIVITY_LATEST_TIME,
+    MAX(endSgsnRaw.SGSN_ACTIVITY_LATEST_TIME)                  	AS MAX_SGSN_ACTIVITY_LATEST_TIME,
+	MAX(startSgsnRaw.SGSN_ACTIVITY_START_TIME)                 	AS MAX_SGSN_ACTIVITY_START_TIME,
+    '3G'                                                       	AS RAT,
+    hsdpaCategory.HSDPA_UE_CATEGORY_DESC                        AS HS_CATEGORY_DESC,
+    eulCategory.EUL_UE_CATEGORY_DESC                            AS EUL_CATEGORY_DESC,
+    ##Radio Conditions
+    SUM(sessionRaw.RRC_MEAS_REP_SAMPLES)                      	AS NO_RRC_MEAS_REPORTS,
+	CAST(MEDIAN(sessionRaw.RSCP_AVG) AS NUMERIC(16,1))				AS RSCP_AVG,
+	CAST(MEDIAN(sessionRaw.ECNO_AVG) AS NUMERIC(16,1))				AS ECNO_AVG,
+	CAST(MEDIAN(sessionRaw.UL_INTERFERENCE_AVG) AS NUMERIC(16,1))  AS UL_INTERFERENCE_AVG,
+	SUM(RRC_SAMPLES_GC_BS)                      				AS TOTAL_GC_BS,
+    SUM(RRC_SAMPLES_GC_GS)                       				AS TOTAL_GC_GS,
+    SUM(RRC_SAMPLES_BC_BS)                        				AS TOTAL_BC_BS,
+    SUM(RRC_SAMPLES_BC_GS)                      				AS TOTAL_BC_GS,
+	
+    CAST(MEDIAN(sessionRaw.HSDSCH_AVG_USERS) AS INTEGER)       AS HSDSCH_AVG_USERS,
+    CAST(AVG(sessionRaw.DL_NON_HS_TX_POWER_AVG) AS INTEGER)    AS DL_NON_HS_TX_POWER_AVG,
+    ##Mobility
+    SUM(sessionRaw.DISTINCT_CELL_CNT)                 			AS VISITED_CELL_CNT,
+    SUM(coreRaw.RAU_SUC_CNT)                       				AS RAU_SUC_CNT,
+    SUM(coreRaw.RAU_ERR_CNT)                       				AS RAU_ERR_CNT,
+    SUM(sessionRaw.IFHO_EXEC_SUC_CNT)                 			AS IFHO_EXEC_SUC_CNT,
+    SUM(sessionRaw.IFHO_EXEC_ERR_CNT)                 			AS IFHO_EXEC_ERR_CNT,
+    'N/A'                                                       AS IRAT_EXEC_SUC_CNT,
+    SUM(sessionRaw.IRAT_EXEC_ERR_CNT)                 			AS IRAT_EXEC_ERR_CNT,
+    SUM(sessionRaw.SOHO_EXEC_SUC_CNT)                 			AS SOHO_EXEC_SUC_CNT,
+    SUM(sessionRaw.SOHO_EXEC_ERR_CNT)                 			AS SOHO_EXEC_ERR_CNT,
+    SUM(sessionRaw.HS_CELL_CHANGE_SUC_CNT)            			AS HS_CELL_CHANGE_SUC_CNT,
+    SUM(sessionRaw.HS_CELL_CHANGE_ERR_CNT)            			AS HS_CELL_CHANGE_ERR_CNT,	
+	SUM(sessionRaw.CM_CNT) 										AS SUM_CM_CNT,
+	SUM(sessionRaw.CM_DURATION) 								AS SUM_CM_DURATION,
+	SUM(sessionRaw.CM_UL_CNT) 									AS SUM_CM_UL_CNT,
+	SUM(sessionRaw.CM_DL_CNT) 									AS SUM_CM_DL_CNT,
+	SUM(sessionRaw.CM_ULDL_CNT) 								AS SUM_CM_ULDL_CNT,
+	CAST(MEDIAN(sessionRaw.CM_USER_CNT) AS NUMERIC(16,2))		AS AVG_CM_USER_CNT,
+    ##Traffic Channel Usage
+	##DEFTFTS-1015, have to be on services since CEP cant handle properly
+	CAST(AVG(sessionRaw.ACTIVITY)*100  AS NUMERIC(16,2)) AS ACTIVITY_TMP,
+	CAST(AVG(sessionRaw.HS_RATIO)*100  AS NUMERIC(16,2)) AS HS_RATIO_TMP,
+	CAST(AVG(sessionRaw.EUL_RATIO)*100  AS NUMERIC(16,2)) AS EUL_RATIO_TMP,
+    (CASE WHEN ACTIVITY_TMP > 100 
+	      THEN NULL ELSE ACTIVITY_TMP END) AS ACTIVITY,
+	(CASE WHEN HS_RATIO_TMP > 100 OR ACTIVITY_TMP > 100 
+	      THEN NULL ELSE HS_RATIO_TMP END) AS HS_RATIO,
+	(CASE WHEN EUL_RATIO_TMP > 100 OR ACTIVITY_TMP > 100 
+	      THEN NULL ELSE EUL_RATIO_TMP END) AS EUL_RATIO,   
+	' '															AS CUS,
+	' '															AS CDS,
+	SUM(sessionRaw.CUS_SUCC_COUNT)                         		AS CUS_SUCC_CNT,
+    SUM(sessionRaw.CDS_SUCC_COUNT)                        		AS CDS_SUCC_CNT,
+	SUM(sessionRAW.CUS_ATT_CNT)                                 AS CUS_ATT_COUNT,
+    SUM(sessionRAW.CDS_ATT_CNT)                                 AS CDS_ATT_COUNT,
+    CUS_ATT_COUNT - CUS_SUCC_CNT                                AS CUS_ERR_CNT,
+    CDS_ATT_COUNT - CDS_SUCC_CNT                                AS CDS_ERR_CNT,
+    SUM(sessionRaw.CS_REASON_UE_ACTIVITY)             			AS CS_REASON_UE_ACTIVITY,
+    SUM(sessionRaw.CS_REASON_CAPACITY)                			AS CS_REASON_CAPACITY,
+    SUM(sessionRaw.CS_REASON_MOBILITY_COVERAGE)       			AS CS_REASON_MOBILITY_COVERAGE,
+    SUM(sessionRaw.CS_REASON_QOS_DCH)                 			AS CS_REASON_QOS_DCH,
+    SUM(sessionRaw.CS_REASON_QUEUE)                   			AS CS_REASON_QUEUE,
+	SUM(sessionRaw.CS_REASON_OTHER)								AS CS_REASON_OTHER,
+	##NEW RRC AND PS RAB COLUMNS
+	SUM(sessionRaw.RRC_CONNECTION_CNT)							AS RRC_CONNECTION_CNT,
+	SUM(sessionRaw.PS_RAB_ESTABLISH_CNT) 						AS PS_RAB_ESTABLISH_CNT,
+	dateformat(MIN(sessionRaw.RRC_CONN_START), 'yyyy-MM-dd HH:mm:ss.SSS')             AS RRC_CONN_START,
+    dateformat(MIN(sessionRaw.PS_RAB_ACTIVITY_START_TIME), 'yyyy-MM-dd HH:mm:ss.SSS') AS
+    PS_RAB_ACTIVITY_START_TIME,
+    dateformat(MAX(sessionRaw.RRC_CONN_END), 'yyyy-MM-dd HH:mm:ss.SSS')             AS RRC_CONN_END,
+    dateformat(MAX(sessionRaw.PS_RAB_ACTIVITY_END_TIME), 'yyyy-MM-dd HH:mm:ss.SSS') AS
+    PS_RAB_ACTIVITY_END_TIME,
+    ##Application performance
+    tcpRaw.DL_VOL                                        AS DL_VOL,
+    tcpRaw.UL_VOL                                        AS UL_VOL,
+    tcpRaw.RTT_UE_SERVER                                 AS RTT_UE_SERVER,
+    tcpRaw.RTT_UE_GN                                     AS RTT_UE_GN,
+    tcpRaw.RTT_GN_SERVER                                 AS RTT_GN_SERVER,
+    tcpRaw.PACKET_LOSS_UE_SERVER                         AS PACKET_LOSS_UE_SERVER,
+    tcpRaw.PACKET_LOSS_UE_GN                             AS PACKET_LOSS_UE_GN,
+    tcpRaw.PACKET_LOSS_GN_SERVER                         AS PACKET_LOSS_GN_SERVER,
+    MIN(tcpRaw.TCP_ACTIVITY_START_TIME)                  AS MIN_TCP_ACTIVITY_START_TIME,
+    MAX(tcpRaw.TCP_ACTIVITY_END_TIME)                    AS MAX_TCP_ACTIVITY_END_TIME,
+    ##Traffic mix			
+	tcpRaw.FUNCTION_DESC                                 AS FUNCTION_DESC,
+    tcpRaw.TRAFFIC                                       AS TRAFFIC    			
+FROM
+	#SESSION_BROWSER_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($sessionTableList "sessionRaw" $filterColumn $sessionColumnsToSelect $subType false false true)
+	LEFT OUTER JOIN
+	#SESSION_BROWSER_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($coreTableList "coreRaw" $filterColumn $coreColumnsToSelect $subType true false false)
+	ON(
+	sessionRaw.DATETIME_ID = coreRaw.DATETIME_ID
+	AND sessionRaw.IMSI = coreRaw.IMSI
+	)
+	#if($subType==$TYPE_IMSI)
+	   LEFT OUTER JOIN
+	#elseif($subType==$TYPE_MSISDN)
+		INNER JOIN
+	#end
+	#SESSION_BROWSER_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($coreTableList "startSgsnRaw" $filterColumn $startSgsnColumnsToSelect $subType true false false)
+	ON(
+	sessionRaw.DATETIME_ID = startSgsnRaw.DATETIME_ID
+	AND sessionRaw.IMSI = startSgsnRaw.IMSI
+	)
+	LEFT OUTER JOIN
+	#SESSION_BROWSER_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($coreTableList "endSgsnRaw" $filterColumn $endSgsnColumnsToSelect $subType true false false)
+	ON(
+	sessionRaw.DATETIME_ID = endSgsnRaw.DATETIME_ID
+	AND sessionRaw.IMSI = endSgsnRaw.IMSI
+	)
+	LEFT OUTER JOIN dc.DIM_E_RAN_RABTYPE startRabRef
+	ON
+    (
+        sessionRaw.START_RAB = startRabRef.RABTYPE
+    )
+    LEFT OUTER JOIN dc.DIM_E_RAN_RABTYPE endRabRef
+    ON
+        (
+            sessionRaw.END_RAB = endRabRef.RABTYPE
+        )
+    LEFT OUTER JOIN dc.DIM_E_RAN_SESSION_EUL_UE_CATEGORY eulCategory
+    ON
+        (
+            sessionRaw.EUL_UE_CATEGORY = eulCategory.EUL_UE_CATEGORY
+        )
+    LEFT OUTER JOIN dc.DIM_E_RAN_SESSION_HSDPA_UE_CATEGORY hsdpaCategory
+    ON
+    (
+        sessionRaw.HSDPA_UE_CATEGORY = hsdpaCategory.HSDPA_UE_CATEGORY
+    )
+	FULL OUTER JOIN
+	(SELECT
+		ISNULL(rawview.IMSI,volumeRaw.IMSI)                           AS IMSI,
+        ISNULL(rawview.MSISDN,volumeRaw.MSISDN)                       AS MSISDN,
+        ISNULL(rawview.FIVE_MIN_AGG_TIME,volumeRaw.FIVE_MIN_AGG_TIME) AS FIVE_MIN_AGG_TIME,
+		rawview.IMSI_MCC,
+		rawview.IMSI_MNC,
+		rawview.RTT_UE_GN,
+		rawview.RTT_GN_SERVER,
+		rawview.RTT_UE_SERVER,
+		rawview.PACKET_LOSS_UE_GN,
+		rawview.PACKET_LOSS_GN_SERVER,
+		rawview.PACKET_LOSS_UE_SERVER,
+		ISNULL(rawview.START_APN, null)                               AS START_APN,
+		ISNULL(rawview.END_APN, null)                                 AS END_APN,
+		ISNULL(rawview.TAC, volumeRaw.TAC)                            AS TAC,
+		MIN(rawview.MIN_ACTIVITY_TIME) AS TCP_ACTIVITY_START_TIME,
+		MAX(rawview.MAX_ACTIVITY_TIME) AS TCP_ACTIVITY_END_TIME,
+		volumeRaw.DL_VOL                                        AS DL_VOL,
+        volumeRaw.UL_VOL                                        AS UL_VOL,
+        volumeRaw.FUNCTION_DESC                                 AS FUNCTION_DESC,
+        volumeRaw.TRAFFIC                                       AS TRAFFIC,
+		(CASE WHEN UE_IP_ADDRESS IS NULL THEN NULL ELSE (#CONVERT_HEX_IP_ADDRESS_TO_DECIMAL_DOTTED_NOTATION("rawview" "UE_IP_ADDRESS") END) AS IP_ADDR
+	 FROM(
+		(
+		SELECT
+			@START_APN             AS START_APN,
+			@END_APN               AS END_APN,
+			@MIN_ACTIVITY_TIME     AS MIN_ACTIVITY_TIME,
+			@MAX_ACTIVITY_TIME     AS MAX_ACTIVITY_TIME,
+			@MSISDN                AS MSISDN,
+			@UE_IP_ADDRESS         AS UE_IP_ADDRESS,
+			@IMSI_MCC              AS IMSI_MCC,
+			@IMSI_MNC              AS IMSI_MNC,
+			@RTT_UE_GN             AS RTT_UE_GN,
+			@RTT_GN_SERVER         AS RTT_GN_SERVER,
+			@RTT_UE_SERVER         AS RTT_UE_SERVER,
+			@PACKET_LOSS_UE_GN     AS PACKET_LOSS_UE_GN,
+			@PACKET_LOSS_GN_SERVER AS PACKET_LOSS_GN_SERVER,
+			@PACKET_LOSS_UE_SERVER AS PACKET_LOSS_UE_SERVER,
+			@TAC                   AS TAC ,
+			@IMSI                  AS IMSI,
+			@FIVE_MIN_AGG_TIME     AS FIVE_MIN_AGG_TIME
+		)AS rawview
+	    FULL OUTER JOIN 
+		    (
+			SELECT dataVolumeRaw.IMSI                                   AS IMSI,
+			       dataVolumeRaw.TAC                                    AS TAC,
+			       dataVolumeRaw.MSISDN                                 AS MSISDN,
+				   dataVolumeRaw.FIVE_MIN_AGG_TIME                      AS FIVE_MIN_AGG_TIME, 
+                   dataVolumeRaw.DL_VOL as DL_VOL, dataVolumeRaw.UL_VOL AS UL_VOL, 
+				   ISNULL(appRef.FUNCTION_DESC,'Unclassified')          AS FUNCTION_DESC, 
+                   SUM(TRAFFIC_VOL_DL+TRAFFIC_VOL_UL)                   AS TRAFFIC 
+                   FROM
+				   ## following select statement calculates traffic volume based on Function value
+                   ( SELECT IMSI,
+					        MSISDN,
+							TAC,
+                            FIVE_MIN_AGG_TIME,
+                            FUNCTION,
+                            SUM(ISNULL(BYTES_DOWNLINK, 0)) AS TRAFFIC_VOL_DL,
+                            SUM(ISNULL(BYTES_UPLINK,0))    AS TRAFFIC_VOL_UL
+                            FROM
+							#SESSION_BROWSER_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($appTableList "classTrafficVolumeRaw" $filterColumn $appColumnsToSelect $subType false true false)							
+                        GROUP BY IMSI,
+						         MSISDN,
+								 TAC,
+                                 FIVE_MIN_AGG_TIME,
+                                 FUNCTION) as trafficVolumeRaw
+                    LEFT OUTER JOIN
+					## following select statement calculates total uplink and downlink volumes
+                   (  SELECT IMSI ,
+				             MSISDN,
+							 TAC,
+                             SUM(BYTES_DOWNLINK) AS DL_VOL,
+                             SUM(BYTES_UPLINK) AS UL_VOL,
+                             FIVE_MIN_AGG_TIME
+                        FROM 
+						#SESSION_BROWSER_REPLACE_RAW_VIEW_WITH_RAW_TABLES_AND_FILTER_COLUMNS_SPECIFY_COLUMNS($appTableList "classDataVolumeRaw" $filterColumn $appColumnsToSelect $subType false true false)
+                    GROUP BY IMSI, MSISDN, TAC, FIVE_MIN_AGG_TIME
+                    ) AS dataVolumeRaw
+                    ON (dataVolumeRaw.IMSI = trafficVolumeRaw.IMSI and dataVolumeRaw.FIVE_MIN_AGG_TIME = trafficVolumeRaw.FIVE_MIN_AGG_TIME)
+                    LEFT OUTER JOIN
+                    dc.DIM_E_USER_PLANE_FUNCTION appRef
+                    ON (trafficVolumeRaw.FUNCTION = appRef.FUNCTION )
+            GROUP BY FUNCTION_DESC, DL_VOL, UL_VOL, IMSI, FIVE_MIN_AGG_TIME, MSISDN, TAC
+			) as volumeRaw
+			on (volumeRaw.IMSI = rawview.IMSI and volumeRaw.FIVE_MIN_AGG_TIME = rawview.FIVE_MIN_AGG_TIME)
+			)
+		GROUP BY IMSI,MSISDN,IP_ADDR,START_APN,END_APN,TAC,FIVE_MIN_AGG_TIME,IMSI_MNC,IMSI_MCC,DL_VOL,UL_VOL,FUNCTION_DESC, TRAFFIC,RTT_UE_GN,
+            RTT_GN_SERVER,
+            RTT_UE_SERVER,
+            PACKET_LOSS_UE_GN,
+            PACKET_LOSS_GN_SERVER,
+            PACKET_LOSS_UE_SERVER
+
+
+	) AS tcpRaw
+	ON(sessionRaw.IMSI = tcpRaw.IMSI AND sessionRaw.DATETIME_ID = tcpRaw.FIVE_MIN_AGG_TIME)
+    LEFT OUTER JOIN dc.DIM_E_SGEH_MCCMNC roamingRef
+    ON
+        (
+            (sessionRaw.IMSI_MCC = roamingRef.MCC
+        AND sessionRaw.IMSI_MNC = roamingRef.MNC)
+		OR (tcpRaw.IMSI_MCC = roamingRef.MCC
+		AND tcpRaw.IMSI_MNC = roamingRef.MNC)
+        )
+	LEFT OUTER JOIN dc.DIM_E_SGEH_TAC tacRef
+    ON
+        (
+            startSgsnRaw.TAC = tacRef.TAC
+			OR tcpRaw.TAC = tacRef.TAC
+				
+        )
+	LEFT OUTER JOIN 
+	(SELECT HIER3_ID, HIERARCHY_3 FROM dc.DIM_E_SGEH_HIER321 GROUP BY HIER3_ID,HIERARCHY_3)AS startFdnRef
+	ON
+		(
+			sessionRaw.START_HIER3_ID = startFdnRef.HIER3_ID 
+		)
+	LEFT OUTER JOIN
+	(SELECT HIER3_ID, HIERARCHY_3 FROM dc.DIM_E_SGEH_HIER321 GROUP BY HIER3_ID,HIERARCHY_3) AS endFdnRef
+	ON
+		(
+			sessionRaw.END_HIER3_ID = endFdnRef.HIER3_ID 
+		)
+
+GROUP BY 
+	TERMINAL,
+    roamingRef.OPERATOR,
+    roamingRef.COUNTRY,
+    roamingRef.MCC,
+    roamingRef.MNC,
+    HS_CATEGORY_DESC,
+    EUL_CATEGORY_DESC,
+    tcpRaw.FUNCTION_DESC,
+    tcpRaw.TRAFFIC,
+    NETWORK,
+	IP_ADDR,
+	START_RAB,
+	END_RAB,
+	START_SGSN,
+	END_SGSN,
+	START_APN,
+	END_APN,
+	MSISDN,
+    IMSI,
+    START_RNC_ALTERNATIVE_FDN,
+    END_RNC_ALTERNATIVE_FDN,
+    START_CELL_ID,
+    END_CELL_ID,
+	START_C_ID,
+	END_C_ID,
+	startSgsnRaw.TAC,
+	tcpRaw.TAC,
+	DL_VOL,
+    UL_VOL,
+    RTT_UE_SERVER,
+	RTT_UE_GN,
+	RTT_GN_SERVER,
+	PACKET_LOSS_UE_SERVER,
+    PACKET_LOSS_UE_GN,
+    PACKET_LOSS_GN_SERVER
+ORDER BY 
+	MIN_SGSN_ACTIVITY_START_TIME ASC,
+    MIN_APN_ACTIVITY_START_TIME ASC,
+	MIN_TCP_ACTIVITY_START_TIME ASC,
+	MAX_TCP_ACTIVITY_END_TIME DESC,
+    MAX_APN_ACTIVITY_LATEST_TIME DESC,
+    MAX_SGSN_ACTIVITY_LATEST_TIME DESC,
+	MAX_SGSN_ACTIVITY_START_TIME DESC,
+    RRC_CONN_START ASC,
+    PS_RAB_ACTIVITY_START_TIME ASC,
+    RRC_CONN_END DESC,
+    PS_RAB_ACTIVITY_END_TIME DESC,
+	TRAFFIC DESC
+
+END
